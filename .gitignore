@@ -1,0 +1,28 @@
+
+Temp/
+obj/
+classes/
+generated/
+*.suo
+bin/
+* Out*
+* out*
+*.ldb
+Thumbs.db
+_ReSharper*/
+out/
+*.lic
+*.user
+Out/
+Out*/
+Data/*Out*
+TestResults/
+*.vsmdi
+test-results/
+*.userprefs
+packages/
+Plugins/Aspose_Words_NET_for_PHP/.idea/*
+Plugins/Aspose_Words_NET_for_PHP/vendor/*
+Plugins/Aspose_Words_NET_for_PHP/composer.lock
+*.gitattributes
+
