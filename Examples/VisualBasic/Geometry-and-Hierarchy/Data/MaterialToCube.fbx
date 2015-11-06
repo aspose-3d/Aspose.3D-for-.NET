@@ -10,11 +10,11 @@ FBXHeaderExtension:  {
 		Version: 1000
 		Year: 2015
 		Month: 11
-		Day: 5
-		Hour: 22
-		Minute: 29
-		Second: 5
-		Millisecond: 635
+		Day: 6
+		Hour: 10
+		Minute: 49
+		Second: 32
+		Millisecond: 987
 	}
 	Creator: "Aspose.3D FBX SDK version 1.0.0.0"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 45653674, "", "Scene" {
+	Document: 37121646, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -97,21 +97,9 @@ References:  {
 
 Definitions:  {
 	Version: 100
-	Count: 8
+	Count: 5
 	ObjectType: "GlobalSettings" {
 		Count: 1
-	}
-	ObjectType: "AnimationStack" {
-		Count: 1
-		PropertyTemplate: "FbxAnimStack" {
-			Properties70:  {
-				P: "Description", "KString", "", "", ""
-				P: "LocalStart", "KTime", "Time", "",0
-				P: "LocalStop", "KTime", "Time", "",0
-				P: "ReferenceStart", "KTime", "Time", "",0
-				P: "ReferenceStop", "KTime", "Time", "",0
-			}
-		}
 	}
 	ObjectType: "Model" {
 		Count: 1
@@ -191,22 +179,6 @@ Definitions:  {
 			}
 		}
 	}
-	ObjectType: "AnimationLayer" {
-		Count: 1
-		PropertyTemplate: "FbxAnimLayer" {
-			Properties70:  {
-				P: "Weight", "Number", "", "A",100
-				P: "Mute", "bool", "", "",0
-				P: "Solo", "bool", "", "",0
-				P: "Lock", "bool", "", "",0
-				P: "Color", "ColorRGB", "Color", "",0.80000000000000000,0.80000000000000000,0.80000000000000000
-				P: "BlendMode", "enum", "", "",0
-				P: "RotationAccumulationMode", "enum", "", "",0
-				P: "ScaleAccumulationMode", "enum", "", "",0
-				P: "BlendModeBypass", "ULongLong", "", "",0
-			}
-		}
-	}
 	ObjectType: "Geometry" {
 		Count: 1
 		PropertyTemplate: "FbxMesh" {
@@ -220,16 +192,57 @@ Definitions:  {
 			}
 		}
 	}
-	ObjectType: "AnimationCurveNode" {
+	ObjectType: "Material" {
 		Count: 1
-		PropertyTemplate: "FbxAnimCurveNode" {
+		PropertyTemplate: "FbxSurfacePhong" {
 			Properties70:  {
-				P: "d", "Compound", "", ""
+				P: "ShadingModel", "KString", "", "", "Phong"
+				P: "MultiLayer", "bool", "", "",0
+				P: "EmissiveColor", "Color", "", "A",0,0,0
+				P: "EmissiveFactor", "Number", "", "A",1
+				P: "AmbientColor", "Color", "", "A",0.20000000000000000,0.20000000000000000,0.20000000000000000
+				P: "AmbientFactor", "Number", "", "A",1
+				P: "DiffuseColor", "Color", "", "A",0.80000000000000000,0.80000000000000000,0.80000000000000000
+				P: "DiffuseFactor", "Number", "", "A",1
+				P: "Bump", "Vector3D", "Vector", "",0,0,0
+				P: "NormalMap", "Vector3D", "Vector", "",0,0,0
+				P: "BumpFactor", "double", "Number", "",1
+				P: "TransparentColor", "Color", "", "A",0,0,0
+				P: "TransparencyFactor", "Number", "", "A",0
+				P: "DisplacementColor", "ColorRGB", "Color", "",0,0,0
+				P: "DisplacementFactor", "double", "Number", "",1
+				P: "VectorDisplacementColor", "ColorRGB", "Color", "",0,0,0
+				P: "VectorDisplacementFactor", "double", "Number", "",1
+				P: "SpecularColor", "Color", "", "A",0.20000000000000000,0.20000000000000000,0.20000000000000000
+				P: "SpecularFactor", "Number", "", "A",1
+				P: "ShininessExponent", "Number", "", "A",20
+				P: "ReflectionColor", "Color", "", "A",0,0,0
+				P: "ReflectionFactor", "Number", "", "A",1
 			}
 		}
 	}
-	ObjectType: "AnimationCurve" {
-		Count: 2
+	ObjectType: "Texture" {
+		Count: 1
+		PropertyTemplate: "FbxFileTexture" {
+			Properties70:  {
+				P: "TextureTypeUse", "enum", "", "",0
+				P: "Texture alpha", "Number", "", "A",1
+				P: "CurrentMappingType", "enum", "", "",0
+				P: "WrapModeU", "enum", "", "",0
+				P: "WrapModeV", "enum", "", "",0
+				P: "UVSwap", "bool", "", "",0
+				P: "PremultiplyAlpha", "bool", "", "",1
+				P: "Translation", "Vector", "", "A",0,0,0
+				P: "Rotation", "Vector", "", "A",0,0,0
+				P: "Scaling", "Vector", "", "A",1,1,1
+				P: "TextureRotationPivot", "Vector3D", "Vector", "",0,0,0
+				P: "TextureScalingPivot", "Vector3D", "Vector", "",0,0,0
+				P: "CurrentTextureBlendMode", "enum", "", "",1
+				P: "UVSet", "KString", "", "", "default"
+				P: "UseMaterial", "bool", "", "",0
+				P: "UseMipMap", "bool", "", "",0
+			}
+		}
 	}
 }
 
@@ -237,18 +250,14 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	AnimationStack: 54246671, "AnimStack::AnimClip", "" {
-	}
-	Model: 44419000, "Model::cube1", "Mesh" {
+	Model: 41014879, "Model::cube", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
 		}
 		Culling: "CullingOff"
 	}
-	AnimationLayer: 25181126, "AnimLayer::Anim", "" {
-	}
-	Geometry: 35287174, "Geometry::", "Mesh" {
+	Geometry: 25209742, "Geometry::", "Mesh" {
 		Vertices: *24 {
 			a: -5,0,5,5,0,5,5,10,5,-5,10,5,-5,0,-5,5,0,-5,5,10,-5,-5,10,-5
 		}
@@ -257,50 +266,32 @@ Objects:  {
 		}
 		GeometryVersion: 100
 	}
-	AnimationCurveNode: 63840421, "AnimationCurveNode::Translation", "" {
+	Material: 26966483, "Material::", "" {
+		Version: 100
+		ShadingModel: "phong"
+		MultiLayer: 0
 		Properties70:  {
-			P: "d|X", "Number", "", "A+",0
-			P: "d|Y", "Number", "", "A+",0
-			P: "d|Z", "Number", "", "A+",0
+			P: "SpecularColor", "Color", "", "A",1,0,0
+			P: "Emissive", "Vector3D", "Vector", "",0,0,0
+			P: "Ambient", "Vector3D", "Vector", "",0.20000000000000000,0.20000000000000000,0.20000000000000000
+			P: "Diffuse", "Vector3D", "Vector", "",0.80000000000000000,0.80000000000000000,0.80000000000000000
+			P: "Specular", "Vector3D", "Vector", "",1,0,0
+			P: "Shininess", "double", "Number", "",100
+			P: "Opacity", "double", "Number", "",1
+			P: "Reflectivity", "double", "Number", "",1
 		}
 	}
-	AnimationCurve: 59408853, "AnimationCurve::X", "" {
-		Default: 0
-		KeyVer: 4008
-		KeyTime: *3 {
-			a: 0,138558474000,230930790000
-		}
-		KeyValueFloat: *3 {
-			a: 10,20,30
-		}
-		KeyAttrFlags: *2 {
-			a: 1032,4
-		}
-		KeyAttrDataFloat: *8 {
-			a: 0,0,0,0,0,0,0,0
-		}
-		KeyAttrRefCount: *2 {
-			a: 2,1
-		}
-	}
-	AnimationCurve: 56152722, "AnimationCurve::Z", "" {
-		Default: 0
-		KeyVer: 4008
-		KeyTime: *3 {
-			a: 0,138558474000,230930790000
-		}
-		KeyValueFloat: *3 {
-			a: 10,-10,0
-		}
-		KeyAttrFlags: *1 {
-			a: 1032
-		}
-		KeyAttrDataFloat: *4 {
-			a: 0,0,0,0
-		}
-		KeyAttrRefCount: *1 {
-			a: 3
-		}
+	Texture: 31884011, "Texture::", "" {
+		Type: "TextureVideoClip"
+		Version: 100
+		TextureName: "Texture::"
+		Media: "Video::"
+		FileName: "E:\Aspose\Examples\GitHub\Aspose_3D_NET\Examples\VisualBasic\Geometry-and-Hierarchy\Data\surface.dds"
+		RelativeFilename: ""
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
 	}
 }
 
@@ -309,35 +300,21 @@ Objects:  {
 
 Connections:  {
 	
-	;Model::cube1, Model::RootNode
-	C: "OO",44419000,0
+	;Model::cube, Model::RootNode
+	C: "OO",41014879,0
 	
-	;AnimationLayer::Anim, AnimationStack::AnimClip
-	C: "OO",25181126,54246671
+	;Geometry::, Model::cube
+	C: "OO",25209742,41014879
 	
-	;Geometry::, Model::cube1
-	C: "OO",35287174,44419000
+	;Material::, Model::cube
+	C: "OO",26966483,41014879
 	
-	;AnimationCurveNode::Translation, AnimationLayer::Anim
-	C: "OO",63840421,25181126
-	
-	;AnimationCurveNode::Translation, Model::cube1
-	C: "OP",63840421,44419000, "Lcl Translation"
-	
-	;AnimationCurve::X, AnimationCurveNode::Translation
-	C: "OP",59408853,63840421, "d|X"
-	
-	;AnimationCurve::Z, AnimationCurveNode::Translation
-	C: "OP",56152722,63840421, "d|Z"
+	;Texture::, Material::
+	C: "OP",31884011,26966483, "DiffuseColor"
 }
 ; Takes section
 ;------------------------------------------------------------------
 
 Takes:  {
 	Current: ""
-	Take: "AnimClip" {
-		FileName: "AnimClip.tak"
-		LocalTime: 0,46186158000
-		ReferenceTime: 0,230930790000
-	}
 }

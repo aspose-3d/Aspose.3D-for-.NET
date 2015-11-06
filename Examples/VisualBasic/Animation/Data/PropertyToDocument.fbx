@@ -10,11 +10,11 @@ FBXHeaderExtension:  {
 		Version: 1000
 		Year: 2015
 		Month: 11
-		Day: 5
-		Hour: 22
-		Minute: 29
-		Second: 5
-		Millisecond: 635
+		Day: 6
+		Hour: 10
+		Minute: 47
+		Second: 42
+		Millisecond: 992
 	}
 	Creator: "Aspose.3D FBX SDK version 1.0.0.0"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 45653674, "", "Scene" {
+	Document: 22616502, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -237,18 +237,18 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	AnimationStack: 54246671, "AnimStack::AnimClip", "" {
+	AnimationStack: 41386841, "AnimStack::AnimClip", "" {
 	}
-	Model: 44419000, "Model::cube1", "Mesh" {
+	Model: 37784329, "Model::cube1", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
 		}
 		Culling: "CullingOff"
 	}
-	AnimationLayer: 25181126, "AnimLayer::Anim", "" {
+	AnimationLayer: 19138891, "AnimLayer::Anim", "" {
 	}
-	Geometry: 35287174, "Geometry::", "Mesh" {
+	Geometry: 53299218, "Geometry::", "Mesh" {
 		Vertices: *24 {
 			a: -5,0,5,5,0,5,5,10,5,-5,10,5,-5,0,-5,5,0,-5,5,10,-5,-5,10,-5
 		}
@@ -257,14 +257,14 @@ Objects:  {
 		}
 		GeometryVersion: 100
 	}
-	AnimationCurveNode: 63840421, "AnimationCurveNode::Translation", "" {
+	AnimationCurveNode: 30471863, "AnimationCurveNode::Translation", "" {
 		Properties70:  {
 			P: "d|X", "Number", "", "A+",0
 			P: "d|Y", "Number", "", "A+",0
 			P: "d|Z", "Number", "", "A+",0
 		}
 	}
-	AnimationCurve: 59408853, "AnimationCurve::X", "" {
+	AnimationCurve: 46497064, "AnimationCurve::X", "" {
 		Default: 0
 		KeyVer: 4008
 		KeyTime: *3 {
@@ -283,7 +283,7 @@ Objects:  {
 			a: 2,1
 		}
 	}
-	AnimationCurve: 56152722, "AnimationCurve::Z", "" {
+	AnimationCurve: 27331439, "AnimationCurve::Z", "" {
 		Default: 0
 		KeyVer: 4008
 		KeyTime: *3 {
@@ -310,25 +310,25 @@ Objects:  {
 Connections:  {
 	
 	;Model::cube1, Model::RootNode
-	C: "OO",44419000,0
+	C: "OO",37784329,0
 	
 	;AnimationLayer::Anim, AnimationStack::AnimClip
-	C: "OO",25181126,54246671
+	C: "OO",19138891,41386841
 	
 	;Geometry::, Model::cube1
-	C: "OO",35287174,44419000
+	C: "OO",53299218,37784329
 	
 	;AnimationCurveNode::Translation, AnimationLayer::Anim
-	C: "OO",63840421,25181126
+	C: "OO",30471863,19138891
 	
 	;AnimationCurveNode::Translation, Model::cube1
-	C: "OP",63840421,44419000, "Lcl Translation"
+	C: "OP",30471863,37784329, "Lcl Translation"
 	
 	;AnimationCurve::X, AnimationCurveNode::Translation
-	C: "OP",59408853,63840421, "d|X"
+	C: "OP",46497064,30471863, "d|X"
 	
 	;AnimationCurve::Z, AnimationCurveNode::Translation
-	C: "OP",56152722,63840421, "d|Z"
+	C: "OP",27331439,30471863, "d|Z"
 }
 ; Takes section
 ;------------------------------------------------------------------

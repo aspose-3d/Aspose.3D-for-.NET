@@ -1,0 +1,62 @@
+﻿'///////////////////////////////////////////////////////////////////////
+' Copyright 2015 Aspose Pty Ltd. All Rights Reserved.
+'
+' This file is part of Aspose.3D. The source code in this file
+' is only intended as a supplement to the documentation, and is provided
+' "as is", without warranty of any kind, either expressed or implied.
+'///////////////////////////////////////////////////////////////////////
+
+Imports Aspose.ThreeD
+Imports Aspose.ThreeD.Animations
+Imports Aspose.ThreeD.Entities
+Imports Aspose.ThreeD.Utils
+Imports VisualBasic.Geometry_Hierarchy
+
+Namespace Animation
+    Public Class PropertyToDocument
+        Public Shared Sub Run()
+
+            ' Initialize scene object
+            Dim scene As New Scene()
+
+            ' Call Common class create mesh method to set mesh instance 
+            Dim mesh As Mesh = Common.CreateMesh()
+
+            ' Each cube node has their own translation
+            Dim cube1 As Node = scene.RootNode.CreateChildNode("cube1", mesh)
+
+            ' Find translation property on node's transform object
+            Dim translation As [Property] = cube1.Transform.FindProperty("Translation")
+
+            ' Create a curve mapping based on translation property
+            Dim mapping As New CurveMapping(scene, translation)
+
+            ' Create curve on channel X and Z
+            Dim curveX As Curve = mapping.CreateCurve("X")
+            Dim curveZ As Curve = mapping.CreateCurve("Z")
+
+            ' Move node's translation to (10, 0, 10) at 0 sec using bezier interpolation
+            curveX.CreateKeyFrame(0, 10.0F, Interpolation.Bezier)
+            curveZ.CreateKeyFrame(0, 10.0F, Interpolation.Bezier)
+
+            ' Move node's translation to (20, 0, -10) at 3 sec
+            curveX.CreateKeyFrame(3, 20.0F, Interpolation.Bezier)
+            curveZ.CreateKeyFrame(3, -10.0F, Interpolation.Bezier)
+
+            ' Move node's translation to (30, 0, 0) at 5 sec
+            curveX.CreateKeyFrame(5, 30.0F, Interpolation.Linear)
+            curveZ.CreateKeyFrame(5, 0.0F, Interpolation.Bezier)
+
+            ' The path to the documents directory.
+            Dim MyDir As String = RunExamples.GetDataDir_Animation()
+            MyDir = MyDir & Convert.ToString("PropertyToDocument.fbx")
+
+            ' Save 3D scene in the supported file formats
+            scene.Save(MyDir, FileFormat.FBX7400ASCII)
+
+            Console.WriteLine(Convert.ToString(vbLf & "Animation property added successfully to document." & vbLf & "File saved at ") & MyDir)
+
+        End Sub
+    End Class
+End Namespace
+
