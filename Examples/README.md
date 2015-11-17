@@ -1,9 +1,9 @@
-##Aspose.Words for .NET Examples
+##Aspose.3D for .NET Examples
 
-This package contains C# and VB.NET Example Projects for [Aspose.Words for .NET](http://www.aspose.com/categories/.net-components/aspose.words-for-.net/default.aspx).
+This package contains C# and VB.NET Example Projects for [Aspose.3D for .NET](http://www.aspose.com/.net/3d-component.aspx).
 
 <p align="center">
-  <a title="Download Examples ZIP" href="https://github.com/asposewords/Aspose_Words_NET/archive/master.zip">
+  <a title="Download Examples ZIP" href="https://github.com/aspose3d/Aspose_3D_NET/archive/master.zip">
 	<img src="https://raw.github.com/AsposeExamples/java-examples-dashboard/master/images/downloadZip-Button-Large.png" />
   </a>
 </p>
