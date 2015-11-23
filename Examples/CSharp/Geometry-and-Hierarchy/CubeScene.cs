@@ -33,9 +33,9 @@ namespace CSharp.Geometry_Hierarchy
             scene.RootNode.ChildNodes.Add(cubeNode);
             
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir_GeometryAndHierarchy();
-            MyDir = MyDir + "CubeScene.fbx";
-            
+            string MyDir = RunExamples.GetDataDir();
+            MyDir = MyDir + RunExamples.GetOutputFilePath("CubeScene.fbx");          
+
             // Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII);
 

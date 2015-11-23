@@ -40,7 +40,7 @@ namespace CSharp.Geometry_Hierarchy
             Texture diffuse = new Texture();
             
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir_GeometryAndHierarchy();
+            string MyDir = RunExamples.GetDataDir();
             
             // Set local file path
             diffuse.FileName = MyDir + "surface.dds";
@@ -57,8 +57,8 @@ namespace CSharp.Geometry_Hierarchy
             // Set material property of the cube object
             cubeNode.Material = mat;
             
-            MyDir = MyDir + "MaterialToCube.fbx";
-            
+            MyDir = MyDir + RunExamples.GetOutputFilePath("MaterialToCube.fbx");
+
             // Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII);
 

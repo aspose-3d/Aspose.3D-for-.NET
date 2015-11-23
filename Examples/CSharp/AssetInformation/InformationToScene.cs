@@ -32,9 +32,9 @@ namespace CSharp.AssetInformation
             scene.AssetInfo.UnitScaleFactor = 0.6;            
             
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir_AssetInformation();
-            MyDir = MyDir + "InformationToScene.fbx";
-
+            string MyDir = RunExamples.GetDataDir();
+            MyDir = MyDir + RunExamples.GetOutputFilePath("InformationToScene.fbx");
+                        
             // Save scene to 3D supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII);
 

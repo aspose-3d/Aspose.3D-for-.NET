@@ -15,11 +15,12 @@ Namespace Loading_Saving
         Public Shared Sub Run()
             ' ExStart:DocumentToStream
             ' The path to the documents directory.
-            Dim MyDir As String = RunExamples.GetDataDir_LoadingAndSaving()
+            Dim MyDir As String = RunExamples.GetDataDir()
+            MyDir = MyDir & Convert.ToString("document.fbx")
 
             ' ExStart:LoadAndSave
             ' Load a 3D document into Aspose.3D
-            Dim scene As New Scene(MyDir & Convert.ToString("document.fbx"))
+            Dim scene As New Scene()
 
             Dim dstStream As New MemoryStream()
             scene.Save(dstStream, FileFormat.FBX7400ASCII)

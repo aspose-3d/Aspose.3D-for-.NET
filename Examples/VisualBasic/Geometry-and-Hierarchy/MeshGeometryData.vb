@@ -40,9 +40,9 @@ Namespace Geometry_Hierarchy
             Next
 
             ' The path to the documents directory.
-            Dim MyDir As String = RunExamples.GetDataDir_GeometryAndHierarchy()
-            MyDir = MyDir & Convert.ToString("MeshGeometryData.fbx")
-
+            Dim MyDir As String = RunExamples.GetDataDir()
+            MyDir = MyDir & RunExamples.GetOutputFilePath("MeshGeometryData.fbx")
+            
             ' Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII)
 

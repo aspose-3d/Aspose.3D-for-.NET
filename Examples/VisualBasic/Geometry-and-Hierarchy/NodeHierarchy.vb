@@ -35,14 +35,17 @@ Namespace Geometry_Hierarchy
             Dim cube2 As Node = top.CreateChildNode("cube2")
             ' Point node to the mesh
             cube2.Entity = mesh
+
             ' Set second cube translation
             cube2.Transform.Translation = New Vector3(10, 0, 0)
+
             ' The rotated top node will affect all child nodes
             top.Transform.Rotation = Quaternion.FromEulerAngle(Math.PI, 4, 0)
-            ' The path to the documents directory.
-            Dim MyDir As String = RunExamples.GetDataDir_GeometryAndHierarchy()
-            MyDir = MyDir & Convert.ToString("NodeHierarchy.fbx")
 
+            ' The path to the documents directory.
+            Dim MyDir As String = RunExamples.GetDataDir()
+            MyDir = MyDir & RunExamples.GetOutputFilePath("NodeHierarchy.fbx")
+            
             ' Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII)
 

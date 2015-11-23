@@ -49,9 +49,9 @@ namespace CSharp.Geometry_Hierarchy
             }
 
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir_GeometryAndHierarchy();
-            MyDir = MyDir + "MeshGeometryData.fbx";
-            
+            string MyDir = RunExamples.GetDataDir();
+            MyDir = MyDir + RunExamples.GetOutputFilePath("MeshGeometryData.fbx");
+        
             // Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII);
 

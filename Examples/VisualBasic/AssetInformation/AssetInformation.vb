@@ -29,8 +29,8 @@ Namespace AssetInformation
             scene.AssetInfo.UnitScaleFactor = 0.6
 
             ' The path to the documents directory.
-            Dim MyDir As String = RunExamples.GetDataDir_AssetInformation()
-            MyDir = MyDir & Convert.ToString("InformationToScene.fbx")
+            Dim MyDir As String = RunExamples.GetDataDir()
+            MyDir = MyDir & RunExamples.GetOutputFilePath("InformationToScene.fbx")
 
             ' Save scene to 3D supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII)

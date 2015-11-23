@@ -39,7 +39,7 @@ Namespace Geometry_Hierarchy
             Dim diffuse As New Texture()
 
             ' The path to the documents directory.
-            Dim MyDir As String = RunExamples.GetDataDir_GeometryAndHierarchy()
+            Dim MyDir As String = RunExamples.GetDataDir()
 
             ' Set local file path
             diffuse.FileName = MyDir & Convert.ToString("surface.dds")
@@ -56,8 +56,8 @@ Namespace Geometry_Hierarchy
             ' Set material property of the cube object
             cubeNode.Material = mat
 
-            MyDir = MyDir & Convert.ToString("MaterialToCube.fbx")
-
+            MyDir = MyDir & RunExamples.GetOutputFilePath("MaterialToCube.fbx")
+           
             ' Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII)
 

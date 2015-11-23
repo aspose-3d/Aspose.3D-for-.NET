@@ -7,13 +7,15 @@ using CSharp.Loading_Saving;
 using CSharp.AssetInformation;
 using CSharp.Animation;
 using CSharp.Geometry_Hierarchy;
+using System.Reflection;
+
 namespace CSharp
 {
     class RunExamples
     {
         [STAThread]
         public static void Main()
-        {
+        {            
             Console.WriteLine("Open RunExamples.cs. In Main() method, Un-comment the example that you want to run");
             Console.WriteLine("=====================================================");
             // Un-comment the one you want to try out
@@ -40,14 +42,14 @@ namespace CSharp
             //// =====================================================
             //// =====================================================
 
-            //InformationToScene.Run();
+            InformationToScene.Run();
 
             //// =====================================================
             //// =====================================================
             //// Geometry and Hierarchy
             //// =====================================================
 
-            CubeScene.Run();
+            //CubeScene.Run();
             //MaterialToCube.Run();            
             //TransformationToNode.Run();
             //NodeHierarchy.Run();
@@ -57,21 +59,29 @@ namespace CSharp
             Console.WriteLine("\n\nProgram Finished. Press any key to exit....");
             Console.ReadKey();
         }
-        public static String GetDataDir_LoadingAndSaving()
+        public static string GetDataDir()
         {
-            return Path.GetFullPath("../../Loading-and-Saving/Data/");
+            var parent = Directory.GetParent(Directory.GetCurrentDirectory()).Parent;
+            string startDirectory = null;
+            if (parent != null)
+            {
+                var directoryInfo = parent.Parent;
+                if (directoryInfo != null)
+                {
+                    startDirectory = directoryInfo.FullName;
+                }
+            }
+            else
+            {
+                startDirectory = parent.FullName;
+            }
+            return Path.Combine(startDirectory, "Data\\");
         }
-        public static String GetDataDir_AssetInformation()
-        {
-            return Path.GetFullPath("../../AssetInformation/Data/");
-        }
-        public static String GetDataDir_Animation()
-        {
-            return Path.GetFullPath("../../Animation/Data/");
-        }
-        public static String GetDataDir_GeometryAndHierarchy()
-        {
-            return Path.GetFullPath("../../Geometry-and-Hierarchy/Data/");
+        public static string GetOutputFilePath(String inputFilePath)
+        {           
+            string extension = Path.GetExtension(inputFilePath);
+            string filename = Path.GetFileNameWithoutExtension(inputFilePath);
+            return filename + "_out_" + extension;            
         }
     }
 }

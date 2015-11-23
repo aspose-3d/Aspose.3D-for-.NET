@@ -52,8 +52,8 @@ namespace CSharp.Animation
             curveZ.CreateKeyFrame(5, 0.0f, Interpolation.Bezier);
 
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir_Animation();
-            MyDir = MyDir + "PropertyToDocument.fbx";
+            string MyDir = RunExamples.GetDataDir();
+            MyDir = MyDir + RunExamples.GetOutputFilePath("PropertyToDocument.fbx");            
 
             // Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII);

@@ -41,25 +41,32 @@ Module RunExamples
         '' =====================================================
 
         'CubeScene.Run()
-        'MaterialToCube.Run()
+        MaterialToCube.Run()
         'TransformationToNode.Run()
         'NodeHierarchy.Run()
-        MeshGeometryData.Run()
+        'MeshGeometryData.Run()
 
         ' Stop before exiting
         Console.WriteLine(vbLf & vbLf & "Program Finished. Press any key to exit....")
         Console.ReadKey()
     End Sub
-    Public Function GetDataDir_LoadingAndSaving() As [String]
-        Return Path.GetFullPath("../../Loading-and-Saving/Data/")
+
+    Public Function GetDataDir() As String
+        Dim parent = Directory.GetParent(Directory.GetCurrentDirectory()).Parent
+        Dim startDirectory As String = Nothing
+        If parent IsNot Nothing Then
+            Dim directoryInfo = parent.Parent
+            If directoryInfo IsNot Nothing Then
+                startDirectory = directoryInfo.FullName
+            End If
+        Else
+            startDirectory = parent.FullName
+        End If
+        Return Path.Combine(startDirectory, "Data\")
     End Function
-    Public Function GetDataDir_AssetInformation() As [String]
-        Return Path.GetFullPath("../../AssetInformation/Data/")
-    End Function
-    Public Function GetDataDir_Animation() As [String]
-        Return Path.GetFullPath("../../Animation/Data/")
-    End Function
-    Public Function GetDataDir_GeometryAndHierarchy() As [String]
-        Return Path.GetFullPath("../../Geometry-and-Hierarchy/Data/")
+    Public Function GetOutputFilePath(inputFilePath As [String]) As String
+        Dim extension As String = Path.GetExtension(inputFilePath)
+        Dim filename As String = Path.GetFileNameWithoutExtension(inputFilePath)
+        Return Convert.ToString(filename & Convert.ToString("_out_")) & extension
     End Function
 End Module

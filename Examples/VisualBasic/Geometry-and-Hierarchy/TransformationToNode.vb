@@ -36,8 +36,8 @@ Namespace Geometry_Hierarchy
             scene.RootNode.ChildNodes.Add(cubeNode)
 
             ' The path to the documents directory.
-            Dim MyDir As String = RunExamples.GetDataDir_GeometryAndHierarchy()
-            MyDir = MyDir & Convert.ToString("TransformationToNode.fbx")
+            Dim MyDir As String = RunExamples.GetDataDir()
+            MyDir = MyDir & RunExamples.GetOutputFilePath("TransformationToNode.fbx")
 
             ' Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII)

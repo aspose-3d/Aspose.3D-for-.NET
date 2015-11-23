@@ -45,8 +45,8 @@ namespace CSharp.Geometry_Hierarchy
             top.Transform.Rotation = Quaternion.FromEulerAngle(Math.PI, 4, 0);
 
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir_GeometryAndHierarchy();
-            MyDir = MyDir + "NodeHierarchy.fbx";
+            string MyDir = RunExamples.GetDataDir();
+            MyDir = MyDir + RunExamples.GetOutputFilePath("NodeHierarchy.fbx");
             
             // Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII);
