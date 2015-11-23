@@ -5,6 +5,7 @@ classes/
 generated/
 *.suo
 bin/
+*_out_*
 * Out*
 * out*
 *.ldb
