@@ -1,4 +1,4 @@
-﻿//////////////////////////////////////////////////////////////////////////
+﻿//////////////////////////////////////////////////////////////////////////E:\Aspose\Examples\GitHub\Aspose_3D_NET\Examples\CSharp\Animation\PropertyToDocument.cs
 // Copyright 2015 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.3D. The source code in this file
@@ -20,16 +20,13 @@ namespace CSharp.Animation
     {
         public static void Run()
         {
-            //ExStart:PropertyToDocument
+            //ExStart:AddAnimationPropertyToDocument
             // Initialize scene object
             Scene scene = new Scene();
-
-            //ExStart:CreateMesh
+            
             // Call Common class create mesh method to set mesh instance 
-            Mesh mesh = Common.CreateMesh();
-            //ExEnd:CreateMesh
+            Mesh mesh = Common.CreateMesh();            
 
-            //ExStart:CreateCurveMapping
             // Each cube node has their own translation
             Node cube1 = scene.RootNode.CreateChildNode("cube1", mesh);
 
@@ -53,8 +50,7 @@ namespace CSharp.Animation
             
             // Move node's translation to (30, 0, 0) at 5 sec
             curveX.CreateKeyFrame(5, 30.0f, Interpolation.Linear);
-            curveZ.CreateKeyFrame(5, 0.0f, Interpolation.Bezier);
-            //ExEnd:CreateCurveMapping
+            curveZ.CreateKeyFrame(5, 0.0f, Interpolation.Bezier);            
 
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
@@ -62,7 +58,7 @@ namespace CSharp.Animation
 
             // Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII);
-            //ExEnd:PropertyToDocument
+            //ExEnd:AddAnimationPropertyToDocument
 
             Console.WriteLine("\nAnimation property added successfully to document.\nFile saved at " + MyDir);
             

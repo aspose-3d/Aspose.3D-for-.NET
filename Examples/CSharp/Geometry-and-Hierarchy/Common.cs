@@ -15,8 +15,7 @@ namespace CSharp.Geometry_Hierarchy
     {
         public static Mesh CreateMesh()
         {
-            //ExStart:CreateMesh
-            //ExStart:DefineControlPointsAndAddToMesh
+            //ExStart:CreateMesh           
             // Initialize control points
             Vector4[] controlPoints = new Vector4[]{
     new Vector4( -5.0, 0.0, 5.0, 1.0),
@@ -34,9 +33,7 @@ namespace CSharp.Geometry_Hierarchy
 
             // Add control points to the mesh
             mesh.ControlPoints.AddRange(controlPoints);
-            // ExEnd:DefineControlPointsAndAddToMesh
-
-            //ExStart:CreatePolygonWithBuilder
+            
             // Indices of the vertices per each polygon
             int[] indices = new int[]{
     0,1,2,3, // front face (Z+)
@@ -59,7 +56,7 @@ namespace CSharp.Geometry_Hierarchy
                 // Finished one polygon
                 builder.End();
             }
-            //ExEnd:CreatePolygonWithBuilder
+           
             //ExEnd:CreateMesh
             return mesh;
         }
