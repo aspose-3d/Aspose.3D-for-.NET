@@ -19,6 +19,8 @@ namespace CSharp.Geometry_Hierarchy
     {
         public static void Run()
         {
+            //ExStart:MeshGeometryData
+            //ExStart:AddNodeToScene
             // Initialize scene object
             Scene scene = new Scene();
 
@@ -28,8 +30,10 @@ namespace CSharp.Geometry_Hierarchy
     new Vector3(0, 1, 0),
     new Vector3(0, 0, 1)
 };
+            //ExStart:CreateMesh
             // Call Common class create meshh method to set mesh instance 
             Mesh mesh = Common.CreateMesh();
+            //ExEnd:CreateMesh
 
             int idx = 0;
             foreach (Vector3 color in colors)
@@ -47,14 +51,14 @@ namespace CSharp.Geometry_Hierarchy
                 // Add cube node
                 scene.RootNode.ChildNodes.Add(cube);
             }
-
+            //ExEnd:AddNodeToScene
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
             MyDir = MyDir + RunExamples.GetOutputFilePath("MeshGeometryData.fbx");
         
             // Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII);
-
+            //ExEnd:MeshGeometryData
             Console.WriteLine("\nMesh’s geometry data shared successfully between multiple nodes.\nFile saved at " + MyDir);
 
         }

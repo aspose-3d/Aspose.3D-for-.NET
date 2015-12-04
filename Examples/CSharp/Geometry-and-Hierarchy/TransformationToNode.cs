@@ -17,14 +17,19 @@ namespace CSharp.Geometry_Hierarchy
     {
         public static void Run()
         {
+            //ExStart:TransformationToNode
+            
+            //ExStart:AddNodeToScene
             // Initialize scene object
             Scene scene = new Scene();
 
             // Initialize Node class object
             Node cubeNode = new Node("cube");
 
+            //ExStart:CreateMesh
             // Call Common class create mesh method to set mesh instance 
             Mesh mesh = Common.CreateMesh();
+            //ExEnd:CreateMesh
 
             // Point node to the Mesh geometry
             cubeNode.Entity = mesh;
@@ -37,6 +42,7 @@ namespace CSharp.Geometry_Hierarchy
             
             // Add cube to the scene
             scene.RootNode.ChildNodes.Add(cubeNode);
+            //ExEnd:AddNodeToScene
 
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
@@ -44,7 +50,7 @@ namespace CSharp.Geometry_Hierarchy
    
             // Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII);
-
+            //ExEnd:TransformationToNode
             Console.WriteLine("\nTransformation added successfully to node.\nFile saved at " + MyDir);
 
         }

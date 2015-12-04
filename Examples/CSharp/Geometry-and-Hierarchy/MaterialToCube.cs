@@ -18,21 +18,25 @@ namespace CSharp.Geometry_Hierarchy
     {
         public static void Run()
         {
+            //ExStart:MaterialToCube
+            //ExStart:SetPhongMaterialToNode            
             // Initialize scene object
             Scene scene = new Scene();
             
             // Initialize cube node object
             Node cubeNode = new Node("cube");
             
+            //ExStart:CreateMesh
             // Call Common class create mesh method to set mesh instance 
             Mesh mesh = Common.CreateMesh();
-            
+            //ExEnd:CreateMesh
+
             // Point node to the mesh
             cubeNode.Entity = mesh;
             
             // Add cube to the scene
             scene.RootNode.ChildNodes.Add(cubeNode);
-
+            
             // Initiallize PhongMaterial object
             PhongMaterial mat = new PhongMaterial();
             
@@ -56,12 +60,13 @@ namespace CSharp.Geometry_Hierarchy
 
             // Set material property of the cube object
             cubeNode.Material = mat;
-            
+            //ExEnd:SetPhongMaterialToNode
             MyDir = MyDir + RunExamples.GetOutputFilePath("MaterialToCube.fbx");
 
             // Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII);
 
+            //ExEnd:MaterialToCube
             Console.WriteLine("\nMaterial added successfully to cube.\nFile saved at " + MyDir);
 
         }

@@ -18,6 +18,7 @@ namespace CSharp.Geometry_Hierarchy
     {
         public static void Run()
         {
+            //ExStart:NodeHierarchy
             // Initialize scene object
             Scene scene = new Scene();
 
@@ -26,9 +27,11 @@ namespace CSharp.Geometry_Hierarchy
 
             // Each cube node has their own translation
             Node cube1 = top.CreateChildNode("cube1");
-
+            
+            //ExStart:CreateMesh
             // Call Common class create mesh method to set mesh instance 
             Mesh mesh = Common.CreateMesh();
+            //ExEnd:CreateMesh
 
             // Point node to the mesh
             cube1.Entity = mesh;
@@ -43,14 +46,16 @@ namespace CSharp.Geometry_Hierarchy
 
             // The rotated top node will affect all child nodes
             top.Transform.Rotation = Quaternion.FromEulerAngle(Math.PI, 4, 0);
-
+          
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
             MyDir = MyDir + RunExamples.GetOutputFilePath("NodeHierarchy.fbx");
             
             // Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII);
+            //ExEnd:NodeHierarchy
 
+           
             Console.WriteLine("\nNode hierarchy added successfully to document.\nFile saved at " + MyDir);
 
         }

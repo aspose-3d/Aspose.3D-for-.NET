@@ -16,6 +16,9 @@ namespace CSharp.AssetInformation
     {
         public static void Run()
         {
+            //ExStart:InformationToScene
+
+            //ExStart:InitializeSceneAndSave
             // Initialize a 3D scene
             Scene scene = new Scene();
             
@@ -37,6 +40,9 @@ namespace CSharp.AssetInformation
                         
             // Save scene to 3D supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII);
+            //ExEnd:InitializeSceneAndSave
+
+            //ExEnd:InformationToScene
 
             Console.WriteLine("\nAsset information added successfully to Scene.\nFile saved at " + MyDir);
         }
