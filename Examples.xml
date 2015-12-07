@@ -14,11 +14,11 @@
           <Description>
             This package contains Project.
           </Description>
-          <FolderName>Examples</FolderName>
+          <FolderName></FolderName>
           <Order>1</Order>
           <DocLink>
             <DisplayName>Working with Aspose.3D</DisplayName>
-            <Url>Examples</Url>
+            <Url></Url>
           </DocLink>
           <OutputFiles>
             <DataFile>
