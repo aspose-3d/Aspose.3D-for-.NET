@@ -25,9 +25,9 @@ namespace CSharp.Geometry_Hierarchy
             // Get a child node object
             Node top = scene.RootNode.CreateChildNode();
             // Each cube node has their own translation
-            Node cube1 = top.CreateChildNode("cube1");            
-            // Call Common class create mesh method to set mesh instance 
-            Mesh mesh = Common.CreateMesh();            
+            Node cube1 = top.CreateChildNode("cube1");
+            // Call Common class create mesh using polygon builder method to set mesh instance 
+            Mesh mesh = Common.CreateMeshUsingPolygonBuilder();            
             // Point node to the mesh
             cube1.Entity = mesh;
             // Set first cube translation

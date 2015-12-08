@@ -15,13 +15,14 @@ Namespace Geometry_Hierarchy
     Public Class MeshGeometryData
         Public Shared Sub Run()
 
+            ' ExStart:ShareMeshGeometryData  
             ' Initialize scene object
             Dim scene As New Scene()
 
             ' Define color vectors
             Dim colors As Vector3() = New Vector3() {New Vector3(1, 0, 0), New Vector3(0, 1, 0), New Vector3(0, 0, 1)}
-            ' Call Common class create meshh method to set mesh instance 
-            Dim mesh As Mesh = Common.CreateMesh()
+            ' Call Common class create mesh using polygon builder method to set mesh instance 
+            Dim mesh As Mesh = Common.CreateMeshUsingPolygonBuilder()
 
             Dim idx As Integer = 0
             For Each color As Vector3 In colors
@@ -45,6 +46,7 @@ Namespace Geometry_Hierarchy
             
             ' Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII)
+            ' ExEnd:ShareMeshGeometryData 
 
             Console.WriteLine(Convert.ToString(vbLf & "Mesh’s geometry data shared successfully between multiple nodes." & vbLf & "File saved at ") & MyDir)
 

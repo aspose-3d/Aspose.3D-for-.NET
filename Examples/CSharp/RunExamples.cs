@@ -34,7 +34,7 @@ namespace CSharp
             //// =====================================================
             //// =====================================================
 
-            //PropertyToDocument.Run();
+            PropertyToDocument.Run();
 
             //// =====================================================
             //// =====================================================
@@ -42,7 +42,7 @@ namespace CSharp
             //// =====================================================
             //// =====================================================
 
-            InformationToScene.Run();
+            //InformationToScene.Run();
 
             //// =====================================================
             //// =====================================================
@@ -51,7 +51,9 @@ namespace CSharp
 
             //CubeScene.Run();
             //MaterialToCube.Run();            
-            //TransformationToNode.Run();
+            //TransformationToNodeByQuaternion.Run();
+            //TransformationToNodeByEulerAngles.Run();
+            //TransformationToNodeByTransformationMatrix.Run();
             //NodeHierarchy.Run();
             //MeshGeometryData.Run();
 

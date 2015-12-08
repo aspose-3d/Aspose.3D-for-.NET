@@ -13,14 +13,15 @@ Namespace Geometry_Hierarchy
     Public Class CubeScene
         Public Shared Sub Run()
 
+            ' ExStart:CreateCubeScene    
             ' Initialize scene object
             Dim scene As New Scene()
 
             ' Initialize Node class object
             Dim cubeNode As New Node("cube")
 
-            ' Call Common class create mesh method to set mesh instance 
-            Dim mesh As Mesh = Common.CreateMesh()
+            ' Call Common class create mesh using polygon builder method to set mesh instance 
+            Dim mesh As Mesh = Common.CreateMeshUsingPolygonBuilder()
 
             ' Point node to the Mesh geometry
             cubeNode.Entity = mesh
@@ -34,6 +35,7 @@ Namespace Geometry_Hierarchy
             
             ' Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII)
+            ' ExEnd:CreateCubeScene    
 
             Console.WriteLine(Convert.ToString(vbLf & "Cube Scene created successfully." & vbLf & "File saved at ") & MyDir)
 

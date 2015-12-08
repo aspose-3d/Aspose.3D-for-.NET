@@ -18,7 +18,7 @@ namespace CSharp.Geometry_Hierarchy
     class MeshGeometryData
     {
         public static void Run()
-        {   1
+        {   
             //ExStart:ShareMeshGeometryData          
             // Initialize scene object
             Scene scene = new Scene();
@@ -29,9 +29,9 @@ namespace CSharp.Geometry_Hierarchy
     new Vector3(0, 1, 0),
     new Vector3(0, 0, 1)
 };
-            
-            // Call Common class create meshh method to set mesh instance 
-            Mesh mesh = Common.CreateMesh();
+
+            // Call Common class create mesh using polygon builder method to set mesh instance 
+            Mesh mesh = Common.CreateMeshUsingPolygonBuilder(); 
            
             int idx = 0;
             foreach (Vector3 color in colors)

@@ -12,18 +12,19 @@ Imports Aspose.ThreeD.Utils
 
 Namespace Geometry_Hierarchy
     Public Class Common
-        Public Shared Function CreateMesh() As Mesh
+        Private Shared Function DefineControlPoints() As Vector4()
+            ' ExStart:DefineControlPoints
             ' Initialize control points
-            Dim controlPoints As Vector4() = New Vector4() {
-                New Vector4(-5.0, 0.0, 5.0, 1.0),
-                New Vector4(5.0, 0.0, 5.0, 1.0),
-                New Vector4(5.0, 10.0, 5.0, 1.0),
-                New Vector4(-5.0, 10.0, 5.0, 1.0),
-                New Vector4(-5.0, 0.0, -5.0, 1.0),
-                New Vector4(5.0, 0.0, -5.0, 1.0),
-                New Vector4(5.0, 10.0, -5.0, 1.0),
-                New Vector4(-5.0, 10.0, -5.0, 1.0)
-            }
+            Dim controlPoints As Vector4() = New Vector4() {New Vector4(-5.0, 0.0, 5.0, 1.0), New Vector4(5.0, 0.0, 5.0, 1.0), New Vector4(5.0, 10.0, 5.0, 1.0), New Vector4(-5.0, 10.0, 5.0, 1.0), New Vector4(-5.0, 0.0, -5.0, 1.0), New Vector4(5.0, 0.0, -5.0, 1.0), _
+                New Vector4(5.0, 10.0, -5.0, 1.0), New Vector4(-5.0, 10.0, -5.0, 1.0)}
+            ' ExEnd:DefineControlPoints
+            Return controlPoints
+        End Function
+
+        Public Shared Function CreateMeshUsingPolygonBuilder() As Mesh
+
+            ' ExStart:CreateMeshUsingPolygonBuilder            
+            Dim controlPoints As Vector4() = DefineControlPoints()
             ' Initialize mesh object
             Dim mesh As New Mesh()
             ' Add control points to the mesh
@@ -53,6 +54,32 @@ Namespace Geometry_Hierarchy
                 builder.End()
             Next
 
+            ' ExEnd:CreateMeshUsingPolygonBuilder
+
+            Return mesh
+        End Function
+        Public Shared Function CreateMeshUsingCreatePolygons() As Mesh
+            ' ExStart:CreateMeshUsingCreatePolygons           
+            Dim controlPoints As Vector4() = DefineControlPoints()
+
+            ' Initialize mesh object
+            Dim mesh As New Mesh()
+            ' Add control points to the mesh
+            mesh.ControlPoints.AddRange(controlPoints)
+            ' create polygons to mesh
+            ' front face (Z+)
+            mesh.CreatePolygon(New Integer() {0, 1, 2, 3})
+            ' right side (X+)
+            mesh.CreatePolygon(New Integer() {1, 5, 6, 2})
+            ' back face (Z-)
+            mesh.CreatePolygon(New Integer() {5, 4, 7, 6})
+            ' left side (X-)
+            mesh.CreatePolygon(New Integer() {4, 0, 3, 7})
+            ' bottom face (Y-)
+            mesh.CreatePolygon(New Integer() {0, 4, 5, 1})
+            ' top face (Y+)
+            mesh.CreatePolygon(New Integer() {3, 2, 6, 7})
+            ' ExEnd:CreateMeshUsingCreatePolygons
             Return mesh
         End Function
     End Class

@@ -23,9 +23,9 @@ namespace CSharp.Animation
             //ExStart:AddAnimationPropertyToDocument
             // Initialize scene object
             Scene scene = new Scene();
-            
-            // Call Common class create mesh method to set mesh instance 
-            Mesh mesh = Common.CreateMesh();            
+
+            // Call Common class create mesh using polygon builder method to set mesh instance 
+            Mesh mesh = Common.CreateMeshUsingPolygonBuilder();             
 
             // Each cube node has their own translation
             Node cube1 = scene.RootNode.CreateChildNode("cube1", mesh);

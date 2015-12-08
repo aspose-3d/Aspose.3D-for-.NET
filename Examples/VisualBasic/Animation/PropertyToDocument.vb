@@ -16,11 +16,12 @@ Namespace Animation
     Public Class PropertyToDocument
         Public Shared Sub Run()
 
+            ' ExStart:AddAnimationPropertyToDocument
             ' Initialize scene object
             Dim scene As New Scene()
 
-            ' Call Common class create mesh method to set mesh instance 
-            Dim mesh As Mesh = Common.CreateMesh()
+            ' Call Common class create mesh using polygon builder method to set mesh instance 
+            Dim mesh As Mesh = Common.CreateMeshUsingPolygonBuilder()
 
             ' Each cube node has their own translation
             Dim cube1 As Node = scene.RootNode.CreateChildNode("cube1", mesh)
@@ -53,6 +54,7 @@ Namespace Animation
           
             ' Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII)
+            ' ExEnd:AddAnimationPropertyToDocument
 
             Console.WriteLine(Convert.ToString(vbLf & "Animation property added successfully to document." & vbLf & "File saved at ") & MyDir)
 

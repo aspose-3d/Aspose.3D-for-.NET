@@ -46,10 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animation\PropertyToDocument.cs" />
+    <Compile Include="Geometry-and-Hierarchy\TransformationToNodeByTransformationMatrix.cs" />
+    <Compile Include="Geometry-and-Hierarchy\TransformationToNodeByEulerAngles.cs" />
     <Compile Include="Geometry-and-Hierarchy\MaterialToCube.cs" />
     <Compile Include="Geometry-and-Hierarchy\MeshGeometryData.cs" />
     <Compile Include="Geometry-and-Hierarchy\NodeHierarchy.cs" />
-    <Compile Include="Geometry-and-Hierarchy\TransformationToNode.cs" />
+    <Compile Include="Geometry-and-Hierarchy\TransformationToNodeByQuaternion.cs" />
     <Compile Include="Geometry-and-Hierarchy\Common.cs" />
     <Compile Include="Geometry-and-Hierarchy\CubeScene.cs" />
     <Compile Include="Loading-and-Saving\DocumentToStream.cs" />

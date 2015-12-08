@@ -73,11 +73,13 @@
     <Compile Include="Animation\PropertyToDocument.vb" />
     <Compile Include="AssetInformation\AssetInformation.vb" />
     <Compile Include="Geometry-and-Hierarchy\Common.vb" />
+    <Compile Include="Geometry-and-Hierarchy\TransformationToNodeByTransformationMatrix.vb" />
+    <Compile Include="Geometry-and-Hierarchy\TransformationToNodeByEulerAngles.vb" />
     <Compile Include="Geometry-and-Hierarchy\CubeScene.vb" />
     <Compile Include="Geometry-and-Hierarchy\MaterialToCube.vb" />
     <Compile Include="Geometry-and-Hierarchy\MeshGeometryData.vb" />
     <Compile Include="Geometry-and-Hierarchy\NodeHierarchy.vb" />
-    <Compile Include="Geometry-and-Hierarchy\TransformationToNode.vb" />
+    <Compile Include="Geometry-and-Hierarchy\TransformationToNodeByQuaternion.vb" />
     <Compile Include="Loading-and-Saving\DocumentToStream.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

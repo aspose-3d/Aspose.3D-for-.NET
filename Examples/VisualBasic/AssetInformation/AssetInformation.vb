@@ -13,6 +13,7 @@ Namespace AssetInformation
     Public Class InformationToScene
         Public Shared Sub Run()
 
+            ' ExStart:AddAssetInformationToScene  
             ' Initialize a 3D scene
             Dim scene As New Scene()
 
@@ -34,6 +35,7 @@ Namespace AssetInformation
 
             ' Save scene to 3D supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII)
+            ' ExEnd:AddAssetInformationToScene  
 
             Console.WriteLine(Convert.ToString(vbLf & "Asset information added successfully to Scene." & vbLf & "File saved at ") & MyDir)
         End Sub
