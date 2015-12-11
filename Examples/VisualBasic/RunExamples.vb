@@ -18,6 +18,8 @@ Module RunExamples
         '' =====================================================
 
         'DocumentToStream.Run()
+        'ReadExistingScene.Run()
+        'CreateEmpty3DDocument.Run()
 
         '' =====================================================
         '' =====================================================
@@ -47,6 +49,8 @@ Module RunExamples
         'TransformationToNodeByTransformationMatrix.Run()
         'NodeHierarchy.Run()
         'MeshGeometryData.Run()
+        'SetupNormalsOnCube.Run()
+        'SetupUVOnCube.Run()
 
         ' Stop before exiting
         Console.WriteLine(vbLf & vbLf & "Program Finished. Press any key to exit....")

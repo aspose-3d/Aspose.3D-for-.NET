@@ -46,8 +46,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.3D">
-      <HintPath>..\packages\Aspose.3D.1.0.0.0\lib\net20\Aspose.3D.dll</HintPath>
+    <Reference Include="Aspose.3D, Version=1.1.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Aspose.3D.1.1.0.0\lib\net20\Aspose.3D.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -73,6 +74,8 @@
     <Compile Include="Animation\PropertyToDocument.vb" />
     <Compile Include="AssetInformation\AssetInformation.vb" />
     <Compile Include="Geometry-and-Hierarchy\Common.vb" />
+    <Compile Include="Geometry-and-Hierarchy\SetupNormalsOnCube.vb" />
+    <Compile Include="Geometry-and-Hierarchy\SetupUVOnCube.vb" />
     <Compile Include="Geometry-and-Hierarchy\TransformationToNodeByTransformationMatrix.vb" />
     <Compile Include="Geometry-and-Hierarchy\TransformationToNodeByEulerAngles.vb" />
     <Compile Include="Geometry-and-Hierarchy\CubeScene.vb" />
@@ -80,7 +83,10 @@
     <Compile Include="Geometry-and-Hierarchy\MeshGeometryData.vb" />
     <Compile Include="Geometry-and-Hierarchy\NodeHierarchy.vb" />
     <Compile Include="Geometry-and-Hierarchy\TransformationToNodeByQuaternion.vb" />
+    <Compile Include="License\ApplyLicense.vb" />
+    <Compile Include="Loading-and-Saving\CreateEmpty3DDocument.vb" />
     <Compile Include="Loading-and-Saving\DocumentToStream.vb" />
+    <Compile Include="Loading-and-Saving\ReadExistingScene.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

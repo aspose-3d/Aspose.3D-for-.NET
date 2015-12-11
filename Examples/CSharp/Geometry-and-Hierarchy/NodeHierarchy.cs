@@ -48,7 +48,6 @@ namespace CSharp.Geometry_Hierarchy
             // Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII);
             //ExEnd:AddNodeHierarchy
-
            
             Console.WriteLine("\nNode hierarchy added successfully to document.\nFile saved at " + MyDir);
 

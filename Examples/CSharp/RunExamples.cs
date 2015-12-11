@@ -27,6 +27,8 @@ namespace CSharp
             //// =====================================================
 
             //DocumentToStream.Run();
+            //ReadExistingScene.Run();
+            //CreateEmpty3DDocument.Run();
 
             //// =====================================================
             //// =====================================================
@@ -34,7 +36,7 @@ namespace CSharp
             //// =====================================================
             //// =====================================================
 
-            PropertyToDocument.Run();
+            //PropertyToDocument.Run();
 
             //// =====================================================
             //// =====================================================
@@ -56,6 +58,7 @@ namespace CSharp
             //TransformationToNodeByTransformationMatrix.Run();
             //NodeHierarchy.Run();
             //MeshGeometryData.Run();
+            SetupNormalsOnCube.Run();
 
             // Stop before exiting
             Console.WriteLine("\n\nProgram Finished. Press any key to exit....");
