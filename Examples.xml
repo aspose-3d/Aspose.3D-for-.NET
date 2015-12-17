@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Data>
+  <Folders>
+    <Folder>
+      <Title>Quick Start</Title>
+      <Description>
+        This package contains C# and VB.Net Example Projects for Aspose.3D for .NET
+      </Description>
+      <FolderName>Examples</FolderName>
+      <Order>1</Order>
+      <Examples>
+        <Example>
+          <Title>Aspose.3D Examples</Title>
+          <Description>
+            This package contains Project.
+          </Description>
+          <FolderName></FolderName>
+          <Order>1</Order>
+          <DocLink>
+            <DisplayName>Working with Aspose.3D</DisplayName>
+            <Url></Url>
+          </DocLink>
+          <OutputFiles>
+            <DataFile>
+              <Path>Data\document.fbx</Path>
+              <Path>Data\surface.dds</Path>
+            </DataFile>
+          </OutputFiles>
+          <Type>Console</Type>
+        </Example>
+      </Examples>
+    </Folder>
+  </Folders>
+</Data>
