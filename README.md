@@ -1,6 +1,6 @@
 ##Aspose.3D for .NET
 
-This package contains [Examples](https://github.com/aspose3d/Aspose_3D_NET/tree/master/Examples) and Showcase projects for [Aspose.3D for .NET] http://www.aspose.com/community/files/51/.net-components/aspose.3d-for-.net/default.aspx) and will help you write your own applications.
+This package contains [Examples](https://github.com/aspose3d/Aspose_3D_NET/tree/master/Examples) and Showcase projects for [Aspose.3D for .NET](http://www.aspose.com/community/files/51/.net-components/aspose.3d-for-.net/default.aspx) and will help you write your own applications.
 
 Aspose.3D for .NET is a feature-rich Gameware and Computer-Aided-Designing (CAD) API that empowers Mono and .NET applications including ASP.NET, Windows Forms and Web Services to connect with prevalent 3D document formats automatically without any 3D modeling and rendering software being installed on the server. It supports FBX (ASCII, Binary) and STL (ASCII, Binary) file formats and developers can easily create, read, convert, modify and control the substance of these 3D document formats using Aspose.3D API.
 
