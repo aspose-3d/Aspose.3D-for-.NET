@@ -27,7 +27,7 @@ namespace CSharp._3DScene
             scene.Open(MyDir + "camera.3ds", new Discreet3DSConfig() { FlipCoordinateSystem = true });
             MyDir = MyDir + "FlipCoordinateSystem.obj";
             scene.Save(MyDir, new ObjConfig() { EnableMaterials = false });
-            //EndEnd:FlipCoordinateSystem
+            //ExEnd:FlipCoordinateSystem
             Console.WriteLine("\nCoordinate system has been flipped successfully.\nFile saved at " + MyDir);
         }
     }

@@ -39,7 +39,7 @@ namespace CSharp.Geometry_Hierarchy
                 return true;
             });
             MyDir = MyDir + RunExamples.GetOutputFilePath("document.fbx");
-            scene.Save(MyDir, FileFormat.FBX7400ASCII);          
+            scene.Save(MyDir, FileFormat.FBX7400ASCII);
             //ExEnd:TriangulateMesh   
             Console.WriteLine("\nMesh has been Triangulated.\nFile saved at " + MyDir);
         }

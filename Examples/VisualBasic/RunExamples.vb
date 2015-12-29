@@ -60,7 +60,8 @@ Module RunExamples
         'NodeHierarchy.Run()
         'MeshGeometryData.Run()
         'SetupNormalsOnCube.Run()
-        SetupUVOnCube.Run()
+        'SetupUVOnCube.Run()
+        TriangulateMesh.Run()
 
         ' Stop before exiting
         Console.WriteLine(vbLf & vbLf & "Program Finished. Press any key to exit....")

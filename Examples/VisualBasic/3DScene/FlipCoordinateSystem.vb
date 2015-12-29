@@ -23,7 +23,7 @@ Namespace _3DScene
             scene.Open(MyDir & Convert.ToString("camera.3ds"), New Discreet3DSConfig() With {.FlipCoordinateSystem = True})
             MyDir = MyDir & Convert.ToString("FlipCoordinateSystem.obj")
             scene.Save(MyDir, New ObjConfig() With {.EnableMaterials = False})
-            ' EndEnd:FlipCoordinateSystem
+            ' ExEnd:FlipCoordinateSystem
             Console.WriteLine(Convert.ToString(vbLf & "Coordinate system has been flipped successfully." & vbLf & "File saved at ") & MyDir)
         End Sub
     End Class

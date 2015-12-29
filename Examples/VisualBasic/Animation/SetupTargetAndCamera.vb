@@ -27,7 +27,7 @@ Namespace Animation
             cameraNode.GetEntity(Of Camera)().Target = scene.RootNode.CreateChildNode("target")
             MyDir = MyDir & Convert.ToString("camera-test.3ds")
             scene.Save(MyDir, FileFormat.Distreet3DS)
-            ' EndEnd:SetupTargetAndCamera
+            ' ExEnd:SetupTargetAndCamera
             Console.WriteLine(Convert.ToString(vbLf & "The target and camera has been setup successfully." & vbLf & "File saved at ") & MyDir)
         End Sub
     End Class
