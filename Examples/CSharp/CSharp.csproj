@@ -32,9 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.3D, Version=1.1.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
+    <Reference Include="Aspose.3D, Version=1.2.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aspose.3D.1.1.0.0\lib\net20\Aspose.3D.dll</HintPath>
+      <HintPath>..\packages\Aspose.3D.1.2.0.0\lib\net20\Aspose.3D.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="3DScene\FlipCoordinateSystem .cs" />
     <Compile Include="Animation\PropertyToDocument.cs" />
+    <Compile Include="Animation\SetupTargetAndCamera.cs" />
     <Compile Include="Geometry-and-Hierarchy\SetupNormalsOnCube.cs" />
     <Compile Include="Geometry-and-Hierarchy\SetupUVOnCube.cs" />
     <Compile Include="Geometry-and-Hierarchy\TransformationToNodeByTransformationMatrix.cs" />
@@ -57,6 +59,7 @@
     <Compile Include="Geometry-and-Hierarchy\TransformationToNodeByQuaternion.cs" />
     <Compile Include="Geometry-and-Hierarchy\Common.cs" />
     <Compile Include="Geometry-and-Hierarchy\CubeScene.cs" />
+    <Compile Include="Geometry-and-Hierarchy\TriangulateMesh.cs" />
     <Compile Include="License\ApplyLicense.cs" />
     <Compile Include="Loading-and-Saving\CreateEmpty3DDocument.cs" />
     <Compile Include="Loading-and-Saving\ReadExistingScene.cs" />
@@ -68,7 +71,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

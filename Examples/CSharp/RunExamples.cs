@@ -7,6 +7,7 @@ using CSharp.Loading_Saving;
 using CSharp.AssetInformation;
 using CSharp.Animation;
 using CSharp.Geometry_Hierarchy;
+using CSharp._3DScene;
 using System.Reflection;
 
 namespace CSharp
@@ -37,6 +38,15 @@ namespace CSharp
             //// =====================================================
 
             //PropertyToDocument.Run();
+            //SetupTargetAndCamera.Run();
+
+            //// =====================================================
+            //// =====================================================
+            //// 3DScene
+            //// =====================================================
+            //// =====================================================
+
+            FlipCoordinateSystem.Run();
 
             //// =====================================================
             //// =====================================================
@@ -58,7 +68,8 @@ namespace CSharp
             //TransformationToNodeByTransformationMatrix.Run();
             //NodeHierarchy.Run();
             //MeshGeometryData.Run();
-            SetupNormalsOnCube.Run();
+            //SetupNormalsOnCube.Run();
+            //TriangulateMesh.Run();
 
             // Stop before exiting
             Console.WriteLine("\n\nProgram Finished. Press any key to exit....");

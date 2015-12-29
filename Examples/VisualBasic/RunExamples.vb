@@ -3,6 +3,7 @@ Imports VisualBasic.Geometry_Hierarchy
 Imports VisualBasic.Animation
 Imports VisualBasic.AssetInformation
 Imports VisualBasic.Loading_Saving
+Imports VisualBasic._3DScene
 
 Module RunExamples
     Sub Main()
@@ -28,6 +29,15 @@ Module RunExamples
         '' =====================================================
 
         'PropertyToDocument.Run()
+        'SetupTargetAndCamera.Run()
+
+        '' =====================================================
+        '' =====================================================
+        '' 3DScene
+        '' =====================================================
+        '' =====================================================
+
+        'FlipCoordinateSystem.Run()
 
         '' =====================================================
         '' =====================================================
@@ -43,14 +53,14 @@ Module RunExamples
         '' =====================================================
 
         'CubeScene.Run()
-        MaterialToCube.Run()
+        'MaterialToCube.Run()
         'TransformationToNodeByQuaternion.Run()
         'TransformationToNodeByEulerAngles.Run()
         'TransformationToNodeByTransformationMatrix.Run()
         'NodeHierarchy.Run()
         'MeshGeometryData.Run()
         'SetupNormalsOnCube.Run()
-        'SetupUVOnCube.Run()
+        SetupUVOnCube.Run()
 
         ' Stop before exiting
         Console.WriteLine(vbLf & vbLf & "Program Finished. Press any key to exit....")

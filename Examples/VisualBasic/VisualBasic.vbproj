@@ -71,7 +71,9 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="3DScene\FlipCoordinateSystem.vb" />
     <Compile Include="Animation\PropertyToDocument.vb" />
+    <Compile Include="Animation\SetupTargetAndCamera.vb" />
     <Compile Include="AssetInformation\AssetInformation.vb" />
     <Compile Include="Geometry-and-Hierarchy\Common.vb" />
     <Compile Include="Geometry-and-Hierarchy\CubeScene.vb" />
