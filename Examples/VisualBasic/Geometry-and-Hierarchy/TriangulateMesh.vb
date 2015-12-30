@@ -30,6 +30,7 @@ Namespace Geometry_Hierarchy
         End Sub
 
         Private Shared Function HandleMesh(node As Node)
+            ' ExStart:HandleMesh
             Dim mesh As Mesh = node.GetEntity(Of Mesh)()
             If mesh IsNot Nothing Then
                 ' Triangulate the mesh
@@ -37,6 +38,7 @@ Namespace Geometry_Hierarchy
                 ' Replace the old mesh
                 node.Entity = mesh
             End If
+            ' ExEnd:HandleMesh
             Return True
 
         End Function
