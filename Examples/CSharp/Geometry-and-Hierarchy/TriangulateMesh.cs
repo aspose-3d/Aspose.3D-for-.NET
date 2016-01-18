@@ -1,11 +1,4 @@
-﻿//////////////////////////////////////////////////////////////////////////
-// Copyright 2015 Aspose Pty Ltd. All Rights Reserved.
-//
-// This file is part of Aspose.3D. The source code in this file
-// is only intended as a supplement to the documentation, and is provided
-// "as is", without warranty of any kind, either expressed or implied.
-//////////////////////////////////////////////////////////////////////////
-using System;
+﻿using System;
 using Aspose.ThreeD;
 using Aspose.ThreeD.Entities;
 using Aspose.ThreeD.Utils;
