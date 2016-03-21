@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Aspose.ThreeD;
 using Aspose.ThreeD.Entities;
-using Aspose.ThreeD.Utils;
+using Aspose.ThreeD.Utilities;
 namespace CSharp.Geometry_Hierarchy
 {
     class TransformationToNodeByQuaternion
@@ -34,7 +34,7 @@ namespace CSharp.Geometry_Hierarchy
             MyDir = MyDir + RunExamples.GetOutputFilePath("TransformationToNode.fbx");
    
             // Save 3D scene in the supported file formats
-            scene.Save(MyDir, FileFormat.FBX7400ASCII);
+            scene.Save(MyDir, FileFormat.FBX7500ASCII);
             //ExEnd:AddTransformationToNodeByQuaternion
             Console.WriteLine("\nTransformation added successfully to node.\nFile saved at " + MyDir);
 

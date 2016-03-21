@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Imports Aspose.ThreeD
 Imports Aspose.ThreeD.Entities
-Imports Aspose.ThreeD.Utils
+Imports Aspose.ThreeD.Utilities
 Imports Aspose.ThreeD.Shading
 
 Namespace Geometry_Hierarchy
@@ -13,7 +13,10 @@ Namespace Geometry_Hierarchy
             Dim scene As New Scene()
 
             ' Define color vectors
-            Dim colors As Vector3() = New Vector3() {New Vector3(1, 0, 0), New Vector3(0, 1, 0), New Vector3(0, 0, 1)}
+            Dim colors As Vector3() = New Vector3() {
+                New Vector3(1, 0, 0),
+                New Vector3(0, 1, 0),
+                New Vector3(0, 0, 1)}
             ' Call Common class create mesh using polygon builder method to set mesh instance 
             Dim mesh As Mesh = Common.CreateMeshUsingPolygonBuilder()
 

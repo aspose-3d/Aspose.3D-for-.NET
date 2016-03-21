@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Imports Aspose.ThreeD
 Imports Aspose.ThreeD.Entities
-Imports Aspose.ThreeD.Utils
+Imports Aspose.ThreeD.Utilities
 
 Namespace Geometry_Hierarchy
     Public Class SetupUVOnCube
@@ -23,9 +23,8 @@ Namespace Geometry_Hierarchy
             ' Call Common class create mesh using polygon builder method to set mesh instance 
             Dim mesh As Mesh = Common.CreateMeshUsingPolygonBuilder()
             ' Create UVset
-            Dim elementUV As VertexElementUV = Mesh.CreateElementUV(TextureMapping.Diffuse)
-            elementUV.MappingMode = MappingMode.PolygonVertex
-            elementUV.ReferenceMode = ReferenceMode.IndexToDirect
+            Dim elementUV As VertexElementUV = mesh.CreateElementUV(TextureMapping.Diffuse, MappingMode.PolygonVertex, ReferenceMode.IndexToDirect)
+            ' Copy the data to the UV vertex element
             elementUV.Data.AddRange(uvs)
             elementUV.Indices.AddRange(uvsId)
             ' ExEnd:SetupUVOnCube

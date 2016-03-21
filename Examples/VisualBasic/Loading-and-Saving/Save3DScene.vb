@@ -3,22 +3,27 @@ Imports System.Collections
 Imports Aspose.ThreeD
 
 Namespace Loading_Saving
-    Public Class DocumentToStream
+    Public Class Save3DScene
         Public Shared Sub Run()
-            ' ExStart:SaveDocumentToStream
+            ' ExStart:Save3DScene
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
-            MyDir = MyDir & Convert.ToString("document.fbx")
 
             ' Load a 3D document into Aspose.3D
             Dim scene As New Scene()
+            ' open an existing 3D scene
+            scene.Open(MyDir & Convert.ToString("document.fbx"))
 
+            ' save 3D Scene to a stream
             Dim dstStream As New MemoryStream()
-            scene.Save(dstStream, FileFormat.FBX7400ASCII)
+            scene.Save(dstStream, FileFormat.FBX7500ASCII)
 
             ' Rewind the stream position back to zero so it is ready for next reader.
             dstStream.Position = 0
-            ' ExEnd:SaveDocumentToStream
+
+            ' save 3D Scene to a local path
+            scene.Save(MyDir + "output.fbx", FileFormat.FBX7500ASCII)
+            ' ExEnd:Save3DScene
 
             Console.WriteLine(vbLf & "Converted 3D document to stream successfully.")
         End Sub

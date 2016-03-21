@@ -1,8 +1,9 @@
 ﻿Imports Aspose.ThreeD
 Imports Aspose.ThreeD.Entities
-Imports Aspose.ThreeD.Utils
+Imports Aspose.ThreeD.Utilities
 Imports Aspose.ThreeD.Shading
 Imports System.Drawing
+Imports System.IO
 
 Namespace Geometry_Hierarchy
     Public Class MaterialToCube
@@ -40,6 +41,12 @@ Namespace Geometry_Hierarchy
             ' Set Texture of the material
             mat.SetTexture("DiffuseColor", diffuse)
 
+            ' embed raw content data to FBX (only for FBX And optional)
+            ' set file name
+            diffuse.FileName = "embedded-texture.png"
+            ' set binary content
+            diffuse.Content = File.ReadAllBytes("c:\\test.png")
+
             ' Set color
             mat.SpecularColor = New Vector3(Color.Red)
 
@@ -50,7 +57,7 @@ Namespace Geometry_Hierarchy
             cubeNode.Material = mat
 
             MyDir = MyDir & RunExamples.GetOutputFilePath("MaterialToCube.fbx")
-           
+
             ' Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII)
             ' ExEnd:AddMaterialToCube

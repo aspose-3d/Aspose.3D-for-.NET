@@ -1,9 +1,9 @@
 ﻿Imports System.IO
 Imports System.Collections
 Imports Aspose.ThreeD
-Imports Aspose.ThreeD.Animations
+Imports Aspose.ThreeD.Animation
 Imports Aspose.ThreeD.Entities
-Imports Aspose.ThreeD.IO
+Imports Aspose.ThreeD.Formats
 
 Namespace _3DScene
     Class FlipCoordinateSystem

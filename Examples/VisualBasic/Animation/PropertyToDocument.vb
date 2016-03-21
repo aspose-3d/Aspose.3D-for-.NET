@@ -1,7 +1,7 @@
 ﻿Imports Aspose.ThreeD
-Imports Aspose.ThreeD.Animations
+Imports Aspose.ThreeD.Animation
 Imports Aspose.ThreeD.Entities
-Imports Aspose.ThreeD.Utils
+Imports Aspose.ThreeD.Utilities
 Imports VisualBasic.Geometry_Hierarchy
 
 Namespace Animation

@@ -16,7 +16,7 @@ namespace CSharp.Loading_Saving
             // Create an object of the Scene class
             Scene scene = new Scene();
             // Save 3D scene document
-            scene.Save(MyDir, FileFormat.Distreet3DS);
+            scene.Save(MyDir, FileFormat.FBX7500ASCII);
             //ExEnd:CreateEmpty3DDocument
 
             Console.WriteLine("\nAn empty 3D document created successfully.\nFile saved at " + MyDir);

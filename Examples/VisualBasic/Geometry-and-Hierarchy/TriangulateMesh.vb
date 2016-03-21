@@ -1,6 +1,6 @@
 ﻿Imports Aspose.ThreeD
 Imports Aspose.ThreeD.Entities
-Imports Aspose.ThreeD.Utils
+Imports Aspose.ThreeD.Utilities
 Imports Aspose.ThreeD.Shading
 Imports System.Drawing
 

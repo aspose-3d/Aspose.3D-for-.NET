@@ -1,9 +1,10 @@
 ﻿using System;
 using Aspose.ThreeD;
 using Aspose.ThreeD.Entities;
-using Aspose.ThreeD.Utils;
+using Aspose.ThreeD.Utilities;
 using Aspose.ThreeD.Shading;
 using System.Drawing;
+using System.IO;
 
 namespace CSharp.Geometry_Hierarchy
 {
@@ -41,7 +42,13 @@ namespace CSharp.Geometry_Hierarchy
 
             // Set Texture of the material
             mat.SetTexture("DiffuseColor", diffuse);
-            
+
+            // embed raw content data to FBX (only for FBX and optional)
+            // set file name
+            diffuse.FileName = "embedded-texture.png";
+            // set binary content
+            diffuse.Content = File.ReadAllBytes("c:\\test.png");
+
             // Set color
             mat.SpecularColor = new Vector3(Color.Red);
 

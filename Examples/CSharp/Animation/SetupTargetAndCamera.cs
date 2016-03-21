@@ -2,9 +2,9 @@
 using System.IO;
 using System.Collections;
 using Aspose.ThreeD;
-using Aspose.ThreeD.Animations;
+using Aspose.ThreeD.Animation;
 using Aspose.ThreeD.Entities;
-using Aspose.ThreeD.Utils;
+using Aspose.ThreeD.Utilities;
 
 namespace CSharp.Animation
 {

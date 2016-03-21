@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Aspose.ThreeD;
 using Aspose.ThreeD.Entities;
-using Aspose.ThreeD.Utils;
+using Aspose.ThreeD.Utilities;
 using Aspose.ThreeD.Shading;
 
 namespace CSharp.Geometry_Hierarchy

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Aspose.ThreeD;
 using Aspose.ThreeD.Entities;
-using Aspose.ThreeD.Utils;
+using Aspose.ThreeD.Utilities;
 
 namespace CSharp.Geometry_Hierarchy
 {
@@ -32,9 +32,8 @@ namespace CSharp.Geometry_Hierarchy
             Mesh mesh = Common.CreateMeshUsingPolygonBuilder();
 
             // Create UVset
-            VertexElementUV elementUV = mesh.CreateElementUV(TextureMapping.Diffuse);
-            elementUV.MappingMode = MappingMode.PolygonVertex;
-            elementUV.ReferenceMode = ReferenceMode.IndexToDirect;
+            VertexElementUV elementUV = mesh.CreateElementUV(TextureMapping.Diffuse, MappingMode.PolygonVertex, ReferenceMode.IndexToDirect);
+            // Copy the data to the UV vertex element 
             elementUV.Data.AddRange(uvs);
             elementUV.Indices.AddRange(uvsId);
             //ExEnd:SetupUVOnCube

@@ -12,7 +12,7 @@ Namespace Loading_Saving
             ' Create an object of the Scene class
             Dim scene As New Scene()
             ' Save 3D scene document
-            scene.Save(MyDir, FileFormat.FBX7400ASCII)
+            scene.Save(MyDir, FileFormat.FBX7500ASCII)
             ' ExEnd:CreateEmpty3DDocument
 
             Console.WriteLine(Convert.ToString(vbLf & "An empty 3D document created successfully." & vbLf & "File saved at ") & MyDir)

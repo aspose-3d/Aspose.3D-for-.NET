@@ -1,14 +1,22 @@
 ﻿Imports System
 Imports Aspose.ThreeD.Entities
-Imports Aspose.ThreeD.Utils
+Imports Aspose.ThreeD.Utilities
+
 
 Namespace Geometry_Hierarchy
     Public Class Common
         Private Shared Function DefineControlPoints() As Vector4()
             ' ExStart:DefineControlPoints
             ' Initialize control points
-            Dim controlPoints As Vector4() = New Vector4() {New Vector4(-5.0, 0.0, 5.0, 1.0), New Vector4(5.0, 0.0, 5.0, 1.0), New Vector4(5.0, 10.0, 5.0, 1.0), New Vector4(-5.0, 10.0, 5.0, 1.0), New Vector4(-5.0, 0.0, -5.0, 1.0), New Vector4(5.0, 0.0, -5.0, 1.0), _
-                New Vector4(5.0, 10.0, -5.0, 1.0), New Vector4(-5.0, 10.0, -5.0, 1.0)}
+            Dim controlPoints As Vector4() = New Vector4() {
+            New Vector4(-5.0, 0.0, 5.0, 1.0),
+            New Vector4(5.0, 0.0, 5.0, 1.0),
+            New Vector4(5.0, 10.0, 5.0, 1.0),
+            New Vector4(-5.0, 10.0, 5.0, 1.0),
+            New Vector4(-5.0, 0.0, -5.0, 1.0),
+            New Vector4(5.0, 0.0, -5.0, 1.0),
+            New Vector4(5.0, 10.0, -5.0, 1.0),
+            New Vector4(-5.0, 10.0, -5.0, 1.0)}
             ' ExEnd:DefineControlPoints
             Return controlPoints
         End Function

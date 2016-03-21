@@ -2,9 +2,9 @@
 using System.IO;
 using System.Collections;
 using Aspose.ThreeD;
-using Aspose.ThreeD.Animations;
+using Aspose.ThreeD.Animation;
 using Aspose.ThreeD.Entities;
-using Aspose.ThreeD.Utils;
+using Aspose.ThreeD.Utilities;
 using CSharp.Geometry_Hierarchy;
 
 namespace CSharp.Animation
@@ -50,7 +50,7 @@ namespace CSharp.Animation
             MyDir = MyDir + RunExamples.GetOutputFilePath("PropertyToDocument.fbx");            
 
             // Save 3D scene in the supported file formats
-            scene.Save(MyDir, FileFormat.FBX7400ASCII);
+            scene.Save(MyDir, FileFormat.FBX7500ASCII);
             //ExEnd:AddAnimationPropertyToDocument
 
             Console.WriteLine("\nAnimation property added successfully to document.\nFile saved at " + MyDir);

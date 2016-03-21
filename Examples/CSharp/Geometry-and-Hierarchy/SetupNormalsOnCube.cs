@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Aspose.ThreeD;
 using Aspose.ThreeD.Entities;
-using Aspose.ThreeD.Utils;
+using Aspose.ThreeD.Utilities;
 
 namespace CSharp.Geometry_Hierarchy
 {
@@ -28,11 +28,7 @@ namespace CSharp.Geometry_Hierarchy
             // Call Common class create mesh using polygon builder method to set mesh instance 
             Mesh mesh = Common.CreateMeshUsingPolygonBuilder(); 
 
-            VertexElementNormal elementNormal = mesh.CreateElement(VertexElementType.Normal) as VertexElementNormal;
-            // Specify normal per control point.
-            elementNormal.MappingMode = MappingMode.ControlPoint;
-            // The data is directly referenced.
-            elementNormal.ReferenceMode = ReferenceMode.Direct;
+            VertexElementNormal elementNormal = mesh.CreateElement(VertexElementType.Normal, MappingMode.ControlPoint, ReferenceMode.Direct) as VertexElementNormal;
             // Copy the data to the vertex element
             elementNormal.Data.AddRange(normals);
             //ExEnd:SetupNormalsOnCube

@@ -1,6 +1,6 @@
 ﻿using System;
 using Aspose.ThreeD.Entities;
-using Aspose.ThreeD.Utils;
+using Aspose.ThreeD.Utilities;
 
 namespace CSharp.Geometry_Hierarchy
 {

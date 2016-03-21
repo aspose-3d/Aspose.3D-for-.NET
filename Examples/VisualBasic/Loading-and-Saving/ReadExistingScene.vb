@@ -9,16 +9,11 @@ Namespace Loading_Saving
             ' ExStart:ReadExistingScene
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
-            MyDir = MyDir & Convert.ToString("document.fbx")
 
-            ' Call the scene constructor to load an existing one
-            Dim scene As New Scene(MyDir)
-
-            ' Initialize a scene object to build a scene from scratch
-            Dim parentScene As New Scene()
-
-            ' Initialize a scene object and also define its parent scene. New scene can also be used as parent scene
-            Dim childscene As New Scene(parentScene, MyDir)
+            ' initialize a Scene class object
+            Dim scene As New Scene()
+            ' load an existing 3D document
+            scene.Open(MyDir & Convert.ToString("document.fbx"))
             'ExEnd:ReadExistingScene
 
             Console.WriteLine(vbLf & "3D Scene is ready for the modification, addition or processing purposes.")

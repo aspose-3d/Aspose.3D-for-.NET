@@ -14,14 +14,10 @@ namespace CSharp.Loading_Saving
             string MyDir = RunExamples.GetDataDir();
             MyDir = MyDir + "document.fbx";
 
-            // Call the scene constructor to load an existing one
-            Scene scene = new Scene(MyDir);
-
-            // Initialize a scene object to build a scene from scratch
-            Scene parentScene = new Scene();
-
-            // Initialize a scene object and also define its parent scene. New scene can also be used as parent scene
-            Scene childscene = new Scene(parentScene, MyDir);
+            // initialize a Scene class object
+            Scene scene = new Scene();
+            // load an existing 3D document
+            scene.Open(MyDir + "document.fbx");
 
             //ExEnd:ReadExistingScene
             Console.WriteLine("\n3D Scene is ready for the modification, addition or processing purposes.");

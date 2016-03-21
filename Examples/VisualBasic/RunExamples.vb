@@ -18,7 +18,7 @@ Module RunExamples
         '' =====================================================
         '' =====================================================
 
-        'DocumentToStream.Run()
+        'Save3DScene.Run()
         'ReadExistingScene.Run()
         'CreateEmpty3DDocument.Run()
 

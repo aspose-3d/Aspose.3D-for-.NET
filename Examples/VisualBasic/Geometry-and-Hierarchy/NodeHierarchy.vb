@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Imports Aspose.ThreeD
 Imports Aspose.ThreeD.Entities
-Imports Aspose.ThreeD.Utils
+Imports Aspose.ThreeD.Utilities
 
 Namespace Geometry_Hierarchy
     Public Class NodeHierarchy
@@ -38,9 +38,9 @@ Namespace Geometry_Hierarchy
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
             MyDir = MyDir & RunExamples.GetOutputFilePath("NodeHierarchy.fbx")
-            
+
             ' Save 3D scene in the supported file formats
-            scene.Save(MyDir, FileFormat.FBX7400ASCII)
+            scene.Save(MyDir, FileFormat.FBX7500ASCII)
             ' ExEnd:AddNodeHierarchy
 
             Console.WriteLine(Convert.ToString(vbLf & "Node hierarchy added successfully to document." & vbLf & "File saved at ") & MyDir)

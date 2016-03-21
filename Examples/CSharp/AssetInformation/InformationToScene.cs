@@ -30,7 +30,7 @@ namespace CSharp.AssetInformation
             MyDir = MyDir + RunExamples.GetOutputFilePath("InformationToScene.fbx");
                         
             // Save scene to 3D supported file formats
-            scene.Save(MyDir, FileFormat.FBX7400ASCII);
+            scene.Save(MyDir, FileFormat.FBX7500ASCII);
             //ExEnd:AddAssetInformationToScene
 
             Console.WriteLine("\nAsset information added successfully to Scene.\nFile saved at " + MyDir);

@@ -1,7 +1,7 @@
 ﻿using System;
 using Aspose.ThreeD;
 using Aspose.ThreeD.Entities;
-using Aspose.ThreeD.Utils;
+using Aspose.ThreeD.Utilities;
 using Aspose.ThreeD.Shading;
 using System.Drawing;
 

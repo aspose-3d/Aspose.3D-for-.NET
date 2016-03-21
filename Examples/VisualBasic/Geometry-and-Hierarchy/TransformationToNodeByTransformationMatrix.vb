@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Imports Aspose.ThreeD
 Imports Aspose.ThreeD.Entities
-Imports Aspose.ThreeD.Utils
+Imports Aspose.ThreeD.Utilities
 
 Namespace Geometry_Hierarchy
     Public Class TransformationToNodeByTransformationMatrix
@@ -31,7 +31,7 @@ Namespace Geometry_Hierarchy
             MyDir = MyDir & RunExamples.GetOutputFilePath("TransformationToNode.fbx")
 
             ' Save 3D scene in the supported file formats
-            scene.Save(MyDir, FileFormat.FBX7400ASCII)
+            scene.Save(MyDir, FileFormat.FBX7500ASCII)
             ' ExEnd:AddTransformationToNodeByTransformationMatrix
 
             Console.WriteLine(Convert.ToString(vbLf & "Transformation added successfully to node." & vbLf & "File saved at ") & MyDir)

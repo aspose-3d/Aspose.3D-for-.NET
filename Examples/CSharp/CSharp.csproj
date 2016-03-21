@@ -32,9 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.3D, Version=1.2.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aspose.3D.1.2.0.0\lib\net20\Aspose.3D.dll</HintPath>
+    <Reference Include="Aspose.3D, Version=1.3.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.3D.1.3.0.0\lib\net20\Aspose.3D.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -63,7 +63,7 @@
     <Compile Include="License\ApplyLicense.cs" />
     <Compile Include="Loading-and-Saving\CreateEmpty3DDocument.cs" />
     <Compile Include="Loading-and-Saving\ReadExistingScene.cs" />
-    <Compile Include="Loading-and-Saving\DocumentToStream.cs" />
+    <Compile Include="Loading-and-Saving\Save3DScene.cs" />
     <Compile Include="RunExamples.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AssetInformation\InformationToScene.cs" />

@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Imports Aspose.ThreeD
 Imports Aspose.ThreeD.Entities
-Imports Aspose.ThreeD.Utils
+Imports Aspose.ThreeD.Utilities
 
 Namespace Geometry_Hierarchy
     Public Class SetupNormalsOnCube
@@ -9,17 +9,20 @@ Namespace Geometry_Hierarchy
         Public Shared Sub Run()
             ' ExStart:SetupNormalsOnCube
             ' Raw normal data
-            Dim normals As Vector4() = New Vector4() {New Vector4(-0.577350258, -0.577350258, 0.577350258, 1.0), New Vector4(0.577350258, -0.577350258, 0.577350258, 1.0), New Vector4(0.577350258, 0.577350258, 0.577350258, 1.0), New Vector4(-0.577350258, 0.577350258, 0.577350258, 1.0), New Vector4(-0.577350258, -0.577350258, -0.577350258, 1.0), New Vector4(0.577350258, -0.577350258, -0.577350258, 1.0), _
-                New Vector4(0.577350258, 0.577350258, -0.577350258, 1.0), New Vector4(-0.577350258, 0.577350258, -0.577350258, 1.0)}
+            Dim normals As Vector4() = New Vector4() {
+                New Vector4(-0.577350258, -0.577350258, 0.577350258, 1.0),
+                New Vector4(0.577350258, -0.577350258, 0.577350258, 1.0),
+                New Vector4(0.577350258, 0.577350258, 0.577350258, 1.0),
+                New Vector4(-0.577350258, 0.577350258, 0.577350258, 1.0),
+                New Vector4(-0.577350258, -0.577350258, -0.577350258, 1.0),
+                New Vector4(0.577350258, -0.577350258, -0.577350258, 1.0),
+                New Vector4(0.577350258, 0.577350258, -0.577350258, 1.0),
+                New Vector4(-0.577350258, 0.577350258, -0.577350258, 1.0)}
 
             ' Call Common class create mesh using polygon builder method to set mesh instance 
             Dim mesh As Mesh = Common.CreateMeshUsingPolygonBuilder()
 
-            Dim elementNormal As VertexElementNormal = TryCast(mesh.CreateElement(VertexElementType.Normal), VertexElementNormal)
-            ' Specify normal per control point.
-            elementNormal.MappingMode = MappingMode.ControlPoint
-            ' The data is directly referenced.
-            elementNormal.ReferenceMode = ReferenceMode.Direct
+            Dim elementNormal As VertexElementNormal = TryCast(mesh.CreateElement(VertexElementType.Normal, MappingMode.ControlPoint, ReferenceMode.Direct), VertexElementNormal)
             ' Copy the data to the vertex element
             elementNormal.Data.AddRange(normals)
             ' ExEnd:SetupNormalsOnCube
