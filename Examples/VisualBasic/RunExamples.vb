@@ -4,6 +4,8 @@ Imports VisualBasic.Animation
 Imports VisualBasic.AssetInformation
 Imports VisualBasic.Loading_Saving
 Imports VisualBasic._3DScene
+Imports VisualBasic._3DModeling
+Imports VisualBasic.Working_with_Objects
 
 Module RunExamples
     Sub Main()
@@ -61,7 +63,30 @@ Module RunExamples
         'MeshGeometryData.Run()
         'SetupNormalsOnCube.Run()
         'SetupUVOnCube.Run()
-        TriangulateMesh.Run()
+        'TriangulateMesh.Run()
+
+        '' =====================================================
+        '' =====================================================
+        '' 3D Modeling
+        '' =====================================================
+        '' =====================================================
+
+        'Primitive3DModels.Run()
+
+        '' =====================================================
+        '' =====================================================
+        '' Working with Objects
+        '' =====================================================
+        '' =====================================================
+
+        'SplitMeshbyMaterial.Run()
+        'ConvertSpherePrimitivetoMesh.Run()
+        'ConvertBoxPrimitivetoMesh.Run()
+        'ConvertPlanePrimitivetoMesh.Run()
+        'ConvertCylinderPrimitivetoMesh.Run()
+        'ConvertTorusPrimitivetoMesh.Run()
+        'ConvertSphereMeshtoTriangleMeshCustomMemoryLayout.Run()
+        ConvertBoxMeshtoTriangleMeshCustomMemoryLayout.Run()
 
         ' Stop before exiting
         Console.WriteLine(vbLf & vbLf & "Program Finished. Press any key to exit....")

@@ -46,9 +46,8 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.3D, Version=1.3.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aspose.3D.1.3.0.0\lib\net20\Aspose.3D.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Aspose.3D">
+      <HintPath>..\packages\Aspose.3D.1.5.0.0\lib\net20\Aspose.3D.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -71,6 +70,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="3DModeling\Primitive3DModels.vb" />
     <Compile Include="3DScene\FlipCoordinateSystem.vb" />
     <Compile Include="Animation\PropertyToDocument.vb" />
     <Compile Include="Animation\SetupTargetAndCamera.vb" />
@@ -106,6 +106,15 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="RunExamples.vb" />
+    <Compile Include="Working-with-Objects\ConvertBoxMeshtoTriangleMeshCustomMemoryLayout.vb" />
+    <Compile Include="Working-with-Objects\ConvertBoxPrimitivetoMesh.vb" />
+    <Compile Include="Working-with-Objects\ConvertCylinderPrimitivetoMesh.vb" />
+    <Compile Include="Working-with-Objects\ConvertPlanePrimitivetoMesh.vb" />
+    <Compile Include="Working-with-Objects\ConvertSphereMeshtoTriangleMeshCustomMemoryLayout.vb" />
+    <Compile Include="Working-with-Objects\ConvertSpherePrimitivetoMesh.vb" />
+    <Compile Include="Working-with-Objects\ConvertTorusPrimitivetoMesh.vb" />
+    <Compile Include="Working-with-Objects\SplitAllMeshesofScenebyMaterial.vb" />
+    <Compile Include="Working-with-Objects\SplitMeshbyMaterial.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

@@ -29,7 +29,7 @@ namespace CSharp
             //// =====================================================
             //// =====================================================
 
-            CreateEmpty3DDocument.Run();
+            //CreateEmpty3DDocument.Run();
             //DocumentToStream.Run();
             //ReadExistingScene.Run();
 
@@ -48,7 +48,7 @@ namespace CSharp
             //// =====================================================
             //// =====================================================
 
-            FlipCoordinateSystem.Run();
+            //FlipCoordinateSystem.Run();
 
             //// =====================================================
             //// =====================================================
@@ -79,7 +79,7 @@ namespace CSharp
             //// =====================================================
             //// =====================================================
 
-            Primitive3DModels.Run();
+            //Primitive3DModels.Run();
 
             //// =====================================================
             //// =====================================================
@@ -87,14 +87,13 @@ namespace CSharp
             //// =====================================================
             //// =====================================================
 
-            SplitMeshbyMaterial.Run();
-            //SplitAllMeshesofScenebyMaterial.Run();
-            ConvertSpherePrimitivetoMesh.Run();
-            ConvertBoxPrimitivetoMesh.Run();
-            ConvertPlanePrimitivetoMesh.Run();
-            ConvertCylinderPrimitivetoMesh.Run();
-            ConvertTorusPrimitivetoMesh.Run();
-            ConvertSphereMeshtoTriangleMeshCustomMemoryLayout.Run();
+            //SplitMeshbyMaterial.Run();            
+            //ConvertSpherePrimitivetoMesh.Run();
+            //ConvertBoxPrimitivetoMesh.Run();
+            //ConvertPlanePrimitivetoMesh.Run();
+            //ConvertCylinderPrimitivetoMesh.Run();
+            //ConvertTorusPrimitivetoMesh.Run();
+            //ConvertSphereMeshtoTriangleMeshCustomMemoryLayout.Run();
             ConvertBoxMeshtoTriangleMeshCustomMemoryLayout.Run();
 
             // Stop before exiting
