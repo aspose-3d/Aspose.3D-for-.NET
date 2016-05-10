@@ -9,6 +9,8 @@ using CSharp.Animation;
 using CSharp.Geometry_Hierarchy;
 using CSharp._3DScene;
 using System.Reflection;
+using CSharp._3DModeling;
+using CSharp._Working_with_Objects;
 
 namespace CSharp
 {
@@ -16,7 +18,7 @@ namespace CSharp
     {
         [STAThread]
         public static void Main()
-        {            
+        {
             Console.WriteLine("Open RunExamples.cs. In Main() method, Un-comment the example that you want to run");
             Console.WriteLine("=====================================================");
             // Un-comment the one you want to try out
@@ -71,6 +73,30 @@ namespace CSharp
             //SetupNormalsOnCube.Run();
             //TriangulateMesh.Run();
 
+            //// =====================================================
+            //// =====================================================
+            //// 3D Modeling
+            //// =====================================================
+            //// =====================================================
+
+            Primitive3DModels.Run();
+
+            //// =====================================================
+            //// =====================================================
+            //// Working with Objects
+            //// =====================================================
+            //// =====================================================
+
+            SplitMeshbyMaterial.Run();
+            //SplitAllMeshesofScenebyMaterial.Run();
+            ConvertSpherePrimitivetoMesh.Run();
+            ConvertBoxPrimitivetoMesh.Run();
+            ConvertPlanePrimitivetoMesh.Run();
+            ConvertCylinderPrimitivetoMesh.Run();
+            ConvertTorusPrimitivetoMesh.Run();
+            ConvertSphereMeshtoTriangleMeshCustomMemoryLayout.Run();
+            ConvertBoxMeshtoTriangleMeshCustomMemoryLayout.Run();
+
             // Stop before exiting
             Console.WriteLine("\n\nProgram Finished. Press any key to exit....");
             Console.ReadKey();
@@ -94,10 +120,10 @@ namespace CSharp
             return Path.Combine(startDirectory, "Data\\");
         }
         public static string GetOutputFilePath(String inputFilePath)
-        {           
+        {
             string extension = Path.GetExtension(inputFilePath);
             string filename = Path.GetFileNameWithoutExtension(inputFilePath);
-            return filename + "_out_" + extension;            
+            return filename + "_out_" + extension;
         }
     }
 }
