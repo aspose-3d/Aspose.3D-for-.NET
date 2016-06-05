@@ -33,7 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Aspose.3D">
-      <HintPath>..\packages\Aspose.3D.1.5.0.0\lib\net20\Aspose.3D.dll</HintPath>
+      <HintPath>..\packages\Aspose.3D.1.6.1.0\lib\net40\Aspose.3D.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
