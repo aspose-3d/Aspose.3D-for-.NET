@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using CSharp.Loading_Saving;
-using CSharp.AssetInformation;
-using CSharp.Animation;
-using CSharp.Geometry_Hierarchy;
-using CSharp._3DScene;
+using Aspose._3D.Examples.CSharp.Loading_Saving;
+using Aspose._3D.Examples.CSharp.AssetInformation;
+using Aspose._3D.Examples.CSharp.Animation;
+using Aspose._3D.Examples.CSharp.Geometry_Hierarchy;
+using Aspose._3D.Examples.CSharp._3DScene;
 using System.Reflection;
-using CSharp._3DModeling;
-using CSharp._Working_with_Objects;
+using Aspose._3D.Examples.CSharp._3DModeling;
+using Aspose._3D.Examples.CSharp._Working_with_Objects;
 
-namespace CSharp
+namespace Aspose._3D.Examples.CSharp
 {
     class RunExamples
     {
         [STAThread]
         public static void Main()
         {
-            Console.WriteLine("Open RunExamples.cs. In Main() method, Un-comment the example that you want to run");
+            Console.WriteLine("Open RunExamples.cs. \nIn Main() method uncomment the example that you want to run.");
             Console.WriteLine("=====================================================");
-            // Un-comment the one you want to try out
+            // Uncomment the one you want to try out
 
             //// =====================================================
             //// =====================================================

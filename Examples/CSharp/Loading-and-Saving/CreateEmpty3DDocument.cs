@@ -2,7 +2,7 @@
 using System.IO;
 using System.Collections;
 using Aspose.ThreeD;
-namespace CSharp.Loading_Saving
+namespace Aspose._3D.Examples.CSharp.Loading_Saving
 {
     class CreateEmpty3DDocument
     {

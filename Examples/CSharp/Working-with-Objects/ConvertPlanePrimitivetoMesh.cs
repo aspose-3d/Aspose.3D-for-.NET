@@ -6,7 +6,7 @@ using Aspose.ThreeD.Animation;
 using Aspose.ThreeD.Entities;
 using Aspose.ThreeD.Formats;
 
-namespace CSharp._Working_with_Objects
+namespace Aspose._3D.Examples.CSharp._Working_with_Objects
 {
     class ConvertPlanePrimitivetoMesh
     {

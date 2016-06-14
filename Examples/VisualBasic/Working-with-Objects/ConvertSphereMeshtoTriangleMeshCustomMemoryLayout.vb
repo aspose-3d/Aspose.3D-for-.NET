@@ -33,6 +33,8 @@ Namespace Working_with_Objects
             'get the 32bit and 16bit indices
             Dim indices32bit As Integer()
             Dim indices16bit As UShort()
+            indices32bit = Nothing
+            indices16bit = Nothing
             myMesh.IndicesToArray(indices32bit)
             myMesh.IndicesToArray(indices16bit)
             Using ms As New MemoryStream()

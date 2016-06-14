@@ -3,7 +3,7 @@ using System.IO;
 using System.Collections;
 using Aspose.ThreeD;
 
-namespace CSharp.AssetInformation
+namespace Aspose._3D.Examples.CSharp.AssetInformation
 {
     class InformationToScene
     {

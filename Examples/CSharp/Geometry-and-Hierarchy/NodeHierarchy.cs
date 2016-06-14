@@ -5,7 +5,7 @@ using Aspose.ThreeD;
 using Aspose.ThreeD.Entities;
 using Aspose.ThreeD.Utilities;
 
-namespace CSharp.Geometry_Hierarchy
+namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
 {
     class NodeHierarchy
     {

@@ -6,7 +6,7 @@ using Aspose.ThreeD.Animation;
 using Aspose.ThreeD.Entities;
 using Aspose.ThreeD.Utilities;
 
-namespace CSharp.Animation
+namespace Aspose._3D.Examples.CSharp.Animation
 {
     class SetupTargetAndCamera
     {

@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{66447F5E-D20F-448A-8D2F-8522B54B6BF7}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>VisualBasic.RunExamples</StartupObject>
-    <RootNamespace>VisualBasic</RootNamespace>
-    <AssemblyName>VisualBasic</AssemblyName>
+    <StartupObject>Aspose._3D.Examples.VisualBasic.RunExamples</StartupObject>
+    <RootNamespace>Aspose._3D.Examples.VisualBasic</RootNamespace>
+    <AssemblyName>Aspose._3D.Examples.VisualBasic</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Console</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -21,7 +21,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>VisualBasic.xml</DocumentationFile>
+    <DocumentationFile>Aspose._3D.Examples.VisualBasic.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -31,7 +31,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>VisualBasic.xml</DocumentationFile>
+    <DocumentationFile>Aspose._3D.Examples.VisualBasic.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>

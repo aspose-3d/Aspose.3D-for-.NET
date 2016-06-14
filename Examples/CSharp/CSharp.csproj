@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Aspose._3D.Examples.CSharp</RootNamespace>
-    <AssemblyName>Aspose.3D.Examples.CSharp</AssemblyName>
+    <AssemblyName>Aspose._3D.Examples.CSharp</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

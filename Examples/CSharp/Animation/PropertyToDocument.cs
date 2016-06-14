@@ -5,9 +5,9 @@ using Aspose.ThreeD;
 using Aspose.ThreeD.Animation;
 using Aspose.ThreeD.Entities;
 using Aspose.ThreeD.Utilities;
-using CSharp.Geometry_Hierarchy;
+using Aspose._3D.Examples.CSharp.Geometry_Hierarchy;
 
-namespace CSharp.Animation
+namespace Aspose._3D.Examples.CSharp.Animation
 {
     class PropertyToDocument
     {

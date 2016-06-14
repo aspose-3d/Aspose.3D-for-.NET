@@ -1,18 +1,18 @@
 ﻿Imports System.IO
-Imports VisualBasic.Geometry_Hierarchy
-Imports VisualBasic.Animation
-Imports VisualBasic.AssetInformation
-Imports VisualBasic.Loading_Saving
-Imports VisualBasic._3DScene
-Imports VisualBasic._3DModeling
-Imports VisualBasic.Working_with_Objects
+Imports Aspose._3D.Examples.VisualBasic.Geometry_Hierarchy
+Imports Aspose._3D.Examples.VisualBasic.Animation
+Imports Aspose._3D.Examples.VisualBasic.AssetInformation
+Imports Aspose._3D.Examples.VisualBasic.Loading_Saving
+Imports Aspose._3D.Examples.VisualBasic._3DScene
+Imports Aspose._3D.Examples.VisualBasic._3DModeling
+Imports Aspose._3D.Examples.VisualBasic.Working_with_Objects
 
 Module RunExamples
     Sub Main()
-        Console.WriteLine("Open RunExamples.vb. In Main() method, Un-comment the example that you want to run")
+        Console.WriteLine("Open RunExamples.vb. " & vbLf & "In Main() method uncomment the example that you want to run.")
         Console.WriteLine("=====================================================")
 
-        ' Un-comment the one you want to try out
+        ' Uncomment the one you want to try out
 
         '' =====================================================
         '' =====================================================

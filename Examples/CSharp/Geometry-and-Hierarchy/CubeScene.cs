@@ -4,7 +4,7 @@ using System.IO;
 using Aspose.ThreeD;
 using Aspose.ThreeD.Entities;
 
-namespace CSharp.Geometry_Hierarchy
+namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
 {
     class CubeScene
     {

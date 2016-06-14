@@ -6,7 +6,7 @@ using Aspose.ThreeD.Shading;
 using System.Drawing;
 using System.IO;
 
-namespace CSharp.Geometry_Hierarchy
+namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
 {
     class MaterialToCube
     {

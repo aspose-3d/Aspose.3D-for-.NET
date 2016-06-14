@@ -6,7 +6,7 @@ using Aspose.ThreeD.Animation;
 using Aspose.ThreeD.Entities;
 using Aspose.ThreeD.Formats;
 
-namespace CSharp._3DScene
+namespace Aspose._3D.Examples.CSharp._3DScene
 {
     class FlipCoordinateSystem
     {

@@ -6,7 +6,7 @@ using Aspose.ThreeD.Animation;
 using Aspose.ThreeD.Entities;
 using Aspose.ThreeD.Formats;
 
-namespace CSharp._3DModeling
+namespace Aspose._3D.Examples.CSharp._3DModeling
 {
     class Primitive3DModels
     {

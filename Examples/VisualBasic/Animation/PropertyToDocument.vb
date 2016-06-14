@@ -2,7 +2,7 @@
 Imports Aspose.ThreeD.Animation
 Imports Aspose.ThreeD.Entities
 Imports Aspose.ThreeD.Utilities
-Imports VisualBasic.Geometry_Hierarchy
+Imports Aspose._3D.Examples.VisualBasic.Geometry_Hierarchy
 
 Namespace Animation
     Public Class PropertyToDocument

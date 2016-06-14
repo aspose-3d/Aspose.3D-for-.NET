@@ -6,7 +6,7 @@ using Aspose.ThreeD.Entities;
 using Aspose.ThreeD.Utilities;
 using Aspose.ThreeD.Shading;
 
-namespace CSharp.Geometry_Hierarchy
+namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
 {
     class MeshGeometryData
     {

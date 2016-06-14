@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-namespace CSharp.License
+namespace Aspose._3D.Examples.CSharp.License
 {
     class ApplyLicense
     {
@@ -8,14 +8,14 @@ namespace CSharp.License
         {
             //ExStart:ApplyLicenseUsingFile
             Aspose.ThreeD.License license = new Aspose.ThreeD.License();
-            license.SetLicense("Aspose.3D.lic");
+            license.SetLicense("Aspose._3D.lic");
             //ExEnd:ApplyLicenseUsingFile
         }
         public static void UsingStreamObject()
         {
             //ExStart:ApplyLicenseUsingStreamObject
             Aspose.ThreeD.License license = new Aspose.ThreeD.License();
-            FileStream myStream = new FileStream("Aspose.3D.lic", FileMode.Open);
+            FileStream myStream = new FileStream("Aspose._3D.lic", FileMode.Open);
             license.SetLicense(myStream);
             //ExEnd:ApplyLicenseUsingStreamObject
         }
@@ -26,7 +26,7 @@ namespace CSharp.License
             Aspose.ThreeD.License license = new Aspose.ThreeD.License();
 
             // Pass only the name of the license file embedded in the assembly
-            license.SetLicense("Aspose.3D.lic");
+            license.SetLicense("Aspose._3D.lic");
             //ExEnd:ApplyLicenseUsingEmbeddedResource
         }
     }

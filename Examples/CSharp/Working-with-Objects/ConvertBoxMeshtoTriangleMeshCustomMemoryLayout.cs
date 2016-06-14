@@ -8,7 +8,7 @@ using Aspose.ThreeD.Formats;
 using Aspose.ThreeD.Utilities;
 using System.Runtime.InteropServices;
 
-namespace CSharp._Working_with_Objects
+namespace Aspose._3D.Examples.CSharp._Working_with_Objects
 {
     class ConvertBoxMeshtoTriangleMeshCustomMemoryLayout
     {
