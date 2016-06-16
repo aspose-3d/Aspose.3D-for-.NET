@@ -1,6 +1,7 @@
 ##Aspose.3D for .NET Examples
 
-This package contains C# and VB.NET Example Projects for [Aspose.3D for .NET](http://www.aspose.com/.net/3d-component.aspx).
+This repository contains C# and VB.NET Example Projects for [Aspose.3D for .NET](http://www.aspose.com/.net/3d-component.aspx) which will help you learn Aspose.3D for .NET and write your own applications.
+
 
 <p align="center">
   <a title="Download Examples ZIP" href="https://github.com/aspose3d/Aspose_3D_NET/archive/master.zip">
@@ -10,4 +11,10 @@ This package contains C# and VB.NET Example Projects for [Aspose.3D for .NET](ht
 
 ## How to Run the Examples?
 
-There are two Visual projects, one for C# and other for Visual Basic examples. You can just download the repository, browse the folder and open the file in Visual Studio. For more details, visit our [documentation website](http://www.aspose.com/docs/display/3dnet/How+to+Run+the+Examples).
+After you have downloaded the ZIP file from the Download ZIP link above, please check the following link with detailed instructions on how to run these Source Code Examples.
+
+[How to Run the Examples](http://www.aspose.com/docs/display/3dnet/How+to+Run+the+Examples)
+
+Please feel free to contact us if you have any question, issue or suggestion.
+
+
