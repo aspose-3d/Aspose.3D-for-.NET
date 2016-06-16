@@ -11,7 +11,7 @@ This repository contains C# and VB.NET Example Projects for [Aspose.3D for .NET]
 
 ## How to Run the Examples?
 
-After you have downloaded the ZIP file from the Download ZIP link above, please check the following link with detailed instructions on how to run these Source Code Examples.
+After you have downloaded the ZIP file from the [Download ZIP](https://github.com/aspose3d/Aspose_3D_NET/archive/master.zip) link above, please check the following link with detailed instructions on how to run these Source Code Examples.
 
 [How to Run the Examples](http://www.aspose.com/docs/display/3dnet/How+to+Run+the+Examples)
 
