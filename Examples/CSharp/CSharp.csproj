@@ -33,8 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.3D">
-      <HintPath>..\packages\Aspose.3D.1.6.1.0\lib\net40\Aspose.3D.dll</HintPath>
+    <Reference Include="Aspose.3D, Version=1.7.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Aspose.3D.1.7.0.0\lib\net40\Aspose.3D.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="3DModeling\Primitive3DModels.cs" />
+    <Compile Include="Geometry-and-Hierarchy\ConcatenateQuaternions.cs" />
+    <Compile Include="Rendering\CastAndReceiveShadow.cs" />
     <Compile Include="3DScene\FlipCoordinateSystem .cs" />
     <Compile Include="Animation\PropertyToDocument.cs" />
     <Compile Include="Animation\SetupTargetAndCamera.cs" />
@@ -65,6 +68,7 @@
     <Compile Include="Loading-and-Saving\CreateEmpty3DDocument.cs" />
     <Compile Include="Loading-and-Saving\ReadExistingScene.cs" />
     <Compile Include="Loading-and-Saving\Save3DScene.cs" />
+    <Compile Include="Rendering\Render3DModelImageFromCamera.cs" />
     <Compile Include="RunExamples.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AssetInformation\InformationToScene.cs" />
@@ -76,6 +80,7 @@
     <Compile Include="Working-with-Objects\ConvertBoxMeshtoTriangleMeshCustomMemoryLayout.cs" />
     <Compile Include="Working-with-Objects\ConvertSphereMeshtoTriangleMeshCustomMemoryLayout.cs" />
     <Compile Include="Working-with-Objects\SplitAllMeshesofScenebyMaterial.cs" />
+    <Compile Include="Working-with-Objects\GenerateDataForMeshes.cs" />
     <Compile Include="Working-with-Objects\SplitMeshbyMaterial.cs" />
   </ItemGroup>
   <ItemGroup>

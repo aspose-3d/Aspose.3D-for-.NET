@@ -47,8 +47,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.3D">
-      <HintPath>..\packages\Aspose.3D.1.6.1.0\lib\net40\Aspose.3D.dll</HintPath>
+    <Reference Include="Aspose.3D, Version=1.7.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Aspose.3D.1.7.0.0\lib\net40\Aspose.3D.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -77,6 +78,7 @@
     <Compile Include="Animation\SetupTargetAndCamera.vb" />
     <Compile Include="AssetInformation\AssetInformation.vb" />
     <Compile Include="Geometry-and-Hierarchy\Common.vb" />
+    <Compile Include="Geometry-and-Hierarchy\ConcatenateQuaternions.vb" />
     <Compile Include="Geometry-and-Hierarchy\CubeScene.vb" />
     <Compile Include="Geometry-and-Hierarchy\MaterialToCube.vb" />
     <Compile Include="Geometry-and-Hierarchy\MeshGeometryData.vb" />
@@ -106,6 +108,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Rendering\CastAndReceiveShadow.vb" />
+    <Compile Include="Rendering\Render3DModelImageFromCamera.vb" />
     <Compile Include="RunExamples.vb" />
     <Compile Include="Working-with-Objects\ConvertBoxMeshtoTriangleMeshCustomMemoryLayout.vb" />
     <Compile Include="Working-with-Objects\ConvertBoxPrimitivetoMesh.vb" />
@@ -114,6 +118,7 @@
     <Compile Include="Working-with-Objects\ConvertSphereMeshtoTriangleMeshCustomMemoryLayout.vb" />
     <Compile Include="Working-with-Objects\ConvertSpherePrimitivetoMesh.vb" />
     <Compile Include="Working-with-Objects\ConvertTorusPrimitivetoMesh.vb" />
+    <Compile Include="Working-with-Objects\GenerateDataForMeshes.vb" />
     <Compile Include="Working-with-Objects\SplitAllMeshesofScenebyMaterial.vb" />
     <Compile Include="Working-with-Objects\SplitMeshbyMaterial.vb" />
   </ItemGroup>

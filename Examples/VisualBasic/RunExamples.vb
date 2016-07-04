@@ -6,6 +6,7 @@ Imports Aspose._3D.Examples.VisualBasic.Loading_Saving
 Imports Aspose._3D.Examples.VisualBasic._3DScene
 Imports Aspose._3D.Examples.VisualBasic._3DModeling
 Imports Aspose._3D.Examples.VisualBasic.Working_with_Objects
+Imports Aspose._3D.Examples.VisualBasic.Rendering
 
 Module RunExamples
     Sub Main()
@@ -64,6 +65,7 @@ Module RunExamples
         'SetupNormalsOnCube.Run()
         'SetupUVOnCube.Run()
         'TriangulateMesh.Run()
+        'ConcatenateQuaternions.Run()
 
         '' =====================================================
         '' =====================================================
@@ -86,7 +88,17 @@ Module RunExamples
         'ConvertCylinderPrimitivetoMesh.Run()
         'ConvertTorusPrimitivetoMesh.Run()
         'ConvertSphereMeshtoTriangleMeshCustomMemoryLayout.Run()
-        ConvertBoxMeshtoTriangleMeshCustomMemoryLayout.Run()
+        'ConvertBoxMeshtoTriangleMeshCustomMemoryLayout.Run()
+        GenerateDataForMeshes.Run()
+
+        '' =====================================================
+        '' =====================================================
+        '' Rendering
+        '' =====================================================
+        '' =====================================================
+
+        'CastAndReceiveShadow.Run()
+        'Render3DModelImageFromCamera.Run()
 
         ' Stop before exiting
         Console.WriteLine(vbLf & vbLf & "Program Finished. Press any key to exit....")
