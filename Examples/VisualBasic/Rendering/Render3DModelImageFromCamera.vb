@@ -34,8 +34,8 @@ Namespace Rendering
                 ' Turn on shadow
                 opt.EnableShadows = True
                 ' Render the scene in given camera's perspective into specified png file with size 1024x1024
-                'ExEnd:Render3DModelImageFromCamera  
                 scene.Render(camera, MyDir & Convert.ToString("Render3DModelImageFromCamera_out_.png"), New Size(1024, 1024), ImageFormat.Png, opt)
+                'ExEnd:Render3DModelImageFromCamera  
             Catch ex As Exception
                 Console.WriteLine(ex.Message)
             End Try
