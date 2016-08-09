@@ -25,7 +25,7 @@ Namespace Geometry_Hierarchy
             ' Create UVset
             Dim elementUV As VertexElementUV = mesh.CreateElementUV(TextureMapping.Diffuse, MappingMode.PolygonVertex, ReferenceMode.IndexToDirect)
             ' Copy the data to the UV vertex element
-            elementUV.Data.AddRange(uvs)
+            'elementUV.Data.AddRange(uvs)
             elementUV.Indices.AddRange(uvsId)
             ' ExEnd:SetupUVOnCube
 

@@ -4,6 +4,7 @@ Imports Aspose._3D.Examples.VisualBasic.Animation
 Imports Aspose._3D.Examples.VisualBasic.AssetInformation
 Imports Aspose._3D.Examples.VisualBasic.Loading_Saving
 Imports Aspose._3D.Examples.VisualBasic._3DScene
+Imports Aspose._3D.Examples.VisualBasic._3DViewPorts
 Imports Aspose._3D.Examples.VisualBasic._3DModeling
 Imports Aspose._3D.Examples.VisualBasic.Working_with_Objects
 Imports Aspose._3D.Examples.VisualBasic.Rendering
@@ -89,7 +90,7 @@ Module RunExamples
         'ConvertTorusPrimitivetoMesh.Run()
         'ConvertSphereMeshtoTriangleMeshCustomMemoryLayout.Run()
         'ConvertBoxMeshtoTriangleMeshCustomMemoryLayout.Run()
-        GenerateDataForMeshes.Run()
+        'GenerateDataForMeshes.Run()
 
         '' =====================================================
         '' =====================================================
@@ -99,6 +100,15 @@ Module RunExamples
 
         'CastAndReceiveShadow.Run()
         'Render3DModelImageFromCamera.Run()
+
+        '' =====================================================
+        '' =====================================================
+        '' 3DViewPorts
+        '' =====================================================
+        '' =====================================================
+
+        'ApplyVisualEffects.Run()
+        'CaptureViewPort.Run()
 
         ' Stop before exiting
         Console.WriteLine(vbLf & vbLf & "Program Finished. Press any key to exit....")

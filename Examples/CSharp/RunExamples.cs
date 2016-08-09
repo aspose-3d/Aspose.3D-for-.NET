@@ -11,6 +11,7 @@ using Aspose._3D.Examples.CSharp.Geometry_Hierarchy;
 using Aspose._3D.Examples.CSharp._3DScene;
 using System.Reflection;
 using Aspose._3D.Examples.CSharp._3DModeling;
+using Aspose._3D.Examples.CSharp._3DViewPorts;
 using Aspose._3D.Examples.CSharp._Working_with_Objects;
 
 namespace Aspose._3D.Examples.CSharp
@@ -73,7 +74,7 @@ namespace Aspose._3D.Examples.CSharp
             //MeshGeometryData.Run();
             //SetupNormalsOnCube.Run();
             //TriangulateMesh.Run();
-            ConcatenateQuaternions.Run();
+            //ConcatenateQuaternions.Run();
 
             //// =====================================================
             //// =====================================================
@@ -106,6 +107,14 @@ namespace Aspose._3D.Examples.CSharp
             // =====================================================
             //Render3DModelImageFromCamera.Run();
             //CastAndReceiveShadow.Run();
+
+            // =====================================================
+            // =====================================================
+            // 3DViewPorts
+            // =====================================================
+            // =====================================================
+            //ApplyVisualEffects.Run();
+            //CaptureViewPort.Run();
 
             // Stop before exiting
             Console.WriteLine("\n\nProgram Finished. Press any key to exit....");
