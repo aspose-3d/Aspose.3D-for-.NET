@@ -8,11 +8,11 @@ Namespace Geometry_Hierarchy
         Public Shared Sub Run()
             ' ExStart:SetupUVOnCube
             ' UVs
-            Dim uvs As Vector2() = New Vector2() {
-                New Vector2(0.0, 1.0),
-                New Vector2(1.0, 0.0),
-                New Vector2(0.0, 0.0),
-                New Vector2(1.0, 1.0)
+            Dim uvs As Vector4() = New Vector4() {
+                New Vector4(0.0, 1.0, 0.0, 1.0),
+                New Vector4(1.0, 0.0, 0.0, 1.0),
+                New Vector4(0.0, 0.0, 0.0, 1.0),
+                New Vector4(1.0, 1.0, 0.0, 1.0)
             }
 
             ' Indices of the uvs per each polygon

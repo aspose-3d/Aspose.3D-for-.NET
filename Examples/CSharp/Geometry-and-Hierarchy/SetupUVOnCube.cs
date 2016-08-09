@@ -14,12 +14,12 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
         {
             //ExStart:SetupUVOnCube
             // UVs
-            Vector2[] uvs = new Vector2[]
+            Vector4[] uvs = new Vector4[]
             {
-                new Vector2( 0.0, 1.0),
-                new Vector2( 1.0, 0.0),
-                new Vector2( 0.0, 0.0),
-                new Vector2( 1.0, 1.0)
+                new Vector4( 0.0, 1.0,0.0, 1.0),
+                new Vector4( 1.0, 0.0,0.0, 1.0),
+                new Vector4( 0.0, 0.0,0.0, 1.0),
+                new Vector4( 1.0, 1.0,0.0, 1.0)
             };
 
             // Indices of the uvs per each polygon
@@ -34,7 +34,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
             // Create UVset
             VertexElementUV elementUV = mesh.CreateElementUV(TextureMapping.Diffuse, MappingMode.PolygonVertex, ReferenceMode.IndexToDirect);
             // Copy the data to the UV vertex element 
-            //elementUV.Data.AddRange(uvs);
+            elementUV.Data.AddRange(uvs);
             elementUV.Indices.AddRange(uvsId);
             //ExEnd:SetupUVOnCube
 
