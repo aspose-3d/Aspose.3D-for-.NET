@@ -33,9 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.3D, Version=2.0.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
+    <Reference Include="Aspose.3D, Version=2.1.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aspose.3D.2.0.0.0\lib\net40\Aspose.3D.dll</HintPath>
+      <HintPath>..\packages\Aspose.3D.2.1.0.0\lib\net40\Aspose.3D.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,6 +51,9 @@
     <Compile Include="3DViewPorts\CaptureViewPort.cs" />
     <Compile Include="3DViewPorts\ApplyVisualEffects.cs" />
     <Compile Include="Geometry-and-Hierarchy\ConcatenateQuaternions.cs" />
+    <Compile Include="Loading-and-Saving\SaveOptions.cs" />
+    <Compile Include="Loading-and-Saving\LoadOptions.cs" />
+    <Compile Include="Loading-and-Saving\DetectFormat.cs" />
     <Compile Include="Rendering\CastAndReceiveShadow.cs" />
     <Compile Include="3DScene\FlipCoordinateSystem .cs" />
     <Compile Include="Animation\PropertyToDocument.cs" />

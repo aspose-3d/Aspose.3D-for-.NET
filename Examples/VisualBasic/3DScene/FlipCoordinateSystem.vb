@@ -13,9 +13,9 @@ Namespace _3DScene
             Dim MyDir As String = RunExamples.GetDataDir()
             ' Initialize scene object
             Dim scene As New Scene()
-            scene.Open(MyDir & Convert.ToString("camera.3ds"), New Discreet3DSConfig() With {.FlipCoordinateSystem = True})
+            scene.Open(MyDir & Convert.ToString("camera.3ds"), FileFormat.Discreet3DS)
             MyDir = MyDir & Convert.ToString("FlipCoordinateSystem.obj")
-            scene.Save(MyDir, New ObjConfig() With {.EnableMaterials = False})
+            scene.Save(MyDir, FileFormat.WavefrontOBJ)
             ' ExEnd:FlipCoordinateSystem
             Console.WriteLine(Convert.ToString(vbLf & "Coordinate system has been flipped successfully." & vbLf & "File saved at ") & MyDir)
         End Sub

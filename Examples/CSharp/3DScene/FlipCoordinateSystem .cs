@@ -17,9 +17,9 @@ namespace Aspose._3D.Examples.CSharp._3DScene
             string MyDir = RunExamples.GetDataDir();            
             // Initialize scene object
             Scene scene = new Scene();
-            scene.Open(MyDir + "camera.3ds", new Discreet3DSConfig() { FlipCoordinateSystem = true });
+            scene.Open(MyDir + "camera.3ds", FileFormat.Discreet3DS);
             MyDir = MyDir + "FlipCoordinateSystem.obj";
-            scene.Save(MyDir, new ObjConfig() { EnableMaterials = false });
+            scene.Save(MyDir, FileFormat.WavefrontOBJ);
             //ExEnd:FlipCoordinateSystem
             Console.WriteLine("\nCoordinate system has been flipped successfully.\nFile saved at " + MyDir);
         }

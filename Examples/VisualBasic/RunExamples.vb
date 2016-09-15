@@ -25,6 +25,7 @@ Module RunExamples
         'Save3DScene.Run()
         'ReadExistingScene.Run()
         'CreateEmpty3DDocument.Run()
+        'DetectFormat.Run()
 
         '' =====================================================
         '' =====================================================

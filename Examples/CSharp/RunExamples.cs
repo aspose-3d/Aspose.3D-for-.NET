@@ -34,6 +34,7 @@ namespace Aspose._3D.Examples.CSharp
             //CreateEmpty3DDocument.Run();
             //DocumentToStream.Run();
             //ReadExistingScene.Run();
+            //DetectFormat.Run();
 
             // =====================================================
             // =====================================================

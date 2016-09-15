@@ -47,9 +47,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.3D, Version=2.0.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
+    <Reference Include="Aspose.3D, Version=2.1.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aspose.3D.2.0.0.0\lib\net40\Aspose.3D.dll</HintPath>
+      <HintPath>..\packages\Aspose.3D.2.1.0.0\lib\net40\Aspose.3D.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -93,8 +93,11 @@
     <Compile Include="Geometry-and-Hierarchy\TriangulateMesh.vb" />
     <Compile Include="License\ApplyLicense.vb" />
     <Compile Include="Loading-and-Saving\CreateEmpty3DDocument.vb" />
+    <Compile Include="Loading-and-Saving\DetectFormat.vb" />
+    <Compile Include="Loading-and-Saving\LoadOptions.vb" />
     <Compile Include="Loading-and-Saving\Save3DScene.vb" />
     <Compile Include="Loading-and-Saving\ReadExistingScene.vb" />
+    <Compile Include="Loading-and-Saving\SaveOptions.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
