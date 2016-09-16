@@ -66,18 +66,18 @@ namespace AssetBrowser.Controls
             //make the control selectable, so we can receive keyboard events
             SetStyle(ControlStyles.Selectable, true);
         }
-
+        //ExStart:RenderView
         private void InitRenderer()
         {
-            //create a default camera, because it's required during the viewport's creation.
+            // Create a default camera, because it's required during the viewport's creation.
             camera = new Camera();
             Scene.RootNode.CreateChildNode("camera", camera);
-            //create the renderer and render window from window's native handle
+            // Create the renderer and render window from window's native handle
             renderer = Renderer.CreateRenderer();
-            //Right now we only support native window handle from Microsoft Windows
-            //we'll support more platform on user's demand.
+            // Right now we only support native window handle from Microsoft Windows
+            // We'll support more platform on user's demand.
             window = renderer.RenderFactory.CreateRenderWindow(new RenderParameters(), Handle);
-            //create 4 viewports, the viewport's area is meanless here because we'll change it to the right area in the SetViewports later
+            // Create 4 viewports, the viewport's area is meanless here because we'll change it to the right area in the SetViewports later
             viewports = new[]
             {
                 window.CreateViewport(camera, Color.Gray, RelativeRectangle.FromScale(0, 0, 1, 1)),
@@ -92,28 +92,24 @@ namespace AssetBrowser.Controls
 
             GLSLSource src = new GLSLSource();
             src.VertexShader = @"#version 330 core
-layout (location = 0) in vec3 position;
-uniform mat4 matWorldViewProj;
-void main()
-{
-    gl_Position = matWorldViewProj * vec4(position, 1.0f);
-}";
-            src.FragmentShader = @"#version 330 core
-out vec4 color;
-void main()
-{
-    color = vec4(1, 1, 1, 1);
-}";
-            //define the input format used by GLSL vertex shader
-            //the format is 
-            // struct ControlPoint {
-            //    FVector3 Position;
-            //}
+            layout (location = 0) in vec3 position;
+            uniform mat4 matWorldViewProj;
+            void main()
+            {
+                gl_Position = matWorldViewProj * vec4(position, 1.0f);
+            }";
+                        src.FragmentShader = @"#version 330 core
+            out vec4 color;
+            void main()
+            {
+                color = vec4(1, 1, 1, 1);
+            }";
+            // Define the input format used by GLSL vertex shader the format is struct ControlPoint { FVector3 Position;}
             VertexDeclaration fd = new VertexDeclaration();
             fd.AddField(VertexFieldDataType.FVector3, VertexFieldSemantic.Position);
-            //compile shader from GLSL source code and specify the vertex input format
+            // Compile shader from GLSL source code and specify the vertex input format
             gridShader = renderer.RenderFactory.CreateShaderProgram(src, fd);
-            //connect GLSL uniform to renderer's internal variable
+            // Connect GLSL uniform to renderer's internal variable
             gridShader.Variables = new ShaderVariable[]
             {
                 new ShaderVariable("matWorldViewProj", VariableSemantic.MatrixWorldViewProj)
@@ -121,7 +117,7 @@ void main()
 
             SceneUpdated("");
         }
-
+        //ExEnd:RenderView
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);

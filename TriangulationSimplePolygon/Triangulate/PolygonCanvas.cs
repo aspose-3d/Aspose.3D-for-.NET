@@ -13,7 +13,7 @@ using Aspose.ThreeD.Utilities;
 
 namespace Triangulate
 {
-
+    // ExStart:TriangulationofaSimplePolygon
     public class Vertex
     {
         [Browsable(false)]
@@ -73,14 +73,14 @@ namespace Triangulate
             Size size = this.Size;
             if (points.Count == 1)
             {
-                //draw virtual line
+                // Draw virtual line
                 PointF pt = ToPoint(points[0], size);
                 g.DrawLine(virtualLine, mousePos, pt);
 
             }
             else if (points.Count == 2)
             {
-                //draw virtual triangle
+                // Draw virtual triangle
                 PointF pt1 = ToPoint(points[0], size);
                 PointF pt2 = ToPoint(points[1], size);
                 g.DrawLine(polygonPen, pt2, pt1);
@@ -89,15 +89,15 @@ namespace Triangulate
             }
             else
             {
-                //draw polygon and virtual line
+                // Draw polygon and virtual line
 
-                //draw triangles
+                // Draw triangles
                 if (triangles != null)
                 {
                     for (int i = 0; i < triangles.Length; i++)
                     {
                         PointF[] tri = ToPoints(triangles[i]);
-                        //Shrink the triangle so we can see each triangle
+                        // Shrink the triangle so we can see each triangle
                         float inv = 1.0f/3.0f;
                         float cx= (tri[0].X + tri[1].X + tri[2].X) * inv;
                         float cy= (tri[0].Y + tri[1].Y + tri[2].Y) * inv;
@@ -106,12 +106,12 @@ namespace Triangulate
                         Shrink(tri, 2, cx, cy);
                         Brush brush = brushes[i%brushes.Length];
                         g.FillPolygon(brush, tri);
-                        //draw triangle index
+                        // Draw triangle index
                         string text = string.Format("{0}/{1}/{2}", triangleIndices[i][0], triangleIndices[i][1], triangleIndices[i][2]);
                         g.DrawString(text, Font, textBrush, cx, cy);
                     }
                 }
-                //draw index of each vertex
+                // Draw index of each vertex
                 PointF[] polygon = ToPoints(this.points);
                 g.DrawPolygon(polygonPen, polygon);
                 for (int i = 0; i < polygon.Length; i++)
@@ -178,7 +178,7 @@ namespace Triangulate
             }
             else
             {
-                //erase last point
+                // Erase last point
                 if (points.Count > 0)
                 {
                     points.RemoveAt(points.Count - 1);
@@ -203,15 +203,15 @@ namespace Triangulate
             triangles = null;
             if (points.Count <= 3)
                 return;
-            //convert to Vector4[]
+            // Convert to Vector4[]
             Vector4[] controlPoints = new Vector4[points.Count];
             for (int i = 0; i < points.Count; i++)
             {
                 controlPoints[i] = new Vector4(points[i].X, points[i].Y, 0);
             }
-            //triangulate the polygon
+            // Triangulate the polygon
             triangleIndices = PolygonModifier.Triangulate(controlPoints);
-            //save triangle vertex for later drawing.
+            // Save triangle vertex for later drawing.
             triangles = new Vector4[triangleIndices.Length][];
             for (int i = 0; i < triangleIndices.Length; i++)
             {
@@ -228,4 +228,6 @@ namespace Triangulate
         }
 
     }
+    // ExEnd:TriangulationofaSimplePolygon
+
 }
