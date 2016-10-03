@@ -109,7 +109,7 @@ Module RunExamples
         '' =====================================================
 
         'ApplyVisualEffects.Run()
-        'CaptureViewPort.Run()
+        CaptureViewPort.Run()
 
         ' Stop before exiting
         Console.WriteLine(vbLf & vbLf & "Program Finished. Press any key to exit....")

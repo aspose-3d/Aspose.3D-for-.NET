@@ -45,7 +45,7 @@ Namespace Geometry_Hierarchy
             ' set file name
             diffuse.FileName = "embedded-texture.png"
             ' set binary content
-            diffuse.Content = File.ReadAllBytes("c:\\test.png")
+            diffuse.Content = File.ReadAllBytes(MyDir & "aspose-logo.jpg")
 
             ' Set color
             mat.SpecularColor = New Vector3(Color.Red)

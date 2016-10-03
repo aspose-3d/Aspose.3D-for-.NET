@@ -31,8 +31,7 @@ namespace Aspose._3D.Examples.CSharp
             // =====================================================
             // =====================================================
 
-            //CreateEmpty3DDocument.Run();
-            //DocumentToStream.Run();
+            //CreateEmpty3DDocument.Run();          
             //ReadExistingScene.Run();
             //DetectFormat.Run();
 
@@ -115,7 +114,7 @@ namespace Aspose._3D.Examples.CSharp
             // =====================================================
             // =====================================================
             //ApplyVisualEffects.Run();
-            //CaptureViewPort.Run();
+            CaptureViewPort.Run();
 
             // Stop before exiting
             Console.WriteLine("\n\nProgram Finished. Press any key to exit....");
