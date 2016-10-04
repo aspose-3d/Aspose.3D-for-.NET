@@ -47,9 +47,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.3D, Version=2.1.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
+    <Reference Include="Aspose.3D, Version=16.9.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Aspose.3D.2.1.0.0\lib\net40\Aspose.3D.dll</HintPath>
+      <HintPath>..\packages\Aspose.3D.16.9.0.0\lib\net40\Aspose.3D.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -94,7 +94,11 @@
     <Compile Include="License\ApplyLicense.vb" />
     <Compile Include="Loading-and-Saving\CreateEmpty3DDocument.vb" />
     <Compile Include="Loading-and-Saving\DetectFormat.vb" />
+    <Compile Include="Loading-and-Saving\ExtractAll3DScenes.vb" />
+    <Compile Include="Loading-and-Saving\ExtractRaw3DContentsFromPdf.vb" />
     <Compile Include="Loading-and-Saving\LoadOptions.vb" />
+    <Compile Include="Loading-and-Saving\OpenSceneFromProtectedPdf.vb" />
+    <Compile Include="Loading-and-Saving\Save3DInPdf.vb" />
     <Compile Include="Loading-and-Saving\Save3DScene.vb" />
     <Compile Include="Loading-and-Saving\ReadExistingScene.vb" />
     <Compile Include="Loading-and-Saving\SaveOptions.vb" />
@@ -113,9 +117,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Polygons\ConvertPolygonsToTriangles.vb" />
     <Compile Include="Rendering\CastAndReceiveShadow.vb" />
     <Compile Include="Rendering\Render3DModelImageFromCamera.vb" />
     <Compile Include="RunExamples.vb" />
+    <Compile Include="Working-with-Objects\BuildTangentAndBinormalData.vb" />
     <Compile Include="Working-with-Objects\ConvertBoxMeshtoTriangleMeshCustomMemoryLayout.vb" />
     <Compile Include="Working-with-Objects\ConvertBoxPrimitivetoMesh.vb" />
     <Compile Include="Working-with-Objects\ConvertCylinderPrimitivetoMesh.vb" />

@@ -27,7 +27,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             dstStream.Position = 0;
 
             // save Scene to a local path
-            scene.Save(MyDir + "output.fbx", FileFormat.FBX7500ASCII);
+            scene.Save(MyDir + "output_out_.fbx", FileFormat.FBX7500ASCII);
             //ExEnd:Save3DScene
 
             Console.WriteLine("\nConverted 3D document to stream successfully.");

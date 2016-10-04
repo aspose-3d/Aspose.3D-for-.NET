@@ -13,6 +13,7 @@ using System.Reflection;
 using Aspose._3D.Examples.CSharp._3DModeling;
 using Aspose._3D.Examples.CSharp._3DViewPorts;
 using Aspose._3D.Examples.CSharp._Working_with_Objects;
+using Aspose._3D.Examples.CSharp.Polygons;
 
 namespace Aspose._3D.Examples.CSharp
 {
@@ -34,6 +35,8 @@ namespace Aspose._3D.Examples.CSharp
             //CreateEmpty3DDocument.Run();          
             //ReadExistingScene.Run();
             //DetectFormat.Run();
+            //Save3DInPdf.Run();
+            //OpenSceneFromProtectedPdf.Run();          
 
             // =====================================================
             // =====================================================
@@ -99,6 +102,7 @@ namespace Aspose._3D.Examples.CSharp
             //ConvertSphereMeshtoTriangleMeshCustomMemoryLayout.Run();
             //ConvertBoxMeshtoTriangleMeshCustomMemoryLayout.Run();
             //GenerateDataForMeshes.Run();
+            BuildTangentAndBinormalData.Run();
 
             // =====================================================
             // =====================================================
@@ -114,7 +118,14 @@ namespace Aspose._3D.Examples.CSharp
             // =====================================================
             // =====================================================
             //ApplyVisualEffects.Run();
-            CaptureViewPort.Run();
+            //CaptureViewPort.Run();
+
+            // =====================================================
+            // =====================================================
+            // Polygons
+            // =====================================================
+            // =====================================================
+            //ConvertPolygonsToTriangles.Run();
 
             // Stop before exiting
             Console.WriteLine("\n\nProgram Finished. Press any key to exit....");

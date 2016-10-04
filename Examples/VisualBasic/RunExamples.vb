@@ -8,6 +8,7 @@ Imports Aspose._3D.Examples.VisualBasic._3DViewPorts
 Imports Aspose._3D.Examples.VisualBasic._3DModeling
 Imports Aspose._3D.Examples.VisualBasic.Working_with_Objects
 Imports Aspose._3D.Examples.VisualBasic.Rendering
+Imports Aspose._3D.Examples.VisualBasic.Polygons
 
 Module RunExamples
     Sub Main()
@@ -26,6 +27,8 @@ Module RunExamples
         'ReadExistingScene.Run()
         'CreateEmpty3DDocument.Run()
         'DetectFormat.Run()
+        'Save3DInPdf.Run()
+        'OpenSceneFromProtectedPdf.Run()
 
         '' =====================================================
         '' =====================================================
@@ -92,6 +95,7 @@ Module RunExamples
         'ConvertSphereMeshtoTriangleMeshCustomMemoryLayout.Run()
         'ConvertBoxMeshtoTriangleMeshCustomMemoryLayout.Run()
         'GenerateDataForMeshes.Run()
+        'BuildTangentAndBinormalData.Run()
 
         '' =====================================================
         '' =====================================================
@@ -109,7 +113,15 @@ Module RunExamples
         '' =====================================================
 
         'ApplyVisualEffects.Run()
-        CaptureViewPort.Run()
+        'CaptureViewPort.Run()
+
+        '' =====================================================
+        '' =====================================================
+        '' Polygons
+        '' =====================================================
+        '' =====================================================
+
+        'ConvertPolygonsToTriangles.Run()
 
         ' Stop before exiting
         Console.WriteLine(vbLf & vbLf & "Program Finished. Press any key to exit....")
