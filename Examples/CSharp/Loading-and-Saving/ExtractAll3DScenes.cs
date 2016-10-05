@@ -15,7 +15,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
 
-            byte[] password = Encoding.UTF8.GetBytes("password");
+            byte[] password = null;
             List<Scene> scenes = FileFormat.PDF.ExtractScene(MyDir + "House_Design.pdf", password);
             int i = 1;
             // Iterate through the scenes and save in 3D files

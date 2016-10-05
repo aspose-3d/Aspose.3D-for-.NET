@@ -11,7 +11,7 @@ Namespace Loading_Saving
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
 
-            Dim password As Byte() = Encoding.UTF8.GetBytes("password")
+            Dim password As Byte() = Nothing
             Dim scenes As List(Of Scene) = FileFormat.PDF.ExtractScene(MyDir & Convert.ToString("House_Design.pdf"), password)
             Dim i As Integer = 1
             ' Iterate through the scenes and save in 3D files

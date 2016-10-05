@@ -36,7 +36,8 @@ namespace Aspose._3D.Examples.CSharp
             //ReadExistingScene.Run();
             //DetectFormat.Run();
             //Save3DInPdf.Run();
-            //OpenSceneFromProtectedPdf.Run();          
+            //OpenSceneFromProtectedPdf.Run();
+            ExtractAll3DScenes.Run();
 
             // =====================================================
             // =====================================================
