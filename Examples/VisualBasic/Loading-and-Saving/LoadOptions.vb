@@ -65,5 +65,19 @@ Namespace Loading_Saving
             loadU3DOpts.LookupPaths = New List(Of String)(New String() {MyDir})
             'ExEnd:U3DLoadOption
         End Sub
+        Public Shared Sub glTFLoadOptions()
+            'ExStart:glTFLoadOptions
+            ' The path to the documents directory.
+            Dim MyDir As String = RunExamples.GetDataDir()
+            ' Initialize Scene class object
+            Dim scene As New Scene()
+            ' Set load options
+            Dim loadOpt As New GLTFLoadOptions()
+            ' The default value is true, usually we don't need to change it. Aspose.3D will automatically flip the V/T texture coordinate during load and save.       
+            loadOpt.FlipTexCoordV = True
+            scene.Open(MyDir & Convert.ToString("Duck.gltf"), loadOpt)
+            'ExEnd:glTFLoadOptions
+        End Sub
+
     End Class
 End Namespace

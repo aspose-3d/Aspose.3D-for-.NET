@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Collections;
 using Aspose.ThreeD;
 using Aspose.ThreeD.Formats;
+using Aspose.ThreeD.Entities;
+using Aspose.ThreeD.Utilities;
+using Aspose.ThreeD.Shading;
 
 namespace Aspose._3D.Examples.CSharp.Loading_Saving
 {
@@ -15,6 +18,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             Discreet3DSSaveOption();
             FBXSaveOption();
             ObjSaveOption();
+            glTFSaveOptions();
         }
         public static void ColladaSaveOption()
         {
@@ -132,6 +136,89 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // Compress the mesh data
             saveU3DOptions.MeshCompression = true;
             //ExEnd:U3DSaveOption
-        } 
+        }
+        public static void glTFSaveOptions()
+        {
+            //ExStart:glTFSaveOptions
+            // The path to the documents directory.
+            string MyDir = RunExamples.GetDataDir();
+            // Initialize Scene object
+            Scene scene = new Scene();
+            // Create a child node
+            scene.RootNode.CreateChildNode("sphere", new Sphere());
+            // Set glTF saving options. The code example embeds all assets into the target file usually a glTF file comes with some dependencies, a bin file for model's vertex/indices, two .glsl files for vertex/fragment shaders
+            // use opt.EmbedAssets to tells the Aspose.3D API to export scene and embed the dependencies inside the target file.
+            GLTFSaveOptions opt = new GLTFSaveOptions(FileContentType.ASCII);
+            opt.EmbedAssets = true;
+            // Use KHR_materials_common extension to define the material, thus no GLSL files are generated.
+            opt.UseCommonMaterials = true;
+            // Customize the name of the buffer file which defines model
+            opt.BufferFile = "mybuf.bin";
+            // Save glTF file
+            scene.Save(MyDir + "glTFSaveOptions_out_.gltf", opt);
+
+            // Save a binary glTF file using KHR_binary_glTF extension
+            scene.Save(MyDir + "glTFSaveOptions_out_.glb", FileFormat.GLTF_Binary);
+
+            // Developers may use saving options to create a binary glTF file using KHR_binary_glTF extension
+            GLTFSaveOptions opts = new GLTFSaveOptions(FileContentType.Binary);
+            scene.Save(MyDir + "Test_out_.glb", opts);
+            //ExEnd:glTFSaveOptions
+        }
+        public static void DiscardSavingMaterial()
+        {
+            //ExStart:DiscardSavingMaterial
+            // The code example uses the DummyFileSystem, so the material files are not created.
+            // The path to the documents directory.
+            string MyDir = RunExamples.GetDataDir();
+            // Initialize Scene object
+            Scene scene = new Scene();
+            // Create a child node
+            scene.RootNode.CreateChildNode("sphere", new Sphere()).Material = new PhongMaterial();
+            // Set saving options
+            ObjSaveOptions opt = new ObjSaveOptions();
+            opt.FileSystem = new DummyFileSystem();
+            // Save 3D scene
+            scene.Save(MyDir + "DiscardSavingMaterial_out_.obj", opt);
+            //ExEnd:DiscardSavingMaterial
+        }
+        public static void SavingDependenciesInLocalDirectory()
+        {
+            //ExStart:SavingDependenciesInLocalDirectory
+            // The code example uses the LocalFileSystem class to save dependencies to the local directory.
+            // The path to the documents directory.
+            string MyDir = RunExamples.GetDataDir();
+            // Initialize Scene object
+            Scene scene = new Scene();            
+            // Create a child node
+            scene.RootNode.CreateChildNode("sphere", new Sphere()).Material = new PhongMaterial();
+            // Set saving options
+            ObjSaveOptions opt = new ObjSaveOptions();
+            opt.FileSystem = new LocalFileSystem(MyDir);
+            // Save 3D scene
+            scene.Save(MyDir + "SavingDependenciesInLocalDirectory_out_.obj", opt);
+            //ExEnd:SavingDependenciesInLocalDirectory
+        }
+        public static void SavingDependenciesInMemoryFileSystem()
+        {
+            //ExStart:SavingDependenciesInMemoryFileSystem
+            // The code example uses the MemoryFileSystem to intercepts the dependencies writing.
+            // The path to the documents directory.
+            string MyDir = RunExamples.GetDataDir();
+            // Initialize Scene object
+            Scene scene = new Scene();
+            // Create a child node
+            scene.RootNode.CreateChildNode("sphere", new Sphere()).Material = new PhongMaterial();
+            // Set saving options
+            ObjSaveOptions opt = new ObjSaveOptions();
+            MemoryFileSystem mfs = new MemoryFileSystem();
+            opt.FileSystem = mfs;
+            // Save 3D scene
+            scene.Save(MyDir + "SavingDependenciesInMemoryFileSystem_out_.obj", opt);
+            // Get the test.mtl file content
+            byte[] mtl = mfs.GetFileContent(MyDir + "test.mtl");
+            File.WriteAllBytes( MyDir + "Material.mtl", mtl);
+            //ExEnd:SavingDependenciesInMemoryFileSystem
+        }
     }
 }

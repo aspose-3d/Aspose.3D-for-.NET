@@ -24,7 +24,7 @@ namespace Aspose._3D.Examples.CSharp
         {
             Console.WriteLine("Open RunExamples.cs. \nIn Main() method uncomment the example that you want to run.");
             Console.WriteLine("=====================================================");
-            // Uncomment the one you want to try out
+            // Uncomment the one you want to try out          
 
             // =====================================================
             // =====================================================
@@ -37,7 +37,9 @@ namespace Aspose._3D.Examples.CSharp
             //DetectFormat.Run();
             //Save3DInPdf.Run();
             //OpenSceneFromProtectedPdf.Run();
-            ExtractAll3DScenes.Run();
+            //ExtractAll3DScenes.Run();
+            SaveOptions.SavingDependenciesInMemoryFileSystem();
+            
 
             // =====================================================
             // =====================================================

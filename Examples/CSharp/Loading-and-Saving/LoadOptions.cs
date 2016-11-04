@@ -72,6 +72,20 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // Configure the look up paths to allow importer to find external dependencies.
             loadU3DOpts.LookupPaths = new List<string>(new string[] { MyDir });
             //ExEnd:U3DLoadOption
+        }
+        public static void glTFLoadOptions()
+        {
+            //ExStart:glTFLoadOptions
+            // The path to the documents directory.
+            string MyDir = RunExamples.GetDataDir();
+            // Initialize Scene class object
+            Scene scene = new Scene();
+            // Set load options
+            GLTFLoadOptions loadOpt = new GLTFLoadOptions();
+            // The default value is true, usually we don't need to change it. Aspose.3D will automatically flip the V/T texture coordinate during load and save.       
+            loadOpt.FlipTexCoordV = true;
+            scene.Open( MyDir + "Duck.gltf", loadOpt);
+            //ExEnd:glTFLoadOptions
         } 
     }
 }

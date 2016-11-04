@@ -4,6 +4,9 @@ Imports System.Collections.Generic
 Imports System.Collections
 Imports Aspose.ThreeD
 Imports Aspose.ThreeD.Formats
+Imports Aspose.ThreeD.Entities
+Imports Aspose.ThreeD.Utilities
+Imports Aspose.ThreeD.Shading
 
 Namespace Loading_Saving
     Class SaveOptions
@@ -124,5 +127,85 @@ Namespace Loading_Saving
             saveU3DOptions.MeshCompression = True
             'ExEnd:U3DSaveOption
         End Sub
+        Public Shared Sub glTFSaveOptions()
+            'ExStart:glTFSaveOptions
+            ' The path to the documents directory.
+            Dim MyDir As String = RunExamples.GetDataDir()
+            ' Initialize Scene object
+            Dim scene As New Scene()
+            ' Create a child node
+            scene.RootNode.CreateChildNode("sphere", New Sphere())
+            ' Set glTF saving options. The code example embeds all assets into the target file usually a glTF file comes with some dependencies, a bin file for model's vertex/indices, two .glsl files for vertex/fragment shaders
+            ' use opt.EmbedAssets to tells the Aspose.3D API to export scene and embed the dependencies inside the target file.
+            Dim opt As New GLTFSaveOptions(FileContentType.ASCII)
+            opt.EmbedAssets = True
+            ' Use KHR_materials_common extension to define the material, thus no GLSL files are generated.
+            opt.UseCommonMaterials = True
+            ' Customize the name of the buffer file which defines model
+            opt.BufferFile = "mybuf.bin"
+            ' Save glTF file
+            scene.Save(MyDir & Convert.ToString("glTFSaveOptions_out_.gltf"), opt)
+
+            ' Save a binary glTF file using KHR_binary_glTF extension
+            scene.Save(MyDir & Convert.ToString("glTFSaveOptions_out_.glb"), FileFormat.GLTF_Binary)
+
+            ' Developers may use saving options to create a binary glTF file using KHR_binary_glTF extension
+            Dim opts As New GLTFSaveOptions(FileContentType.Binary)
+            scene.Save(MyDir & Convert.ToString("Test_out_.glb"), opts)
+            'ExEnd:glTFSaveOptions
+        End Sub
+        Public Shared Sub DiscardSavingMaterial()
+            'ExStart:DiscardSavingMaterial
+            ' The code example uses the DummyFileSystem, so the material files are not created.
+            ' The path to the documents directory.
+            Dim MyDir As String = RunExamples.GetDataDir()
+            ' Initialize Scene object
+            Dim scene As New Scene()
+            ' Create a child node
+            scene.RootNode.CreateChildNode("sphere", New Sphere()).Material = New PhongMaterial()
+            ' Set saving options
+            Dim opt As New ObjSaveOptions()
+            opt.FileSystem = New DummyFileSystem()
+            ' Save 3D scene
+            scene.Save(MyDir & Convert.ToString("DiscardSavingMaterial_out_.obj"), opt)
+            'ExEnd:DiscardSavingMaterial
+        End Sub
+        Public Shared Sub SavingDependenciesInLocalDirectory()
+            'ExStart:SavingDependenciesInLocalDirectory
+            ' The code example uses the LocalFileSystem class to save dependencies to the local directory.
+            ' The path to the documents directory.
+            Dim MyDir As String = RunExamples.GetDataDir()
+            ' Initialize Scene object
+            Dim scene As New Scene()
+            ' Create a child node
+            scene.RootNode.CreateChildNode("sphere", New Sphere()).Material = New PhongMaterial()
+            ' Set saving options
+            Dim opt As New ObjSaveOptions()
+            opt.FileSystem = New LocalFileSystem(MyDir)
+            ' Save 3D scene
+            scene.Save(MyDir & Convert.ToString("SavingDependenciesInLocalDirectory_out_.obj"), opt)
+            'ExEnd:SavingDependenciesInLocalDirectory
+        End Sub
+        Public Shared Sub SavingDependenciesInMemoryFileSystem()
+            'ExStart:SavingDependenciesInMemoryFileSystem
+            ' The code example uses the MemoryFileSystem to intercepts the dependencies writing.
+            ' The path to the documents directory.
+            Dim MyDir As String = RunExamples.GetDataDir()
+            ' Initialize Scene object
+            Dim scene As New Scene()
+            ' Create a child node
+            scene.RootNode.CreateChildNode("sphere", New Sphere()).Material = New PhongMaterial()
+            ' Set saving options
+            Dim opt As New ObjSaveOptions()
+            Dim mfs As New MemoryFileSystem()
+            opt.FileSystem = mfs
+            ' Save 3D scene
+            scene.Save(MyDir & Convert.ToString("SavingDependenciesInMemoryFileSystem_out_.obj"), opt)
+            ' Get the test.mtl file content
+            Dim mtl As Byte() = mfs.GetFileContent(MyDir & Convert.ToString("test.mtl"))
+            File.WriteAllBytes(MyDir & Convert.ToString("Material.mtl"), mtl)
+            'ExEnd:SavingDependenciesInMemoryFileSystem
+        End Sub
+
     End Class
 End Namespace
