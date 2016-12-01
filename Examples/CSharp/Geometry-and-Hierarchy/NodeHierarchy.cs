@@ -11,7 +11,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
     {
         public static void Run()
         {
-            //ExStart:AddNodeHierarchy
+            // ExStart:AddNodeHierarchy
             // Initialize scene object
             Scene scene = new Scene();
 
@@ -40,7 +40,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
             
             // Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7500ASCII);
-            //ExEnd:AddNodeHierarchy
+            // ExEnd:AddNodeHierarchy
            
             Console.WriteLine("\nNode hierarchy added successfully to document.\nFile saved at " + MyDir);
 

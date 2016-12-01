@@ -12,7 +12,7 @@ namespace Aspose._3D.Examples.CSharp._Working_with_Objects
     {
         public static void Run()
         {
-            //ExStart:GenerateDataForMeshes
+            // ExStart:GenerateDataForMeshes
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
 
@@ -29,7 +29,7 @@ namespace Aspose._3D.Examples.CSharp._Working_with_Objects
                 }
                 return true;
             });
-            //ExEnd:GenerateDataForMeshes  
+            // ExEnd:GenerateDataForMeshes  
             Console.WriteLine("\nNormal data generated successfully for all meshes.");
         }
     }

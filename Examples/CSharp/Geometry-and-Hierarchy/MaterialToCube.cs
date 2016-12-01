@@ -12,7 +12,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
     {
         public static void Run()
         {
-            //ExStart:AddMaterialToCube                      
+            // ExStart:AddMaterialToCube                      
             // Initialize scene object
             Scene scene = new Scene();
             
@@ -43,10 +43,10 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
             // Set Texture of the material
             mat.SetTexture("DiffuseColor", diffuse);
 
-            // embed raw content data to FBX (only for FBX and optional)
-            // set file name
+            // Embed raw content data to FBX (only for FBX and optional)
+            // Set file name
             diffuse.FileName = "embedded-texture.png";
-            // set binary content
+            // Set binary content
             diffuse.Content = File.ReadAllBytes(MyDir + "aspose-logo.jpg");
 
             // Set color
@@ -62,7 +62,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
 
             // Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII);
-            //ExEnd:AddMaterialToCube
+            // ExEnd:AddMaterialToCube
 
             Console.WriteLine("\nMaterial added successfully to cube.\nFile saved at " + MyDir);
 

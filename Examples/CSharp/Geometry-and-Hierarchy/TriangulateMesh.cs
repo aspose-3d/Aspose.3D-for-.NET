@@ -11,7 +11,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
     {
         public static void Run()
         {
-            //ExStart:TriangulateMesh 
+            // ExStart:TriangulateMesh 
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
            
@@ -33,7 +33,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
             });
             MyDir = MyDir + RunExamples.GetOutputFilePath("document.fbx");
             scene.Save(MyDir, FileFormat.FBX7400ASCII);
-            //ExEnd:TriangulateMesh   
+            // ExEnd:TriangulateMesh   
             Console.WriteLine("\nMesh has been Triangulated.\nFile saved at " + MyDir);
         }
     }

@@ -22,7 +22,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
         }
         public static void ColladaSaveOption()
         {
-            //ExStart:ColladaSaveOption
+            // ExStart:ColladaSaveOption
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
             ColladaSaveOptions saveColladaopts = new ColladaSaveOptions();
@@ -32,11 +32,11 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             saveColladaopts.TransformStyle = ColladaTransformStyle.Matrix;
             // Configure the lookup paths to allow importer to find external dependencies.
             saveColladaopts.LookupPaths = new List<string>(new string[] { MyDir });
-            //ExEnd:ColladaSaveOption
+            // ExEnd:ColladaSaveOption
         }
         public static void Discreet3DSSaveOption()
         {
-            //ExStart:Discreet3DSSaveOption
+            // ExStart:Discreet3DSSaveOption
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
             // Initialize an object
@@ -61,11 +61,11 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             saveOpts.LookupPaths = new List<string>(new string[] {MyDir});
             // Set the master scale
             saveOpts.MasterScale = 1;
-            //ExEnd:Discreet3DSSaveOption
+            // ExEnd:Discreet3DSSaveOption
         }
         public static void FBXSaveOption()
         {
-            //ExStart:FBXSaveOption
+            // ExStart:FBXSaveOption
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
             // Initialize an object
@@ -80,11 +80,11 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             saveOpts.LookupPaths = new List<string>(new string[] { MyDir });
             // Generates a video object for texture.
             saveOpts.VideoForTexture = true;
-            //ExEnd:FBXSaveOption
+            // ExEnd:FBXSaveOption
         }
         public static void ObjSaveOption()
         {
-            //ExStart:ObjSaveOption
+            // ExStart:ObjSaveOption
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
             // Initialize an object
@@ -99,11 +99,11 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             saveObjOpts.SerializeW = true;
             // Generate comments for each section
             saveObjOpts.Verbose = true;
-            //ExEnd:ObjSaveOption
+            // ExEnd:ObjSaveOption
         }
         public static void STLSaveOption()
         {
-            //ExStart:STLSaveOption
+            // ExStart:STLSaveOption
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
             // Initialize an object
@@ -112,11 +112,11 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             saveSTLOpts.FlipCoordinateSystem = true;
             // Configure the look up paths to allow importer to find external dependencies.
             saveSTLOpts.LookupPaths = new List<string>(new string[] {MyDir });
-            //ExEnd:STLSaveOption
+            // ExEnd:STLSaveOption
         }
         public static void U3DSaveOption()
         {
-            //ExStart:U3DSaveOption
+            // ExStart:U3DSaveOption
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
             // Initialize an object
@@ -135,11 +135,11 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             saveU3DOptions.LookupPaths = new List<string>(new string[] { MyDir });
             // Compress the mesh data
             saveU3DOptions.MeshCompression = true;
-            //ExEnd:U3DSaveOption
+            // ExEnd:U3DSaveOption
         }
         public static void glTFSaveOptions()
         {
-            //ExStart:glTFSaveOptions
+            // ExStart:glTFSaveOptions
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
             // Initialize Scene object
@@ -147,7 +147,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // Create a child node
             scene.RootNode.CreateChildNode("sphere", new Sphere());
             // Set glTF saving options. The code example embeds all assets into the target file usually a glTF file comes with some dependencies, a bin file for model's vertex/indices, two .glsl files for vertex/fragment shaders
-            // use opt.EmbedAssets to tells the Aspose.3D API to export scene and embed the dependencies inside the target file.
+            // Use opt.EmbedAssets to tells the Aspose.3D API to export scene and embed the dependencies inside the target file.
             GLTFSaveOptions opt = new GLTFSaveOptions(FileContentType.ASCII);
             opt.EmbedAssets = true;
             // Use KHR_materials_common extension to define the material, thus no GLSL files are generated.
@@ -155,19 +155,19 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // Customize the name of the buffer file which defines model
             opt.BufferFile = "mybuf.bin";
             // Save glTF file
-            scene.Save(MyDir + "glTFSaveOptions_out_.gltf", opt);
+            scene.Save(MyDir + "glTFSaveOptions_out.gltf", opt);
 
             // Save a binary glTF file using KHR_binary_glTF extension
-            scene.Save(MyDir + "glTFSaveOptions_out_.glb", FileFormat.GLTF_Binary);
+            scene.Save(MyDir + "glTFSaveOptions_out.glb", FileFormat.GLTF_Binary);
 
             // Developers may use saving options to create a binary glTF file using KHR_binary_glTF extension
             GLTFSaveOptions opts = new GLTFSaveOptions(FileContentType.Binary);
-            scene.Save(MyDir + "Test_out_.glb", opts);
-            //ExEnd:glTFSaveOptions
+            scene.Save(MyDir + "Test_out.glb", opts);
+            // ExEnd:glTFSaveOptions
         }
         public static void DiscardSavingMaterial()
         {
-            //ExStart:DiscardSavingMaterial
+            // ExStart:DiscardSavingMaterial
             // The code example uses the DummyFileSystem, so the material files are not created.
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
@@ -179,12 +179,12 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             ObjSaveOptions opt = new ObjSaveOptions();
             opt.FileSystem = new DummyFileSystem();
             // Save 3D scene
-            scene.Save(MyDir + "DiscardSavingMaterial_out_.obj", opt);
-            //ExEnd:DiscardSavingMaterial
+            scene.Save(MyDir + "DiscardSavingMaterial_out.obj", opt);
+            // ExEnd:DiscardSavingMaterial
         }
         public static void SavingDependenciesInLocalDirectory()
         {
-            //ExStart:SavingDependenciesInLocalDirectory
+            // ExStart:SavingDependenciesInLocalDirectory
             // The code example uses the LocalFileSystem class to save dependencies to the local directory.
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
@@ -196,12 +196,12 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             ObjSaveOptions opt = new ObjSaveOptions();
             opt.FileSystem = new LocalFileSystem(MyDir);
             // Save 3D scene
-            scene.Save(MyDir + "SavingDependenciesInLocalDirectory_out_.obj", opt);
-            //ExEnd:SavingDependenciesInLocalDirectory
+            scene.Save(MyDir + "SavingDependenciesInLocalDirectory_out.obj", opt);
+            // ExEnd:SavingDependenciesInLocalDirectory
         }
         public static void SavingDependenciesInMemoryFileSystem()
         {
-            //ExStart:SavingDependenciesInMemoryFileSystem
+            // ExStart:SavingDependenciesInMemoryFileSystem
             // The code example uses the MemoryFileSystem to intercepts the dependencies writing.
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
@@ -214,11 +214,11 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             MemoryFileSystem mfs = new MemoryFileSystem();
             opt.FileSystem = mfs;
             // Save 3D scene
-            scene.Save(MyDir + "SavingDependenciesInMemoryFileSystem_out_.obj", opt);
+            scene.Save(MyDir + "SavingDependenciesInMemoryFileSystem_out.obj", opt);
             // Get the test.mtl file content
             byte[] mtl = mfs.GetFileContent(MyDir + "test.mtl");
             File.WriteAllBytes( MyDir + "Material.mtl", mtl);
-            //ExEnd:SavingDependenciesInMemoryFileSystem
+            // ExEnd:SavingDependenciesInMemoryFileSystem
         }
     }
 }

@@ -7,7 +7,7 @@ Imports Aspose.ThreeD.Formats
 Namespace Loading_Saving
     Class OpenSceneFromProtectedPdf
         Public Shared Sub Run()
-            'ExStart:OpenSceneFromProtectedPdf
+            ' ExStart:OpenSceneFromProtectedPdf
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
             ' Create a new scene
@@ -18,7 +18,7 @@ Namespace Loading_Saving
             }
             ' Open scene
             scene.Open(MyDir & Convert.ToString("House_Design.pdf"), opt)
-            'ExEnd:OpenSceneFromProtectedPdf            
+            ' ExEnd:OpenSceneFromProtectedPdf            
         End Sub
     End Class
 End Namespace

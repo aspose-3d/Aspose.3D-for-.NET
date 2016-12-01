@@ -11,7 +11,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
     {
         public static void Run()
         {
-            //ExStart:SetupNormalsOnCube
+            // ExStart:SetupNormalsOnCube
             // Raw normal data
             Vector4[] normals = new Vector4[]
             {
@@ -31,7 +31,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
             VertexElementNormal elementNormal = mesh.CreateElement(VertexElementType.Normal, MappingMode.ControlPoint, ReferenceMode.Direct) as VertexElementNormal;
             // Copy the data to the vertex element
             elementNormal.Data.AddRange(normals);
-            //ExEnd:SetupNormalsOnCube
+            // ExEnd:SetupNormalsOnCube
 
             Console.WriteLine("\nNormals has been setup successfully on cube.");
         }

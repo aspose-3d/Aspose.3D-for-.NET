@@ -11,7 +11,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
     {
         public static void Run()
         {
-            //ExStart:ExtractRaw3DContentsFromPdf
+            // ExStart:ExtractRaw3DContentsFromPdf
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
             byte[] password = null;
@@ -24,7 +24,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
                 string fileName = "3d-" + (i++);
                 File.WriteAllBytes(fileName, content);
             }
-            //ExEnd:ExtractRaw3DContentsFromPdf            
+            // ExEnd:ExtractRaw3DContentsFromPdf            
         }
     }
 }

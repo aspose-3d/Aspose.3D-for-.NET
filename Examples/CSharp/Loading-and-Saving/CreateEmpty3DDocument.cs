@@ -8,7 +8,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
     {
         public static void Run()
         {
-            //ExStart:CreateEmpty3DDocument
+            // ExStart:CreateEmpty3DDocument
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
             MyDir = MyDir + "document.fbx";
@@ -17,7 +17,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             Scene scene = new Scene();
             // Save 3D scene document
             scene.Save(MyDir, FileFormat.FBX7500ASCII);
-            //ExEnd:CreateEmpty3DDocument
+            // ExEnd:CreateEmpty3DDocument
 
             Console.WriteLine("\nAn empty 3D document created successfully.\nFile saved at " + MyDir);
         }

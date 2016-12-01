@@ -12,7 +12,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
         public static void Run()
 
         {
-            //ExStart:SetupUVOnCube
+            // ExStart:SetupUVOnCube
             // UVs
             Vector4[] uvs = new Vector4[]
             {
@@ -36,7 +36,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
             // Copy the data to the UV vertex element 
             elementUV.Data.AddRange(uvs);
             elementUV.Indices.AddRange(uvsId);
-            //ExEnd:SetupUVOnCube
+            // ExEnd:SetupUVOnCube
 
             Console.WriteLine("\nUVs has been setup successfully on cube.");
         }

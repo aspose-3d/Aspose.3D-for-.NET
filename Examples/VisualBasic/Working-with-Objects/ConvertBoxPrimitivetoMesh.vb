@@ -15,9 +15,9 @@ Namespace Working_with_Objects
             Dim cubeNode As New Node("box")
 
             ' ExStart:ConvertBoxPrimitivetoMesh
-            ' initialize object by Box class
+            ' Initialize object by Box class
             Dim convertible As IMeshConvertible = New Box()
-            ' convert a Box to Mesh
+            ' Convert a Box to Mesh
             Dim mesh As Mesh = convertible.ToMesh()
             ' ExEnd:ConvertBoxPrimitivetoMesh
 

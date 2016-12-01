@@ -41,10 +41,10 @@ Namespace Geometry_Hierarchy
             ' Set Texture of the material
             mat.SetTexture("DiffuseColor", diffuse)
 
-            ' embed raw content data to FBX (only for FBX And optional)
-            ' set file name
+            ' Embed raw content data to FBX (only for FBX And optional)
+            ' Set file name
             diffuse.FileName = "embedded-texture.png"
-            ' set binary content
+            ' Set binary content
             diffuse.Content = File.ReadAllBytes(MyDir & "aspose-logo.jpg")
 
             ' Set color

@@ -28,18 +28,18 @@ Namespace _3DViewPorts
             }).Transform.Translation = New Vector3(26, 57, 43)
 
             ' The CreateRenderer will create a hardware OpenGL-backend renderer
-            ' and some internal initializations will be done.
+            ' And some internal initializations will be done.
             ' When the renderer left using the scope, the unmanaged hardware resources will also be disposed
             Using renderer__1 = Renderer.CreateRenderer()
                 renderer__1.EnableShadows = False
 
                 ' Create a new render target that renders the scene to texture(s)
                 ' Use default render parameters
-                ' and one output targets
+                ' And one output targets
                 ' Size is 1024 x 1024
                 ' This render target can have multiple render output textures, but here we only need one output.
                 ' The other textures and depth textures are mainly used by deferred shading in the future.
-                ' but you can also access the depth texture through IRenderTexture.DepthTeture
+                ' But you can also access the depth texture through IRenderTexture.DepthTeture
                 ' Use CreateRenderWindow method to render in window, like:
                 ' Window = renderer.RenderFactory.CreateRenderWindow(new RenderParameters(), Handle);
                 Using rt As IRenderTexture = renderer__1.RenderFactory.CreateRenderTexture(New RenderParameters(), 1, 1024, 1024)
@@ -50,24 +50,24 @@ Namespace _3DViewPorts
                     })
                     ' Render the target and save the target texture to external file
                     renderer__1.Render(rt)
-                    rt.Targets(0).Save(MyDir & Convert.ToString("file-1viewports_out_.png"), ImageFormat.Png)
+                    rt.Targets(0).Save(MyDir & Convert.ToString("file-1viewports_out.png"), ImageFormat.Png)
 
-                    ' Now let's change the previous viewport only uses the half left side(50% width and 100% height)
+                    ' Now let' S change the previous viewport only uses the half left side(50% width and 100% height)
                     vp.Area = New RelativeRectangle() With {
                          .ScaleWidth = 0.5F,
                          .ScaleHeight = 1
                     }
-                    ' and create a new viewport that occupies the 50% width and 100% height and starts from 50%
-                    ' both of them are using the same camera, so the rendered content should be the same
+                    ' And create a new viewport that occupies the 50% width and 100% height and starts from 50%
+                    ' Both of them are using the same camera, so the rendered content should be the same
                     rt.CreateViewport(camera, New RelativeRectangle() With {
                          .ScaleX = 0.5F,
                          .ScaleWidth = 0.5F,
                          .ScaleHeight = 1
                     })
-                    ' but this time let's increase the field of view of the camera to 90 degree so it can see more part of the scene
+                    ' But this time let' S increase the field of view of the camera to 90 degree so it can see more part of the scene
                     camera.FieldOfView = 90
                     renderer__1.Render(rt)
-                    rt.Targets(0).Save(MyDir & Convert.ToString("file-2viewports_out_.png"), ImageFormat.Png)
+                    rt.Targets(0).Save(MyDir & Convert.ToString("file-2viewports_out.png"), ImageFormat.Png)
                 End Using
             End Using
             ' ExEnd:CaptureViewPort           

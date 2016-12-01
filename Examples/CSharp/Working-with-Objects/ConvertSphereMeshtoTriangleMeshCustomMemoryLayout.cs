@@ -12,7 +12,7 @@ namespace Aspose._3D.Examples.CSharp._Working_with_Objects
 {
     class ConvertSphereMeshtoTriangleMeshCustomMemoryLayout
     {
-        //ExStart:ConvertSphereMeshtoTriangleMeshCustomMemoryLayout
+        // ExStart:ConvertSphereMeshtoTriangleMeshCustomMemoryLayout
         [StructLayout(LayoutKind.Sequential)]
         struct MyVertex
         {
@@ -31,20 +31,20 @@ namespace Aspose._3D.Examples.CSharp._Working_with_Objects
             Node cubeNode = new Node("sphere");
 
             Mesh sphere = (new Sphere()).ToMesh();
-            //convert any mesh into typed TriMesh
+            // Convert any mesh into typed TriMesh
             var myMesh = TriMesh<MyVertex>.FromMesh(sphere);
-            //Get the vertex data in customized vertex structure.
+            // Get the vertex data in customized vertex structure.
             MyVertex[] vertex = myMesh.VerticesToTypedArray();
-            //get the 32bit and 16bit indices
+            // Get the 32bit and 16bit indices
             int[] indices32bit;
             ushort[] indices16bit;
             myMesh.IndicesToArray(out indices32bit);
             myMesh.IndicesToArray(out indices16bit);
             using (MemoryStream ms = new MemoryStream())
             {
-                //or we can write the vertex directly into stream like:
+                // Or we can write the vertex directly into stream like:
                 myMesh.WriteVerticesTo(ms);
-                //the indice data can be directly write to stream, we support 32-bit and 16-bit indice.
+                // The indice data can be directly write to stream, we support 32-bit and 16-bit indice.
                 myMesh.Write16bIndicesTo(ms);
                 myMesh.Write32bIndicesTo(ms);
             }
@@ -64,7 +64,7 @@ namespace Aspose._3D.Examples.CSharp._Working_with_Objects
             Console.WriteLine("Total bytes of vertices in memory {0}bytes", myMesh.VerticesSizeInBytes);
             Console.WriteLine("\n Converted a Sphere mesh to triangle mesh with custom memory layout of the vertex successfully.\nFile saved at " + MyDir);
         }
-        //ExEnd:ConvertSphereMeshtoTriangleMeshCustomMemoryLayout
+        // ExEnd:ConvertSphereMeshtoTriangleMeshCustomMemoryLayout
 
     }
 }

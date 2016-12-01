@@ -17,14 +17,14 @@ namespace Aspose._3D.Examples.CSharp.Rendering
         {
             try
             {
-                //ExStart:Render3DModelImageFromCamera
+                // ExStart:Render3DModelImageFromCamera
                 // The path to the documents directory.
                 string MyDir = RunExamples.GetDataDir();
 
                 // Load scene from file
                 Scene scene = new Scene(MyDir + "camera.3ds");
                 // Create a camera at (10,10,10) and look at the origin point for rendering,
-                // it must be attached to the scene before render
+                // It must be attached to the scene before render
                 Camera camera = new Camera();
                 scene.RootNode.CreateChildNode("camera", camera);
                 camera.ParentNode.Transform.Translation = new Vector3(10, 10, 10);
@@ -39,8 +39,8 @@ namespace Aspose._3D.Examples.CSharp.Rendering
                 // Turn on shadow
                 opt.EnableShadows = true;
                 // Render the scene in given camera's perspective into specified png file with size 1024x1024
-                scene.Render(camera, MyDir + "Render3DModelImageFromCamera_out_.png", new Size(1024, 1024), ImageFormat.Png, opt);
-                //ExEnd:Render3DModelImageFromCamera  
+                scene.Render(camera, MyDir + "Render3DModelImageFromCamera_out.png", new Size(1024, 1024), ImageFormat.Png, opt);
+                // ExEnd:Render3DModelImageFromCamera  
             }
             catch (Exception ex)
             {

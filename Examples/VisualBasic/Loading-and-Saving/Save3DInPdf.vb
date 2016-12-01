@@ -10,7 +10,7 @@ Imports System.Drawing
 Namespace Loading_Saving
     Class Save3DInPdf
         Public Shared Sub Run()
-            'ExStart:Save3DInPdf
+            ' ExStart:Save3DInPdf
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
 
@@ -25,8 +25,8 @@ Namespace Loading_Saving
             opt.LightingScheme = PdfLightingScheme.CAD
             opt.RenderMode = PdfRenderMode.ShadedIllustration
             ' Save in the PDF format
-            scene.Save(MyDir & Convert.ToString("output_out_.pdf"), opt)
-            'ExEnd:Save3DInPdf           
+            scene.Save(MyDir & Convert.ToString("output_out.pdf"), opt)
+            ' ExEnd:Save3DInPdf           
         End Sub
     End Class
 End Namespace

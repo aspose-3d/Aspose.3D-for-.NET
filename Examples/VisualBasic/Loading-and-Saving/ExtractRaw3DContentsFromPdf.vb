@@ -7,7 +7,7 @@ Imports Aspose.ThreeD.Formats
 Namespace Loading_Saving
     Class ExtractRaw3DContentsFromPdf
         Public Shared Sub Run()
-            'ExStart:ExtractRaw3DContentsFromPdf
+            ' ExStart:ExtractRaw3DContentsFromPdf
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
             Dim password As Byte() = Nothing
@@ -19,7 +19,7 @@ Namespace Loading_Saving
                 Dim fileName As String = "3d-" + (System.Math.Max(System.Threading.Interlocked.Increment(i), i - 1))
                 File.WriteAllBytes(fileName, content)
             Next
-            'ExEnd:ExtractRaw3DContentsFromPdf            
+            ' ExEnd:ExtractRaw3DContentsFromPdf            
         End Sub
     End Class
 End Namespace

@@ -10,7 +10,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
     {
         public static void Run()
         {
-            //ExStart:AddTransformationToNodeByTransformationMatrix            
+            // ExStart:AddTransformationToNodeByTransformationMatrix            
             // Initialize scene object
             Scene scene = new Scene();
 
@@ -22,7 +22,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
            
             // Point node to the Mesh geometry
             cubeNode.Entity = mesh;
-            // set custom translation matrix
+            // Set custom translation matrix
             cubeNode.Transform.TransformMatrix = new Matrix4(
             1, -0.3, 0, 0,
             0.4, 1, 0.3, 0,
@@ -38,7 +38,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
    
             // Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7500ASCII);
-            //ExEnd:AddTransformationToNodeByTransformationMatrix
+            // ExEnd:AddTransformationToNodeByTransformationMatrix
             Console.WriteLine("\nTransformation added successfully to node.\nFile saved at " + MyDir);
 
         }

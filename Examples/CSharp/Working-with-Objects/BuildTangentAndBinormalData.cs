@@ -12,7 +12,7 @@ namespace Aspose._3D.Examples.CSharp._Working_with_Objects
     {
         public static void Run()
         {
-            //ExStart:BuildTangentAndBinormalData
+            // ExStart:BuildTangentAndBinormalData
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
 
@@ -21,8 +21,8 @@ namespace Aspose._3D.Examples.CSharp._Working_with_Objects
             // Triangulate a scene
             PolygonModifier.BuildTangentBinormal(scene);
             // Save 3D scene
-            scene.Save("BuildTangentAndBinormalData_out_.fbx", FileFormat.FBX7400ASCII);
-            //ExEnd:BuildTangentAndBinormalData              
+            scene.Save("BuildTangentAndBinormalData_out.fbx", FileFormat.FBX7400ASCII);
+            // ExEnd:BuildTangentAndBinormalData              
         }
     }
 }

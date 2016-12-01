@@ -17,7 +17,7 @@ namespace Aspose._3D.Examples.CSharp.Rendering
         {
             try
             {
-                //ExStart:CastAndReceiveShadow
+                // ExStart:CastAndReceiveShadow
                 // The path to the documents directory.
                 string MyDir = RunExamples.GetDataDir();
 
@@ -65,8 +65,8 @@ namespace Aspose._3D.Examples.CSharp.Rendering
                 camera.ParentNode.Transform.Translation = new Vector3(10, 10, 10);
                 camera.LookAt = Vector3.Origin;
                 ImageRenderOptions opt = new ImageRenderOptions() { EnableShadows = true };
-                scene.Render(camera, MyDir + "CastAndReceiveShadow_out_.png", new Size(1024, 1024), ImageFormat.Png, opt);
-                //ExEnd:CastAndReceiveShadow  
+                scene.Render(camera, MyDir + "CastAndReceiveShadow_out.png", new Size(1024, 1024), ImageFormat.Png, opt);
+                // ExEnd:CastAndReceiveShadow  
             }
             catch (Exception ex)
             {

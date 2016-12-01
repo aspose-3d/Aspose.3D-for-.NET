@@ -11,7 +11,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
     {
         public static void Run()
         {
-            //ExStart:OpenSceneFromProtectedPdf
+            // ExStart:OpenSceneFromProtectedPdf
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
             // Create a new scene
@@ -20,7 +20,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             PdfLoadOptions opt = new PdfLoadOptions() { Password = Encoding.UTF8.GetBytes("password") };
             // Open scene
             scene.Open(MyDir + "House_Design.pdf", opt);
-            //ExEnd:OpenSceneFromProtectedPdf            
+            // ExEnd:OpenSceneFromProtectedPdf            
         }
     }
 }

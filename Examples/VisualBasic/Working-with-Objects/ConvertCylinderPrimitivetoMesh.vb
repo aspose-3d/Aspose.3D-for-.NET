@@ -15,10 +15,10 @@ Namespace Working_with_Objects
             Dim cubeNode As New Node("cylinder")
 
             ' ExStart:ConvertCylinderPrimitivetoMesh
-            ' initialize object by Cylinder class
+            ' Initialize object by Cylinder class
             Dim convertible As IMeshConvertible = New Cylinder()
 
-            ' convert a Cylinder to Mesh
+            ' Convert a Cylinder to Mesh
             Dim mesh As Mesh = convertible.ToMesh()
             ' ExEnd:ConvertCylinderPrimitivetoMesh
 

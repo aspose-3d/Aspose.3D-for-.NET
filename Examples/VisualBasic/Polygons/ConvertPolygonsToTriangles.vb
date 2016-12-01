@@ -6,7 +6,7 @@ Imports Aspose.ThreeD.Entities
 Namespace Polygons
     Class ConvertPolygonsToTriangles
         Public Shared Sub Run()
-            'ExStart:ConvertPolygonsToTriangles
+            ' ExStart:ConvertPolygonsToTriangles
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
             ' Load an existing 3D file
@@ -14,8 +14,8 @@ Namespace Polygons
             ' Triangulate a scene
             PolygonModifier.Triangulate(scene)
             ' Save 3D scene
-            scene.Save(MyDir & Convert.ToString("triangulated_out_.fbx"), FileFormat.FBX7400ASCII)
-            'ExEnd:ConvertPolygonsToTriangles            
+            scene.Save(MyDir & Convert.ToString("triangulated_out.fbx"), FileFormat.FBX7400ASCII)
+            ' ExEnd:ConvertPolygonsToTriangles            
         End Sub
     End Class
 End Namespace

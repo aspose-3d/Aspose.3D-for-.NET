@@ -11,7 +11,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
     {
         public static void Run()
         {
-            //ExStart:ExtractAll3DScenes
+            // ExStart:ExtractAll3DScenes
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
 
@@ -24,7 +24,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
                 string fileName = "3d-" + (i++) + ".fbx";
                 scene.Save(fileName, FileFormat.FBX7400ASCII);
             }
-            //ExEnd:ExtractAll3DScenes            
+            // ExEnd:ExtractAll3DScenes            
         }
     }
 }

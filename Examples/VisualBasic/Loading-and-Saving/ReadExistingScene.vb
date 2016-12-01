@@ -10,11 +10,11 @@ Namespace Loading_Saving
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
 
-            ' initialize a Scene class object
+            ' Initialize a Scene class object
             Dim scene As New Scene()
             ' load an existing 3D document
             scene.Open(MyDir & Convert.ToString("document.fbx"))
-            'ExEnd:ReadExistingScene
+            ' ExEnd:ReadExistingScene
 
             Console.WriteLine(vbLf & "3D Scene is ready for the modification, addition or processing purposes.")
 

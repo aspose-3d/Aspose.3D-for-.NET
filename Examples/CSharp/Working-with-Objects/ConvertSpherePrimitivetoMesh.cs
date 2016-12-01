@@ -18,13 +18,13 @@ namespace Aspose._3D.Examples.CSharp._Working_with_Objects
             // Initialize Node class object
             Node cubeNode = new Node("sphere");
 
-            //ExStart:ConvertSpherePrimitivetoMesh
-            // initialize object by Sphere class
+            // ExStart:ConvertSpherePrimitivetoMesh
+            // Initialize object by Sphere class
             IMeshConvertible convertible = new Sphere();
             
-            // convert a Sphere to Mesh
+            // Convert a Sphere to Mesh
             Mesh mesh = convertible.ToMesh();
-            //ExEnd:ConvertSpherePrimitivetoMesh
+            // ExEnd:ConvertSpherePrimitivetoMesh
 
             // Point node to the Mesh geometry
             cubeNode.Entity = mesh;

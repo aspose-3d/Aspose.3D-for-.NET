@@ -10,7 +10,7 @@ namespace Aspose._3D.Examples.CSharp.Polygons
     {
         public static void Run()
         {
-            //ExStart:ConvertPolygonsToTriangles
+            // ExStart:ConvertPolygonsToTriangles
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();           
             // Load an existing 3D file
@@ -18,8 +18,8 @@ namespace Aspose._3D.Examples.CSharp.Polygons
             // Triangulate a scene
             PolygonModifier.Triangulate(scene);
             // Save 3D scene
-            scene.Save(MyDir + "triangulated_out_.fbx", FileFormat.FBX7400ASCII);
-            //ExEnd:ConvertPolygonsToTriangles            
+            scene.Save(MyDir + "triangulated_out.fbx", FileFormat.FBX7400ASCII);
+            // ExEnd:ConvertPolygonsToTriangles            
         }
     }
 }

@@ -12,21 +12,21 @@ namespace Aspose._3D.Examples.CSharp._3DModeling
     {
         public static void Run()
         {
-            //ExStart:Primitive3DModels
+            // ExStart:Primitive3DModels
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
 
-            // initialize a Scene object
+            // Initialize a Scene object
             Scene scene = new Scene();
-            // create a Box model
+            // Create a Box model
             scene.RootNode.CreateChildNode("box", new Box());
-            // create a Cylinder model
+            // Create a Cylinder model
             scene.RootNode.CreateChildNode("cylinder", new Cylinder());
-            // save drawing in the FBX format
+            // Save drawing in the FBX format
             MyDir = MyDir + RunExamples.GetOutputFilePath("test.fbx");
             scene.Save(MyDir, FileFormat.FBX7500ASCII);
 
-            //ExEnd:Primitive3DModels
+            // ExEnd:Primitive3DModels
             Console.WriteLine("\nBuilding a scene from primitive 3D models successfully.\nFile saved at " + MyDir);
         }
     }

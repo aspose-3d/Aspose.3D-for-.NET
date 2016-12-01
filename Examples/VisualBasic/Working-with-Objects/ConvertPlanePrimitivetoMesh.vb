@@ -15,10 +15,10 @@ Namespace Working_with_Objects
             Dim cubeNode As New Node("plane")
 
             ' ExStart:ConvertPlanePrimitivetoMesh
-            ' initialize object by Plane class
+            ' Initialize object by Plane class
             Dim convertible As IMeshConvertible = New Plane()
 
-            ' convert a Plane to Mesh
+            ' Convert a Plane to Mesh
             Dim mesh As Mesh = convertible.ToMesh()
             ' ExEnd:ConvertPlanePrimitivetoMesh
 

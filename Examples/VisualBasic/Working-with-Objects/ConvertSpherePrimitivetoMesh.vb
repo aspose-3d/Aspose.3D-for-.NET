@@ -15,10 +15,10 @@ Namespace Working_with_Objects
             Dim cubeNode As New Node("sphere")
 
             ' ExStart:ConvertSpherePrimitivetoMesh
-            ' initialize object by Sphere class
+            ' Initialize object by Sphere class
             Dim convertible As IMeshConvertible = New Sphere()
 
-            ' convert a Sphere to Mesh
+            ' Convert a Sphere to Mesh
             Dim mesh As Mesh = convertible.ToMesh()
             ' ExEnd:ConvertSpherePrimitivetoMesh
 

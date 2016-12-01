@@ -11,13 +11,13 @@ Namespace _3DModeling
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
 
-            ' initialize a Scene object
+            ' Initialize a Scene object
             Dim scene As New Scene()
-            ' create a Box model
+            ' Create a Box model
             scene.RootNode.CreateChildNode("box", New Box())
-            ' create a Cylinder model
+            ' Create a Cylinder model
             scene.RootNode.CreateChildNode("cylinder", New Cylinder())
-            ' save drawing in the FBX format
+            ' Save drawing in the FBX format
             MyDir = MyDir & RunExamples.GetOutputFilePath("test.fbx")
             scene.Save(MyDir, FileFormat.FBX7500ASCII)
 

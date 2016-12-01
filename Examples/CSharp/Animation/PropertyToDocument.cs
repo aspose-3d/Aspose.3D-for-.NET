@@ -13,7 +13,7 @@ namespace Aspose._3D.Examples.CSharp.Animation
     {
         public static void Run()
         {
-            //ExStart:AddAnimationPropertyToDocument
+            // ExStart:AddAnimationPropertyToDocument
             // Initialize scene object
             Scene scene = new Scene();
 
@@ -51,7 +51,7 @@ namespace Aspose._3D.Examples.CSharp.Animation
 
             // Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7500ASCII);
-            //ExEnd:AddAnimationPropertyToDocument
+            // ExEnd:AddAnimationPropertyToDocument
 
             Console.WriteLine("\nAnimation property added successfully to document.\nFile saved at " + MyDir);
             

@@ -10,7 +10,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
     {
         public static void Run()
         {
-            //ExStart:AddTransformationToNodeByEulerAngles            
+            // ExStart:AddTransformationToNodeByEulerAngles            
             // Initialize scene object
             Scene scene = new Scene();
 
@@ -35,7 +35,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
    
             // Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7500ASCII);
-            //ExEnd:AddTransformationToNodeByEulerAngles
+            // ExEnd:AddTransformationToNodeByEulerAngles
             Console.WriteLine("\nTransformation added successfully to node.\nFile saved at " + MyDir);
 
         }

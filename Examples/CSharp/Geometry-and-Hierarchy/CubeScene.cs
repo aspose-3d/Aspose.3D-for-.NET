@@ -10,7 +10,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
     {
         public static void Run()
         {
-            //ExStart:CreateCubeScene           
+            // ExStart:CreateCubeScene           
             // Initialize scene object
             Scene scene = new Scene();
             
@@ -32,7 +32,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
 
             // Save 3D scene in the supported file formats
             scene.Save(MyDir, FileFormat.FBX7400ASCII);           
-            //ExEnd:CreateCubeScene
+            // ExEnd:CreateCubeScene
 
             Console.WriteLine("\nCube Scene created successfully.\nFile saved at " + MyDir);
 

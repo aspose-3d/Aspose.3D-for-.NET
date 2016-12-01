@@ -20,16 +20,16 @@ namespace Aspose._3D.Examples.CSharp._Working_with_Objects
             // Initialize Node class object
             Node cubeNode = new Node("box");
 
-            //ExStart:ConvertBoxMeshtoTriangleMeshCustomMemoryLayout
-            // get mesh of the Box
+            // ExStart:ConvertBoxMeshtoTriangleMeshCustomMemoryLayout
+            // Get mesh of the Box
             Mesh box = (new Box()).ToMesh();
-            //create a customized vertex layout
+            // Create a customized vertex layout
             VertexDeclaration vd = new VertexDeclaration();
             VertexField position = vd.AddField(VertexFieldDataType.FVector4, VertexFieldSemantic.Position);
             vd.AddField(VertexFieldDataType.FVector3, VertexFieldSemantic.Normal);
-            // get a triangle mesh
+            // Get a triangle mesh
             TriMesh triMesh = TriMesh.FromMesh(box);
-            //ExEnd:ConvertBoxMeshtoTriangleMeshCustomMemoryLayout
+            // ExEnd:ConvertBoxMeshtoTriangleMeshCustomMemoryLayout
 
             // Point node to the Mesh geometry
             cubeNode.Entity = box;

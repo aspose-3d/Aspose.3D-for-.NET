@@ -32,12 +32,12 @@ namespace Aspose._3D.Examples.CSharp
             // =====================================================
             // =====================================================
 
-            //CreateEmpty3DDocument.Run();          
-            //ReadExistingScene.Run();
-            //DetectFormat.Run();
-            //Save3DInPdf.Run();
-            //OpenSceneFromProtectedPdf.Run();
-            //ExtractAll3DScenes.Run();
+            // CreateEmpty3DDocument.Run();          
+            // ReadExistingScene.Run();
+            // DetectFormat.Run();
+            // Save3DInPdf.Run();
+            // OpenSceneFromProtectedPdf.Run();
+            // ExtractAll3DScenes.Run();
             SaveOptions.SavingDependenciesInMemoryFileSystem();
             
 
@@ -47,8 +47,8 @@ namespace Aspose._3D.Examples.CSharp
             // =====================================================
             // =====================================================
 
-            //PropertyToDocument.Run();
-            //SetupTargetAndCamera.Run();
+            // PropertyToDocument.Run();
+            // SetupTargetAndCamera.Run();
 
             // =====================================================
             // =====================================================
@@ -56,7 +56,7 @@ namespace Aspose._3D.Examples.CSharp
             // =====================================================
             // =====================================================
 
-            //FlipCoordinateSystem.Run();
+            // FlipCoordinateSystem.Run();
 
             // =====================================================
             // =====================================================
@@ -64,23 +64,23 @@ namespace Aspose._3D.Examples.CSharp
             // =====================================================
             // =====================================================
 
-            //InformationToScene.Run();
+            // InformationToScene.Run();
 
             // =====================================================
             // =====================================================
             // Geometry and Hierarchy
             // =====================================================
 
-            //CubeScene.Run();
-            //MaterialToCube.Run();            
-            //TransformationToNodeByQuaternion.Run();
-            //TransformationToNodeByEulerAngles.Run();
-            //TransformationToNodeByTransformationMatrix.Run();
-            //NodeHierarchy.Run();
-            //MeshGeometryData.Run();
-            //SetupNormalsOnCube.Run();
-            //TriangulateMesh.Run();
-            //ConcatenateQuaternions.Run();
+            // CubeScene.Run();
+            // MaterialToCube.Run();            
+            // TransformationToNodeByQuaternion.Run();
+            // TransformationToNodeByEulerAngles.Run();
+            // TransformationToNodeByTransformationMatrix.Run();
+            // NodeHierarchy.Run();
+            // MeshGeometryData.Run();
+            // SetupNormalsOnCube.Run();
+            // TriangulateMesh.Run();
+            // ConcatenateQuaternions.Run();
 
             //// =====================================================
             //// =====================================================
@@ -88,7 +88,7 @@ namespace Aspose._3D.Examples.CSharp
             //// =====================================================
             //// =====================================================
 
-            //Primitive3DModels.Run();
+            // Primitive3DModels.Run();
 
             // =====================================================
             // =====================================================
@@ -96,15 +96,15 @@ namespace Aspose._3D.Examples.CSharp
             // =====================================================
             // =====================================================
 
-            //SplitMeshbyMaterial.Run();            
-            //ConvertSpherePrimitivetoMesh.Run();
-            //ConvertBoxPrimitivetoMesh.Run();
-            //ConvertPlanePrimitivetoMesh.Run();
-            //ConvertCylinderPrimitivetoMesh.Run();
-            //ConvertTorusPrimitivetoMesh.Run();
-            //ConvertSphereMeshtoTriangleMeshCustomMemoryLayout.Run();
-            //ConvertBoxMeshtoTriangleMeshCustomMemoryLayout.Run();
-            //GenerateDataForMeshes.Run();
+            // SplitMeshbyMaterial.Run();            
+            // ConvertSpherePrimitivetoMesh.Run();
+            // ConvertBoxPrimitivetoMesh.Run();
+            // ConvertPlanePrimitivetoMesh.Run();
+            // ConvertCylinderPrimitivetoMesh.Run();
+            // ConvertTorusPrimitivetoMesh.Run();
+            // ConvertSphereMeshtoTriangleMeshCustomMemoryLayout.Run();
+            // ConvertBoxMeshtoTriangleMeshCustomMemoryLayout.Run();
+            // GenerateDataForMeshes.Run();
             BuildTangentAndBinormalData.Run();
 
             // =====================================================
@@ -112,23 +112,23 @@ namespace Aspose._3D.Examples.CSharp
             // Rendering
             // =====================================================
             // =====================================================
-            //Render3DModelImageFromCamera.Run();
-            //CastAndReceiveShadow.Run();
+            // Render3DModelImageFromCamera.Run();
+            // CastAndReceiveShadow.Run();
 
             // =====================================================
             // =====================================================
             // 3DViewPorts
             // =====================================================
             // =====================================================
-            //ApplyVisualEffects.Run();
-            //CaptureViewPort.Run();
+            // ApplyVisualEffects.Run();
+            // CaptureViewPort.Run();
 
             // =====================================================
             // =====================================================
             // Polygons
             // =====================================================
             // =====================================================
-            //ConvertPolygonsToTriangles.Run();
+            // ConvertPolygonsToTriangles.Run();
 
             // Stop before exiting
             Console.WriteLine("\n\nProgram Finished. Press any key to exit....");
@@ -156,7 +156,7 @@ namespace Aspose._3D.Examples.CSharp
         {
             string extension = Path.GetExtension(inputFilePath);
             string filename = Path.GetFileNameWithoutExtension(inputFilePath);
-            return filename + "_out_" + extension;
+            return filename + "_out" + extension;
         }
     }
 }

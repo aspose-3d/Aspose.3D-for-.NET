@@ -12,7 +12,7 @@ namespace Aspose._3D.Examples.CSharp.Animation
     {
         public static void Run()
         {
-            //ExStart:SetupTargetAndCamera
+            // ExStart:SetupTargetAndCamera
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();            
             // Initialize scene object
@@ -24,7 +24,7 @@ namespace Aspose._3D.Examples.CSharp.Animation
             cameraNode.GetEntity<Camera>().Target = scene.RootNode.CreateChildNode("target");
             MyDir = MyDir + "camera-test.3ds";
             scene.Save(MyDir, FileFormat.Discreet3DS);
-            //ExEnd:SetupTargetAndCamera
+            // ExEnd:SetupTargetAndCamera
             Console.WriteLine("\nThe target and camera has been setup successfully.\nFile saved at " + MyDir);
         }
     }

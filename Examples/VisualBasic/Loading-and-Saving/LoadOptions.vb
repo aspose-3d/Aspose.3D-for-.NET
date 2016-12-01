@@ -13,7 +13,7 @@ Namespace Loading_Saving
             U3DLoadOption()
         End Sub
         Public Shared Sub Discreet3DSLoadOption()
-            'ExStart:Discreet3DSOption
+            ' ExStart:Discreet3DSOption
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
             Dim loadOpts As New Discreet3DSLoadOptions()
@@ -25,10 +25,10 @@ Namespace Loading_Saving
             loadOpts.GammaCorrectedColor = True
             ' Configure the look up paths to allow importer to find external dependencies.
             loadOpts.LookupPaths = New List(Of String)(New String() {MyDir})
-            'ExEnd:Discreet3DSOption
+            ' ExEnd:Discreet3DSOption
         End Sub
         Public Shared Sub ObjLoadOption()
-            'ExStart:ObjLoadOption
+            ' ExStart:ObjLoadOption
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
             ' Initialize an object
@@ -39,10 +39,10 @@ Namespace Loading_Saving
             loadObjOpts.FlipCoordinateSystem = True
             ' Configure the look up paths to allow importer to find external dependencies.
             loadObjOpts.LookupPaths = New List(Of String)(New String() {MyDir})
-            'ExEnd:ObjLoadOption
+            ' ExEnd:ObjLoadOption
         End Sub
         Public Shared Sub STLLoadOption()
-            'ExStart:STLLoadOption
+            ' ExStart:STLLoadOption
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
             ' Initialize an object
@@ -51,10 +51,10 @@ Namespace Loading_Saving
             loadSTLOpts.FlipCoordinateSystem = True
             ' Configure the look up paths to allow importer to find external dependencies.
             loadSTLOpts.LookupPaths = New List(Of String)(New String() {MyDir})
-            'ExEnd:STLLoadOption
+            ' ExEnd:STLLoadOption
         End Sub
         Public Shared Sub U3DLoadOption()
-            'ExStart:U3DLoadOption
+            ' ExStart:U3DLoadOption
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
             ' Initialize an object
@@ -63,20 +63,20 @@ Namespace Loading_Saving
             loadU3DOpts.FlipCoordinateSystem = True
             ' Configure the look up paths to allow importer to find external dependencies.
             loadU3DOpts.LookupPaths = New List(Of String)(New String() {MyDir})
-            'ExEnd:U3DLoadOption
+            ' ExEnd:U3DLoadOption
         End Sub
         Public Shared Sub glTFLoadOptions()
-            'ExStart:glTFLoadOptions
+            ' ExStart:glTFLoadOptions
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
             ' Initialize Scene class object
             Dim scene As New Scene()
             ' Set load options
             Dim loadOpt As New GLTFLoadOptions()
-            ' The default value is true, usually we don't need to change it. Aspose.3D will automatically flip the V/T texture coordinate during load and save.       
+            ' The default value is true, usually we don' T need to change it. Aspose.3D will automatically flip the V/T texture coordinate during load and save.       
             loadOpt.FlipTexCoordV = True
             scene.Open(MyDir & Convert.ToString("Duck.gltf"), loadOpt)
-            'ExEnd:glTFLoadOptions
+            ' ExEnd:glTFLoadOptions
         End Sub
 
     End Class

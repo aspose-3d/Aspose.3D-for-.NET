@@ -26,11 +26,11 @@ Namespace Working_with_Objects
             Dim cubeNode As New Node("sphere")
 
             Dim sphere As Mesh = (New Sphere()).ToMesh()
-            'convert any mesh into typed TriMesh
+            ' Convert any mesh into typed TriMesh
             Dim myMesh = TriMesh(Of MyVertex).FromMesh(sphere)
-            'Get the vertex data in customized vertex structure.
+            ' Get the vertex data in customized vertex structure.
             Dim vertex As MyVertex() = myMesh.VerticesToTypedArray()
-            'get the 32bit and 16bit indices
+            ' Get the 32bit and 16bit indices
             Dim indices32bit As Integer()
             Dim indices16bit As UShort()
             indices32bit = Nothing
@@ -38,9 +38,9 @@ Namespace Working_with_Objects
             myMesh.IndicesToArray(indices32bit)
             myMesh.IndicesToArray(indices16bit)
             Using ms As New MemoryStream()
-                'or we can write the vertex directly into stream like:
+                ' Or we can write the vertex directly into stream like:
                 myMesh.WriteVerticesTo(ms)
-                'the indice data can be directly write to stream, we support 32-bit and 16-bit indice.
+                ' The indice data can be directly write to stream, we support 32-bit and 16-bit indice.
                 myMesh.Write16bIndicesTo(ms)
                 myMesh.Write32bIndicesTo(ms)
             End Using

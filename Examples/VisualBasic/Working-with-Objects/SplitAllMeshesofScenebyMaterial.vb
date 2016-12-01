@@ -15,10 +15,10 @@ Namespace Working_with_Objects
 
             ' load a 3D file
             Dim scene As New Scene(MyDir)
-            ' split all meshes
+            ' Split all meshes
             PolygonModifier.SplitMesh(scene, SplitMeshPolicy.CloneData)
 
-            ' save file
+            ' Save file
             MyDir = RunExamples.GetDataDir() + RunExamples.GetOutputFilePath("test-splitted.fbx")
             scene.Save(MyDir, FileFormat.FBX7500ASCII)
 

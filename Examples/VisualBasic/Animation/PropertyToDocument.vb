@@ -18,7 +18,7 @@ Namespace Animation
             ' Each cube node has their own translation
             Dim cube1 As Node = scene.RootNode.CreateChildNode("cube1", mesh)
 
-            ' Find translation property on node's transform object
+            ' Find translation property on node' S transform object
             Dim translation As [Property] = cube1.Transform.FindProperty("Translation")
 
             ' Create a curve mapping based on translation property
@@ -28,15 +28,15 @@ Namespace Animation
             Dim curveX As Curve = mapping.CreateCurve("X")
             Dim curveZ As Curve = mapping.CreateCurve("Z")
 
-            ' Move node's translation to (10, 0, 10) at 0 sec using bezier interpolation
+            ' Move node' S translation to (10, 0, 10) at 0 sec using bezier interpolation
             curveX.CreateKeyFrame(0, 10.0F, Interpolation.Bezier)
             curveZ.CreateKeyFrame(0, 10.0F, Interpolation.Bezier)
 
-            ' Move node's translation to (20, 0, -10) at 3 sec
+            ' Move node' S translation to (20, 0, -10) at 3 sec
             curveX.CreateKeyFrame(3, 20.0F, Interpolation.Bezier)
             curveZ.CreateKeyFrame(3, -10.0F, Interpolation.Bezier)
 
-            ' Move node's translation to (30, 0, 0) at 5 sec
+            ' Move node' S translation to (30, 0, 0) at 5 sec
             curveX.CreateKeyFrame(5, 30.0F, Interpolation.Linear)
             curveZ.CreateKeyFrame(5, 0.0F, Interpolation.Bezier)
 

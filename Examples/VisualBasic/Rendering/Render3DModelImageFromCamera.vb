@@ -12,14 +12,14 @@ Namespace Rendering
     Class Render3DModelImageFromCamera
         Public Shared Sub Run()
             Try
-                'ExStart:Render3DModelImageFromCamera
+                ' ExStart:Render3DModelImageFromCamera
                 ' The path to the documents directory.
                 Dim MyDir As String = RunExamples.GetDataDir()
 
                 ' Load scene from file
                 Dim scene As New Scene(MyDir & Convert.ToString("camera.3ds"))
                 ' Create a camera at (10,10,10) and look at the origin point for rendering,
-                ' it must be attached to the scene before render
+                ' It must be attached to the scene before render
                 Dim camera As New Camera()
                 scene.RootNode.CreateChildNode("camera", camera)
                 camera.ParentNode.Transform.Translation = New Vector3(10, 10, 10)
@@ -33,9 +33,9 @@ Namespace Rendering
                 opt.AssetDirectories.Add(MyDir & Convert.ToString("textures"))
                 ' Turn on shadow
                 opt.EnableShadows = True
-                ' Render the scene in given camera's perspective into specified png file with size 1024x1024
-                scene.Render(camera, MyDir & Convert.ToString("Render3DModelImageFromCamera_out_.png"), New Size(1024, 1024), ImageFormat.Png, opt)
-                'ExEnd:Render3DModelImageFromCamera  
+                ' Render the scene in given camera' S perspective into specified png file with size 1024x1024
+                scene.Render(camera, MyDir & Convert.ToString("Render3DModelImageFromCamera_out.png"), New Size(1024, 1024), ImageFormat.Png, opt)
+                ' ExEnd:Render3DModelImageFromCamera  
             Catch ex As Exception
                 Console.WriteLine(ex.Message)
             End Try

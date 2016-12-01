@@ -14,7 +14,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
     {
         public static void Run()
         {
-            //ExStart:Save3DInPdf
+            // ExStart:Save3DInPdf
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
 
@@ -27,8 +27,8 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             opt.LightingScheme = PdfLightingScheme.CAD;
             opt.RenderMode = PdfRenderMode.ShadedIllustration;
             // Save in the PDF format
-            scene.Save(MyDir + "output_out_.pdf", opt);
-            //ExEnd:Save3DInPdf           
+            scene.Save(MyDir + "output_out.pdf", opt);
+            // ExEnd:Save3DInPdf           
         }
     }
 }

@@ -12,7 +12,7 @@ Namespace Rendering
     Class CastAndReceiveShadow
         Public Shared Sub Run()
             Try
-                'ExStart:CastAndReceiveShadow
+                ' ExStart:CastAndReceiveShadow
                 ' The path to the documents directory.
                 Dim MyDir As String = RunExamples.GetDataDir()
 
@@ -29,14 +29,14 @@ Namespace Rendering
                 light.LookAt = Vector3.Origin
                 light.Falloff = 90
 
-                'Create a plane
+                ' Create a plane
                 Dim plane As Node = scene.RootNode.CreateChildNode("plane", New Plane(20, 20))
                 plane.Material = New PhongMaterial() With {
                     .DiffuseColor = New Vector3(Color.DarkOrange)
                 }
                 plane.Transform.Translation = New Vector3(0, 0, 0)
 
-                'Create a torus for casting shadows
+                ' Create a torus for casting shadows
                 Dim m As Mesh = (New Torus("", 1, 0.4, 20, 20, Math.PI * 2)).ToMesh()
                 Dim torus As Node = scene.RootNode.CreateChildNode("torus", m)
                 torus.Material = New PhongMaterial() With {
@@ -45,7 +45,7 @@ Namespace Rendering
                 torus.Transform.Translation = New Vector3(2, 1, 1)
 
                 If True Then
-                    'Create a blue box don't cast shadows
+                    ' Create a blue box don' T cast shadows
                     m = (New Box()).ToMesh()
                     m.CastShadows = False
                     Dim box As Node = scene.RootNode.CreateChildNode("box", m)
@@ -55,7 +55,7 @@ Namespace Rendering
                     box.Transform.Translation = New Vector3(2, 1, -1)
                 End If
                 If True Then
-                    ' Create a red box that don't receive shadow but cast shadows
+                    ' Create a red box that don' T receive shadow but cast shadows
                     m = (New Box()).ToMesh()
                     m.ReceiveShadows = False
                     Dim box As Node = scene.RootNode.CreateChildNode("box", m)
@@ -69,8 +69,8 @@ Namespace Rendering
                 Dim opt As New ImageRenderOptions() With {
                     .EnableShadows = True
                 }
-                scene.Render(camera, MyDir & Convert.ToString("CastAndReceiveShadow_out_.png"), New Size(1024, 1024), ImageFormat.Png, opt)
-                'ExEnd:CastAndReceiveShadow  
+                scene.Render(camera, MyDir & Convert.ToString("CastAndReceiveShadow_out.png"), New Size(1024, 1024), ImageFormat.Png, opt)
+                ' ExEnd:CastAndReceiveShadow  
             Catch ex As Exception
                 Console.WriteLine(ex.Message)
             End Try

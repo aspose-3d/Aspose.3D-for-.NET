@@ -17,7 +17,7 @@ Namespace Loading_Saving
             ObjSaveOption()
         End Sub
         Public Shared Sub ColladaSaveOption()
-            'ExStart:ColladaSaveOption
+            ' ExStart:ColladaSaveOption
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
             Dim saveColladaopts As New ColladaSaveOptions()
@@ -27,10 +27,10 @@ Namespace Loading_Saving
             saveColladaopts.TransformStyle = ColladaTransformStyle.Matrix
             ' Configure the lookup paths to allow importer to find external dependencies.
             saveColladaopts.LookupPaths = New List(Of String)(New String() {MyDir})
-            'ExEnd:ColladaSaveOption
+            ' ExEnd:ColladaSaveOption
         End Sub
         Public Shared Sub Discreet3DSSaveOption()
-            'ExStart:Discreet3DSSaveOption
+            ' ExStart:Discreet3DSSaveOption
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
             ' Initialize an object
@@ -39,7 +39,7 @@ Namespace Loading_Saving
             saveOpts.DuplicatedNameCounterBase = 2
             ' The format of the duplicated counter.
             saveOpts.DuplicatedNameCounterFormat = "NameFormat"
-            ' The separator between object's name and the duplicated counter.
+            ' The separator between object' S name and the duplicated counter.
             saveOpts.DuplicatedNameSeparator = "Separator"
             ' Allows to export cameras
             saveOpts.ExportCamera = True
@@ -55,17 +55,17 @@ Namespace Loading_Saving
             saveOpts.LookupPaths = New List(Of String)(New String() {MyDir})
             ' Set the master scale
             saveOpts.MasterScale = 1
-            'ExEnd:Discreet3DSSaveOption
+            ' ExEnd:Discreet3DSSaveOption
         End Sub
         Public Shared Sub FBXSaveOption()
-            'ExStart:FBXSaveOption
+            ' ExStart:FBXSaveOption
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
             ' Initialize an object
             Dim saveOpts As New FBXSaveOptions(FileFormat.FBX7500ASCII)
             ' Generates the legacy material properties.
             saveOpts.ExportLegacyMaterialProperties = True
-            ' Fold repeated curve data using FBX's animation reference count
+            ' Fold repeated curve data using FBX' S animation reference count
             saveOpts.FoldRepeatedCurveData = True
             ' Always generates material mapping information for geometries if the attached node contains materials.
             saveOpts.GenerateVertexElementMaterial = True
@@ -73,10 +73,10 @@ Namespace Loading_Saving
             saveOpts.LookupPaths = New List(Of String)(New String() {MyDir})
             ' Generates a video object for texture.
             saveOpts.VideoForTexture = True
-            'ExEnd:FBXSaveOption
+            ' ExEnd:FBXSaveOption
         End Sub
         Public Shared Sub ObjSaveOption()
-            'ExStart:ObjSaveOption
+            ' ExStart:ObjSaveOption
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
             ' Initialize an object
@@ -87,14 +87,14 @@ Namespace Loading_Saving
             saveObjOpts.FlipCoordinateSystem = True
             ' Configure the look up paths to allow importer to find external dependencies.
             saveObjOpts.LookupPaths = New List(Of String)(New String() {MyDir})
-            ' Serialize W component in model's vertex position
+            ' Serialize W component in model' S vertex position
             saveObjOpts.SerializeW = True
             ' Generate comments for each section
             saveObjOpts.Verbose = True
-            'ExEnd:ObjSaveOption
+            ' ExEnd:ObjSaveOption
         End Sub
         Public Shared Sub STLSaveOption()
-            'ExStart:STLSaveOption
+            ' ExStart:STLSaveOption
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
             ' Initialize an object
@@ -103,10 +103,10 @@ Namespace Loading_Saving
             saveSTLOpts.FlipCoordinateSystem = True
             ' Configure the look up paths to allow importer to find external dependencies.
             saveSTLOpts.LookupPaths = New List(Of String)(New String() {MyDir})
-            'ExEnd:STLSaveOption
+            ' ExEnd:STLSaveOption
         End Sub
         Public Shared Sub U3DSaveOption()
-            'ExStart:U3DSaveOption
+            ' ExStart:U3DSaveOption
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
             ' Initialize an object
@@ -125,18 +125,18 @@ Namespace Loading_Saving
             saveU3DOptions.LookupPaths = New List(Of String)(New String() {MyDir})
             ' Compress the mesh data
             saveU3DOptions.MeshCompression = True
-            'ExEnd:U3DSaveOption
+            ' ExEnd:U3DSaveOption
         End Sub
         Public Shared Sub glTFSaveOptions()
-            'ExStart:glTFSaveOptions
+            ' ExStart:glTFSaveOptions
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
             ' Initialize Scene object
             Dim scene As New Scene()
             ' Create a child node
             scene.RootNode.CreateChildNode("sphere", New Sphere())
-            ' Set glTF saving options. The code example embeds all assets into the target file usually a glTF file comes with some dependencies, a bin file for model's vertex/indices, two .glsl files for vertex/fragment shaders
-            ' use opt.EmbedAssets to tells the Aspose.3D API to export scene and embed the dependencies inside the target file.
+            ' Set glTF saving options. The code example embeds all assets into the target file usually a glTF file comes with some dependencies, a bin file for model' S vertex/indices, two .glsl files for vertex/fragment shaders
+            ' Use opt.EmbedAssets to tells the Aspose.3D API to export scene and embed the dependencies inside the target file.
             Dim opt As New GLTFSaveOptions(FileContentType.ASCII)
             opt.EmbedAssets = True
             ' Use KHR_materials_common extension to define the material, thus no GLSL files are generated.
@@ -144,18 +144,18 @@ Namespace Loading_Saving
             ' Customize the name of the buffer file which defines model
             opt.BufferFile = "mybuf.bin"
             ' Save glTF file
-            scene.Save(MyDir & Convert.ToString("glTFSaveOptions_out_.gltf"), opt)
+            scene.Save(MyDir & Convert.ToString("glTFSaveOptions_out.gltf"), opt)
 
             ' Save a binary glTF file using KHR_binary_glTF extension
-            scene.Save(MyDir & Convert.ToString("glTFSaveOptions_out_.glb"), FileFormat.GLTF_Binary)
+            scene.Save(MyDir & Convert.ToString("glTFSaveOptions_out.glb"), FileFormat.GLTF_Binary)
 
             ' Developers may use saving options to create a binary glTF file using KHR_binary_glTF extension
             Dim opts As New GLTFSaveOptions(FileContentType.Binary)
-            scene.Save(MyDir & Convert.ToString("Test_out_.glb"), opts)
-            'ExEnd:glTFSaveOptions
+            scene.Save(MyDir & Convert.ToString("Test_out.glb"), opts)
+            ' ExEnd:glTFSaveOptions
         End Sub
         Public Shared Sub DiscardSavingMaterial()
-            'ExStart:DiscardSavingMaterial
+            ' ExStart:DiscardSavingMaterial
             ' The code example uses the DummyFileSystem, so the material files are not created.
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
@@ -167,11 +167,11 @@ Namespace Loading_Saving
             Dim opt As New ObjSaveOptions()
             opt.FileSystem = New DummyFileSystem()
             ' Save 3D scene
-            scene.Save(MyDir & Convert.ToString("DiscardSavingMaterial_out_.obj"), opt)
-            'ExEnd:DiscardSavingMaterial
+            scene.Save(MyDir & Convert.ToString("DiscardSavingMaterial_out.obj"), opt)
+            ' ExEnd:DiscardSavingMaterial
         End Sub
         Public Shared Sub SavingDependenciesInLocalDirectory()
-            'ExStart:SavingDependenciesInLocalDirectory
+            ' ExStart:SavingDependenciesInLocalDirectory
             ' The code example uses the LocalFileSystem class to save dependencies to the local directory.
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
@@ -183,11 +183,11 @@ Namespace Loading_Saving
             Dim opt As New ObjSaveOptions()
             opt.FileSystem = New LocalFileSystem(MyDir)
             ' Save 3D scene
-            scene.Save(MyDir & Convert.ToString("SavingDependenciesInLocalDirectory_out_.obj"), opt)
-            'ExEnd:SavingDependenciesInLocalDirectory
+            scene.Save(MyDir & Convert.ToString("SavingDependenciesInLocalDirectory_out.obj"), opt)
+            ' ExEnd:SavingDependenciesInLocalDirectory
         End Sub
         Public Shared Sub SavingDependenciesInMemoryFileSystem()
-            'ExStart:SavingDependenciesInMemoryFileSystem
+            ' ExStart:SavingDependenciesInMemoryFileSystem
             ' The code example uses the MemoryFileSystem to intercepts the dependencies writing.
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
@@ -200,11 +200,11 @@ Namespace Loading_Saving
             Dim mfs As New MemoryFileSystem()
             opt.FileSystem = mfs
             ' Save 3D scene
-            scene.Save(MyDir & Convert.ToString("SavingDependenciesInMemoryFileSystem_out_.obj"), opt)
+            scene.Save(MyDir & Convert.ToString("SavingDependenciesInMemoryFileSystem_out.obj"), opt)
             ' Get the test.mtl file content
             Dim mtl As Byte() = mfs.GetFileContent(MyDir & Convert.ToString("test.mtl"))
             File.WriteAllBytes(MyDir & Convert.ToString("Material.mtl"), mtl)
-            'ExEnd:SavingDependenciesInMemoryFileSystem
+            ' ExEnd:SavingDependenciesInMemoryFileSystem
         End Sub
 
     End Class

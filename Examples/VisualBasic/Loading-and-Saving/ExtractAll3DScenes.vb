@@ -7,7 +7,7 @@ Imports Aspose.ThreeD.Formats
 Namespace Loading_Saving
     Class ExtractAll3DScenes
         Public Shared Sub Run()
-            'ExStart:ExtractAll3DScenes
+            ' ExStart:ExtractAll3DScenes
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
 
@@ -19,7 +19,7 @@ Namespace Loading_Saving
                 Dim fileName As String = "3d-" + (System.Math.Max(System.Threading.Interlocked.Increment(i), i - 1)) + ".fbx"
                 scene.Save(fileName, FileFormat.FBX7400ASCII)
             Next
-            'ExEnd:ExtractAll3DScenes            
+            ' ExEnd:ExtractAll3DScenes            
         End Sub
     End Class
 End Namespace

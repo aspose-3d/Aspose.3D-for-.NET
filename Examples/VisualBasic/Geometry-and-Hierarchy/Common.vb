@@ -66,18 +66,18 @@ Namespace Geometry_Hierarchy
             Dim mesh As New Mesh()
             ' Add control points to the mesh
             mesh.ControlPoints.AddRange(controlPoints)
-            ' create polygons to mesh
-            ' front face (Z+)
+            ' Create polygons to mesh
+            ' Front face (Z+)
             mesh.CreatePolygon(New Integer() {0, 1, 2, 3})
-            ' right side (X+)
+            ' Right side (X+)
             mesh.CreatePolygon(New Integer() {1, 5, 6, 2})
-            ' back face (Z-)
+            ' Back face (Z-)
             mesh.CreatePolygon(New Integer() {5, 4, 7, 6})
             ' left side (X-)
             mesh.CreatePolygon(New Integer() {4, 0, 3, 7})
-            ' bottom face (Y-)
+            ' Bottom face (Y-)
             mesh.CreatePolygon(New Integer() {0, 4, 5, 1})
-            ' top face (Y+)
+            ' Top face (Y+)
             mesh.CreatePolygon(New Integer() {3, 2, 6, 7})
             ' ExEnd:CreateMeshUsingCreatePolygons
             Return mesh

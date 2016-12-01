@@ -12,21 +12,21 @@ namespace Aspose._3D.Examples.CSharp._Working_with_Objects
     {
         public static void Run()
         {
-            //ExStart:SplitAllMeshesofScenebyMaterial
+            // ExStart:SplitAllMeshesofScenebyMaterial
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
             MyDir = MyDir + "test.fbx";
 
-            // load a 3D file
+            // Load a 3D file
             Scene scene = new Scene(MyDir);
-            // split all meshes
+            // Split all meshes
             PolygonModifier.SplitMesh(scene, SplitMeshPolicy.CloneData);
 
-            // save file
+            // Save file
             MyDir = RunExamples.GetDataDir() + RunExamples.GetOutputFilePath("test-splitted.fbx");
             scene.Save(MyDir, FileFormat.FBX7500ASCII);
 
-            //ExEnd:SplitAllMeshesofScenebyMaterial
+            // ExEnd:SplitAllMeshesofScenebyMaterial
             Console.WriteLine("\nSpliting all meshes of a scene per material successfully.\nFile saved at " + MyDir);
         }
     }

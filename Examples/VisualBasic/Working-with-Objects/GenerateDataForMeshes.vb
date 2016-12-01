@@ -8,11 +8,11 @@ Imports Aspose.ThreeD.Formats
 Namespace Working_with_Objects
     Class GenerateDataForMeshes
         Public Shared Sub Run()
-            'ExStart:GenerateDataForMeshes
+            ' ExStart:GenerateDataForMeshes
             ' The path to the documents directory.
             Dim MyDir As String = RunExamples.GetDataDir()
 
-            ' Load a 3ds file, 3ds file doesn't have normal data, but it has smoothing group
+            ' Load a 3ds file, 3ds file doesn' T have normal data, but it has smoothing group
             Dim s As New Scene(MyDir & Convert.ToString("camera.3ds"))
             ' Visit all nodes and create normal data for all meshes
             s.RootNode.Accept(Function(n As Node)
@@ -24,7 +24,7 @@ Namespace Working_with_Objects
                                   Return True
 
                               End Function)
-            'ExEnd:GenerateDataForMeshes  
+            ' ExEnd:GenerateDataForMeshes  
             Console.WriteLine(vbLf & "Normal data generated successfully for all meshes.")
         End Sub
     End Class

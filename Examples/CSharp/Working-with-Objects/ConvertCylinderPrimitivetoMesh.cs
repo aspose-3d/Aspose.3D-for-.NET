@@ -18,13 +18,13 @@ namespace Aspose._3D.Examples.CSharp._Working_with_Objects
             // Initialize Node class object
             Node cubeNode = new Node("cylinder");
 
-            //ExStart:ConvertCylinderPrimitivetoMesh
-            // initialize object by Cylinder class
+            // ExStart:ConvertCylinderPrimitivetoMesh
+            // Initialize object by Cylinder class
             IMeshConvertible convertible = new Cylinder();
             
-            // convert a Cylinder to Mesh
+            // Convert a Cylinder to Mesh
             Mesh mesh = convertible.ToMesh();
-            //ExEnd:ConvertCylinderPrimitivetoMesh
+            // ExEnd:ConvertCylinderPrimitivetoMesh
 
             // Point node to the Mesh geometry
             cubeNode.Entity = mesh;

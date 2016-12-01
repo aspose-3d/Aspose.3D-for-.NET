@@ -23,12 +23,12 @@ Module RunExamples
         '' =====================================================
         '' =====================================================
 
-        'Save3DScene.Run()
-        'ReadExistingScene.Run()
-        'CreateEmpty3DDocument.Run()
-        'DetectFormat.Run()
-        'Save3DInPdf.Run()
-        'OpenSceneFromProtectedPdf.Run()
+        ' Save3DScene.Run()
+        ' ReadExistingScene.Run()
+        ' CreateEmpty3DDocument.Run()
+        ' DetectFormat.Run()
+        ' Save3DInPdf.Run()
+        ' OpenSceneFromProtectedPdf.Run()
 
         '' =====================================================
         '' =====================================================
@@ -36,8 +36,8 @@ Module RunExamples
         '' =====================================================
         '' =====================================================
 
-        'PropertyToDocument.Run()
-        'SetupTargetAndCamera.Run()
+        ' PropertyToDocument.Run()
+        ' SetupTargetAndCamera.Run()
 
         '' =====================================================
         '' =====================================================
@@ -45,7 +45,7 @@ Module RunExamples
         '' =====================================================
         '' =====================================================
 
-        'FlipCoordinateSystem.Run()
+        ' FlipCoordinateSystem.Run()
 
         '' =====================================================
         '' =====================================================
@@ -53,24 +53,24 @@ Module RunExamples
         '' =====================================================
         '' =====================================================
 
-        'InformationToScene.Run()
+        ' InformationToScene.Run()
 
         '' =====================================================
         '' =====================================================
         '' Geometry and Hierarchy
         '' =====================================================
 
-        'CubeScene.Run()
-        'MaterialToCube.Run()
-        'TransformationToNodeByQuaternion.Run()
-        'TransformationToNodeByEulerAngles.Run()
-        'TransformationToNodeByTransformationMatrix.Run()
-        'NodeHierarchy.Run()
-        'MeshGeometryData.Run()
-        'SetupNormalsOnCube.Run()
-        'SetupUVOnCube.Run()
-        'TriangulateMesh.Run()
-        'ConcatenateQuaternions.Run()
+        ' CubeScene.Run()
+        ' MaterialToCube.Run()
+        ' TransformationToNodeByQuaternion.Run()
+        ' TransformationToNodeByEulerAngles.Run()
+        ' TransformationToNodeByTransformationMatrix.Run()
+        ' NodeHierarchy.Run()
+        ' MeshGeometryData.Run()
+        ' SetupNormalsOnCube.Run()
+        ' SetupUVOnCube.Run()
+        ' TriangulateMesh.Run()
+        ' ConcatenateQuaternions.Run()
 
         '' =====================================================
         '' =====================================================
@@ -78,7 +78,7 @@ Module RunExamples
         '' =====================================================
         '' =====================================================
 
-        'Primitive3DModels.Run()
+        ' Primitive3DModels.Run()
 
         '' =====================================================
         '' =====================================================
@@ -86,16 +86,16 @@ Module RunExamples
         '' =====================================================
         '' =====================================================
 
-        'SplitMeshbyMaterial.Run()
-        'ConvertSpherePrimitivetoMesh.Run()
-        'ConvertBoxPrimitivetoMesh.Run()
-        'ConvertPlanePrimitivetoMesh.Run()
-        'ConvertCylinderPrimitivetoMesh.Run()
-        'ConvertTorusPrimitivetoMesh.Run()
-        'ConvertSphereMeshtoTriangleMeshCustomMemoryLayout.Run()
-        'ConvertBoxMeshtoTriangleMeshCustomMemoryLayout.Run()
-        'GenerateDataForMeshes.Run()
-        'BuildTangentAndBinormalData.Run()
+        ' SplitMeshbyMaterial.Run()
+        ' ConvertSpherePrimitivetoMesh.Run()
+        ' ConvertBoxPrimitivetoMesh.Run()
+        ' ConvertPlanePrimitivetoMesh.Run()
+        ' ConvertCylinderPrimitivetoMesh.Run()
+        ' ConvertTorusPrimitivetoMesh.Run()
+        ' ConvertSphereMeshtoTriangleMeshCustomMemoryLayout.Run()
+        ' ConvertBoxMeshtoTriangleMeshCustomMemoryLayout.Run()
+        ' GenerateDataForMeshes.Run()
+        ' BuildTangentAndBinormalData.Run()
 
         '' =====================================================
         '' =====================================================
@@ -103,8 +103,8 @@ Module RunExamples
         '' =====================================================
         '' =====================================================
 
-        'CastAndReceiveShadow.Run()
-        'Render3DModelImageFromCamera.Run()
+        ' CastAndReceiveShadow.Run()
+        ' Render3DModelImageFromCamera.Run()
 
         '' =====================================================
         '' =====================================================
@@ -112,8 +112,8 @@ Module RunExamples
         '' =====================================================
         '' =====================================================
 
-        'ApplyVisualEffects.Run()
-        'CaptureViewPort.Run()
+        ' ApplyVisualEffects.Run()
+        ' CaptureViewPort.Run()
 
         '' =====================================================
         '' =====================================================
@@ -121,7 +121,7 @@ Module RunExamples
         '' =====================================================
         '' =====================================================
 
-        'ConvertPolygonsToTriangles.Run()
+        ' ConvertPolygonsToTriangles.Run()
 
         ' Stop before exiting
         Console.WriteLine(vbLf & vbLf & "Program Finished. Press any key to exit....")
@@ -144,6 +144,6 @@ Module RunExamples
     Public Function GetOutputFilePath(inputFilePath As [String]) As String
         Dim extension As String = Path.GetExtension(inputFilePath)
         Dim filename As String = Path.GetFileNameWithoutExtension(inputFilePath)
-        Return Convert.ToString(filename & Convert.ToString("_out_")) & extension
+        Return Convert.ToString(filename & Convert.ToString("_out")) & extension
     End Function
 End Module

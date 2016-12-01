@@ -18,10 +18,10 @@ Namespace Working_with_Objects
             Dim cubeNode As New Node("torus")
 
             ' ExStart:ConvertTorusPrimitivetoMesh
-            ' initialize object by Torus class
+            ' Initialize object by Torus class
             Dim convertible As IMeshConvertible = New Torus()
 
-            ' convert a Torus to Mesh
+            ' Convert a Torus to Mesh
             Dim mesh As Mesh = convertible.ToMesh()
             ' ExEnd:ConvertTorusPrimitivetoMesh
 

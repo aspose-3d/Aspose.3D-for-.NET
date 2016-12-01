@@ -9,7 +9,7 @@ namespace Aspose._3D.Examples.CSharp.AssetInformation
     {
         public static void Run()
         {
-            //ExStart:AddAssetInformationToScene           
+            // ExStart:AddAssetInformationToScene           
             // Initialize a 3D scene
             Scene scene = new Scene();
             
@@ -31,7 +31,7 @@ namespace Aspose._3D.Examples.CSharp.AssetInformation
                         
             // Save scene to 3D supported file formats
             scene.Save(MyDir, FileFormat.FBX7500ASCII);
-            //ExEnd:AddAssetInformationToScene
+            // ExEnd:AddAssetInformationToScene
 
             Console.WriteLine("\nAsset information added successfully to Scene.\nFile saved at " + MyDir);
         }
