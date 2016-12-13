@@ -23,13 +23,13 @@ Namespace License
             license.SetLicense("Aspose.3D.lic")
             ' ExEnd:ApplyLicenseUsingEmbeddedResource
         End Sub
-        Public Shared Sub PublickAndPrivateKeys()
-            ' ExStart:PublickAndPrivateKeys
+        Public Shared Sub PublicAndPrivateKeys()
+            ' ExStart:PublicAndPrivateKeys
             ' Initialize a Metered license class object
             Dim metered As New Aspose.ThreeD.Metered()
-            ' Det public and private keys
+            ' Set public and private keys
             metered.SetMeteredKey("your-public-key", "your-private-key")
-            ' ExEnd:PublickAndPrivateKeys
+            ' ExEnd:PublicAndPrivateKeys
         End Sub
     End Class
 End Namespace

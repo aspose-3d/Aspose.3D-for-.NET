@@ -29,14 +29,14 @@ namespace Aspose._3D.Examples.CSharp.License
             license.SetLicense("Aspose._3D.lic");
             // ExEnd:ApplyLicenseUsingEmbeddedResource
         }
-        public static void PublickAndPrivateKeys()
+        public static void PublicAndPrivateKeys()
         {
-            // ExStart:PublickAndPrivateKeys
+            // ExStart:PublicAndPrivateKeys
             // Initialize a Metered license class object
             Aspose.ThreeD.Metered metered = new Aspose.ThreeD.Metered();
-            // Det public and private keys
+            // Set public and private keys
             metered.SetMeteredKey("your-public-key", "your-private-key");
-            // ExEnd:PublickAndPrivateKeys
+            // ExEnd:PublicAndPrivateKeys
         }
     }
 }
