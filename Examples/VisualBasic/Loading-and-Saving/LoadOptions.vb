@@ -3,6 +3,7 @@ Imports System.Collections.Generic
 Imports System.Collections
 Imports Aspose.ThreeD
 Imports Aspose.ThreeD.Formats
+Imports Aspose.ThreeD.Formats.PLY
 
 Namespace Loading_Saving
     Class LoadOptions
@@ -11,6 +12,9 @@ Namespace Loading_Saving
             ObjLoadOption()
             STLLoadOption()
             U3DLoadOption()
+            glTFLoadOptions()
+            PlyLoadOptions()
+
         End Sub
         Public Shared Sub Discreet3DSLoadOption()
             ' ExStart:Discreet3DSOption
@@ -78,6 +82,19 @@ Namespace Loading_Saving
             scene.Open(MyDir & Convert.ToString("Duck.gltf"), loadOpt)
             ' ExEnd:glTFLoadOptions
         End Sub
-
+        Public Shared Sub PlyLoadOptions()
+            ' ExStart:PlyLoadOptions
+            ' the path to the documents directory.
+            Dim MyDir As String = RunExamples.GetDataDir()
+            ' initialize Scene class object
+            Dim scene As New Scene()
+            ' initialize an object
+            Dim loadPLYOpts As New PlyLoadOptions()
+            ' Flip the coordinate system.
+            loadPLYOpts.FlipCoordinateSystem = True
+            ' load 3D Ply model
+            scene.Open(MyDir & Convert.ToString("vase-v2.ply"), loadPLYOpts)
+            ' ExEnd:PlyLoadOptions
+        End Sub
     End Class
 End Namespace

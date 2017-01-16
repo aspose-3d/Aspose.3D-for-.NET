@@ -29,6 +29,9 @@ Module RunExamples
         ' DetectFormat.Run()
         ' Save3DInPdf.Run()
         ' OpenSceneFromProtectedPdf.Run()
+        ' LoadOptions.Run()
+
+
 
         '' =====================================================
         '' =====================================================
@@ -46,6 +49,7 @@ Module RunExamples
         '' =====================================================
 
         ' FlipCoordinateSystem.Run()
+        ' Save3DMeshesInCustomBinaryFormat.Run()
 
         '' =====================================================
         '' =====================================================

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections;
 using Aspose.ThreeD;
 using Aspose.ThreeD.Formats;
+using Aspose.ThreeD.Formats.PLY;
 
 namespace Aspose._3D.Examples.CSharp.Loading_Saving
 {
@@ -15,6 +16,8 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             ObjLoadOption();
             STLLoadOption();
             U3DLoadOption();
+            glTFLoadOptions();
+            PlyLoadOptions();
         }
         public static void Discreet3DSLoadOption()
         {
@@ -86,6 +89,21 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             loadOpt.FlipTexCoordV = true;
             scene.Open( MyDir + "Duck.gltf", loadOpt);
             // ExEnd:glTFLoadOptions
+        }
+        public static void PlyLoadOptions()
+        {
+            // ExStart:PlyLoadOptions
+            // the path to the documents directory.
+            string MyDir = RunExamples.GetDataDir();
+            // initialize Scene class object
+            Scene scene = new Scene();
+            // initialize an object
+            PlyLoadOptions loadPLYOpts = new PlyLoadOptions();
+            // Flip the coordinate system.
+            loadPLYOpts.FlipCoordinateSystem = true;
+            // load 3D Ply model
+            scene.Open(MyDir + "vase-v2.ply", loadPLYOpts);
+            // ExEnd:PlyLoadOptions
         } 
     }
 }

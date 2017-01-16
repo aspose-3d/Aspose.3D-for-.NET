@@ -38,7 +38,8 @@ namespace Aspose._3D.Examples.CSharp
             // Save3DInPdf.Run();
             // OpenSceneFromProtectedPdf.Run();
             // ExtractAll3DScenes.Run();
-            SaveOptions.SavingDependenciesInMemoryFileSystem();
+            // SaveOptions.SavingDependenciesInMemoryFileSystem();
+            // LoadOptions.Run();
             
 
             // =====================================================
@@ -57,6 +58,7 @@ namespace Aspose._3D.Examples.CSharp
             // =====================================================
 
             // FlipCoordinateSystem.Run();
+            // Save3DMeshesInCustomBinaryFormat.Run();
 
             // =====================================================
             // =====================================================
