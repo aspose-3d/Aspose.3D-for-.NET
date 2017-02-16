@@ -5,6 +5,7 @@ using System.Collections;
 using Aspose.ThreeD;
 using Aspose.ThreeD.Formats;
 using Aspose.ThreeD.Formats.PLY;
+using Aspose.ThreeD.Formats.X;
 
 namespace Aspose._3D.Examples.CSharp.Loading_Saving
 {
@@ -104,6 +105,21 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // load 3D Ply model
             scene.Open(MyDir + "vase-v2.ply", loadPLYOpts);
             // ExEnd:PlyLoadOptions
+        }
+        public static void XLoadOptions()
+        {
+            // ExStart:XLoadOptions
+            // the path to the documents directory.
+            string MyDir = RunExamples.GetDataDir();
+            // initialize Scene class object
+            Scene scene = new Scene();
+            // initialize an object
+            XLoadOptions loadXOpts = new XLoadOptions(FileContentType.ASCII);
+            // flip the coordinate system.
+            loadXOpts.FlipCoordinateSystem = true;
+            // load 3D X file
+            scene.Open(MyDir + "warrior.x", loadXOpts);
+            // ExEnd:XLoadOptions
         } 
     }
 }
