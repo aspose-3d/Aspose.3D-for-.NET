@@ -7,6 +7,7 @@ using Aspose.ThreeD.Formats;
 using Aspose.ThreeD.Entities;
 using Aspose.ThreeD.Utilities;
 using Aspose.ThreeD.Shading;
+using Aspose.ThreeD.Formats.Draco;
 
 namespace Aspose._3D.Examples.CSharp.Loading_Saving
 {
@@ -19,6 +20,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             FBXSaveOption();
             ObjSaveOption();
             glTFSaveOptions();
+            DRCSaveOptions();
         }
         public static void ColladaSaveOption()
         {
@@ -164,6 +166,32 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             GLTFSaveOptions opts = new GLTFSaveOptions(FileContentType.Binary);
             scene.Save(MyDir + "Test_out.glb", opts);
             // ExEnd:glTFSaveOptions
+        }
+        public static void DRCSaveOptions()
+        {
+            // ExStart:DRCSaveOptions
+            // The path to the documents directory.
+            string MyDir = RunExamples.GetDataDir();
+            // Initialize Scene object
+            Scene scene = new Scene();
+            // Create a child node
+            scene.RootNode.CreateChildNode("sphere", new Sphere());
+            // Initialize .DRC saving options. 
+            DracoSaveOptions opts = new DracoSaveOptions();
+            // Quantization bits for position
+            opts.PositionBits = 14;
+            // Quantization bits for texture coordinate
+            opts.TextureCoordinateBits = 8;
+            // Quantization bits for vertex color
+            opts.ColorBits = 10;
+            // Quantization bits for normal vectors
+            opts.NormalBits = 7;
+            // Set compression level
+            opts.CompressionLevel = DracoCompressionLevel.Optimal;
+
+            // Save Google Draco (.drc) file
+            scene.Save(MyDir + "DRCSaveOptions_out.drc", opts);
+            // ExEnd:DRCSaveOptions
         }
         public static void DiscardSavingMaterial()
         {

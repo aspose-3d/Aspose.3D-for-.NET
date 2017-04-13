@@ -14,6 +14,7 @@ using Aspose._3D.Examples.CSharp._3DModeling;
 using Aspose._3D.Examples.CSharp._3DViewPorts;
 using Aspose._3D.Examples.CSharp._Working_with_Objects;
 using Aspose._3D.Examples.CSharp.Polygons;
+using Aspose._3D.Examples.CSharp.Working_with_Objects;
 
 namespace Aspose._3D.Examples.CSharp
 {
@@ -40,7 +41,8 @@ namespace Aspose._3D.Examples.CSharp
             // ExtractAll3DScenes.Run();
             // SaveOptions.SavingDependenciesInMemoryFileSystem();
             // LoadOptions.Run();
-            
+            // SaveOptions.Run();
+
 
             // =====================================================
             // =====================================================
@@ -107,7 +109,8 @@ namespace Aspose._3D.Examples.CSharp
             // ConvertSphereMeshtoTriangleMeshCustomMemoryLayout.Run();
             // ConvertBoxMeshtoTriangleMeshCustomMemoryLayout.Run();
             // GenerateDataForMeshes.Run();
-            BuildTangentAndBinormalData.Run();
+            // BuildTangentAndBinormalData.Run();
+            // Encode3DMeshinGoogleDraco.Run();
 
             // =====================================================
             // =====================================================
