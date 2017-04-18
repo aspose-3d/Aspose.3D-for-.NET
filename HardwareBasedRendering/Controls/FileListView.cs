@@ -30,8 +30,8 @@ namespace AssetBrowser.Controls
             this.View = View.LargeIcon;
 
             supportedExtensions = new HashSet<string>(
-                from field in typeof(FileFormatType).GetFields(BindingFlags.Public | BindingFlags.Static)
-                select ((FileFormatType) field.GetValue(null)).Extension
+                from field in typeof(FileFormat).GetFields(BindingFlags.Public | BindingFlags.Static)
+                select ((FileFormat) field.GetValue(null)).Extension
                 );
         }
 

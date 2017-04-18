@@ -29,9 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("tmp");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("tmp");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("C:\\", new System.Windows.Forms.TreeNode[] {
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("tmp");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("D:\\(Data)", new System.Windows.Forms.TreeNode[] {
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("My Computer", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode6});
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -43,6 +56,9 @@
             this.btnEdgeDetection = new System.Windows.Forms.ToolStripButton();
             this.btnBlur = new System.Windows.Forms.ToolStripButton();
             this.btnPixelation = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnOrbital = new System.Windows.Forms.ToolStripButton();
+            this.btnFPS = new System.Windows.Forms.ToolStripButton();
             this.leftContainer = new System.Windows.Forms.SplitContainer();
             this.fileSystemTree1 = new AssetBrowser.Controls.FileSystemTree();
             this.fileListView1 = new AssetBrowser.Controls.FileListView();
@@ -52,9 +68,7 @@
             this.rightContainer = new System.Windows.Forms.SplitContainer();
             this.sceneHierarchy = new AssetBrowser.Controls.SceneHierarchyTree();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnStandardMovement = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -97,6 +111,25 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.saveAsToolStripMenuItem.Text = "&Export...";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.OnExport);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(113, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.OnExit);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -123,7 +156,11 @@
             this.btnGrayscale,
             this.btnEdgeDetection,
             this.btnBlur,
-            this.btnPixelation});
+            this.btnPixelation,
+            this.toolStripSeparator2,
+            this.btnStandardMovement,
+            this.btnOrbital,
+            this.btnFPS});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(716, 25);
@@ -216,6 +253,33 @@
             this.btnPixelation.ToolTipText = "Pixelation";
             this.btnPixelation.CheckedChanged += new System.EventHandler(this.OnTogglePostProcessing);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnOrbital
+            // 
+            this.btnOrbital.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnOrbital.Image = global::AssetBrowser.Images.Orbital;
+            this.btnOrbital.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnOrbital.Name = "btnOrbital";
+            this.btnOrbital.Size = new System.Drawing.Size(23, 22);
+            this.btnOrbital.Text = "btnOrbital";
+            this.btnOrbital.ToolTipText = "Orbital camera movement";
+            this.btnOrbital.Click += new System.EventHandler(this.OnMovementChanged);
+            // 
+            // btnFPS
+            // 
+            this.btnFPS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnFPS.Image = ((System.Drawing.Image)(resources.GetObject("btnFPS.Image")));
+            this.btnFPS.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnFPS.Name = "btnFPS";
+            this.btnFPS.Size = new System.Drawing.Size(23, 22);
+            this.btnFPS.Text = "btnFPS";
+            this.btnFPS.ToolTipText = "FPS-style camera movement";
+            this.btnFPS.Click += new System.EventHandler(this.OnMovementChanged);
+            // 
             // leftContainer
             // 
             this.leftContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -246,8 +310,20 @@
             this.fileSystemTree1.Location = new System.Drawing.Point(0, 0);
             this.fileSystemTree1.Margin = new System.Windows.Forms.Padding(2);
             this.fileSystemTree1.Name = "fileSystemTree1";
+            treeNode1.Name = "";
+            treeNode1.Text = "tmp";
             treeNode3.Name = "";
             treeNode3.Text = "tmp";
+            treeNode4.ImageKey = "C:\\";
+            treeNode4.Name = "";
+            treeNode4.Text = "C:\\";
+            treeNode5.Name = "";
+            treeNode5.Text = "tmp";
+            treeNode6.ImageKey = "D:\\";
+            treeNode6.Name = "";
+            treeNode6.Text = "D:\\(Data)";
+            treeNode7.Name = "";
+            treeNode7.Text = "My Computer";
             this.fileSystemTree1.SelectedImageIndex = 0;
             this.fileSystemTree1.ShowRootLines = false;
             this.fileSystemTree1.Size = new System.Drawing.Size(224, 279);
@@ -259,7 +335,7 @@
             this.fileListView1.Location = new System.Drawing.Point(0, 0);
             this.fileListView1.Margin = new System.Windows.Forms.Padding(2);
             this.fileListView1.Name = "fileListView1";
-            this.fileListView1.Size = new System.Drawing.Size(225, 130);
+            this.fileListView1.Size = new System.Drawing.Size(228, 130);
             this.fileListView1.TabIndex = 0;
             this.fileListView1.UseCompatibleStateImageBehavior = false;
             this.fileListView1.DoubleClick += new System.EventHandler(this.OnOpenSelectedFile);
@@ -280,7 +356,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.rightContainer);
             this.splitContainer2.Size = new System.Drawing.Size(489, 279);
-            this.splitContainer2.SplitterDistance = 225;
+            this.splitContainer2.SplitterDistance = 228;
             this.splitContainer2.SplitterWidth = 3;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -299,18 +375,22 @@
             // mainContainer.Panel2
             // 
             this.mainContainer.Panel2.Controls.Add(this.fileListView1);
-            this.mainContainer.Size = new System.Drawing.Size(225, 279);
+            this.mainContainer.Size = new System.Drawing.Size(228, 279);
             this.mainContainer.SplitterDistance = 146;
             this.mainContainer.SplitterWidth = 3;
             this.mainContainer.TabIndex = 0;
             // 
             // renderView1
             // 
+            this.renderView1.AltPressed = false;
+            this.renderView1.Buttons = System.Windows.Forms.MouseButtons.None;
+            this.renderView1.ControlPressed = false;
             this.renderView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.renderView1.Location = new System.Drawing.Point(0, 0);
             this.renderView1.Margin = new System.Windows.Forms.Padding(2);
             this.renderView1.Name = "renderView1";
-            this.renderView1.Size = new System.Drawing.Size(225, 146);
+            this.renderView1.ShiftPressed = false;
+            this.renderView1.Size = new System.Drawing.Size(228, 146);
             this.renderView1.TabIndex = 0;
             this.renderView1.Text = "renderView1";
             // 
@@ -329,7 +409,7 @@
             // rightContainer.Panel2
             // 
             this.rightContainer.Panel2.Controls.Add(this.propertyGrid1);
-            this.rightContainer.Size = new System.Drawing.Size(261, 279);
+            this.rightContainer.Size = new System.Drawing.Size(258, 279);
             this.rightContainer.SplitterDistance = 117;
             this.rightContainer.SplitterWidth = 3;
             this.rightContainer.TabIndex = 0;
@@ -342,7 +422,7 @@
             this.sceneHierarchy.Margin = new System.Windows.Forms.Padding(2);
             this.sceneHierarchy.Name = "sceneHierarchy";
             this.sceneHierarchy.SelectedImageIndex = 0;
-            this.sceneHierarchy.Size = new System.Drawing.Size(261, 117);
+            this.sceneHierarchy.Size = new System.Drawing.Size(258, 117);
             this.sceneHierarchy.TabIndex = 0;
             this.sceneHierarchy.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.OnSceneObjectSelected);
             this.sceneHierarchy.DoubleClick += new System.EventHandler(this.OnDoubleClickSceneObject);
@@ -353,28 +433,21 @@
             this.propertyGrid1.Location = new System.Drawing.Point(0, 0);
             this.propertyGrid1.Margin = new System.Windows.Forms.Padding(2);
             this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(261, 159);
+            this.propertyGrid1.Size = new System.Drawing.Size(258, 159);
             this.propertyGrid1.TabIndex = 0;
             this.propertyGrid1.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.OnPropertyChanged);
             // 
-            // saveAsToolStripMenuItem
+            // btnStandardMovement
             // 
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.saveAsToolStripMenuItem.Text = "&Export...";
-            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.OnExport);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exitToolStripMenuItem.Text = "E&xit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.OnExit);
+            this.btnStandardMovement.Checked = true;
+            this.btnStandardMovement.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.btnStandardMovement.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnStandardMovement.Image = ((System.Drawing.Image)(resources.GetObject("btnStandardMovement.Image")));
+            this.btnStandardMovement.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnStandardMovement.Name = "btnStandardMovement";
+            this.btnStandardMovement.Size = new System.Drawing.Size(23, 22);
+            this.btnStandardMovement.ToolTipText = "Standard camera movement";
+            this.btnStandardMovement.Click += new System.EventHandler(this.OnMovementChanged);
             // 
             // MainForm
             // 
@@ -443,5 +516,9 @@
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton btnOrbital;
+        private System.Windows.Forms.ToolStripButton btnFPS;
+        private System.Windows.Forms.ToolStripButton btnStandardMovement;
     }
 }

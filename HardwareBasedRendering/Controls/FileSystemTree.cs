@@ -19,6 +19,11 @@ namespace AssetBrowser.Controls
         public FileSystemTree()
         {
             this.ShowRootLines = false;
+        }
+
+        protected override void InitLayout()
+        {
+            base.InitLayout();
             if (!DesignMode)
             {
                 InitializeUI();

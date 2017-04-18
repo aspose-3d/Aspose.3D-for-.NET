@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using Aspose.ThreeD;
 using Aspose.ThreeD.Entities;
 using Aspose.ThreeD.Formats;
+using Aspose.ThreeD.Utilities;
 
 namespace AssetBrowser
 {
@@ -22,12 +23,55 @@ namespace AssetBrowser
         private string currentFileName;
         private bool modified;
         private Scene scene = new Scene();
+        private ContextMenuStrip contextMenu = new ContextMenuStrip();
         public MainForm()
         {
             InitializeComponent();
             originalTitle = Text;
             fileSystemTree1.CurrentPath = Directory.GetCurrentDirectory();
             renderView1.Scene = scene;
+
+            contextMenu.Items.Add("Perspective").Click += delegate(object sender, EventArgs e)
+            {
+                Camera c = (Camera) renderView1.SelectedViewport.Frustum;
+                c.ProjectionType = ProjectionType.Perspective;
+                OnMovementChanged(btnStandardMovement, null);
+            };
+            Func<Vector3, Vector3, bool> ortho = delegate(Vector3 pos, Vector3 up)
+            {
+                Camera c = (Camera) renderView1.SelectedViewport.Frustum;
+                OnMovementChanged(btnStandardMovement, null);
+                c.ProjectionType = ProjectionType.Orthographic;
+                c.Direction = -pos;
+                c.Up = up;
+                c.ParentNode.Transform.Translation = pos * c.ParentNode.Transform.Translation.Length;
+                return true;
+            };
+            contextMenu.Items.Add("Orthographic - Front").Click += delegate(object sender, EventArgs e)
+            {
+                ortho(new Vector3(1, 0, 0), Vector3.YAxis);
+            };
+            contextMenu.Items.Add("Orthographic - Back").Click += delegate(object sender, EventArgs e)
+            {
+                ortho(new Vector3(-1, 0, 0), Vector3.YAxis);
+            };
+            contextMenu.Items.Add("Orthographic - Left").Click += delegate(object sender, EventArgs e)
+            {
+                ortho(new Vector3(0, 0, 1), Vector3.YAxis);
+            };
+            contextMenu.Items.Add("Orthographic - Right").Click += delegate(object sender, EventArgs e)
+            {
+                ortho(new Vector3(0, 0, -1), Vector3.YAxis);
+            };
+            contextMenu.Items.Add("Orthographic - Top").Click += delegate(object sender, EventArgs e)
+            {
+                ortho(new Vector3(0, 1, 0), Vector3.XAxis);
+            };
+            contextMenu.Items.Add("Orthographic - Bottom").Click += delegate(object sender, EventArgs e)
+            {
+                ortho(new Vector3(0, -1, 0), Vector3.XAxis);
+            };
+            renderView1.ContextMenuStrip = contextMenu;
         }
 
 
@@ -63,6 +107,7 @@ namespace AssetBrowser
                 fileListView1.Enabled = false;
                 propertyGrid1.SelectedObject = null;
                 Stopwatch st = Stopwatch.StartNew();
+                OnMovementChanged(btnOrbital, null);
                 //open the scene using user modified load option in background thread.
                 await Task.Run(() => scene.Open(fileName, opt));
                 elapsed = st.ElapsedMilliseconds;
@@ -177,7 +222,7 @@ namespace AssetBrowser
                     formats.Add(f);
                     if (filter.Length > 0)
                         filter.Append("|");
-                    filter.Append(string.Format("{0} {2} {3} (*{1})|*{1}", f.FileFormatType, f.FileFormatType.Extension, f.ContentType, f.Version));
+                    filter.Append(string.Format("{0} {2} {3} (*{1})|*{1}", f.FileFormatType, f.Extension, f.ContentType, f.Version));
                 }
                 d.Filter = filter.ToString();
                 if (d.ShowDialog(this) == DialogResult.Cancel)
@@ -185,6 +230,22 @@ namespace AssetBrowser
                 format = formats[d.FilterIndex - 1];
                 return d.FileName;
             }
+        }
+
+        private void OnMovementChanged(object sender, EventArgs e)
+        {
+
+            if (sender == btnFPS)
+                renderView1.ChangeMovement<FPSMovement>();
+            else if(sender == btnOrbital)
+                renderView1.ChangeMovement<OrbitalMovement>();
+            else if(sender == btnStandardMovement)
+                renderView1.ChangeMovement<StandardMovement>();
+
+            btnFPS.Checked = sender == btnFPS;
+            btnOrbital.Checked = sender == btnOrbital;
+            btnStandardMovement.Checked = sender == btnStandardMovement;
+
         }
     }
 }

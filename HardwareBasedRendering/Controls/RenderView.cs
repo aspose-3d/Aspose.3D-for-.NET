@@ -13,7 +13,7 @@ using Aspose.ThreeD.Utilities;
 
 namespace AssetBrowser.Controls
 {
-    class RenderView : Control
+    class RenderView : Control, IKeyState
     {
         public Scene Scene = new Scene();
         private Renderer renderer;
@@ -21,13 +21,7 @@ namespace AssetBrowser.Controls
         private Camera camera;
         private Node cameraNode;
         private Viewport[] viewports;
-        private Point lastLocation;
-        private double latitude;
-        private double longitude;
-        private double elevation = 10;
-        private bool controlPressed;
-        private bool shiftPressed;
-
+        private Movement movement;
         private ShaderProgram gridShader;
 
         private RelativeRectangle[][] presets =
@@ -66,18 +60,18 @@ namespace AssetBrowser.Controls
             //make the control selectable, so we can receive keyboard events
             SetStyle(ControlStyles.Selectable, true);
         }
-        //ExStart:RenderView
+
         private void InitRenderer()
         {
-            // Create a default camera, because it's required during the viewport's creation.
+            //create a default camera, because it's required during the viewport's creation.
             camera = new Camera();
             Scene.RootNode.CreateChildNode("camera", camera);
-            // Create the renderer and render window from window's native handle
+            //create the renderer and render window from window's native handle
             renderer = Renderer.CreateRenderer();
-            // Right now we only support native window handle from Microsoft Windows
-            // We'll support more platform on user's demand.
+            //Right now we only support native window handle from Microsoft Windows
+            //we'll support more platform on user's demand.
             window = renderer.RenderFactory.CreateRenderWindow(new RenderParameters(), Handle);
-            // Create 4 viewports, the viewport's area is meanless here because we'll change it to the right area in the SetViewports later
+            //create 4 viewports, the viewport's area is meanless here because we'll change it to the right area in the SetViewports later
             viewports = new[]
             {
                 window.CreateViewport(camera, Color.Gray, RelativeRectangle.FromScale(0, 0, 1, 1)),
@@ -92,32 +86,37 @@ namespace AssetBrowser.Controls
 
             GLSLSource src = new GLSLSource();
             src.VertexShader = @"#version 330 core
-            layout (location = 0) in vec3 position;
-            uniform mat4 matWorldViewProj;
-            void main()
-            {
-                gl_Position = matWorldViewProj * vec4(position, 1.0f);
-            }";
-                        src.FragmentShader = @"#version 330 core
-            out vec4 color;
-            void main()
-            {
-                color = vec4(1, 1, 1, 1);
-            }";
-            // Define the input format used by GLSL vertex shader the format is struct ControlPoint { FVector3 Position;}
+layout (location = 0) in vec3 position;
+uniform mat4 matWorldViewProj;
+void main()
+{
+    gl_Position = matWorldViewProj * vec4(position, 1.0f);
+}";
+            src.FragmentShader = @"#version 330 core
+out vec4 color;
+void main()
+{
+    color = vec4(1, 1, 1, 1);
+}";
+            //define the input format used by GLSL vertex shader
+            //the format is 
+            // struct ControlPoint {
+            //    FVector3 Position;
+            //}
             VertexDeclaration fd = new VertexDeclaration();
             fd.AddField(VertexFieldDataType.FVector3, VertexFieldSemantic.Position);
-            // Compile shader from GLSL source code and specify the vertex input format
+            //compile shader from GLSL source code and specify the vertex input format
             gridShader = renderer.RenderFactory.CreateShaderProgram(src, fd);
-            // Connect GLSL uniform to renderer's internal variable
+            //connect GLSL uniform to renderer's internal variable
             gridShader.Variables = new ShaderVariable[]
             {
                 new ShaderVariable("matWorldViewProj", VariableSemantic.MatrixWorldViewProj)
             };
 
             SceneUpdated("");
+
         }
-        //ExEnd:RenderView
+
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
@@ -142,70 +141,74 @@ namespace AssetBrowser.Controls
         protected override void OnKeyDown(KeyEventArgs e)
         {
             base.OnKeyDown(e);
-            controlPressed = e.Control;
-            shiftPressed = e.Shift;
+            ControlPressed = e.Control;
+            ShiftPressed = e.Shift;
+            AltPressed = e.Alt;
+            movement.KeyDown(e.KeyCode);
+            UpdateCameraPosition();
         }
 
         protected override void OnKeyUp(KeyEventArgs e)
         {
             base.OnKeyUp(e);
-            controlPressed = e.Control;
-            shiftPressed = e.Shift;
+            ControlPressed = e.Control;
+            ShiftPressed = e.Shift;
+            AltPressed = e.Alt;
+            movement.KeyUp(e.KeyCode);
+            UpdateCameraPosition();
         }
 
         protected override void OnMouseWheel(MouseEventArgs e)
         {
             base.OnMouseWheel(e);
-            //move the camera forward using mouse wheel
-            double scale = 0.01;
-            //and fast/slow the scale by pressing control/shift key
-            if (controlPressed)
-                scale *= 10;
-            else if (shiftPressed)
-                scale *= 0.1;
-            elevation -= e.Delta*scale;
+            movement.MouseWheel(e.Delta);
             UpdateCameraPosition();
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
-            base.OnMouseUp(e);
+            base.OnMouseDown(e);
             //focus the control and remember the mouse position
             //it's used in the OnMouseMove to calculate the mouse's dragging direction.
-            lastLocation = e.Location;
+            SelectedViewport = null;
+            var rect = this.ClientRectangle;
+            for (int i = 0; i < viewports.Length; i++)
+            {
+                var r = viewports[i].Area.ToAbsolute(rect);
+                if (r.Contains(e.Location))
+                {
+                    SelectedViewport = viewports[i];
+                    break;
+                }
+            }
+
+            Buttons |= e.Button;
+            movement.MouseDown(e.Location);
             Focus();
+        }
+
+        protected override void OnMouseUp(MouseEventArgs e)
+        {
+            base.OnMouseUp(e);
+            Buttons = MouseButtons.None;
+            movement.MouseUp(e.Location);
         }
 
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
-            if (e.Button == MouseButtons.None)
-                return;
-            double scale = 0.01;
-            //mouse's x coordinate will change longitude
-            double dx = scale*(e.X - lastLocation.X);
-            longitude += dx;
-
-            //mouse's y coordinate will change latitude
-            double dy = scale*(e.Y - lastLocation.Y);
-            latitude += dy;
-
+            if(e.Button == MouseButtons.None)
+                movement.MouseMove(e.Location);
+            else
+                movement.MouseDrag(e.Location);
             UpdateCameraPosition();
-            lastLocation = e.Location;
         }
 
         private void UpdateCameraPosition()
         {
             if (cameraNode != null)
             {
-
-                //we simulate the camera only moves on a sphere that coordinated by elevation/latitude/longitude
-                cameraNode.Transform.Translation = new Vector3(
-                    -elevation*Math.Cos(latitude)*Math.Cos(longitude),
-                    elevation*Math.Sin(latitude),
-                    elevation*Math.Cos(latitude)*Math.Sin(longitude)
-                    );
-                //camera's LookAt property is Vector3(0, 0, 0) means it always looks at the origin point.
+                movement.Update();
                 Invalidate();
             }
         }
@@ -235,26 +238,15 @@ namespace AssetBrowser.Controls
             cameraNode.Excluded = true;//generated by Asset browser, we don't want it to be exported
             camera.FarPlane = 4000;
             camera.NearPlane = 0.1;
+            cameraNode.Transform.Translation = new Vector3(10, 10, 10);
+            camera.LookAt = Vector3.Origin;
             foreach (Viewport vp in viewports)
             {
                 vp.Frustum = camera;
             }
-            //reset the camera, and calculate the elevation from bounding box
-            BoundingBox bb = Scene.RootNode.GetBoundingBox();
-            latitude = longitude = 0;
-            elevation = 10;//default elevation
-            //infinite or null bounding box means the scene has no geometries, only adjust camera's elevation when it's finite
-            if (bb.Extent == BoundingBoxExtent.Finite)
-            {
-                double newElevation = Math.Max(bb.Minimum.Length, bb.Maximum.Length) * 1.1;
-                if (newElevation > 0.1)//if the bounding box is too small, ignore it
-                {
-                    //we also need to make sure the camera can see objects in side the elevation by setting the far and near plane
-                    elevation = newElevation;
-                    camera.FarPlane = elevation*100;
-                    camera.NearPlane = Math.Max(0.1,  elevation*0.01);
-                }
-            }
+
+            movement = Movement.Create<StandardMovement>(this, camera, Scene);
+
             //update camera's position with new elevation
             UpdateCameraPosition();
 
@@ -271,6 +263,7 @@ namespace AssetBrowser.Controls
             {
                 //no light found in the scene, manually add some lights in random positions
                 Random r = new Random();
+                double elevation = Scene.RootNode.GetBoundingBox().Maximum.Length;
                 for (int i = 0; i < 2; i++)
                 {
                     Vector3 pos = new Vector3();
@@ -329,5 +322,17 @@ namespace AssetBrowser.Controls
             this.cameraNode = camera.ParentNode;
             Invalidate();
         }
+
+        public void ChangeMovement<T>() where T : Movement, new()
+        {
+            if (movement is T)
+                return;
+            movement = Movement.Create<T>(this, camera, Scene);
+        }
+        public Viewport SelectedViewport { get; private set; }
+        public bool ControlPressed { get; set; }
+        public bool ShiftPressed { get; set; }
+        public bool AltPressed { get; set; }
+        public MouseButtons Buttons { get; set; }
     }
 }

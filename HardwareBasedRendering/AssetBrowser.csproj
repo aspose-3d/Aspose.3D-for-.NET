@@ -9,10 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AssetBrowser</RootNamespace>
     <AssemblyName>AssetBrowser</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,8 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.3D">
-      <HintPath>.\Aspose.3D.dll</HintPath>
+    <Reference Include="Aspose.3D, Version=17.4.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
+      <HintPath>packages\Aspose.3D.17.4.0\lib\net40\Aspose.3D.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -79,6 +79,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Movements.cs" />
     <Compile Include="OptionDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +105,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\Material.bmp" />
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +114,7 @@
     <Content Include="Resources\EdgeDetection.bmp" />
     <Content Include="Resources\Grayscale.bmp" />
     <Content Include="Resources\Blur.bmp" />
+    <None Include="Resources\Orbital.bmp" />
     <Content Include="Resources\Pixelization.bmp" />
     <Content Include="Resources\Viewport_4.bmp" />
     <Content Include="Resources\Viewport_2.bmp" />
