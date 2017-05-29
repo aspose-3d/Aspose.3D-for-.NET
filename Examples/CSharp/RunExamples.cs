@@ -15,6 +15,7 @@ using Aspose._3D.Examples.CSharp._3DViewPorts;
 using Aspose._3D.Examples.CSharp._Working_with_Objects;
 using Aspose._3D.Examples.CSharp.Polygons;
 using Aspose._3D.Examples.CSharp.Working_with_Objects;
+using Aspose._3D.Examples.CSharp.Geometry_and_Hierarchy;
 
 namespace Aspose._3D.Examples.CSharp
 {
@@ -85,6 +86,7 @@ namespace Aspose._3D.Examples.CSharp
             // SetupNormalsOnCube.Run();
             // TriangulateMesh.Run();
             // ConcatenateQuaternions.Run();
+            // ApplyPBRMaterialToBox.Run();
 
             //// =====================================================
             //// =====================================================
