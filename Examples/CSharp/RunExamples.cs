@@ -120,6 +120,9 @@ namespace Aspose._3D.Examples.CSharp
             // Rendering
             // =====================================================
             // =====================================================
+            // RenderSceneIntoCubemapwithsixfaces.Run();
+            // RenderPanaromaViewof3DScene.Run();
+            // RenderFisheyeLensEffectof3DScene.Run();
             // Render3DModelImageFromCamera.Run();
             // CastAndReceiveShadow.Run();
 
