@@ -28,22 +28,28 @@ namespace Aspose._3D.Examples.CSharp.Animation
             
             // Create a curve mapping based on translation property
             CurveMapping mapping = new CurveMapping(scene, translation);
-            
-            // Create curve on channel X and Z
-            Curve curveX = mapping.CreateCurve("X");
-            Curve curveZ = mapping.CreateCurve("Z");
-            
-            // Move node's translation to (10, 0, 10) at 0 sec using bezier interpolation
-            curveX.CreateKeyFrame(0, 10.0f, Interpolation.Bezier);
-            curveZ.CreateKeyFrame(0, 10.0f, Interpolation.Bezier);
-            
-            // Move node's translation to (20, 0, -10) at 3 sec
-            curveX.CreateKeyFrame(3, 20.0f, Interpolation.Bezier);
-            curveZ.CreateKeyFrame(3, -10.0f, Interpolation.Bezier);
-            
-            // Move node's translation to (30, 0, 0) at 5 sec
-            curveX.CreateKeyFrame(5, 30.0f, Interpolation.Linear);
-            curveZ.CreateKeyFrame(5, 0.0f, Interpolation.Bezier);            
+
+            // Create the animation curve on X component of the scale 
+            mapping.BindCurve("X", new Curve()
+            {
+                // Move node's translation to (10, 0, 10) at 0 sec using bezier interpolation
+                {0, 10.0f, Interpolation.Bezier},
+                // Move node's translation to (20, 0, -10) at 3 sec
+                {3, 20.0f, Interpolation.Bezier},
+                // Move node's translation to (30, 0, 0) at 5 sec
+                {5, 30.0f, Interpolation.Linear},
+            });
+
+            // Create the animation curve on Z component of the scale 
+            mapping.BindCurve("Z", new Curve()
+            {
+                // Move node's translation to (10, 0, 10) at 0 sec using bezier interpolation
+                {0, 10.0f, Interpolation.Bezier},
+                // Move node's translation to (20, 0, -10) at 3 sec
+                {3, -10.0f, Interpolation.Bezier},
+                // Move node's translation to (30, 0, 0) at 5 sec
+                {5, 0.0f, Interpolation.Linear},
+            });
 
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();

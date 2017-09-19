@@ -33,8 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.3D, Version=17.8.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aspose.3D.17.8\lib\net40\Aspose.3D.dll</HintPath>
+    <Reference Include="Aspose.3D, Version=17.9.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.3D.17.9\lib\net40\Aspose.3D.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -85,6 +85,7 @@
     <Compile Include="Rendering\RenderFisheyeLensEffectof3DScene.cs" />
     <Compile Include="Rendering\RenderPanaromaViewof3DScene.cs" />
     <Compile Include="Rendering\RenderSceneIntoCubemapwithsixfaces.cs" />
+    <Compile Include="Rendering\RenderSceneWithPanoramaInDepth.cs" />
     <Compile Include="RunExamples.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AssetInformation\InformationToScene.cs" />
