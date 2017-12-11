@@ -18,8 +18,8 @@ Directory | Description
 ## Resources
 
 + **Website:** [www.aspose.com](http://www.aspose.com)
-+ **Product Home:** [Aspose.3D for .NET](http://www.aspose.com/products/3d/net)
-+ **Download:** [Download Aspose.3D for .NET](https://downloads.aspose.com/3d/net)
++ **Product Home:** [Aspose.3D for .NET](https://products.aspose.com/3d/net)
++ **Download:** [Download Aspose.3D for .NET](https://www.nuget.org/packages/Aspose.3d)
 + **Documentation:** [Aspose.3D for .NET Documentation](https://docs.aspose.com//display/3dnet/Home)
-+ **Forum:** [Aspose.3D for .NET Forum](http://www.aspose.com/community/forums/aspose.3d-product-family/535/showforum.aspx)
++ **Forum:** [Aspose.3D for .NET Forum](https://forum.aspose.com/c/3d)
 + **Blog:** [Aspose.3D for .NET Blog](https://blog.aspose.com/category/aspose-products/aspose-3d-product-family/)
