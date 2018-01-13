@@ -1,6 +1,6 @@
 ﻿using Aspose.ThreeD;
 using Aspose.ThreeD.Entities;
-using Aspose.ThreeD.Formats.Draco;
+using Aspose.ThreeD.Formats;
 using System;
 using System.Collections.Generic;
 using System.IO;

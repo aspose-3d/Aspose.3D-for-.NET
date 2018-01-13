@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Collections;
 using Aspose.ThreeD;
 using Aspose.ThreeD.Formats;
-using Aspose.ThreeD.Formats.PLY;
-using Aspose.ThreeD.Formats.X;
 
 namespace Aspose._3D.Examples.CSharp.Loading_Saving
 {
@@ -13,6 +11,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
     {
         public static void Run()
         {
+            
             Discreet3DSLoadOption();
             ObjLoadOption();
             STLLoadOption();

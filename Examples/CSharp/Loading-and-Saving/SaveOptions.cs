@@ -7,7 +7,6 @@ using Aspose.ThreeD.Formats;
 using Aspose.ThreeD.Entities;
 using Aspose.ThreeD.Utilities;
 using Aspose.ThreeD.Shading;
-using Aspose.ThreeD.Formats.Draco;
 
 namespace Aspose._3D.Examples.CSharp.Loading_Saving
 {
