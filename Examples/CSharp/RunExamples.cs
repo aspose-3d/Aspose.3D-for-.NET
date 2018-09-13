@@ -125,7 +125,7 @@ namespace Aspose._3D.Examples.CSharp
             // RenderFisheyeLensEffectof3DScene.Run();
             // Render3DModelImageFromCamera.Run();
             // CastAndReceiveShadow.Run();
-            RenderSceneWithPanoramaInDepth.Run();
+            //RenderSceneWithPanoramaInDepth.Run();
 
             // =====================================================
             // =====================================================

@@ -12,7 +12,6 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // ExStart:ReadExistingScene
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
-            MyDir = MyDir + "document.fbx";
 
             // Initialize a Scene class object
             Scene scene = new Scene();
