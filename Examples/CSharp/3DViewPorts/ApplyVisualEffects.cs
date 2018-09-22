@@ -48,41 +48,41 @@ namespace Aspose._3D.Examples.CSharp._3DViewPorts
                     Viewport vp = rt.CreateViewport(camera, new RelativeRectangle() { ScaleWidth = 1, ScaleHeight = 1 });
                     // Render the target and save the target texture to external file
                     renderer.Render(rt);
-                    rt.Targets[0].Save(MyDir + "Original_viewport_out.png", ImageFormat.Png);
+                    ((ITexture2D)rt.Targets[0]).Save(MyDir + "Original_viewport_out.png", ImageFormat.Png);
 
                     // Create a post-processing effect
                     PostProcessing pixelation = renderer.GetPostProcessing("pixelation");
                     renderer.PostProcessings.Add(pixelation);
                     renderer.Render(rt);
-                    rt.Targets[0].Save(MyDir + "VisualEffect_pixelation_out.png", ImageFormat.Png);
+                    ((ITexture2D)rt.Targets[0]).Save(MyDir + "VisualEffect_pixelation_out.png", ImageFormat.Png);
 
                     // Clear previous post-processing effects and try another one
                     PostProcessing grayscale = renderer.GetPostProcessing("grayscale");
                     renderer.PostProcessings.Clear();
                     renderer.PostProcessings.Add(grayscale);
                     renderer.Render(rt);
-                    rt.Targets[0].Save(MyDir + "VisualEffect_grayscale_out.png", ImageFormat.Png);
+                    ((ITexture2D)rt.Targets[0]).Save(MyDir + "VisualEffect_grayscale_out.png", ImageFormat.Png);
 
                     // We can also combine post-processing effects
                     renderer.PostProcessings.Clear();
                     renderer.PostProcessings.Add(grayscale);
                     renderer.PostProcessings.Add(pixelation);
                     renderer.Render(rt);
-                    rt.Targets[0].Save(MyDir + "VisualEffect_grayscale+pixelation_out.png", ImageFormat.Png);
+                    ((ITexture2D)rt.Targets[0]).Save(MyDir + "VisualEffect_grayscale+pixelation_out.png", ImageFormat.Png);
 
                     // Clear previous post-processing effects and try another one
                     PostProcessing edgedetection = renderer.GetPostProcessing("edge-detection");
                     renderer.PostProcessings.Clear();
                     renderer.PostProcessings.Add(edgedetection);
                     renderer.Render(rt);
-                    rt.Targets[0].Save(MyDir + "VisualEffect_edgedetection_out.png", ImageFormat.Png);
+                    ((ITexture2D)rt.Targets[0]).Save(MyDir + "VisualEffect_edgedetection_out.png", ImageFormat.Png);
 
                     // Clear previous post-processing effects and try another one
                     PostProcessing blur = renderer.GetPostProcessing("blur");
                     renderer.PostProcessings.Clear();
                     renderer.PostProcessings.Add(blur);
                     renderer.Render(rt);
-                    rt.Targets[0].Save(MyDir + "VisualEffect_blur_out.png", ImageFormat.Png);
+                    ((ITexture2D)rt.Targets[0]).Save(MyDir + "VisualEffect_blur_out.png", ImageFormat.Png);
                 }
             }
             // ExEnd:ApplyVisualEffects           

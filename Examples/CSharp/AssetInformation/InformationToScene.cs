@@ -12,23 +12,23 @@ namespace Aspose._3D.Examples.CSharp.AssetInformation
             // ExStart:AddAssetInformationToScene           
             // Initialize a 3D scene
             Scene scene = new Scene();
-            
+
             // Set application/tool name
-            scene.AssetInfo.ApplicationName = "Egypt";
-            
+            scene.RootNode.AssetInfo.ApplicationName = "Egypt";
+
             // Set application/tool vendor name
-            scene.AssetInfo.ApplicationVendor = "Manualdesk";
-            
+            scene.RootNode.AssetInfo.ApplicationVendor = "Manualdesk";
+
             // We use ancient egyption measurement unit Pole
-            scene.AssetInfo.UnitName = "pole";
-            
+            scene.RootNode.AssetInfo.UnitName = "pole";
+
             // One Pole equals to 60cm
-            scene.AssetInfo.UnitScaleFactor = 0.6;            
-            
+            scene.RootNode.AssetInfo.UnitScaleFactor = 0.6;
+
             // The path to the documents directory.
             string MyDir = RunExamples.GetDataDir();
             MyDir = MyDir + RunExamples.GetOutputFilePath("InformationToScene.fbx");
-                        
+
             // Save scene to 3D supported file formats
             scene.Save(MyDir, FileFormat.FBX7500ASCII);
             // ExEnd:AddAssetInformationToScene

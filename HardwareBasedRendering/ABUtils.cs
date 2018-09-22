@@ -15,12 +15,12 @@ namespace AssetBrowser
 
         public static void MakeHidden(A3DObject obj)
         {
-            obj.CreateDynamicProperty<bool>("hidden").Value = true;
+            obj.SetProperty("hidden", true);
         }
 
         public static bool IsHidden(A3DObject obj)
         {
-            return obj.GetDynamicProperty("hidden") != null;
+            return obj.GetProperty("hidden") != null;
         }
         /// <summary>
         /// Create internal node used by Asset Browser, the internal node will not be displayed in hierarchy tree and will not be exported

@@ -88,7 +88,7 @@ namespace FileConvert
                 if (filter.Length > 0)
                     filter.Append('|');
                 filter.AppendFormat("{0} {1} {2} (*{3})|*{3}", fmt.FileFormatType, fmt.Version, fmt.ContentType,
-                    fmt.FileFormatType.Extension);
+                    fmt.Extension);
             }
             SaveFileDialog d = new SaveFileDialog();
             d.AddExtension = true;
