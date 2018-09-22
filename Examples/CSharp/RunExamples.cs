@@ -45,6 +45,7 @@ namespace Aspose._3D.Examples.CSharp
             // LoadOptions.Run();
             // SaveOptions.Run();
             // Non_PBRtoPBRMaterial.Run();
+            CancellationToken.Run();
 
             // =====================================================
             // =====================================================

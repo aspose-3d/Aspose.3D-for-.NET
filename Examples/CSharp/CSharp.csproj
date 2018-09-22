@@ -54,6 +54,7 @@
     <Compile Include="3DViewPorts\ApplyVisualEffects.cs" />
     <Compile Include="Geometry-and-Hierarchy\ApplyPBRMaterialToBox.cs" />
     <Compile Include="Geometry-and-Hierarchy\ConcatenateQuaternions.cs" />
+    <Compile Include="Loading-and-Saving\CancellationToken.cs" />
     <Compile Include="Loading-and-Saving\ExtractAll3DScenes.cs" />
     <Compile Include="Loading-and-Saving\ExtractRaw3DContentsFromPdf.cs" />
     <Compile Include="Loading-and-Saving\Non-PBRtoPBRMaterial.cs" />
