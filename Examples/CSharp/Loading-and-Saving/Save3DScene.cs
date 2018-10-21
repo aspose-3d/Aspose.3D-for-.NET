@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections;
 using Aspose.ThreeD;
+using Aspose.ThreeD.Formats;
 
 namespace Aspose._3D.Examples.CSharp.Loading_Saving
 {
@@ -31,6 +32,19 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // ExEnd:Save3DScene
 
             Console.WriteLine("\nConverted 3D document to stream successfully.");
+        }
+
+        public static void Compression()
+        {
+            // ExStart:Compression
+            // The path to the documents directory.
+            string MyDir = RunExamples.GetDataDir();
+
+            // Load a 3D document into Aspose.3D
+            Scene scene = new Scene(MyDir + "document.fbx");
+
+            scene.Save("UncompressedDocument.fbx", new FBXSaveOptions(FileFormat.FBX7500ASCII) { EnableCompression = false });
+            // ExEnd:Compression
         }
     }
 }
