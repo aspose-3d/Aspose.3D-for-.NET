@@ -35,8 +35,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.3D, Version=18.11.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aspose.3D.18.11.0\lib\net46\Aspose.3D.dll</HintPath>
+    <Reference Include="Aspose.3D, Version=19.1.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.3D.19.1.0\lib\net46\Aspose.3D.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="3DModeling\Primitive3DModels.cs" />
+    <Compile Include="3DScene\ExportSceneToCompressedAMF .cs" />
     <Compile Include="3DScene\Save3DMeshesInCustomBinaryFormat.cs" />
     <Compile Include="3DViewPorts\CaptureViewPort.cs" />
     <Compile Include="3DViewPorts\ApplyVisualEffects.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Loading-and-Saving\LoadOptions.cs" />
     <Compile Include="Loading-and-Saving\DetectFormat.cs" />
     <Compile Include="Polygons\ConvertPolygonsToTriangles.cs" />
+    <Compile Include="Polygons\GenerateUV.cs" />
     <Compile Include="Rendering\CastAndReceiveShadow.cs" />
     <Compile Include="3DScene\FlipCoordinateSystem .cs" />
     <Compile Include="Animation\PropertyToDocument.cs" />

@@ -66,6 +66,7 @@ namespace Aspose._3D.Examples.CSharp
 
             // FlipCoordinateSystem.Run();
             // Save3DMeshesInCustomBinaryFormat.Run();
+            // ExportSceneToCompressedAMF.Run();
 
             // =====================================================
             // =====================================================
@@ -144,6 +145,7 @@ namespace Aspose._3D.Examples.CSharp
             // =====================================================
             // =====================================================
             // ConvertPolygonsToTriangles.Run();
+            // GenerateUV.Run();
 
             // Stop before exiting
             Console.WriteLine("\n\nProgram Finished. Press any key to exit....");
