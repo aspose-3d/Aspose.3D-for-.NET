@@ -17,6 +17,7 @@ using Aspose._3D.Examples.CSharp.Polygons;
 using Aspose._3D.Examples.CSharp.Working_with_Objects;
 using Aspose._3D.Examples.CSharp.Geometry_and_Hierarchy;
 using Aspose._3D.Examples.CSharp.Loading_and_Saving;
+using Aspose._3D.Examples.CSharp.Materials;
 
 namespace Aspose._3D.Examples.CSharp
 {
@@ -28,6 +29,16 @@ namespace Aspose._3D.Examples.CSharp
             Console.WriteLine("Open RunExamples.cs. \nIn Main() method uncomment the example that you want to run.");
             Console.WriteLine("=====================================================");
             // Uncomment the one you want to try out          
+
+
+            // =====================================================
+            // =====================================================
+            // Material and texture access
+            // =====================================================
+            // =====================================================
+
+            CreateSceneWithEmbeddedTexture.Run();
+            DumpEmbeddedTextures.Run();
 
             // =====================================================
             // =====================================================
