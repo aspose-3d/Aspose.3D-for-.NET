@@ -64,6 +64,8 @@
     <Compile Include="Loading-and-Saving\SaveOptions.cs" />
     <Compile Include="Loading-and-Saving\LoadOptions.cs" />
     <Compile Include="Loading-and-Saving\DetectFormat.cs" />
+    <Compile Include="Materials\CreateSceneWithEmbeddedTexture.cs" />
+    <Compile Include="Materials\DumpEmbeddedTextures.cs" />
     <Compile Include="Polygons\ConvertPolygonsToTriangles.cs" />
     <Compile Include="Polygons\GenerateUV.cs" />
     <Compile Include="Rendering\CastAndReceiveShadow.cs" />
