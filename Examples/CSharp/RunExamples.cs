@@ -37,8 +37,8 @@ namespace Aspose._3D.Examples.CSharp
             // =====================================================
             // =====================================================
 
-            CreateSceneWithEmbeddedTexture.Run();
-            DumpEmbeddedTextures.Run();
+            //CreateSceneWithEmbeddedTexture.Run();
+            //DumpEmbeddedTextures.Run();
 
             // =====================================================
             // =====================================================
