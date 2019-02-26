@@ -14,20 +14,19 @@ namespace Aspose._3D.Examples.CSharp._Working_with_Objects
         {
             // ExStart:SplitAllMeshesofScenebyMaterial
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
-            MyDir = MyDir + "test.fbx";
+            string input = RunExamples.GetDataFilePath("test.fbx");
 
             // Load a 3D file
-            Scene scene = new Scene(MyDir);
+            Scene scene = new Scene(input);
             // Split all meshes
             PolygonModifier.SplitMesh(scene, SplitMeshPolicy.CloneData);
 
             // Save file
-            MyDir = RunExamples.GetDataDir() + RunExamples.GetOutputFilePath("test-splitted.fbx");
-            scene.Save(MyDir, FileFormat.FBX7500ASCII);
+            var output = RunExamples.GetOutputFilePath("test-splitted.fbx");
+            scene.Save(output, FileFormat.FBX7500ASCII);
 
             // ExEnd:SplitAllMeshesofScenebyMaterial
-            Console.WriteLine("\nSpliting all meshes of a scene per material successfully.\nFile saved at " + MyDir);
+            Console.WriteLine("\nSpliting all meshes of a scene per material successfully.\nFile saved at " + output);
         }
     }
 }

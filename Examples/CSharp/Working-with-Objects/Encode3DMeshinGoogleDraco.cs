@@ -14,8 +14,6 @@ namespace Aspose._3D.Examples.CSharp.Working_with_Objects
         public static void Run()
         {
             // ExStart:Encode3DMeshinGoogleDraco
-            // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
             
             // Create a sphere
             var sphere = new Sphere();
@@ -23,7 +21,7 @@ namespace Aspose._3D.Examples.CSharp.Working_with_Objects
             var b = FileFormat.Draco.Encode(sphere.ToMesh(), 
                 new DracoSaveOptions() { CompressionLevel = DracoCompressionLevel.Optimal });
             // Save the raw bytes to file
-            File.WriteAllBytes(MyDir + "SphereMeshtoDRC_Out.drc", b);
+            File.WriteAllBytes(RunExamples.GetOutputFilePath("SphereMeshtoDRC_Out.drc"), b);
             // ExEnd:Encode3DMeshinGoogleDraco              
         }
     }

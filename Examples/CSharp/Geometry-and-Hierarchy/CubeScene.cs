@@ -27,14 +27,13 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
             scene.RootNode.ChildNodes.Add(cubeNode);           
             
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
-            MyDir = MyDir + RunExamples.GetOutputFilePath("CubeScene.fbx");          
+            var output = RunExamples.GetOutputFilePath("CubeScene.fbx");          
 
             // Save 3D scene in the supported file formats
-            scene.Save(MyDir, FileFormat.FBX7400ASCII);           
+            scene.Save(output, FileFormat.FBX7400ASCII);           
             // ExEnd:CreateCubeScene
 
-            Console.WriteLine("\nCube Scene created successfully.\nFile saved at " + MyDir);
+            Console.WriteLine("\nCube Scene created successfully.\nFile saved at " + output);
 
         }
     }

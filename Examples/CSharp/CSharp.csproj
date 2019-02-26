@@ -49,7 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="3DModeling\Primitive3DModels.cs" />
-    <Compile Include="3DScene\ExportSceneToCompressedAMF .cs" />
+    <Compile Include="3DScene\ExportSceneToCompressedAMF.cs" />
     <Compile Include="3DScene\Save3DMeshesInCustomBinaryFormat.cs" />
     <Compile Include="3DViewPorts\CaptureViewPort.cs" />
     <Compile Include="3DViewPorts\ApplyVisualEffects.cs" />
@@ -69,7 +69,7 @@
     <Compile Include="Polygons\ConvertPolygonsToTriangles.cs" />
     <Compile Include="Polygons\GenerateUV.cs" />
     <Compile Include="Rendering\CastAndReceiveShadow.cs" />
-    <Compile Include="3DScene\FlipCoordinateSystem .cs" />
+    <Compile Include="3DScene\FlipCoordinateSystem.cs" />
     <Compile Include="Animation\PropertyToDocument.cs" />
     <Compile Include="Animation\SetupTargetAndCamera.cs" />
     <Compile Include="Geometry-and-Hierarchy\SetupNormalsOnCube.cs" />

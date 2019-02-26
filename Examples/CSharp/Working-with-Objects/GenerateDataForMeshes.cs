@@ -13,11 +13,9 @@ namespace Aspose._3D.Examples.CSharp._Working_with_Objects
         public static void Run()
         {
             // ExStart:GenerateDataForMeshes
-            // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
 
             // Load a 3ds file, 3ds file doesn't have normal data, but it has smoothing group
-            Scene s = new Scene(MyDir + "camera.3ds");
+            Scene s = new Scene(RunExamples.GetDataFilePath("camera.3ds"));
             // Visit all nodes and create normal data for all meshes
             s.RootNode.Accept(delegate(Node n)
             {
