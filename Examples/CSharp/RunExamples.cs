@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -17,6 +17,7 @@ using Aspose._3D.Examples.CSharp.Polygons;
 using Aspose._3D.Examples.CSharp.Working_with_Objects;
 using Aspose._3D.Examples.CSharp.Geometry_and_Hierarchy;
 using Aspose._3D.Examples.CSharp.Loading_and_Saving;
+using Aspose._3D.Examples.CSharp.WorkingWithLinearExtrusion;
 using Aspose._3D.Examples.CSharp.Materials;
 
 namespace Aspose._3D.Examples.CSharp
@@ -157,6 +158,18 @@ namespace Aspose._3D.Examples.CSharp
             // =====================================================
             // ConvertPolygonsToTriangles.Run();
             // GenerateUV.Run();
+
+            // =====================================================
+            // =====================================================
+            // Working With Linear Extrusion
+            // =====================================================
+            // =====================================================
+            // PerformingLinearExtrusion.Run();
+            // SlicesInLinearExtrusion.Run();
+            // CenterInLinearExtrusion.Run();
+            // TwistInLinearExtrusion.Run();
+            // TwistOffsetInLinearExtrusion.Run();
+            // DirectionInLinearExtrusion.Run();
 
             // Stop before exiting
             Console.WriteLine("\n\nProgram Finished. Press any key to exit....");
