@@ -38,8 +38,8 @@ namespace Aspose._3D.Examples.CSharp
             // =====================================================
             // =====================================================
 
-            //CreateSceneWithEmbeddedTexture.Run();
-            //DumpEmbeddedTextures.Run();
+            // CreateSceneWithEmbeddedTexture.Run();
+            // DumpEmbeddedTextures.Run();
 
             // =====================================================
             // =====================================================
@@ -141,7 +141,7 @@ namespace Aspose._3D.Examples.CSharp
             // RenderFisheyeLensEffectof3DScene.Run();
             // Render3DModelImageFromCamera.Run();
             // CastAndReceiveShadow.Run();
-            //RenderSceneWithPanoramaInDepth.Run();
+            // RenderSceneWithPanoramaInDepth.Run();
 
             // =====================================================
             // =====================================================
@@ -175,7 +175,8 @@ namespace Aspose._3D.Examples.CSharp
             Console.WriteLine("\n\nProgram Finished. Press any key to exit....");
             Console.ReadKey();
         }
-        public static string GetDataDir()
+
+        private static string GetProjectDir()
         {
             var parent = Directory.GetParent(Directory.GetCurrentDirectory()).Parent;
             string startDirectory = null;
@@ -191,13 +192,19 @@ namespace Aspose._3D.Examples.CSharp
             {
                 startDirectory = parent.FullName;
             }
-            return Path.Combine(startDirectory, "Data\\");
+            return startDirectory;
+        }
+        public static string GetDataDir()
+        {
+            return Path.Combine(GetProjectDir(), "Data\\");
+        }
+        public static string GetDataFilePath(String inputFilePath)
+        {
+            return GetDataDir() + inputFilePath;
         }
         public static string GetOutputFilePath(String inputFilePath)
         {
-            string extension = Path.GetExtension(inputFilePath);
-            string filename = Path.GetFileNameWithoutExtension(inputFilePath);
-            return filename + "_out" + extension;
+            return Path.Combine(GetProjectDir(), "Output", inputFilePath);
         }
     }
 }

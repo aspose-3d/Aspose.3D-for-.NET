@@ -15,8 +15,6 @@ namespace Aspose._3D.Examples.CSharp.Loading_and_Saving
         public static void Run()
         {
             // ExStart:Non_PBRtoPBRMaterial
-            // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
             // initialize a new 3D scene
             var s = new Scene();
             var box = new Box();
@@ -29,7 +27,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_and_Saving
                 return new PbrMaterial() { Albedo = new Vector3(m.DiffuseColor.x, m.DiffuseColor.y, m.DiffuseColor.z) };
             };
             // save in GLTF 2.0 format
-            s.Save(MyDir + "Non_PBRtoPBRMaterial_Out.gltf", opt);
+            s.Save(RunExamples.GetOutputFilePath("Non_PBRtoPBRMaterial_Out.gltf"), opt);
             // ExEnd:Non_PBRtoPBRMaterial
         }
     }

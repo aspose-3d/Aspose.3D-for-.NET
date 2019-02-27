@@ -11,14 +11,12 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
         public static void Run()
         {
             // ExStart:Save3DScene
-            // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
                         
             // Load a 3D document into Aspose.3D
             Scene scene = new Scene();
 
             // Open an existing 3D scene
-            scene.Open(MyDir + "document.fbx");
+            scene.Open(RunExamples.GetDataFilePath("document.fbx"));
 
             // Save Scene to a stream
             MemoryStream dstStream = new MemoryStream();
@@ -28,7 +26,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             dstStream.Position = 0;
 
             // Save Scene to a local path
-            scene.Save(MyDir + "output_out.fbx", FileFormat.FBX7500ASCII);
+            scene.Save(RunExamples.GetOutputFilePath("output_out.fbx"), FileFormat.FBX7500ASCII);
             // ExEnd:Save3DScene
 
             Console.WriteLine("\nConverted 3D document to stream successfully.");
@@ -37,13 +35,11 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
         public static void Compression()
         {
             // ExStart:Compression
-            // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
 
             // Load a 3D document into Aspose.3D
-            Scene scene = new Scene(MyDir + "document.fbx");
+            Scene scene = new Scene(RunExamples.GetDataFilePath("document.fbx"));
 
-            scene.Save("UncompressedDocument.fbx", new FBXSaveOptions(FileFormat.FBX7500ASCII) { EnableCompression = false });
+            scene.Save(RunExamples.GetOutputFilePath("UncompressedDocument.fbx"), new FBXSaveOptions(FileFormat.FBX7500ASCII) { EnableCompression = false });
             // ExEnd:Compression
         }
     }

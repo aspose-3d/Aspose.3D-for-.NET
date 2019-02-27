@@ -52,14 +52,13 @@ namespace Aspose._3D.Examples.CSharp.Animation
             });
 
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
-            MyDir = MyDir + RunExamples.GetOutputFilePath("PropertyToDocument.fbx");            
+            string output = RunExamples.GetOutputFilePath("PropertyToDocument.fbx");            
 
             // Save 3D scene in the supported file formats
-            scene.Save(MyDir, FileFormat.FBX7500ASCII);
+            scene.Save(output, FileFormat.FBX7500ASCII);
             // ExEnd:AddAnimationPropertyToDocument
 
-            Console.WriteLine("\nAnimation property added successfully to document.\nFile saved at " + MyDir);
+            Console.WriteLine("\nAnimation property added successfully to document.\nFile saved at " + output);
             
         }
     }

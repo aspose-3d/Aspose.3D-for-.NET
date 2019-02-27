@@ -15,11 +15,9 @@ namespace Aspose._3D.Examples.CSharp._3DViewPorts
         public static void Run()
         {
             // ExStart:CaptureViewPort
-            // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
 
             // Load an existing 3D scene
-            Scene scene = new Scene(MyDir + "scene.obj");
+            Scene scene = new Scene(RunExamples.GetDataFilePath("scene.obj"));
             // Create an instance of the camera
             Camera camera = new Camera();
             scene.RootNode.CreateChildNode("camera", camera).Transform.Translation = new Vector3(2, 44, 66);
@@ -50,7 +48,7 @@ namespace Aspose._3D.Examples.CSharp._3DViewPorts
                     Viewport vp = rt.CreateViewport(camera, new RelativeRectangle() { ScaleWidth = 1, ScaleHeight = 1 });
                     // Render the target and save the target texture to external file
                     renderer.Render(rt);
-                    ((ITexture2D)rt.Targets[0]).Save(MyDir + "file-1viewports_out.png", ImageFormat.Png);
+                    ((ITexture2D)rt.Targets[0]).Save(RunExamples.GetOutputFilePath("file-1viewports_out.png"), ImageFormat.Png);
 
                     // Now let's change the previous viewport only uses the half left side(50% width and 100% height)
                     vp.Area = new RelativeRectangle() { ScaleWidth = 0.5f, ScaleHeight = 1 };
@@ -60,7 +58,7 @@ namespace Aspose._3D.Examples.CSharp._3DViewPorts
                     // But this time let's increase the field of view of the camera to 90 degree so it can see more part of the scene
                     camera.FieldOfView = 90;
                     renderer.Render(rt);
-                    ((ITexture2D)rt.Targets[0]).Save(MyDir + "file-2viewports_out.png", ImageFormat.Png);
+                    ((ITexture2D)rt.Targets[0]).Save(RunExamples.GetOutputFilePath("file-2viewports_out.png"), ImageFormat.Png);
                 }
             }
             // ExEnd:CaptureViewPort           

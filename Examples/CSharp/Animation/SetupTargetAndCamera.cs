@@ -13,8 +13,6 @@ namespace Aspose._3D.Examples.CSharp.Animation
         public static void Run()
         {
             // ExStart:SetupTargetAndCamera
-            // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();            
             // Initialize scene object
             Scene scene = new Scene();
             // Get a child node object
@@ -22,10 +20,10 @@ namespace Aspose._3D.Examples.CSharp.Animation
             // Set camera node translation
             cameraNode.Transform.Translation = new Vector3(100, 20, 0);
             cameraNode.GetEntity<Camera>().Target = scene.RootNode.CreateChildNode("target");
-            MyDir = MyDir + "camera-test.3ds";
-            scene.Save(MyDir, FileFormat.Discreet3DS);
+            var output = RunExamples.GetOutputFilePath("camera-test.3ds");
+            scene.Save(output, FileFormat.Discreet3DS);
             // ExEnd:SetupTargetAndCamera
-            Console.WriteLine("\nThe target and camera has been setup successfully.\nFile saved at " + MyDir);
+            Console.WriteLine("\nThe target and camera has been setup successfully.\nFile saved at " + output);
         }
     }
 }

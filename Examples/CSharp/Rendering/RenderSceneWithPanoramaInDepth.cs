@@ -16,10 +16,8 @@ namespace Aspose._3D.Examples.CSharp.Rendering
         // ExStart:RenderSceneWithPanoramaInDepth
         public static void Run()
         {
-            // The path to the documents directory.
-            string dataDir = RunExamples.GetDataDir();
             //load the scene
-            Scene scene = new Scene(dataDir + "skybox.obj");
+            Scene scene = new Scene(RunExamples.GetDataFilePath("skybox.obj"));
             //create a camera for capturing the cube map
             Camera cam = new Camera(ProjectionType.Perspective);
             cam.NearPlane = 0.1;
@@ -54,7 +52,7 @@ namespace Aspose._3D.Examples.CSharp.Rendering
                 equirectangular.Input = rt.Targets[0];
                 renderer.Execute(equirectangular, final);
                 //save the texture into disk
-                ((ITexture2D)final.Targets[0]).Save(dataDir + "RenderSceneWithPanoramaInDepth_Out.png", ImageFormat.Png);
+                ((ITexture2D)final.Targets[0]).Save(RunExamples.GetOutputFilePath("RenderSceneWithPanoramaInDepth_Out.png"), ImageFormat.Png);
             }
         }
         private static ShaderSet CreateDepthShader(Renderer renderer)

@@ -29,8 +29,6 @@ namespace Aspose._3D.Examples.CSharp.Polygons
             public static VertexElementUV GenerateUV(Mesh mesh);
 */
             // ExStart:GenerateUV
-            // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
             Scene scene = new Scene();
             //since all primitive entities in Aspose.3D will have builtin UV generation
             //here we manually remove it to assume we have a mesh without UV data
@@ -43,7 +41,7 @@ namespace Aspose._3D.Examples.CSharp.Polygons
             //put it to the scene
             var node = scene.RootNode.CreateChildNode(mesh);
             //then save it
-            scene.Save(MyDir + "Aspose.obj", FileFormat.WavefrontOBJ);
+            scene.Save(RunExamples.GetOutputFilePath("Aspose.obj"), FileFormat.WavefrontOBJ);
             // ExEnd:GenerateUV
         }
     }

@@ -55,14 +55,14 @@ namespace Aspose._3D.Examples.CSharp._Working_with_Objects
             scene.RootNode.ChildNodes.Add(cubeNode);
 
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir() + RunExamples.GetOutputFilePath("SphereToTriangleMeshCustomMemoryLayoutScene.fbx");
+            string output = RunExamples.GetOutputFilePath("SphereToTriangleMeshCustomMemoryLayoutScene.fbx");
 
             // Save 3D scene in the supported file formats
-            scene.Save(MyDir, FileFormat.FBX7400ASCII);
+            scene.Save(output, FileFormat.FBX7400ASCII);
 
             Console.WriteLine("Indices = {0}, Actual vertices = {1}, vertices before merging = {2}", myMesh.IndicesCount, myMesh.VerticesCount, myMesh.UnmergedVerticesCount);
             Console.WriteLine("Total bytes of vertices in memory {0}bytes", myMesh.VerticesSizeInBytes);
-            Console.WriteLine("\n Converted a Sphere mesh to triangle mesh with custom memory layout of the vertex successfully.\nFile saved at " + MyDir);
+            Console.WriteLine("\n Converted a Sphere mesh to triangle mesh with custom memory layout of the vertex successfully.\nFile saved at " + output);
         }
         // ExEnd:ConvertSphereMeshtoTriangleMeshCustomMemoryLayout
 

@@ -37,7 +37,7 @@ namespace Aspose._3D.Examples.CSharp.Materials
             //create a torus with this material applied
             scene.RootNode.CreateChildNode(new Torus()).Material = mat;
             //save this to file
-            scene.Save(RunExamples.GetDataDir() + @"test.fbx", FileFormat.FBX7500ASCII);
+            scene.Save(RunExamples.GetOutputFilePath(@"test.fbx"), FileFormat.FBX7500ASCII);
         }
 
         private static byte[] CreateTextureContent()

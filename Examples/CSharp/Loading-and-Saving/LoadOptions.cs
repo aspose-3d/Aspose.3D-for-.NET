@@ -23,7 +23,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
         {
             // ExStart:Discreet3DSOption
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
+            string dataDir = RunExamples.GetDataDir();
             Discreet3DSLoadOptions loadOpts = new Discreet3DSLoadOptions();
             // Sets wheather to use the transformation defined in the first frame of animation track.
             loadOpts.ApplyAnimationTransform = true;
@@ -32,14 +32,14 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // Prefer to use gamma-corrected color if a 3ds file provides both original color and gamma-corrected color.
             loadOpts.GammaCorrectedColor = true;
             // Configure the look up paths to allow importer to find external dependencies.
-            loadOpts.LookupPaths = new List<string>(new string[] { MyDir });
+            loadOpts.LookupPaths = new List<string>(new string[] { dataDir });
             // ExEnd:Discreet3DSOption
         }
         public static void ObjLoadOption()
         {
             // ExStart:ObjLoadOption
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
+            string dataDir = RunExamples.GetDataDir();
             // Initialize an object
             ObjLoadOptions loadObjOpts = new ObjLoadOptions();
             // Import materials from external material library file
@@ -47,54 +47,54 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // Flip the coordinate system.
             loadObjOpts.FlipCoordinateSystem = true;
             // Configure the look up paths to allow importer to find external dependencies.
-            loadObjOpts.LookupPaths = new List<string>(new string[] { MyDir});
+            loadObjOpts.LookupPaths = new List<string>(new string[] { dataDir});
             // ExEnd:ObjLoadOption
         }
         public static void STLLoadOption()
         {
             // ExStart:STLLoadOption
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
+            string dataDir = RunExamples.GetDataDir();
             // Initialize an object
             STLLoadOptions loadSTLOpts = new STLLoadOptions();
             // Flip the coordinate system.
             loadSTLOpts.FlipCoordinateSystem = true;
             // Configure the look up paths to allow importer to find external dependencies.
-            loadSTLOpts.LookupPaths = new List<string>(new string[] { MyDir });
+            loadSTLOpts.LookupPaths = new List<string>(new string[] { dataDir });
             // ExEnd:STLLoadOption
         }
         public static void U3DLoadOption()
         {
             // ExStart:U3DLoadOption
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
+            string dataDir = RunExamples.GetDataDir();
             // Initialize an object
             U3DLoadOptions loadU3DOpts = new U3DLoadOptions();
             // Flip the coordinate system.
             loadU3DOpts.FlipCoordinateSystem = true;
             // Configure the look up paths to allow importer to find external dependencies.
-            loadU3DOpts.LookupPaths = new List<string>(new string[] { MyDir });
+            loadU3DOpts.LookupPaths = new List<string>(new string[] { dataDir });
             // ExEnd:U3DLoadOption
         }
         public static void glTFLoadOptions()
         {
             // ExStart:glTFLoadOptions
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
+            string dataDir = RunExamples.GetDataDir();
             // Initialize Scene class object
             Scene scene = new Scene();
             // Set load options
             GLTFLoadOptions loadOpt = new GLTFLoadOptions();
             // The default value is true, usually we don't need to change it. Aspose.3D will automatically flip the V/T texture coordinate during load and save.       
             loadOpt.FlipTexCoordV = true;
-            scene.Open( MyDir + "Duck.gltf", loadOpt);
+            scene.Open( dataDir + "Duck.gltf", loadOpt);
             // ExEnd:glTFLoadOptions
         }
         public static void PlyLoadOptions()
         {
             // ExStart:PlyLoadOptions
             // the path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
+            string dataDir = RunExamples.GetDataDir();
             // initialize Scene class object
             Scene scene = new Scene();
             // initialize an object
@@ -102,14 +102,14 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // Flip the coordinate system.
             loadPLYOpts.FlipCoordinateSystem = true;
             // load 3D Ply model
-            scene.Open(MyDir + "vase-v2.ply", loadPLYOpts);
+            scene.Open(RunExamples.GetDataFilePath("vase-v2.ply"), loadPLYOpts);
             // ExEnd:PlyLoadOptions
         }
         public static void XLoadOptions()
         {
             // ExStart:XLoadOptions
             // the path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
+            string dataDir = RunExamples.GetDataDir();
             // initialize Scene class object
             Scene scene = new Scene();
             // initialize an object
@@ -117,7 +117,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // flip the coordinate system.
             loadXOpts.FlipCoordinateSystem = true;
             // load 3D X file
-            scene.Open(MyDir + "warrior.x", loadXOpts);
+            scene.Open(RunExamples.GetDataFilePath("warrior.x"), loadXOpts);
             // ExEnd:XLoadOptions
         } 
     }

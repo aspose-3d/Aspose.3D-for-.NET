@@ -13,15 +13,15 @@ namespace Aspose._3D.Examples.CSharp._3DScene
         public static void Run()
         {
             // ExStart:FlipCoordinateSystem
-            // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();            
+            // The path to the input file
+            string input = RunExamples.GetDataFilePath("camera.3ds");            
             // Initialize scene object
             Scene scene = new Scene();
-            scene.Open(MyDir + "camera.3ds", FileFormat.Discreet3DS);
-            MyDir = MyDir + "FlipCoordinateSystem.obj";
-            scene.Save(MyDir, FileFormat.WavefrontOBJ);
+            scene.Open(input, FileFormat.Discreet3DS);
+            var output = RunExamples.GetOutputFilePath( "FlipCoordinateSystem.obj");
+            scene.Save(output, FileFormat.WavefrontOBJ);
             // ExEnd:FlipCoordinateSystem
-            Console.WriteLine("\nCoordinate system has been flipped successfully.\nFile saved at " + MyDir);
+            Console.WriteLine("\nCoordinate system has been flipped successfully.\nFile saved at " + output);
         }
     }
 }

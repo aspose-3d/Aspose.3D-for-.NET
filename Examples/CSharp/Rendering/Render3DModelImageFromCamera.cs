@@ -18,11 +18,9 @@ namespace Aspose._3D.Examples.CSharp.Rendering
             try
             {
                 // ExStart:Render3DModelImageFromCamera
-                // The path to the documents directory.
-                string MyDir = RunExamples.GetDataDir();
 
                 // Load scene from file
-                Scene scene = new Scene(MyDir + "camera.3ds");
+                Scene scene = new Scene(RunExamples.GetDataFilePath("camera.3ds"));
                 // Create a camera at (10,10,10) and look at the origin point for rendering,
                 // It must be attached to the scene before render
                 Camera camera = new Camera();
@@ -35,11 +33,11 @@ namespace Aspose._3D.Examples.CSharp.Rendering
                 // Set the background color
                 opt.BackgroundColor = Color.AliceBlue;
                 // Tells renderer where the it can find textures
-                opt.AssetDirectories.Add(MyDir + "textures");
+                opt.AssetDirectories.Add(RunExamples.GetDataDir() + "textures");
                 // Turn on shadow
                 opt.EnableShadows = true;
                 // Render the scene in given camera's perspective into specified png file with size 1024x1024
-                scene.Render(camera, MyDir + "Render3DModelImageFromCamera_out.png", new Size(1024, 1024), ImageFormat.Png, opt);
+                scene.Render(camera, RunExamples.GetOutputFilePath("Render3DModelImageFromCamera.png"), new Size(1024, 1024), ImageFormat.Png, opt);
                 // ExEnd:Render3DModelImageFromCamera  
             }
             catch (Exception ex)

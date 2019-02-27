@@ -35,14 +35,13 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
             top.Transform.Rotation = Quaternion.FromEulerAngle(Math.PI, 4, 0);
           
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
-            MyDir = MyDir + RunExamples.GetOutputFilePath("NodeHierarchy.fbx");
+            string output = RunExamples.GetOutputFilePath("NodeHierarchy.fbx");
             
             // Save 3D scene in the supported file formats
-            scene.Save(MyDir, FileFormat.FBX7500ASCII);
+            scene.Save(output, FileFormat.FBX7500ASCII);
             // ExEnd:AddNodeHierarchy
            
-            Console.WriteLine("\nNode hierarchy added successfully to document.\nFile saved at " + MyDir);
+            Console.WriteLine("\nNode hierarchy added successfully to document.\nFile saved at " + output);
 
         }
     }

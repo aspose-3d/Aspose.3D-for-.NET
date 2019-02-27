@@ -14,7 +14,7 @@ namespace Aspose._3D.Examples.CSharp.Materials
         public static void Run()
         {
 
-            Scene scene = new Scene(RunExamples.GetDataDir() + "EmbeddedTexture.fbx");
+            Scene scene = new Scene(RunExamples.GetDataFilePath("EmbeddedTexture.fbx"));
             var mat = (LambertMaterial)scene.RootNode.ChildNodes[0].Material;
             Console.WriteLine("Material {0}'s information:", mat.Name);
             Console.WriteLine("\tDiffuse color = {0}", mat.DiffuseColor);

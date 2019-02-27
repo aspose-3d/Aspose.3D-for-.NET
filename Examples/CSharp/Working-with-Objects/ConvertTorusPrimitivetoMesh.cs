@@ -13,11 +13,8 @@ namespace Aspose._3D.Examples.CSharp._Working_with_Objects
         public static void Run()
         {
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
-            MyDir = MyDir + "test.fbx";
-
             // Load a 3D file
-            Scene scene = new Scene(MyDir);
+            Scene scene = new Scene(RunExamples.GetDataFilePath("test.fbx"));
             // Initialize Node class object
             Node cubeNode = new Node("torus");
 
@@ -36,12 +33,12 @@ namespace Aspose._3D.Examples.CSharp._Working_with_Objects
             scene.RootNode.ChildNodes.Add(cubeNode);
 
             // The path to the documents directory.
-            MyDir = RunExamples.GetDataDir() + RunExamples.GetOutputFilePath("TorusToMeshScene.fbx");
+            var output = RunExamples.GetOutputFilePath("TorusToMeshScene.fbx");
 
             // Save 3D scene in the supported file formats
-            scene.Save(MyDir, FileFormat.FBX7400ASCII);
+            scene.Save(output, FileFormat.FBX7400ASCII);
 
-            Console.WriteLine("\n Converted the primitive Torus to a mesh successfully.\nFile saved at " + MyDir);
+            Console.WriteLine("\n Converted the primitive Torus to a mesh successfully.\nFile saved at " + output);
         }
     }
 }

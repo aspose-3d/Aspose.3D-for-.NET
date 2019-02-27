@@ -14,10 +14,8 @@ namespace Aspose._3D.Examples.CSharp._3DScene
         public static void Run()
         {
             // ExStart:Save3DMeshesInCustomBinaryFormat
-            // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
             // load a 3D file
-            Scene scene = new Scene(MyDir + "test.fbx");
+            Scene scene = new Scene(RunExamples.GetDataFilePath("test.fbx"));
 
             /*
             * 3D format demonstration is simple
@@ -47,7 +45,7 @@ namespace Aspose._3D.Examples.CSharp._3DScene
             */
 
             // open file for writing in binary mode
-            using (var writer = new BinaryWriter(new FileStream(MyDir + "Save3DMeshesInCustomBinaryFormat_out", FileMode.Create, FileAccess.Write)))
+            using (var writer = new BinaryWriter(new FileStream(RunExamples.GetOutputFilePath("Save3DMeshesInCustomBinaryFormat_out"), FileMode.Create, FileAccess.Write)))
             {
                 // visit each descent nodes
                 scene.RootNode.Accept(delegate(Node node)

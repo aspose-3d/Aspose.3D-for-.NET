@@ -13,11 +13,10 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
         {
             // ExStart:TriangulateMesh 
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
            
             // Initialize scene object
             Scene scene = new Scene();
-            scene.Open(MyDir + "document.fbx");
+            scene.Open(RunExamples.GetDataFilePath("document.fbx"));
             
             scene.RootNode.Accept(delegate(Node node)
             {
@@ -31,10 +30,10 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
                 }
                 return true;
             });
-            MyDir = MyDir + RunExamples.GetOutputFilePath("document.fbx");
-            scene.Save(MyDir, FileFormat.FBX7400ASCII);
+            var output  = RunExamples.GetOutputFilePath("document.fbx");
+            scene.Save(output, FileFormat.FBX7400ASCII);
             // ExEnd:TriangulateMesh   
-            Console.WriteLine("\nMesh has been Triangulated.\nFile saved at " + MyDir);
+            Console.WriteLine("\nMesh has been Triangulated.\nFile saved at " + output);
         }
     }
 }
