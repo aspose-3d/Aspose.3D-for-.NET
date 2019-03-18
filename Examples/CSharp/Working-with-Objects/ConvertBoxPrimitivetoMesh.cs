@@ -32,12 +32,12 @@ namespace Aspose._3D.Examples.CSharp._Working_with_Objects
             scene.RootNode.ChildNodes.Add(cubeNode);
 
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir() + RunExamples.GetOutputFilePath("BoxToMeshScene.fbx");
+            string output = RunExamples.GetOutputFilePath("BoxToMeshScene.fbx");
 
             // Save 3D scene in the supported file formats
-            scene.Save(MyDir, FileFormat.FBX7400ASCII);
+            scene.Save(output, FileFormat.FBX7400ASCII);
 
-            Console.WriteLine("\n Converted the primitive Box to a mesh successfully.\nFile saved at " + MyDir);
+            Console.WriteLine("\n Converted the primitive Box to a mesh successfully.\nFile saved at " + output);
         }
     }
 }

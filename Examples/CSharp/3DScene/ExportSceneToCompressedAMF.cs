@@ -29,8 +29,6 @@ namespace Aspose._3D.Examples.CSharp._3DScene
 */
 
         // ExStart:CompressedAMF
-        // The path to the documents directory.
-        string MyDir = RunExamples.GetDataDir();
             // Load a scene
             Scene scene = new Scene();
             var box = new Box();
@@ -46,7 +44,7 @@ namespace Aspose._3D.Examples.CSharp._3DScene
             scene.RootNode.CreateChildNode().CreateChildNode(box);
             scene.RootNode.CreateChildNode().CreateChildNode(box);
             // Save compressed AMF file
-            scene.Save(MyDir + "Aspose.amf", new AMFSaveOptions() { EnableCompression = false });
+            scene.Save(RunExamples.GetOutputFilePath("Aspose.amf"), new AMFSaveOptions() { EnableCompression = false });
             // ExEnd:CompressedAMF
         }
     }

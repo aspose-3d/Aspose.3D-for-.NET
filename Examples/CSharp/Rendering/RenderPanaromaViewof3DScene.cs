@@ -18,11 +18,9 @@ namespace Aspose._3D.Examples.CSharp.Rendering
             try
             {
                 // ExStart:RenderPanaromaViewof3DScene
-                // The path to the documents directory.
-                string dataDir = RunExamples.GetDataDir();
 
                 //load the scene
-                Scene scene = new Scene(dataDir + "VirtualCity.glb");
+                Scene scene = new Scene(RunExamples.GetDataFilePath("VirtualCity.glb"));
                 //create a camera for capturing the cube map
                 Camera cam = new Camera(ProjectionType.Perspective)
                 {
@@ -57,7 +55,7 @@ namespace Aspose._3D.Examples.CSharp.Rendering
                     //Execute the post processing effect and save the result to render target final
                     renderer.Execute(equirectangular, final);
                     //save the texture into disk
-                    ((ITexture2D)final.Targets[0]).Save(dataDir + "panaroma.png", ImageFormat.Png);
+                    ((ITexture2D)final.Targets[0]).Save(RunExamples.GetOutputFilePath("panaroma.png"), ImageFormat.Png);
                 }
                 // ExEnd:RenderPanaromaViewof3DScene
 

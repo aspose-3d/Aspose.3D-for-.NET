@@ -35,10 +35,9 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
             Texture diffuse = new Texture();
             
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
             
             // Set local file path
-            diffuse.FileName = MyDir + "surface.dds";
+            diffuse.FileName = RunExamples.GetOutputFilePath("surface.dds");
 
             // Set Texture of the material
             mat.SetTexture("DiffuseColor", diffuse);
@@ -47,7 +46,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
             // Set file name
             diffuse.FileName = "embedded-texture.png";
             // Set binary content
-            diffuse.Content = File.ReadAllBytes(MyDir + "aspose-logo.jpg");
+            diffuse.Content = File.ReadAllBytes(RunExamples.GetDataFilePath("aspose-logo.jpg"));
 
             // Set color
             mat.SpecularColor = new Vector3(Color.Red);
@@ -58,13 +57,13 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
             // Set material property of the cube object
             cubeNode.Material = mat;
             
-            MyDir = MyDir + RunExamples.GetOutputFilePath("MaterialToCube.fbx");
+            var output = RunExamples.GetOutputFilePath("MaterialToCube.fbx");
 
             // Save 3D scene in the supported file formats
-            scene.Save(MyDir, FileFormat.FBX7400ASCII);
+            scene.Save(output, FileFormat.FBX7400ASCII);
             // ExEnd:AddMaterialToCube
 
-            Console.WriteLine("\nMaterial added successfully to cube.\nFile saved at " + MyDir);
+            Console.WriteLine("\nMaterial added successfully to cube.\nFile saved at " + output);
 
         }
     }

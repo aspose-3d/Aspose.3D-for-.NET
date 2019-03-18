@@ -11,12 +11,11 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
         {
             // ExStart:ReadExistingScene
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
 
             // Initialize a Scene class object
             Scene scene = new Scene();
             // Load an existing 3D document
-            scene.Open(MyDir + "document.fbx");
+            scene.Open(RunExamples.GetDataFilePath("document.fbx"));
 
             // ExEnd:ReadExistingScene
             Console.WriteLine("\n3D Scene is ready for the modification, addition or processing purposes.");

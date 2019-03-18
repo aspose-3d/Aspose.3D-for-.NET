@@ -13,15 +13,13 @@ namespace Aspose._3D.Examples.CSharp.Loading_and_Saving
         public static void Run()
         {
             // ExStart:CancellationTokenSource
-            // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
 
             CancellationTokenSource cts = new CancellationTokenSource();
             Scene scene = new Scene();
             cts.CancelAfter(1000);
             try
             {
-                scene.Open(MyDir + "document.fbx" , cts.Token);
+                scene.Open(RunExamples.GetOutputFilePath("document.fbx") , cts.Token);
                 Console.WriteLine("Import is done within 1000ms");
             }
             catch (ImportException e)

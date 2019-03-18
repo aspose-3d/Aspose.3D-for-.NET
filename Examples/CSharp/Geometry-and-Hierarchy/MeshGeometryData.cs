@@ -44,13 +44,12 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
             }
             
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
-            MyDir = MyDir + RunExamples.GetOutputFilePath("MeshGeometryData.fbx");
+            var output = RunExamples.GetOutputFilePath("MeshGeometryData.fbx");
         
             // Save 3D scene in the supported file formats
-            scene.Save(MyDir, FileFormat.FBX7400ASCII);
+            scene.Save(output, FileFormat.FBX7400ASCII);
             // ExEnd:ShareMeshGeometryData
-            Console.WriteLine("\nMesh’s geometry data shared successfully between multiple nodes.\nFile saved at " + MyDir);
+            Console.WriteLine("\nMesh’s geometry data shared successfully between multiple nodes.\nFile saved at " + output);
 
         }
     }

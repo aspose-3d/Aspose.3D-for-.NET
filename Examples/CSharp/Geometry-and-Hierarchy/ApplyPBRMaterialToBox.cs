@@ -13,9 +13,6 @@ namespace Aspose._3D.Examples.CSharp.Geometry_and_Hierarchy
         public static void Run()
         {
             // ExStart:ApplyPBRMaterialToBox
-            // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
-
             // initialize a scene
             Scene scene = new Scene();
             // initialize PBR material object
@@ -28,7 +25,7 @@ namespace Aspose._3D.Examples.CSharp.Geometry_and_Hierarchy
             var boxNode = scene.RootNode.CreateChildNode("box", new Box());
             boxNode.Material = mat;
             // save 3d scene into STL format
-            scene.Save(MyDir + "PBR_Material_Box_Out.stl", FileFormat.STLASCII);
+            scene.Save(RunExamples.GetOutputFilePath("PBR_Material_Box_Out.stl"), FileFormat.STLASCII);
             // ExEnd:ApplyPBRMaterialToBox  
         }
     }

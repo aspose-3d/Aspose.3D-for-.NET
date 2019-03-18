@@ -14,8 +14,6 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
         public static void Run()
         {
             // ExStart:ConcatenateQuaternions     
-            // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
 
             Scene scene = new Scene();
 
@@ -37,12 +35,12 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
             cylinder = scene.RootNode.CreateChildNode("cylinder-q3", new Cylinder(0.1, 1, 2));
             cylinder.Transform.Rotation = q3;
             cylinder.Transform.Translation = new Vector3(5, 2, 0);
-            MyDir = MyDir + "test_out.fbx";
+            var output = RunExamples.GetOutputFilePath("test_out.fbx");
             // Save to file
-            scene.Save(MyDir, FileFormat.FBX7400ASCII);
+            scene.Save(output, FileFormat.FBX7400ASCII);
             // ExEnd:ConcatenateQuaternions
 
-            Console.WriteLine("\nQuaternions concatenated successfully.\nFile saved at " + MyDir);
+            Console.WriteLine("\nQuaternions concatenated successfully.\nFile saved at " + output);
 
         }
     }

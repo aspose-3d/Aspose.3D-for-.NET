@@ -18,10 +18,8 @@ namespace Aspose._3D.Examples.CSharp.Rendering
             try
             {
                 // ExStart:RenderSceneIntoCubemapwithsixfaces
-                // The path to the documents directory.
-                string dataDir = RunExamples.GetDataDir();
                 //load the scene
-                Scene scene = new Scene(dataDir + "VirtualCity.glb");
+                Scene scene = new Scene(RunExamples.GetDataFilePath("VirtualCity.glb"));
                 //create a camera for capturing the cube map
                 Camera cam = new Camera(ProjectionType.Perspective)
                 {
@@ -50,12 +48,12 @@ namespace Aspose._3D.Examples.CSharp.Rendering
                     //we can directly save each face to disk by specifing the file name
                     CubeFaceData<string> fileNames = new CubeFaceData<string>()
                     {
-                        Right = dataDir + "right.png",
-                        Left = dataDir + "left.png",
-                        Back = dataDir + "back.png",
-                        Front = dataDir + "front.png",
-                        Bottom = dataDir + "bottom.png",
-                        Top = dataDir + "top.png"
+                        Right = RunExamples.GetOutputFilePath("right.png"),
+                        Left = RunExamples.GetOutputFilePath("left.png"),
+                        Back = RunExamples.GetOutputFilePath("back.png"),
+                        Front = RunExamples.GetOutputFilePath("front.png"),
+                        Bottom = RunExamples.GetOutputFilePath("bottom.png"),
+                        Top = RunExamples.GetOutputFilePath("top.png")
                     };
                     //and call Save method
                     cubemap.Save(fileNames, ImageFormat.Png);

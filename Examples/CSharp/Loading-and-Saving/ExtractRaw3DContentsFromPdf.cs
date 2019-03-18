@@ -13,10 +13,9 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
         {
             // ExStart:ExtractRaw3DContentsFromPdf
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
             byte[] password = null;
             // Extract 3D contents
-            List<byte[]> contents = FileFormat.PDF.Extract(MyDir + "House_Design.pdf", password);
+            List<byte[]> contents = FileFormat.PDF.Extract(RunExamples.GetDataFilePath("House_Design.pdf"), password);
             int i = 1;
             // Iterate through the contents and in separate 3D files
             foreach (byte[] content in contents)

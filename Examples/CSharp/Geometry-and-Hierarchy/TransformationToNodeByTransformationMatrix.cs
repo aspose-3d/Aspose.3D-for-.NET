@@ -33,13 +33,12 @@ namespace Aspose._3D.Examples.CSharp.Geometry_Hierarchy
             scene.RootNode.ChildNodes.Add(cubeNode);            
 
             // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
-            MyDir = MyDir + RunExamples.GetOutputFilePath("TransformationToNode.fbx");
+            var output = RunExamples.GetOutputFilePath("TransformationToNode.fbx");
    
             // Save 3D scene in the supported file formats
-            scene.Save(MyDir, FileFormat.FBX7500ASCII);
+            scene.Save(output, FileFormat.FBX7500ASCII);
             // ExEnd:AddTransformationToNodeByTransformationMatrix
-            Console.WriteLine("\nTransformation added successfully to node.\nFile saved at " + MyDir);
+            Console.WriteLine("\nTransformation added successfully to node.\nFile saved at " + output);
 
         }
     }

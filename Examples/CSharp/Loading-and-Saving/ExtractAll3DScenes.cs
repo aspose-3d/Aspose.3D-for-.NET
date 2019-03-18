@@ -12,17 +12,15 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
         public static void Run()
         {
             // ExStart:ExtractAll3DScenes
-            // The path to the documents directory.
-            string MyDir = RunExamples.GetDataDir();
 
             byte[] password = null;
-            List<Scene> scenes = FileFormat.PDF.ExtractScene(MyDir + "House_Design.pdf", password);
+            List<Scene> scenes = FileFormat.PDF.ExtractScene(RunExamples.GetDataFilePath("House_Design.pdf"), password);
             int i = 1;
             // Iterate through the scenes and save in 3D files
             foreach (Scene scene in scenes)
             {
                 string fileName = "3d-" + (i++) + ".fbx";
-                scene.Save(fileName, FileFormat.FBX7400ASCII);
+                scene.Save(RunExamples.GetOutputFilePath(fileName), FileFormat.FBX7400ASCII);
             }
             // ExEnd:ExtractAll3DScenes            
         }
