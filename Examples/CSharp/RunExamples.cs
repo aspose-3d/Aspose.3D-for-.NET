@@ -130,6 +130,7 @@ namespace Aspose._3D.Examples.CSharp
             // GenerateDataForMeshes.Run();
             // BuildTangentAndBinormalData.Run();
             // Encode3DMeshinGoogleDraco.Run();
+            // XPathLikeObjectQueries.Run();
 
             // =====================================================
             // =====================================================
