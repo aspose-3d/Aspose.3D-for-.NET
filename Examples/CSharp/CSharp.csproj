@@ -35,8 +35,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.3D, Version=19.2.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aspose.3D.19.2.0\lib\net46\Aspose.3D.dll</HintPath>
+    <Reference Include="Aspose.3D, Version=19.3.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.3D.19.3.0\lib\net46\Aspose.3D.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -113,6 +113,7 @@
     <Compile Include="Working-with-Objects\SplitAllMeshesofScenebyMaterial.cs" />
     <Compile Include="Working-with-Objects\GenerateDataForMeshes.cs" />
     <Compile Include="Working-with-Objects\SplitMeshbyMaterial.cs" />
+    <Compile Include="Working-with-Objects\XPathLikeObjectQueries.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
