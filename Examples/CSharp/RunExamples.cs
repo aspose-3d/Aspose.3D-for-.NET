@@ -19,6 +19,7 @@ using Aspose._3D.Examples.CSharp.Geometry_and_Hierarchy;
 using Aspose._3D.Examples.CSharp.Loading_and_Saving;
 using Aspose._3D.Examples.CSharp.WorkingWithLinearExtrusion;
 using Aspose._3D.Examples.CSharp.Materials;
+using Aspose._3D.Examples.CSharp.WorkingWithVRML;
 
 namespace Aspose._3D.Examples.CSharp
 {
@@ -131,6 +132,7 @@ namespace Aspose._3D.Examples.CSharp
             // BuildTangentAndBinormalData.Run();
             // Encode3DMeshinGoogleDraco.Run();
             // XPathLikeObjectQueries.Run();
+            //WorkingWithSphereRadius.Run();
 
             // =====================================================
             // =====================================================
@@ -171,6 +173,13 @@ namespace Aspose._3D.Examples.CSharp
             // TwistInLinearExtrusion.Run();
             // TwistOffsetInLinearExtrusion.Run();
             // DirectionInLinearExtrusion.Run();
+
+            // =====================================================
+            // =====================================================
+            // Working With VRML files
+            // =====================================================
+            // =====================================================
+            // OpenVRML.Run();
 
             // Stop before exiting
             Console.WriteLine("\n\nProgram Finished. Press any key to exit....");
