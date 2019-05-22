@@ -80,6 +80,7 @@ namespace Aspose._3D.Examples.CSharp
             // FlipCoordinateSystem.Run();
             // Save3DMeshesInCustomBinaryFormat.Run();
             // ExportSceneToCompressedAMF.Run();
+            // ChangePlaneOrientation.Run();
 
             // =====================================================
             // =====================================================
