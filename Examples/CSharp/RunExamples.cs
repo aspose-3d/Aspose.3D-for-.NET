@@ -20,6 +20,7 @@ using Aspose._3D.Examples.CSharp.Loading_and_Saving;
 using Aspose._3D.Examples.CSharp.WorkingWithLinearExtrusion;
 using Aspose._3D.Examples.CSharp.Materials;
 using Aspose._3D.Examples.CSharp.WorkingWithVRML;
+using Aspose._3D.Examples.CSharp.WorkingWithCylinder;
 
 namespace Aspose._3D.Examples.CSharp
 {
@@ -181,6 +182,15 @@ namespace Aspose._3D.Examples.CSharp
             // =====================================================
             // =====================================================
             // OpenVRML.Run();
+
+            // =====================================================
+            // =====================================================
+            // Working With Cylinder
+            // =====================================================
+            // =====================================================
+            // CustomizedOffsetTopCylinder.Run();
+            // CreateFanCylinder.Run();
+            // CustomizedShearBottomCylinder.Run();
 
             // Stop before exiting
             Console.WriteLine("\n\nProgram Finished. Press any key to exit....");
