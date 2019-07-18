@@ -21,6 +21,7 @@ using Aspose._3D.Examples.CSharp.WorkingWithLinearExtrusion;
 using Aspose._3D.Examples.CSharp.Materials;
 using Aspose._3D.Examples.CSharp.WorkingWithVRML;
 using Aspose._3D.Examples.CSharp.WorkingWithCylinder;
+using Aspose._3D.Examples.CSharp.WorkingWithPointCloud;
 
 namespace Aspose._3D.Examples.CSharp
 {
@@ -191,6 +192,17 @@ namespace Aspose._3D.Examples.CSharp
             // CustomizedOffsetTopCylinder.Run();
             // CreateFanCylinder.Run();
             // CustomizedShearBottomCylinder.Run();
+
+            // =====================================================
+            // =====================================================
+            // Working With Point Cloud
+            // =====================================================
+            // =====================================================
+            // DecodeMesh.Run();
+            // EncodeMesh.Run();
+            // EncodeSphereAsPointCloud.Run();
+            // EncodeMeshToPly.Run();
+            // ExportToPlyAsPointCloud.Run();
 
             // Stop before exiting
             Console.WriteLine("\n\nProgram Finished. Press any key to exit....");
