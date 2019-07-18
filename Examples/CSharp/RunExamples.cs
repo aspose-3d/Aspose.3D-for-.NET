@@ -202,6 +202,7 @@ namespace Aspose._3D.Examples.CSharp
             // EncodeMesh.Run();
             // EncodeSphereAsPointCloud.Run();
             // EncodeMeshToPly.Run();
+            // DecodeMeshFromPly.Run();
             // ExportToPlyAsPointCloud.Run();
 
             // Stop before exiting
