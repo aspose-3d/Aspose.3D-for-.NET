@@ -35,8 +35,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.3D, Version=19.7.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aspose.3D.19.7.0\lib\net46\Aspose.3D.dll</HintPath>
+    <Reference Include="Aspose.3D, Version=19.8.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.3D.19.8.0\lib\net46\Aspose.3D.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -110,6 +110,7 @@
     <Compile Include="Working-with-Objects\ConvertBoxMeshtoTriangleMeshCustomMemoryLayout.cs" />
     <Compile Include="Working-with-Objects\ConvertSphereMeshtoTriangleMeshCustomMemoryLayout.cs" />
     <Compile Include="Working-with-Objects\BuildTangentAndBinormalData.cs" />
+    <Compile Include="Working-with-Objects\CreatePolygonInMesh.cs" />
     <Compile Include="Working-with-Objects\Encode3DMeshinGoogleDraco.cs" />
     <Compile Include="Working-with-Objects\SplitAllMeshesofScenebyMaterial.cs" />
     <Compile Include="Working-with-Objects\GenerateDataForMeshes.cs" />
@@ -120,10 +121,11 @@
     <Compile Include="WorkingWithCylinder\CustomizedOffsetTopCylinder.cs" />
     <Compile Include="WorkingWithCylinder\CustomizedShearBottomCylinder.cs" />
     <Compile Include="WorkingWithPointCloud\DecodeMesh.cs" />
-    <Compile Include="WorkingWithPointCloud\DecodeMeshToPly.cs" />
+    <Compile Include="WorkingWithPointCloud\DecodeMeshFromPly.cs" />
     <Compile Include="WorkingWithPointCloud\EncodeMesh.cs" />
     <Compile Include="WorkingWithPointCloud\EncodeMeshToPly.cs" />
     <Compile Include="WorkingWithPointCloud\EncodeSphereAsPointCloud.cs" />
+    <Compile Include="WorkingWithPointCloud\Export3DSceneAsPointCloud.cs" />
     <Compile Include="WorkingWithPointCloud\ExportToPlyAsPointCloud.cs" />
     <Compile Include="WorkingWithVRML\OpenVRML.cs" />
   </ItemGroup>

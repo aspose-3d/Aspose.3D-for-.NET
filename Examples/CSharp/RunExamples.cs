@@ -57,6 +57,7 @@ namespace Aspose._3D.Examples.CSharp
             // OpenSceneFromProtectedPdf.Run();
             // ExtractAll3DScenes.Run();
             // SaveOptions.SavingDependenciesInMemoryFileSystem();
+            // SaveOptions.GlTFSaveOptions();
             // LoadOptions.Run();
             // SaveOptions.Run();
             // Non_PBRtoPBRMaterial.Run();
@@ -135,7 +136,8 @@ namespace Aspose._3D.Examples.CSharp
             // BuildTangentAndBinormalData.Run();
             // Encode3DMeshinGoogleDraco.Run();
             // XPathLikeObjectQueries.Run();
-            //WorkingWithSphereRadius.Run();
+            // WorkingWithSphereRadius.Run();
+            // CreatePolygonInMesh.Run();
 
             // =====================================================
             // =====================================================
@@ -204,6 +206,7 @@ namespace Aspose._3D.Examples.CSharp
             // EncodeMeshToPly.Run();
             // DecodeMeshFromPly.Run();
             // ExportToPlyAsPointCloud.Run();
+            // Export3DSceneAsPointCloud.Run();
 
             // Stop before exiting
             Console.WriteLine("\n\nProgram Finished. Press any key to exit....");

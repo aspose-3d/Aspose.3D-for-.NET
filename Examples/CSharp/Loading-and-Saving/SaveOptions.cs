@@ -18,7 +18,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             Discreet3DSSaveOption();
             FBXSaveOption();
             ObjSaveOption();
-            glTFSaveOptions();
+            GlTFSaveOptions();
             DRCSaveOptions();
         }
         public static void ColladaSaveOption()
@@ -137,7 +137,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             saveU3DOptions.MeshCompression = true;
             // ExEnd:U3DSaveOption
         }
-        public static void glTFSaveOptions()
+        public static void GlTFSaveOptions()
         {
             // ExStart:glTFSaveOptions
             // Initialize Scene object
@@ -152,7 +152,9 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             opt.UseCommonMaterials = true;
             // Customize the name of the buffer file which defines model
             opt.BufferFile = "mybuf.bin";
-            // Save glTF file
+            //The JSON content of GLTF file is indented for human reading
+            opt.PrettyPrint = true;
+            // Save GlTF file
             scene.Save(RunExamples.GetOutputFilePath("glTFSaveOptions_out.gltf"), opt);
 
             // Save a binary glTF file using KHR_binary_glTF extension
