@@ -64,6 +64,8 @@ namespace Aspose._3D.Examples.CSharp
             // CancellationToken.Run();
             // Save3DScene.Run();
             // Save3DScene.Compression();
+            // SaveOptions.PrettyPrintInGltfSaveOption();
+
 
             // =====================================================
             // =====================================================

@@ -58,7 +58,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // Use high-precise color which each color channel will use 32bit float.
             saveOpts.HighPreciseColor = true;
             // Configure the look up paths to allow importer to find external dependencies.
-            saveOpts.LookupPaths = new List<string>(new string[] {dataDir});
+            saveOpts.LookupPaths = new List<string>(new string[] { dataDir });
             // Set the master scale
             saveOpts.MasterScale = 1;
             // ExEnd:Discreet3DSSaveOption
@@ -111,7 +111,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // Flip the coordinate system.
             saveSTLOpts.FlipCoordinateSystem = true;
             // Configure the look up paths to allow importer to find external dependencies.
-            saveSTLOpts.LookupPaths = new List<string>(new string[] {dataDir });
+            saveSTLOpts.LookupPaths = new List<string>(new string[] { dataDir });
             // ExEnd:STLSaveOption
         }
         public static void U3DSaveOption()
@@ -152,8 +152,6 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             opt.UseCommonMaterials = true;
             // Customize the name of the buffer file which defines model
             opt.BufferFile = "mybuf.bin";
-            //The JSON content of GLTF file is indented for human reading
-            opt.PrettyPrint = true;
             // Save GlTF file
             scene.Save(RunExamples.GetOutputFilePath("glTFSaveOptions_out.gltf"), opt);
 
@@ -210,7 +208,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // The code example uses the LocalFileSystem class to save dependencies to the local directory.
             string dataDir = RunExamples.GetDataDir();
             // Initialize Scene object
-            Scene scene = new Scene();            
+            Scene scene = new Scene();
             // Create a child node
             scene.RootNode.CreateChildNode("sphere", new Sphere()).Material = new PhongMaterial();
             // Set saving options
@@ -233,11 +231,28 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             MemoryFileSystem mfs = new MemoryFileSystem();
             opt.FileSystem = mfs;
             // Save 3D scene
-            scene.Save(RunExamples.GetOutputFilePath( "SavingDependenciesInMemoryFileSystem_out.obj"), opt);
+            scene.Save(RunExamples.GetOutputFilePath("SavingDependenciesInMemoryFileSystem_out.obj"), opt);
             // Get the test.mtl file content
             byte[] mtl = mfs.GetFileContent("SavingDependenciesInMemoryFileSystem_out.mtl");
-            File.WriteAllBytes( RunExamples.GetOutputFilePath("Material.mtl"), mtl);
+            File.WriteAllBytes(RunExamples.GetOutputFilePath("Material.mtl"), mtl);
             // ExEnd:SavingDependenciesInMemoryFileSystem
+        }
+        /// <summary>
+        /// The JSON content of GLTF file is indented for human reading, default value is false
+        /// This method is supported by version 19.8 or greater.
+        /// </summary>
+        public static void PrettyPrintInGltfSaveOption()
+        {
+            // ExStart:PrettyPrintInGltfSaveOption
+            // Initialize 3D scene
+            Scene scene = new Scene(new Sphere());
+            // Initialize GLTFSaveOptions
+            GLTFSaveOptions opt = new GLTFSaveOptions(FileFormat.GLTF2);
+            // The JSON content of GLTF file is indented for human reading, default value is false
+            opt.PrettyPrint = true;
+            // Save 3D Scene
+            scene.Save(RunExamples.GetDataDir() + "prettyPrintInGltfSaveOption.gltf", opt);
+            // ExEnd:PrettyPrintInGltfSaveOption
         }
     }
 }

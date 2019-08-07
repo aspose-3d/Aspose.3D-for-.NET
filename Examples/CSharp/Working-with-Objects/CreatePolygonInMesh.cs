@@ -12,6 +12,7 @@ namespace Aspose._3D.Examples.CSharp.Working_with_Objects
     {
         /// <summary>
         /// Create a polygon with 3 vertices(triangle) or 4 vertices(quad)
+        /// This method is supported by version 19.8 or greater.
         /// </summary>
         public static void Run()
         {

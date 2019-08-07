@@ -13,6 +13,7 @@ namespace Aspose._3D.Examples.CSharp.WorkingWithPointCloud
     {
         /// <summary>
         /// Gets or sets the flag whether the exporter should export the scene as point cloud(without topological structure), default value is false
+        /// This method is supported by version 19.8 or greater.
         /// </summary>
         public static void Run()
         {
