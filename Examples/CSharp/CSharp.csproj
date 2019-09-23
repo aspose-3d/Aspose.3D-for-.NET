@@ -35,8 +35,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.3D, Version=19.8.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aspose.3D.19.8.0\lib\net46\Aspose.3D.dll</HintPath>
+    <Reference Include="Aspose.3D, Version=19.9.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.3D.19.9.0\lib\net46\Aspose.3D.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,6 +56,7 @@
     <Compile Include="3DViewPorts\ApplyVisualEffects.cs" />
     <Compile Include="Geometry-and-Hierarchy\ApplyPBRMaterialToBox.cs" />
     <Compile Include="Geometry-and-Hierarchy\ConcatenateQuaternions.cs" />
+    <Compile Include="Geometry-and-Hierarchy\ExposeGeometricTransformation.cs" />
     <Compile Include="Loading-and-Saving\CancellationToken.cs" />
     <Compile Include="Loading-and-Saving\ExtractAll3DScenes.cs" />
     <Compile Include="Loading-and-Saving\ExtractRaw3DContentsFromPdf.cs" />

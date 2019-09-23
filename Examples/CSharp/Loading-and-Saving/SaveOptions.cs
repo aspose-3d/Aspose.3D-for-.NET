@@ -7,6 +7,7 @@ using Aspose.ThreeD.Formats;
 using Aspose.ThreeD.Entities;
 using Aspose.ThreeD.Utilities;
 using Aspose.ThreeD.Shading;
+using System.Drawing;
 
 namespace Aspose._3D.Examples.CSharp.Loading_Saving
 {
@@ -253,6 +254,30 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // Save 3D Scene
             scene.Save(RunExamples.GetDataDir() + "prettyPrintInGltfSaveOption.gltf", opt);
             // ExEnd:PrettyPrintInGltfSaveOption
+        }
+        /// <summary>
+        /// Save the 3D scene to HTML5 document
+        /// This method is supported by version 19.9 or greater.
+        /// </summary>
+        public static void Html5SaveOption()
+        {
+            // ExStart:HtmlSaveOption
+            // Initialize 3D scene
+            var scene = new Scene();
+            // Create a child node
+            var node = scene.RootNode.CreateChildNode(new Cylinder());
+            // Set child node properites
+            node.Material = new LambertMaterial() { DiffuseColor = new Vector3(Color.Chartreuse) };
+            scene.RootNode.CreateChildNode(new Light() { LightType = LightType.Point }).Transform.Translation = new Vector3(10, 0, 10);
+            // Create a HTML5SaveOptions
+            var opt = new HTML5SaveOptions();
+            //Turn off the grid
+            opt.ShowGrid = false;
+            //Turn off the user interface
+            opt.ShowUI = false; 
+            // Save 3D to HTML5
+            scene.Save(RunExamples.GetDataDir() + "D:\\HtmlSaveOption.html", opt);
+            // ExEnd:HtmlSaveOption
         }
     }
 }

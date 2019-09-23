@@ -65,6 +65,7 @@ namespace Aspose._3D.Examples.CSharp
             // Save3DScene.Run();
             // Save3DScene.Compression();
             // SaveOptions.PrettyPrintInGltfSaveOption();
+            // SaveOptions.Html5SaveOption();
 
 
             // =====================================================
@@ -111,6 +112,7 @@ namespace Aspose._3D.Examples.CSharp
             // TriangulateMesh.Run();
             // ConcatenateQuaternions.Run();
             // ApplyPBRMaterialToBox.Run();
+            // ExposeGeometricTransformation.Run();
 
             //// =====================================================
             //// =====================================================
