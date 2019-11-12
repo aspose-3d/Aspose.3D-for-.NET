@@ -11,15 +11,15 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
     {
         public static void Run()
         {
-            
             Discreet3DSLoadOption();
             ObjLoadOption();
             STLLoadOption();
             U3DLoadOption();
             glTFLoadOptions();
             PlyLoadOptions();
+            FBXLoadOptions();
         }
-        public static void Discreet3DSLoadOption()
+        private static void Discreet3DSLoadOption()
         {
             // ExStart:Discreet3DSOption
             // The path to the documents directory.
@@ -35,7 +35,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             loadOpts.LookupPaths = new List<string>(new string[] { dataDir });
             // ExEnd:Discreet3DSOption
         }
-        public static void ObjLoadOption()
+        private static void ObjLoadOption()
         {
             // ExStart:ObjLoadOption
             // The path to the documents directory.
@@ -50,7 +50,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             loadObjOpts.LookupPaths = new List<string>(new string[] { dataDir});
             // ExEnd:ObjLoadOption
         }
-        public static void STLLoadOption()
+        private static void STLLoadOption()
         {
             // ExStart:STLLoadOption
             // The path to the documents directory.
@@ -63,7 +63,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             loadSTLOpts.LookupPaths = new List<string>(new string[] { dataDir });
             // ExEnd:STLLoadOption
         }
-        public static void U3DLoadOption()
+        private static void U3DLoadOption()
         {
             // ExStart:U3DLoadOption
             // The path to the documents directory.
@@ -76,7 +76,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             loadU3DOpts.LookupPaths = new List<string>(new string[] { dataDir });
             // ExEnd:U3DLoadOption
         }
-        public static void glTFLoadOptions()
+        private static void glTFLoadOptions()
         {
             // ExStart:glTFLoadOptions
             // The path to the documents directory.
@@ -90,7 +90,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             scene.Open( dataDir + "Duck.gltf", loadOpt);
             // ExEnd:glTFLoadOptions
         }
-        public static void PlyLoadOptions()
+        private static void PlyLoadOptions()
         {
             // ExStart:PlyLoadOptions
             // the path to the documents directory.
@@ -105,7 +105,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             scene.Open(RunExamples.GetDataFilePath("vase-v2.ply"), loadPLYOpts);
             // ExEnd:PlyLoadOptions
         }
-        public static void XLoadOptions()
+        private static void XLoadOptions()
         {
             // ExStart:XLoadOptions
             // the path to the documents directory.
@@ -119,6 +119,20 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // load 3D X file
             scene.Open(RunExamples.GetDataFilePath("warrior.x"), loadXOpts);
             // ExEnd:XLoadOptions
-        } 
+        }
+        private static void FBXLoadOptions()
+        {
+            //ExStart: FBXLoadOptions
+            string dataDir = RunExamples.GetDataDir();
+            //This will output all properties defined in GlobalSettings in FBX file.
+            Scene scene = new Scene();
+            var opt = new FBXLoadOptions() { KeepBuiltinGlobalSettings = true };
+            scene.Open(dataDir + "test.FBX", opt);
+            foreach (Property property in scene.RootNode.AssetInfo.Properties)
+            {
+                Console.WriteLine(property);
+            }
+            //ExEnd: FBXLoadOptions
+        }
     }
 }

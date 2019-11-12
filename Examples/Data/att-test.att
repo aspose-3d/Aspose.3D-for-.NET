@@ -1,0 +1,29 @@
+CADC_Attributes_File v1.0 , start: NEW , end: END , name_end: := , sep: &end&
+NEW Header Information
+  Source:= PDMS Data &end& Date:= 12 11 2019 &end& Time:= 10:17
+  Project:= att-test &end& MDB:= RootNode &end& Element:= /ARC/330/LAD
+END
+NEW /ARC/330/LAD
+             Name:=  /ARC/330/LAD
+            Refno:=  =67334424/4
+             Type:=  /ARC/330/ZONE
+      Description:=  Test ATT file
+END
+NEW /ARC/330/LAD
+             Name:=  /ARC/330/LAD
+            Refno:=  =67334424/4
+             Type:=  /ARC/330/ZONE
+      Description:=  Test ATT file
+  NEW SCTN 1 of /ARC/330/LAD
+           Weight(kg):=  0.349
+                 Name:=  =67344234/3345
+                Owner:=  /ARC/330/LAD
+        UWeight(kg/m):=  3.9
+                Refno:=  =67344234/3345
+           :MATERIAL::=  S431R B
+                Gtype:=  JANG
+                 Type:=  SCTN
+             CUTL(mm):=  50
+               Matref:=  /CS
+  END
+END
