@@ -21,6 +21,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             ObjSaveOption();
             GlTFSaveOptions();
             DRCSaveOptions();
+            RVMSaveOptions();
         }
         public static void ColladaSaveOption()
         {
@@ -278,6 +279,20 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // Save 3D to HTML5
             scene.Save(RunExamples.GetDataDir() + "D:\\HtmlSaveOption.html", opt);
             // ExEnd:HtmlSaveOption
+        }
+
+        private static void RVMSaveOptions()
+        {
+            //ExStart: RVMSaveOptions
+            string dataDir = RunExamples.GetDataDir();
+            Scene scene = new Scene();
+            var node = scene.RootNode.CreateChildNode("Box", new Box());
+            node.SetProperty("rvm:Refno", "=3462123");
+            node.SetProperty("rvm:Description", "This is the description of the box");
+            //The RVM attribute's prefix is rvm:, all properties that starts with rvm: will be exported to .att file(the prefix will be removed)
+            var opt = new RvmSaveOptions() { AttributePrefix = "rvm:", ExportAttributes = true };
+            scene.Save(dataDir + "test.rvm", opt);
+            //ExEnd: RVMSaveOptions
         }
     }
 }
