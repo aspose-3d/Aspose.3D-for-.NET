@@ -11,7 +11,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
         {
             ReadExistingSceneFromDisc();
 
-            //ReadRVMWithAttributes();
+            ReadRVMWithAttributes();
         }
 
         public static void ReadExistingSceneFromDisc()
