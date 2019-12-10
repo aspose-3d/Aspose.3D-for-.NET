@@ -1,0 +1,10 @@
+from Aspose.ThreeD import *
+from Aspose.ThreeD.Utilities import *
+from Aspose.ThreeD.Entities import *
+
+
+
+#Write your code here and press Ctrl-R to run
+#Global variable:
+#    scene   -   Current scene object
+#  selected  -   Selected object

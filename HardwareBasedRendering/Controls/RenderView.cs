@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,9 @@ using System.Windows.Forms;
 using Aspose.ThreeD;
 using Aspose.ThreeD.Entities;
 using Aspose.ThreeD.Render;
+using Aspose.ThreeD.Render.Vulkan;
 using Aspose.ThreeD.Utilities;
+using AssetBrowser.Renderers;
 
 namespace AssetBrowser.Controls
 {
@@ -22,7 +25,12 @@ namespace AssetBrowser.Controls
         private Node cameraNode;
         private Viewport[] viewports;
         private Movement movement;
-        private ShaderProgram gridShader;
+        public PostProcessing CubeBasedPostProcessing { get; set; }
+        public Renderer Renderer { get { return renderer; } }
+        private NormalRenderer normalRenderer;
+
+        private Grid grid;
+        private Axis up = Axis.ZAxis;
 
         private RelativeRectangle[][] presets =
         {
@@ -68,9 +76,13 @@ namespace AssetBrowser.Controls
             Scene.RootNode.CreateChildNode("camera", camera);
             //create the renderer and render window from window's native handle
             renderer = Renderer.CreateRenderer();
+            renderer.RegisterEntityRenderer(new LinesRenderer());
+            renderer.RegisterEntityRenderer(new BackgroundRenderer());
+            renderer.RegisterEntityRenderer(normalRenderer = new NormalRenderer());
             //Right now we only support native window handle from Microsoft Windows
             //we'll support more platform on user's demand.
             window = renderer.RenderFactory.CreateRenderWindow(new RenderParameters(), Handle);
+            //renderer.ShaderSet = CreateDepthShader();
             //create 4 viewports, the viewport's area is meanless here because we'll change it to the right area in the SetViewports later
             viewports = new[]
             {
@@ -80,41 +92,17 @@ namespace AssetBrowser.Controls
                 window.CreateViewport(camera, Color.Gray, RelativeRectangle.FromScale(0, 0, 1, 1))
             };
             SetViewports(1);
-
-
-            //initialize shader for grid
-
-            GLSLSource src = new GLSLSource();
-            src.VertexShader = @"#version 330 core
-layout (location = 0) in vec3 position;
-uniform mat4 matWorldViewProj;
-void main()
-{
-    gl_Position = matWorldViewProj * vec4(position, 1.0f);
-}";
-            src.FragmentShader = @"#version 330 core
-out vec4 color;
-void main()
-{
-    color = vec4(1, 1, 1, 1);
-}";
-            //define the input format used by GLSL vertex shader
-            //the format is 
-            // struct ControlPoint {
-            //    FVector3 Position;
-            //}
-            VertexDeclaration fd = new VertexDeclaration();
-            fd.AddField(VertexFieldDataType.FVector3, VertexFieldSemantic.Position);
-            //compile shader from GLSL source code and specify the vertex input format
-            gridShader = renderer.RenderFactory.CreateShaderProgram(src, fd);
-            //connect GLSL uniform to renderer's internal variable
-            gridShader.Variables = new ShaderVariable[]
-            {
-                new ShaderVariable("matWorldViewProj", VariableSemantic.MatrixWorldViewProj)
-            };
-
-            SceneUpdated("");
-
+            SelectedViewport = viewports[0];
+        }
+        public bool NormalVisible
+        {
+            get { return normalRenderer.Visible; }
+            set { normalRenderer.Visible = value; }
+        }
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+            renderer.Dispose();
         }
 
         protected override void OnResize(EventArgs e)
@@ -134,8 +122,38 @@ void main()
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            if(!DesignMode)
+            if (!DesignMode)
+                Render();
+        }
+
+        private IRenderTexture cubeTarget;
+        private void Render()
+        {
+            if (CubeBasedPostProcessing != null)
+            {
+                if (cubeTarget == null)
+                {
+                    cubeTarget =
+                        renderer.RenderFactory.CreateCubeRenderTexture(new RenderParameters(false), 1024, 1024);
+                    cubeTarget.CreateViewport(camera, RelativeRectangle.FromScale(0, 0, 1, 1));
+                }
+                renderer.Render(cubeTarget);
+                CubeBasedPostProcessing.Input = cubeTarget.Targets[0];
+                ITextureCubemap cm = (ITextureCubemap)cubeTarget.Targets[0];
+                /*
+                for (int i = 0; i < 6; i++)
+                {
+                    cm.ToBitmap((CubeFace)i).Save(string.Format(@"d:\test-{0}.png", i), ImageFormat.Png);
+                    
+                }
+                */
+                //execute the post processing and output its result to the window
+                renderer.Execute(CubeBasedPostProcessing, window);
+            }
+            else
+            {
                 renderer.Render(window);
+            }
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
@@ -228,6 +246,34 @@ void main()
             Invalidate();
         }
 
+        public void CalculateCamera(Scene scene, Camera camera)
+        {
+            //find out the most outer vertex of the scene
+
+            var bbox = scene.RootNode.GetBoundingBox();
+
+            if(bbox.Extent != BoundingBoxExtent.Finite)
+            {
+                camera.ParentNode.Transform.Translation = new Vector3(10, 10, 10);
+                camera.LookAt = Vector3.Origin;
+                camera.FarPlane = 100;
+                camera.NearPlane = 0.1;
+            }
+            else
+            {
+                //calculate the mass center of the scene, this is used as camera target
+                var center = (bbox.Maximum + bbox.Minimum) * 0.5;
+
+                var cornerToCenter = (center - bbox.Maximum).Length;
+                //we use the direction of(origin -> corner) but we move the camera a bit further.
+                camera.ParentNode.Transform.Translation = bbox.Maximum;
+                camera.LookAt = center;
+                //we can use corner and mass center to calculate a suitable far/near plane
+                camera.FarPlane = Math.Max(200, cornerToCenter * 5);
+                camera.NearPlane = camera.FarPlane / 10000.0;
+            }
+        }
+
         public void SceneUpdated(string fileName)
         {
             //create the default camera, and update all viewports to use this camera
@@ -235,11 +281,10 @@ void main()
             //so we need to manually define one
             camera = new Camera();
             cameraNode = Scene.RootNode.CreateChildNode("aab-camera", camera);
-            cameraNode.Excluded = true;//generated by Asset browser, we don't want it to be exported
-            camera.FarPlane = 4000;
-            camera.NearPlane = 0.1;
-            cameraNode.Transform.Translation = new Vector3(10, 10, 10);
-            camera.LookAt = Vector3.Origin;
+            CalculateCamera(Scene, camera);
+
+
+            //calculate the center of the whole scene
             foreach (Viewport vp in viewports)
             {
                 vp.Frustum = camera;
@@ -261,25 +306,25 @@ void main()
             });
             if (lights == 0)
             {
-                //no light found in the scene, manually add some lights in random positions
-                Random r = new Random();
-                double elevation = Scene.RootNode.GetBoundingBox().Maximum.Length;
-                for (int i = 0; i < 2; i++)
+                //no light found in the scene, manually add a direction light
+                Node lightNode = Scene.RootNode.CreateChildNode("aab-light1", new Light()
                 {
-                    Vector3 pos = new Vector3();
-                    pos.x = (r.NextDouble() - 0.5)*2*elevation;
-                    pos.y = (r.NextDouble() - 0.5)*2*elevation;
-                    pos.z = (r.NextDouble() - 0.5)*2*elevation;
-
-                    Node lightNode = Scene.RootNode.CreateChildNode("aab-light#" + i, new Light()
-                    {
-                        LightType = LightType.Point,
-                        NearPlane = 0.1,
-                        Color = new Vector3(Color.Lavender)
-                    });
-                    lightNode.Transform.Translation = pos;
-                    lightNode.Excluded = true;//generated by Asset browser, we don't want it to be exported
-                }
+                    LightType = LightType.Directional,
+                    RotationMode = RotationMode.FixedDirection,
+                    Direction = new Vector3(1, 0.4, 0),
+                    NearPlane = 0.1,
+                    Color = new Vector3(Color.Lavender)
+                });
+                lightNode.Excluded = true; //generated by Asset browser, we don't want it to be exported
+                lightNode = Scene.RootNode.CreateChildNode("aab-light2", new Light()
+                {
+                    LightType = LightType.Directional,
+                    RotationMode = RotationMode.FixedDirection,
+                    Direction = new Vector3(-1, -0.4, 0),
+                    NearPlane = 0.1,
+                    Color = new Vector3(Color.Lavender)
+                });
+                lightNode.Excluded = true; //generated by Asset browser, we don't want it to be exported
             }
             //prepare the global ambient color, because a lot of file formats doesn't have this
             if(!Scene.AssetInfo.Ambient.HasValue)
@@ -287,17 +332,37 @@ void main()
 
             //make sure the renderer can find the texture in the same folder
             renderer.AssetDirectories.Clear();
-            if(!string.IsNullOrEmpty(fileName))
-                renderer.AssetDirectories.Add(Path.GetDirectoryName(fileName));
+            if (!string.IsNullOrEmpty(fileName))
+            {
+                var fileDir = Path.GetDirectoryName(fileName);
+                renderer.AssetDirectories.Add(fileDir);
+                renderer.AssetDirectories.Add("textures");
+            }
 
             //when scene reloaded, should manually clear the internal cache(textures/models) used in previous scene
             //it's ok to not clear the cache but may make your application consume more system and video memories
             renderer.ClearCache();
 
             //now we attach a grid object to the scene
-            ABUtils.CreateInternalNode(Scene.RootNode, "aab-grid", new Grid(renderer, gridShader));
+            ABUtils.CreateInternalNode(Scene.RootNode, "aab-grid", grid = new Grid());
+            ABUtils.CreateInternalNode(Scene.RootNode, "aab-axises", new Axises());
+            ABUtils.CreateInternalNode(Scene.RootNode, "aab-background", new Background());
+            SetUpVector(up);
 
             Invalidate();
+        }
+
+        public void SetUpVector(Axis up)
+        {
+            this.up = up;
+            if (up == Axis.YAxis)
+                camera.Up = Vector3.YAxis;
+            else if (up == Axis.ZAxis)
+                camera.Up = Vector3.ZAxis;
+            else
+                camera.Up = Vector3.XAxis;
+            if (grid != null)
+                grid.SetUpVector(up);
         }
 
 

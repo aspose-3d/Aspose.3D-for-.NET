@@ -18,6 +18,11 @@ namespace AssetBrowser.Controls
         private const int Img_Light = 2;
         private const int Img_Geometry = 3;
         private const int Img_Material = 4;
+        private ContextMenu contextMenu;
+        private MenuItem editControlPoints;
+        private MenuItem gotoNode;
+        private MenuItem visibleNode;
+        internal RenderView RenderView;
 
         public SceneHierarchyTree()
         {
@@ -42,6 +47,41 @@ namespace AssetBrowser.Controls
                 Images.Geometry,
                 Images.Material
             });
+            contextMenu = new ContextMenu();
+            editControlPoints = contextMenu.MenuItems.Add("Edit Control Points");
+            gotoNode = contextMenu.MenuItems.Add("Go to");
+            visibleNode = contextMenu.MenuItems.Add("Hide");
+            visibleNode.Click += OnToggleVisibility;
+            editControlPoints.Click += OnEditControlPoints;
+            gotoNode.Click += OnGotoNode;
+        }
+
+        private void OnToggleVisibility(object sender, EventArgs e)
+        {
+            var node = (Node) SelectedObject;
+            node.Visible = !node.Visible;
+            RenderView.Invalidate();
+        }
+        private void OnGotoNode(object sender, EventArgs e)
+        {
+            var node = (Node) SelectedObject;
+            var bb = node.GetBoundingBox();
+            var center = (bb.Minimum + bb.Maximum) * 0.5;
+            var size = bb.Maximum - bb.Minimum;
+
+            Camera cam = (Camera) RenderView.SelectedViewport.Frustum;
+            cam.ParentNode.Transform.Translation = size * 1.1 + center;
+            cam.LookAt = center;
+            RenderView.Invalidate();
+
+        }
+        private void OnEditControlPoints(object sender, EventArgs e)
+        {
+            using (ControlPointEditor form = new ControlPointEditor())
+            {
+                form.Data = ((Mesh) SelectedObject).ControlPoints;
+                form.ShowDialog(this);
+            }
         }
         public void UpdateHierarchy(Scene scene)
         {
@@ -58,13 +98,34 @@ namespace AssetBrowser.Controls
             }
         }
 
+        protected override void OnMouseUp(MouseEventArgs e)
+        {
+            base.OnMouseUp(e);
+            if (e.Button == MouseButtons.Right)
+            {
+                editControlPoints.Enabled = SelectedObject is Mesh;
+                var node = SelectedObject as Node;
+                gotoNode.Enabled = node != null;
+                visibleNode.Visible = node != null;
+                if(node != null)
+                {
+                    visibleNode.Text = node.Visible ? "Hide" : "Show";
+                }
+
+                contextMenu.Show(this, e.Location);
+            }
+        }
+
         private void UpdateHierarchyImpl(Scene scene)
         {
+            BeginUpdate();
             Nodes.Clear();
             //set up scene nodes
             TreeNode node = new SceneNodeWrapper(scene.RootNode, Img_Node);
             CreateNodes(node, scene.RootNode);
             Nodes.Add(node);
+            node.ExpandAll();
+            EndUpdate();
         }
 
         private void CreateNodes(TreeNode node, Node sceneNode)
@@ -94,9 +155,28 @@ namespace AssetBrowser.Controls
             //create material nodes
             foreach (Material mat in sceneNode.Materials)
             {
-                node.Nodes.Add(new SceneNodeWrapper(mat, Img_Material));
+                if (mat == null)
+                    continue;
+                var matNode = new SceneNodeWrapper(mat, Img_Material);
+                CreateTextureNode(matNode, mat, Material.MapDiffuse);
+                CreateTextureNode(matNode, mat, Material.MapAmbient);
+                CreateTextureNode(matNode, mat, Material.MapEmissive);
+                CreateTextureNode(matNode, mat, Material.MapNormal);
+                CreateTextureNode(matNode, mat, "Occlusion");
+                CreateTextureNode(matNode, mat, "MetallicRoughness");
+                node.Nodes.Add(matNode);
             }
         }
+
+        private void CreateTextureNode(SceneNodeWrapper parent, Material mat, String texName)
+        {
+            var tex = mat.GetTexture(texName);
+            if (tex == null)
+                return;
+            var texNode = new SceneNodeWrapper(tex, Img_Material);
+            parent.Nodes.Add(texNode);
+        }
+
 
         public A3DObject SelectedObject
         {

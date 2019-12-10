@@ -26,11 +26,11 @@ namespace Aspose._3D.Examples.CSharp.Animation
             // Find translation property on node's transform object
             Property translation = cube1.Transform.FindProperty("Translation");
             
-            // Create a curve mapping based on translation property
-            CurveMapping mapping = new CurveMapping(scene, translation);
+            // Create a bind point based on translation property
+            BindPoint bindPoint = new BindPoint(scene, translation);
 
             // Create the animation curve on X component of the scale 
-            mapping.BindCurve("X", new Curve()
+            bindPoint.BindKeyframeSequence("X", new KeyframeSequence()
             {
                 // Move node's translation to (10, 0, 10) at 0 sec using bezier interpolation
                 {0, 10.0f, Interpolation.Bezier},
@@ -41,7 +41,7 @@ namespace Aspose._3D.Examples.CSharp.Animation
             });
 
             // Create the animation curve on Z component of the scale 
-            mapping.BindCurve("Z", new Curve()
+            bindPoint.BindKeyframeSequence("Z", new KeyframeSequence()
             {
                 // Move node's translation to (10, 0, 10) at 0 sec using bezier interpolation
                 {0, 10.0f, Interpolation.Bezier},

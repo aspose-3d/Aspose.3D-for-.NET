@@ -13,7 +13,10 @@ using System.Windows.Forms;
 using Aspose.ThreeD;
 using Aspose.ThreeD.Entities;
 using Aspose.ThreeD.Formats;
+using Aspose.ThreeD.Render;
 using Aspose.ThreeD.Utilities;
+using AssetBrowser.Controls;
+using Microsoft.Win32;
 
 namespace AssetBrowser
 {
@@ -24,12 +27,20 @@ namespace AssetBrowser
         private bool modified;
         private Scene scene = new Scene();
         private ContextMenuStrip contextMenu = new ContextMenuStrip();
+
+        private RegistryKey ConfigKey = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Aspose\AssetBrowser");
+
         public MainForm()
         {
             InitializeComponent();
             originalTitle = Text;
-            fileSystemTree1.CurrentPath = Directory.GetCurrentDirectory();
+            string currentPath = ConfigKey.GetValue("Directory", null) as string;
+            if (string.IsNullOrEmpty(currentPath))
+                currentPath = Directory.GetCurrentDirectory();
+            fileSystemTree1.CurrentPath = currentPath;
+            fileSystemTree1.DirectoryChanged += OnDirectoryChanged;
             renderView1.Scene = scene;
+            sceneHierarchy.RenderView = renderView1;
 
             contextMenu.Items.Add("Perspective").Click += delegate(object sender, EventArgs e)
             {
@@ -72,8 +83,42 @@ namespace AssetBrowser
                 ortho(new Vector3(0, -1, 0), Vector3.XAxis);
             };
             renderView1.ContextMenuStrip = contextMenu;
+
+            if (File.Exists("Aspose.3D.lic"))
+            {
+                Aspose.ThreeD.License lic = new Aspose.ThreeD.License();
+                lic.SetLicense("Aspose.3D.lic");
+            }
+            WindowState = FormWindowState.Maximized;
+            renderView1.SceneUpdated("");
+            sceneHierarchy.UpdateHierarchy(scene);
         }
 
+        internal RenderView RenderView
+        {
+            get { return renderView1; }
+        }
+
+        internal SceneHierarchyTree SceneHierarchy
+        {
+            get { return sceneHierarchy; }
+        }
+
+        internal void RendererInitialized()
+        {
+            renderView1.Scene = scene;
+            renderView1.SceneUpdated("");
+            sceneHierarchy.UpdateHierarchy(scene);
+        }
+        internal void SceneUpdated()
+        {
+            sceneHierarchy.UpdateHierarchy(scene);
+        }
+
+        private void OnDirectoryChanged(object sender, EventArgs e)
+        {
+            ConfigKey.SetValue("Directory", fileSystemTree1.CurrentPath);
+        }
 
         private void UpdateTitle()
         {
@@ -93,8 +138,11 @@ namespace AssetBrowser
             }
             //create load option and allow user to modify the load options
             LoadOptions opt = format.CreateLoadOptions();
-            if (OptionDialog.ShowDialog(this, "Import Settings", opt) == DialogResult.Cancel)
-                return;
+            if (opt != null && opt.GetType() != typeof(LoadOptions))
+            {
+                if (OptionDialog.ShowDialog(this, "Import Settings", opt) == DialogResult.Cancel)
+                    return;
+            }
 
 
 
@@ -107,10 +155,12 @@ namespace AssetBrowser
                 fileListView1.Enabled = false;
                 propertyGrid1.SelectedObject = null;
                 Stopwatch st = Stopwatch.StartNew();
-                OnMovementChanged(btnOrbital, null);
+                OnMovementChanged(btnStandardMovement, null);
+                Console.WriteLine("Loading file {0}", fileName);
                 //open the scene using user modified load option in background thread.
                 await Task.Run(() => scene.Open(fileName, opt));
                 elapsed = st.ElapsedMilliseconds;
+                Console.WriteLine("Loaded in {0}ms", elapsed);
 
                 renderView1.SceneUpdated(fileName);
                 sceneHierarchy.UpdateHierarchy(scene);
@@ -216,7 +266,7 @@ namespace AssetBrowser
                 StringBuilder filter = new StringBuilder();
                 foreach (FieldInfo fi in typeof(FileFormat).GetFields(BindingFlags.Public | BindingFlags.Static))
                 {
-                    if (fi.FieldType != typeof(FileFormat))
+                    if (!typeof(FileFormat).IsAssignableFrom(fi.FieldType))
                         continue;
                     FileFormat f = fi.GetValue(null) as FileFormat;
                     formats.Add(f);
@@ -246,6 +296,43 @@ namespace AssetBrowser
             btnOrbital.Checked = sender == btnOrbital;
             btnStandardMovement.Checked = sender == btnStandardMovement;
 
+        }
+
+        private void OnSetExclusivePostProcessing(object sender, EventArgs e)
+        {
+            if (sender == btnFisheye)
+            {
+                PostProcessing fisheye = renderView1.Renderer.GetPostProcessing("fisheye");
+                btnFisheye.Checked = !btnFisheye.Checked;
+                renderView1.CubeBasedPostProcessing = btnFisheye.Checked ? fisheye : null;
+            }
+
+        }
+
+        private void OnToggleFileSystem(object sender, EventArgs e)
+        {
+            var enabled = miFileSystem.Checked;
+            leftContainer.Panel1Collapsed = enabled;
+            mainContainer.Panel2Collapsed = enabled;
+
+        }
+
+        private void OnUpVectorChanged(object sender, EventArgs e)
+        {
+            mnUpY.Checked = sender == mnUpY;
+            mnUpZ.Checked = sender == mnUpZ;
+            if (mnUpY.Checked)
+                renderView1.SetUpVector(Axis.YAxis);
+            else if (mnUpZ.Checked)
+                renderView1.SetUpVector(Axis.ZAxis);
+
+            renderView1.Invalidate();
+        }
+
+        private void OnShowNormals(object sender, EventArgs e)
+        {
+            renderView1.NormalVisible = btnShowNormals.Checked;
+            renderView1.Invalidate();
         }
     }
 }
