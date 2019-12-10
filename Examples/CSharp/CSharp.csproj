@@ -52,6 +52,7 @@
     <Compile Include="3DScene\ChangePlaneOrientation.cs" />
     <Compile Include="3DScene\ExportSceneToCompressedAMF.cs" />
     <Compile Include="3DScene\Save3DMeshesInCustomBinaryFormat.cs" />
+    <Compile Include="3DScene\ThreeDProperties.cs" />
     <Compile Include="3DViewPorts\CaptureViewPort.cs" />
     <Compile Include="3DViewPorts\ApplyVisualEffects.cs" />
     <Compile Include="Geometry-and-Hierarchy\ApplyPBRMaterialToBox.cs" />
