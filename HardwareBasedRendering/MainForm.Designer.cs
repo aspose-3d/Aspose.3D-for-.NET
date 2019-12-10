@@ -29,22 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("tmp");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("tmp");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("C:\\", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("tmp");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("D:\\(Data)", new System.Windows.Forms.TreeNode[] {
-            treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("My Computer", new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode6});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miFileSystem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnShowNormals = new System.Windows.Forms.ToolStripMenuItem();
+            this.cameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnUpY = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnUpZ = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -56,7 +52,9 @@
             this.btnEdgeDetection = new System.Windows.Forms.ToolStripButton();
             this.btnBlur = new System.Windows.Forms.ToolStripButton();
             this.btnPixelation = new System.Windows.Forms.ToolStripButton();
+            this.btnFisheye = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnStandardMovement = new System.Windows.Forms.ToolStripButton();
             this.btnOrbital = new System.Windows.Forms.ToolStripButton();
             this.btnFPS = new System.Windows.Forms.ToolStripButton();
             this.leftContainer = new System.Windows.Forms.SplitContainer();
@@ -68,7 +66,6 @@
             this.rightContainer = new System.Windows.Forms.SplitContainer();
             this.sceneHierarchy = new AssetBrowser.Controls.SceneHierarchyTree();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
-            this.btnStandardMovement = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -92,8 +89,11 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.viewToolStripMenuItem,
+            this.cameraToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -114,27 +114,82 @@
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.saveAsToolStripMenuItem.Text = "&Export...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.OnExport);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(113, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(114, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.OnExit);
             // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miFileSystem,
+            this.btnShowNormals});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "&View";
+            // 
+            // miFileSystem
+            // 
+            this.miFileSystem.Checked = true;
+            this.miFileSystem.CheckOnClick = true;
+            this.miFileSystem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.miFileSystem.Name = "miFileSystem";
+            this.miFileSystem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.miFileSystem.Size = new System.Drawing.Size(192, 22);
+            this.miFileSystem.Text = "&File system";
+            this.miFileSystem.Click += new System.EventHandler(this.OnToggleFileSystem);
+            // 
+            // btnShowNormals
+            // 
+            this.btnShowNormals.CheckOnClick = true;
+            this.btnShowNormals.Name = "btnShowNormals";
+            this.btnShowNormals.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.btnShowNormals.Size = new System.Drawing.Size(192, 22);
+            this.btnShowNormals.Text = "Show Normals";
+            this.btnShowNormals.Click += new System.EventHandler(this.OnShowNormals);
+            // 
+            // cameraToolStripMenuItem
+            // 
+            this.cameraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnUpY,
+            this.mnUpZ});
+            this.cameraToolStripMenuItem.Name = "cameraToolStripMenuItem";
+            this.cameraToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.cameraToolStripMenuItem.Text = "Camera";
+            // 
+            // mnUpY
+            // 
+            this.mnUpY.Name = "mnUpY";
+            this.mnUpY.Size = new System.Drawing.Size(180, 22);
+            this.mnUpY.Text = "Y Up";
+            this.mnUpY.Click += new System.EventHandler(this.OnUpVectorChanged);
+            // 
+            // mnUpZ
+            // 
+            this.mnUpZ.Checked = true;
+            this.mnUpZ.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.mnUpZ.Name = "mnUpZ";
+            this.mnUpZ.Size = new System.Drawing.Size(180, 22);
+            this.mnUpZ.Text = "Z Up";
+            this.mnUpZ.Click += new System.EventHandler(this.OnUpVectorChanged);
+            // 
             // statusStrip1
             // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 328);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 358);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
             this.statusStrip1.Size = new System.Drawing.Size(716, 22);
@@ -148,6 +203,7 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnViewport1,
             this.btnViewport2,
@@ -157,13 +213,14 @@
             this.btnEdgeDetection,
             this.btnBlur,
             this.btnPixelation,
+            this.btnFisheye,
             this.toolStripSeparator2,
             this.btnStandardMovement,
             this.btnOrbital,
             this.btnFPS});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(716, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(716, 27);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -175,7 +232,7 @@
             this.btnViewport1.Image = global::AssetBrowser.Images.Viewport_1;
             this.btnViewport1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnViewport1.Name = "btnViewport1";
-            this.btnViewport1.Size = new System.Drawing.Size(23, 22);
+            this.btnViewport1.Size = new System.Drawing.Size(24, 24);
             this.btnViewport1.Text = "toolStripButton1";
             this.btnViewport1.ToolTipText = "1 viewport";
             this.btnViewport1.Click += new System.EventHandler(this.OnChangeViewport);
@@ -186,7 +243,7 @@
             this.btnViewport2.Image = global::AssetBrowser.Images.Viewport_2;
             this.btnViewport2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnViewport2.Name = "btnViewport2";
-            this.btnViewport2.Size = new System.Drawing.Size(23, 22);
+            this.btnViewport2.Size = new System.Drawing.Size(24, 24);
             this.btnViewport2.Text = "toolStripButton2";
             this.btnViewport2.ToolTipText = "2 viewports";
             this.btnViewport2.Click += new System.EventHandler(this.OnChangeViewport);
@@ -197,7 +254,7 @@
             this.btnViewport4.Image = global::AssetBrowser.Images.Viewport_4;
             this.btnViewport4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnViewport4.Name = "btnViewport4";
-            this.btnViewport4.Size = new System.Drawing.Size(23, 22);
+            this.btnViewport4.Size = new System.Drawing.Size(24, 24);
             this.btnViewport4.Text = "toolStripButton3";
             this.btnViewport4.ToolTipText = "4 viewports";
             this.btnViewport4.Click += new System.EventHandler(this.OnChangeViewport);
@@ -205,7 +262,7 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // btnGrayscale
             // 
@@ -214,7 +271,7 @@
             this.btnGrayscale.Image = global::AssetBrowser.Images.Grayscale;
             this.btnGrayscale.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnGrayscale.Name = "btnGrayscale";
-            this.btnGrayscale.Size = new System.Drawing.Size(23, 22);
+            this.btnGrayscale.Size = new System.Drawing.Size(24, 24);
             this.btnGrayscale.Text = "Grayscale";
             this.btnGrayscale.CheckedChanged += new System.EventHandler(this.OnTogglePostProcessing);
             // 
@@ -225,7 +282,7 @@
             this.btnEdgeDetection.Image = global::AssetBrowser.Images.EdgeDetection;
             this.btnEdgeDetection.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEdgeDetection.Name = "btnEdgeDetection";
-            this.btnEdgeDetection.Size = new System.Drawing.Size(23, 22);
+            this.btnEdgeDetection.Size = new System.Drawing.Size(24, 24);
             this.btnEdgeDetection.Text = "toolStripButton2";
             this.btnEdgeDetection.ToolTipText = "Edge detection";
             this.btnEdgeDetection.CheckedChanged += new System.EventHandler(this.OnTogglePostProcessing);
@@ -237,7 +294,7 @@
             this.btnBlur.Image = global::AssetBrowser.Images.Blur;
             this.btnBlur.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBlur.Name = "btnBlur";
-            this.btnBlur.Size = new System.Drawing.Size(23, 22);
+            this.btnBlur.Size = new System.Drawing.Size(24, 24);
             this.btnBlur.Text = "toolStripButton3";
             this.btnBlur.ToolTipText = "Blur";
             this.btnBlur.CheckedChanged += new System.EventHandler(this.OnTogglePostProcessing);
@@ -249,14 +306,36 @@
             this.btnPixelation.Image = global::AssetBrowser.Images.Pixelization;
             this.btnPixelation.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPixelation.Name = "btnPixelation";
-            this.btnPixelation.Size = new System.Drawing.Size(23, 22);
+            this.btnPixelation.Size = new System.Drawing.Size(24, 24);
             this.btnPixelation.ToolTipText = "Pixelation";
             this.btnPixelation.CheckedChanged += new System.EventHandler(this.OnTogglePostProcessing);
+            // 
+            // btnFisheye
+            // 
+            this.btnFisheye.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnFisheye.Image = ((System.Drawing.Image)(resources.GetObject("btnFisheye.Image")));
+            this.btnFisheye.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnFisheye.Name = "btnFisheye";
+            this.btnFisheye.Size = new System.Drawing.Size(24, 24);
+            this.btnFisheye.Text = "toolStripButton1";
+            this.btnFisheye.Click += new System.EventHandler(this.OnSetExclusivePostProcessing);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            // 
+            // btnStandardMovement
+            // 
+            this.btnStandardMovement.Checked = true;
+            this.btnStandardMovement.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.btnStandardMovement.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnStandardMovement.Image = ((System.Drawing.Image)(resources.GetObject("btnStandardMovement.Image")));
+            this.btnStandardMovement.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnStandardMovement.Name = "btnStandardMovement";
+            this.btnStandardMovement.Size = new System.Drawing.Size(24, 24);
+            this.btnStandardMovement.ToolTipText = "Standard camera movement";
+            this.btnStandardMovement.Click += new System.EventHandler(this.OnMovementChanged);
             // 
             // btnOrbital
             // 
@@ -264,7 +343,7 @@
             this.btnOrbital.Image = global::AssetBrowser.Images.Orbital;
             this.btnOrbital.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnOrbital.Name = "btnOrbital";
-            this.btnOrbital.Size = new System.Drawing.Size(23, 22);
+            this.btnOrbital.Size = new System.Drawing.Size(24, 24);
             this.btnOrbital.Text = "btnOrbital";
             this.btnOrbital.ToolTipText = "Orbital camera movement";
             this.btnOrbital.Click += new System.EventHandler(this.OnMovementChanged);
@@ -275,7 +354,7 @@
             this.btnFPS.Image = ((System.Drawing.Image)(resources.GetObject("btnFPS.Image")));
             this.btnFPS.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnFPS.Name = "btnFPS";
-            this.btnFPS.Size = new System.Drawing.Size(23, 22);
+            this.btnFPS.Size = new System.Drawing.Size(24, 24);
             this.btnFPS.Text = "btnFPS";
             this.btnFPS.ToolTipText = "FPS-style camera movement";
             this.btnFPS.Click += new System.EventHandler(this.OnMovementChanged);
@@ -284,7 +363,7 @@
             // 
             this.leftContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.leftContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.leftContainer.Location = new System.Drawing.Point(0, 49);
+            this.leftContainer.Location = new System.Drawing.Point(0, 51);
             this.leftContainer.Margin = new System.Windows.Forms.Padding(2);
             this.leftContainer.Name = "leftContainer";
             // 
@@ -296,7 +375,7 @@
             // leftContainer.Panel2
             // 
             this.leftContainer.Panel2.Controls.Add(this.splitContainer2);
-            this.leftContainer.Size = new System.Drawing.Size(716, 279);
+            this.leftContainer.Size = new System.Drawing.Size(716, 307);
             this.leftContainer.SplitterDistance = 224;
             this.leftContainer.SplitterWidth = 3;
             this.leftContainer.TabIndex = 3;
@@ -306,36 +385,21 @@
             this.fileSystemTree1.CurrentPath = null;
             this.fileSystemTree1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fileSystemTree1.FileListView = this.fileListView1;
-            this.fileSystemTree1.ImageIndex = 0;
             this.fileSystemTree1.Location = new System.Drawing.Point(0, 0);
             this.fileSystemTree1.Margin = new System.Windows.Forms.Padding(2);
             this.fileSystemTree1.Name = "fileSystemTree1";
-            treeNode1.Name = "";
-            treeNode1.Text = "tmp";
-            treeNode3.Name = "";
-            treeNode3.Text = "tmp";
-            treeNode4.ImageKey = "C:\\";
-            treeNode4.Name = "";
-            treeNode4.Text = "C:\\";
-            treeNode5.Name = "";
-            treeNode5.Text = "tmp";
-            treeNode6.ImageKey = "D:\\";
-            treeNode6.Name = "";
-            treeNode6.Text = "D:\\(Data)";
-            treeNode7.Name = "";
-            treeNode7.Text = "My Computer";
-            this.fileSystemTree1.SelectedImageIndex = 0;
             this.fileSystemTree1.ShowRootLines = false;
-            this.fileSystemTree1.Size = new System.Drawing.Size(224, 279);
+            this.fileSystemTree1.Size = new System.Drawing.Size(224, 307);
             this.fileSystemTree1.TabIndex = 0;
             // 
             // fileListView1
             // 
             this.fileListView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileListView1.HideSelection = false;
             this.fileListView1.Location = new System.Drawing.Point(0, 0);
             this.fileListView1.Margin = new System.Windows.Forms.Padding(2);
             this.fileListView1.Name = "fileListView1";
-            this.fileListView1.Size = new System.Drawing.Size(228, 130);
+            this.fileListView1.Size = new System.Drawing.Size(234, 145);
             this.fileListView1.TabIndex = 0;
             this.fileListView1.UseCompatibleStateImageBehavior = false;
             this.fileListView1.DoubleClick += new System.EventHandler(this.OnOpenSelectedFile);
@@ -355,8 +419,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.rightContainer);
-            this.splitContainer2.Size = new System.Drawing.Size(489, 279);
-            this.splitContainer2.SplitterDistance = 228;
+            this.splitContainer2.Size = new System.Drawing.Size(489, 307);
+            this.splitContainer2.SplitterDistance = 234;
             this.splitContainer2.SplitterWidth = 3;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -375,8 +439,8 @@
             // mainContainer.Panel2
             // 
             this.mainContainer.Panel2.Controls.Add(this.fileListView1);
-            this.mainContainer.Size = new System.Drawing.Size(228, 279);
-            this.mainContainer.SplitterDistance = 146;
+            this.mainContainer.Size = new System.Drawing.Size(234, 307);
+            this.mainContainer.SplitterDistance = 159;
             this.mainContainer.SplitterWidth = 3;
             this.mainContainer.TabIndex = 0;
             // 
@@ -385,12 +449,13 @@
             this.renderView1.AltPressed = false;
             this.renderView1.Buttons = System.Windows.Forms.MouseButtons.None;
             this.renderView1.ControlPressed = false;
+            this.renderView1.CubeBasedPostProcessing = null;
             this.renderView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.renderView1.Location = new System.Drawing.Point(0, 0);
             this.renderView1.Margin = new System.Windows.Forms.Padding(2);
             this.renderView1.Name = "renderView1";
             this.renderView1.ShiftPressed = false;
-            this.renderView1.Size = new System.Drawing.Size(228, 146);
+            this.renderView1.Size = new System.Drawing.Size(234, 159);
             this.renderView1.TabIndex = 0;
             this.renderView1.Text = "renderView1";
             // 
@@ -409,8 +474,8 @@
             // rightContainer.Panel2
             // 
             this.rightContainer.Panel2.Controls.Add(this.propertyGrid1);
-            this.rightContainer.Size = new System.Drawing.Size(258, 279);
-            this.rightContainer.SplitterDistance = 117;
+            this.rightContainer.Size = new System.Drawing.Size(252, 307);
+            this.rightContainer.SplitterDistance = 128;
             this.rightContainer.SplitterWidth = 3;
             this.rightContainer.TabIndex = 0;
             // 
@@ -422,7 +487,7 @@
             this.sceneHierarchy.Margin = new System.Windows.Forms.Padding(2);
             this.sceneHierarchy.Name = "sceneHierarchy";
             this.sceneHierarchy.SelectedImageIndex = 0;
-            this.sceneHierarchy.Size = new System.Drawing.Size(258, 117);
+            this.sceneHierarchy.Size = new System.Drawing.Size(252, 128);
             this.sceneHierarchy.TabIndex = 0;
             this.sceneHierarchy.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.OnSceneObjectSelected);
             this.sceneHierarchy.DoubleClick += new System.EventHandler(this.OnDoubleClickSceneObject);
@@ -430,30 +495,19 @@
             // propertyGrid1
             // 
             this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.propertyGrid1.LineColor = System.Drawing.SystemColors.ControlDark;
             this.propertyGrid1.Location = new System.Drawing.Point(0, 0);
             this.propertyGrid1.Margin = new System.Windows.Forms.Padding(2);
             this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(258, 159);
+            this.propertyGrid1.Size = new System.Drawing.Size(252, 176);
             this.propertyGrid1.TabIndex = 0;
             this.propertyGrid1.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.OnPropertyChanged);
             // 
-            // btnStandardMovement
-            // 
-            this.btnStandardMovement.Checked = true;
-            this.btnStandardMovement.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.btnStandardMovement.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnStandardMovement.Image = ((System.Drawing.Image)(resources.GetObject("btnStandardMovement.Image")));
-            this.btnStandardMovement.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnStandardMovement.Name = "btnStandardMovement";
-            this.btnStandardMovement.Size = new System.Drawing.Size(23, 22);
-            this.btnStandardMovement.ToolTipText = "Standard camera movement";
-            this.btnStandardMovement.Click += new System.EventHandler(this.OnMovementChanged);
-            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 350);
+            this.ClientSize = new System.Drawing.Size(716, 380);
             this.Controls.Add(this.leftContainer);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
@@ -520,5 +574,12 @@
         private System.Windows.Forms.ToolStripButton btnOrbital;
         private System.Windows.Forms.ToolStripButton btnFPS;
         private System.Windows.Forms.ToolStripButton btnStandardMovement;
+        private System.Windows.Forms.ToolStripButton btnFisheye;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem miFileSystem;
+        private System.Windows.Forms.ToolStripMenuItem btnShowNormals;
+        private System.Windows.Forms.ToolStripMenuItem cameraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnUpY;
+        private System.Windows.Forms.ToolStripMenuItem mnUpZ;
     }
 }

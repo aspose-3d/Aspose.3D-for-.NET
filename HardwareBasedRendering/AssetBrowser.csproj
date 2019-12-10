@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AssetBrowser</RootNamespace>
     <AssemblyName>AssetBrowser</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -23,6 +24,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,8 +36,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.3D, Version=18.11.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
-      <HintPath>packages\Aspose.3D.18.11.0\lib\net45\Aspose.3D.dll</HintPath>
+    <Reference Include="Aspose.3D, Version=19.12.1.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
+      <HintPath>packages\Aspose.3D.19.12.2\lib\net46\Aspose.3D.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -50,6 +52,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ABUtils.cs" />
+    <Compile Include="Renderers\Axises.cs" />
+    <Compile Include="Renderers\Background.cs" />
+    <Compile Include="ControlPointEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlPointEditor.Designer.cs">
+      <DependentUpon>ControlPointEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\FileListView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -59,6 +69,8 @@
     <Compile Include="Controls\FileSystemTree.Designer.cs">
       <DependentUpon>FileSystemTree.cs</DependentUpon>
     </Compile>
+    <Compile Include="Renderers\LinesRenderer.cs" />
+    <Compile Include="Renderers\NormalRenderer.cs" />
     <Compile Include="Controls\RenderView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -66,7 +78,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\Shell.cs" />
-    <Compile Include="Grid.cs" />
+    <Compile Include="Renderers\Grid.cs" />
     <Compile Include="Images.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -87,11 +99,41 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Shaders.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Shaders.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="Shaders\Grid.frag">
+      <Generator>glslc.exe</Generator>
+    </Content>
+    <None Include="Shaders\Background.frag" />
+    <None Include="Shaders\Background.vert" />
+    <None Include="Shaders\bin\BackgroundFragment.spv" />
+    <None Include="Shaders\bin\BackgroundVertex.spv" />
+    <None Include="Shaders\bin\GridFragment.spv" />
+    <None Include="Shaders\bin\GridVertex.spv" />
+    <None Include="Shaders\bin\NormalsFragment.spv" />
+    <None Include="Shaders\bin\NormalsVertex.spv" />
+    <None Include="Shaders\Grid.vert">
+      <Generator>glslc.exe</Generator>
+    </None>
+    <None Include="Shaders\Makefile" />
+    <None Include="Shaders\Normals.frag" />
+    <None Include="Shaders\Normals.vert" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ControlPointEditor.resx">
+      <DependentUpon>ControlPointEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Images.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Images.Designer.cs</LastGenOutput>
@@ -102,6 +144,14 @@
     <EmbeddedResource Include="OptionDialog.resx">
       <DependentUpon>OptionDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shaders.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Shaders.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -109,11 +159,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Camera.bmp" />
+    <None Include="Resources\Python-Mode.xshd" />
     <None Include="Resources\Viewport_1.bmp" />
     <Content Include="Resources\EdgeDetection.bmp" />
     <Content Include="Resources\Grayscale.bmp" />
     <Content Include="Resources\Blur.bmp" />
     <None Include="Resources\Orbital.bmp" />
+    <None Include="Resources\InitialCode.txt" />
     <Content Include="Resources\Pixelization.bmp" />
     <Content Include="Resources\Viewport_4.bmp" />
     <Content Include="Resources\Viewport_2.bmp" />
@@ -121,6 +173,7 @@
     <Content Include="Resources\Node.bmp" />
     <Content Include="Resources\Light.bmp" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

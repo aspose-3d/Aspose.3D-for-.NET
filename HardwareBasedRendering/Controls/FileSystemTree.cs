@@ -15,6 +15,7 @@ namespace AssetBrowser.Controls
     {
         private ImageList imageList;
         public FileListView FileListView { get; set; }
+        public event EventHandler DirectoryChanged;
         private PathNode root;
         public FileSystemTree()
         {
@@ -72,6 +73,10 @@ namespace AssetBrowser.Controls
             if (n != null && FileListView != null)
             {
                 FileListView.OpenDirectory(n.path);
+            }
+            if (n != null && DirectoryChanged != null)
+            {
+                DirectoryChanged(this, new EventArgs());
             }
         }
 

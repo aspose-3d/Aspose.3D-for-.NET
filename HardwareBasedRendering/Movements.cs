@@ -106,10 +106,17 @@ namespace AssetBrowser
         public override void MouseWheel(int delta)
         {
             base.MouseWheel(delta);
+            double scale = this.scale;
+            if (this.keyState.ShiftPressed)
+                scale *= 0.1;
+            else if (this.keyState.ControlPressed)
+                scale *= 1.3;
+            else if (this.keyState.AltPressed)
+                scale *= 3;
             if (camera.ProjectionType == ProjectionType.Orthographic)
             {
                 //in orthographic mode change the magnification
-                double scale = delta > 0 ? 1.1 : 0.9;
+                scale *= delta > 0 ? 1.1 : 0.9;
                 camera.Magnification = scale * camera.Magnification;
 
             }
@@ -203,6 +210,7 @@ namespace AssetBrowser
         private double latitude;
         private double longitude;
         private double elevation = 10;
+        private Vector3 center;
         public override void MouseWheel(int delta)
         {
             base.MouseWheel(delta);
@@ -213,6 +221,8 @@ namespace AssetBrowser
                 scale *= 10;
             else if (keyState.ShiftPressed)
                 scale *= 0.1f;
+            else if (this.keyState.AltPressed)
+                scale *= 100;
             elevation -= delta*scale;
         }
 
@@ -235,6 +245,8 @@ namespace AssetBrowser
             //infinite or null bounding box means the scene has no geometries, only adjust camera's elevation when it's finite
             if (bb.Extent == BoundingBoxExtent.Finite)
             {
+                camera.LookAt = (bb.Maximum + bb.Minimum) * 0.5;
+                
                 double newElevation = Math.Max(bb.Minimum.Length, bb.Maximum.Length) * 1.1;
                 if (newElevation > 0.1)//if the bounding box is too small, ignore it
                 {
@@ -249,7 +261,7 @@ namespace AssetBrowser
         public override void Update()
         {
             //we simulate the camera only moves on a sphere that coordinated by elevation/latitude/longitude
-            cameraNode.Transform.Translation = new Vector3(
+            cameraNode.Transform.Translation = camera.LookAt + new Vector3(
                 -elevation * Math.Cos(latitude) * Math.Cos(longitude),
                 elevation * Math.Sin(latitude),
                 elevation * Math.Cos(latitude) * Math.Sin(longitude)
