@@ -9,6 +9,13 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
     {
         public static void Run()
         {
+            ReadExistingSceneFromDisc();
+
+            ReadRVMWithAttributes();
+        }
+
+        public static void ReadExistingSceneFromDisc()
+        {
             // ExStart:ReadExistingScene
             // The path to the documents directory.
 
@@ -19,6 +26,16 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
 
             // ExEnd:ReadExistingScene
             Console.WriteLine("\n3D Scene is ready for the modification, addition or processing purposes.");
+        }
+        public static void ReadRVMWithAttributes()
+        {
+            //ExStart:ReadRVMWithAttributes
+            string dataDir = RunExamples.GetDataDir();
+
+            Scene scene = new Scene(RunExamples.GetDataFilePath("att-test.rvm"));
+
+            FileFormat.RvmBinary.LoadAttributes(scene, RunExamples.GetDataFilePath("att-test.att"));
+            //ExEnd: ReadRVMWithAttributes
         }
     }
 }

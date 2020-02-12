@@ -19,6 +19,9 @@ using Aspose._3D.Examples.CSharp.Geometry_and_Hierarchy;
 using Aspose._3D.Examples.CSharp.Loading_and_Saving;
 using Aspose._3D.Examples.CSharp.WorkingWithLinearExtrusion;
 using Aspose._3D.Examples.CSharp.Materials;
+using Aspose._3D.Examples.CSharp.WorkingWithVRML;
+using Aspose._3D.Examples.CSharp.WorkingWithCylinder;
+using Aspose._3D.Examples.CSharp.WorkingWithPointCloud;
 
 namespace Aspose._3D.Examples.CSharp
 {
@@ -54,12 +57,16 @@ namespace Aspose._3D.Examples.CSharp
             // OpenSceneFromProtectedPdf.Run();
             // ExtractAll3DScenes.Run();
             // SaveOptions.SavingDependenciesInMemoryFileSystem();
+            // SaveOptions.GlTFSaveOptions();
             // LoadOptions.Run();
             // SaveOptions.Run();
             // Non_PBRtoPBRMaterial.Run();
             // CancellationToken.Run();
             // Save3DScene.Run();
             // Save3DScene.Compression();
+            // SaveOptions.PrettyPrintInGltfSaveOption();
+            // SaveOptions.Html5SaveOption();
+
 
             // =====================================================
             // =====================================================
@@ -79,6 +86,8 @@ namespace Aspose._3D.Examples.CSharp
             // FlipCoordinateSystem.Run();
             // Save3DMeshesInCustomBinaryFormat.Run();
             // ExportSceneToCompressedAMF.Run();
+            // ChangePlaneOrientation.Run();
+            // ThreeDProperties.Run();
 
             // =====================================================
             // =====================================================
@@ -104,6 +113,7 @@ namespace Aspose._3D.Examples.CSharp
             // TriangulateMesh.Run();
             // ConcatenateQuaternions.Run();
             // ApplyPBRMaterialToBox.Run();
+            // ExposeGeometricTransformation.Run();
 
             //// =====================================================
             //// =====================================================
@@ -130,6 +140,9 @@ namespace Aspose._3D.Examples.CSharp
             // GenerateDataForMeshes.Run();
             // BuildTangentAndBinormalData.Run();
             // Encode3DMeshinGoogleDraco.Run();
+            // XPathLikeObjectQueries.Run();
+            // WorkingWithSphereRadius.Run();
+            // CreatePolygonInMesh.Run();
 
             // =====================================================
             // =====================================================
@@ -170,6 +183,35 @@ namespace Aspose._3D.Examples.CSharp
             // TwistInLinearExtrusion.Run();
             // TwistOffsetInLinearExtrusion.Run();
             // DirectionInLinearExtrusion.Run();
+
+            // =====================================================
+            // =====================================================
+            // Working With VRML files
+            // =====================================================
+            // =====================================================
+            // OpenVRML.Run();
+
+            // =====================================================
+            // =====================================================
+            // Working With Cylinder
+            // =====================================================
+            // =====================================================
+            // CustomizedOffsetTopCylinder.Run();
+            // CreateFanCylinder.Run();
+            // CustomizedShearBottomCylinder.Run();
+
+            // =====================================================
+            // =====================================================
+            // Working With Point Cloud
+            // =====================================================
+            // =====================================================
+            // DecodeMesh.Run();
+            // EncodeMesh.Run();
+            // EncodeSphereAsPointCloud.Run();
+            // EncodeMeshToPly.Run();
+            // DecodeMeshFromPly.Run();
+            // ExportToPlyAsPointCloud.Run();
+            // Export3DSceneAsPointCloud.Run();
 
             // Stop before exiting
             Console.WriteLine("\n\nProgram Finished. Press any key to exit....");

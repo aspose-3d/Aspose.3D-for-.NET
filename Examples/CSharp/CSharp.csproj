@@ -52,10 +52,9 @@
     <Compile Include="3DModeling\Primitive3DModels.cs" />
     <Compile Include="3DScene\ExportSceneToCompressedAMF.cs" />
     <Compile Include="3DScene\Save3DMeshesInCustomBinaryFormat.cs" />
+    <Compile Include="3DScene\ThreeDProperties.cs" />
     <Compile Include="3DViewPorts\CaptureViewPort.cs" />
     <Compile Include="3DViewPorts\ApplyVisualEffects.cs" />
-    <Compile Include="CenterInLinearExtrusion.cs" />
-    <Compile Include="DirectionInLinearExtrusion.cs" />
     <Compile Include="Geometry-and-Hierarchy\ApplyPBRMaterialToBox.cs" />
     <Compile Include="Geometry-and-Hierarchy\ConcatenateQuaternions.cs" />
     <Compile Include="Loading-and-Saving\CancellationToken.cs" />
@@ -69,7 +68,6 @@
     <Compile Include="Loading-and-Saving\DetectFormat.cs" />
     <Compile Include="Materials\CreateSceneWithEmbeddedTexture.cs" />
     <Compile Include="Materials\DumpEmbeddedTextures.cs" />
-    <Compile Include="PerformingLinearExtrusion.cs" />
     <Compile Include="Polygons\ConvertPolygonsToTriangles.cs" />
     <Compile Include="Polygons\GenerateUV.cs" />
     <Compile Include="Rendering\CastAndReceiveShadow.cs" />
@@ -98,9 +96,14 @@
     <Compile Include="RunExamples.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AssetInformation\InformationToScene.cs" />
-    <Compile Include="SlicesInLinearExtrusion.cs" />
-    <Compile Include="TwistInLinearExtrusion.cs" />
-    <Compile Include="TwistOffsetInLinearExtrusion.cs" />
+
+    <Compile Include="Working-with-LinearExtrusion/CenterInLinearExtrusion.cs" />
+    <Compile Include="Working-with-LinearExtrusion/DirectionInLinearExtrusion.cs" />
+    <Compile Include="Working-with-LinearExtrusion/PerformingLinearExtrusion.cs" />
+    <Compile Include="Working-with-LinearExtrusion/SlicesInLinearExtrusion.cs" />
+    <Compile Include="Working-with-LinearExtrusion/TwistInLinearExtrusion.cs" />
+    <Compile Include="Working-with-LinearExtrusion/TwistOffsetInLinearExtrusion.cs" />
+
     <Compile Include="Working-with-Objects\ConvertSpherePrimitivetoMesh.cs" />
     <Compile Include="Working-with-Objects\ConvertBoxPrimitivetoMesh.cs" />
     <Compile Include="Working-with-Objects\ConvertPlanePrimitivetoMesh.cs" />
@@ -109,15 +112,30 @@
     <Compile Include="Working-with-Objects\ConvertBoxMeshtoTriangleMeshCustomMemoryLayout.cs" />
     <Compile Include="Working-with-Objects\ConvertSphereMeshtoTriangleMeshCustomMemoryLayout.cs" />
     <Compile Include="Working-with-Objects\BuildTangentAndBinormalData.cs" />
+    <Compile Include="Working-with-Objects\CreatePolygonInMesh.cs" />
     <Compile Include="Working-with-Objects\Encode3DMeshinGoogleDraco.cs" />
     <Compile Include="Working-with-Objects\SplitAllMeshesofScenebyMaterial.cs" />
     <Compile Include="Working-with-Objects\GenerateDataForMeshes.cs" />
     <Compile Include="Working-with-Objects\SplitMeshbyMaterial.cs" />
+    <Compile Include="Working-with-Objects\WorkingWithSphereRadius.cs" />
+    <Compile Include="Working-with-Objects\XPathLikeObjectQueries.cs" />
+    <Compile Include="WorkingWithCylinder\CreateFanCylinder.cs" />
+    <Compile Include="WorkingWithCylinder\CustomizedOffsetTopCylinder.cs" />
+    <Compile Include="WorkingWithCylinder\CustomizedShearBottomCylinder.cs" />
+    <Compile Include="WorkingWithPointCloud\DecodeMesh.cs" />
+    <Compile Include="WorkingWithPointCloud\DecodeMeshFromPly.cs" />
+    <Compile Include="WorkingWithPointCloud\EncodeMesh.cs" />
+    <Compile Include="WorkingWithPointCloud\EncodeMeshToPly.cs" />
+    <Compile Include="WorkingWithPointCloud\EncodeSphereAsPointCloud.cs" />
+    <Compile Include="WorkingWithPointCloud\Export3DSceneAsPointCloud.cs" />
+    <Compile Include="WorkingWithPointCloud\ExportToPlyAsPointCloud.cs" />
+    <Compile Include="WorkingWithVRML\OpenVRML.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

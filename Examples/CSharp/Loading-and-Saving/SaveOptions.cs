@@ -7,6 +7,7 @@ using Aspose.ThreeD.Formats;
 using Aspose.ThreeD.Entities;
 using Aspose.ThreeD.Utilities;
 using Aspose.ThreeD.Shading;
+using System.Drawing;
 
 namespace Aspose._3D.Examples.CSharp.Loading_Saving
 {
@@ -18,8 +19,9 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             Discreet3DSSaveOption();
             FBXSaveOption();
             ObjSaveOption();
-            glTFSaveOptions();
+            GlTFSaveOptions();
             DRCSaveOptions();
+            RVMSaveOptions();
         }
         public static void ColladaSaveOption()
         {
@@ -58,7 +60,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // Use high-precise color which each color channel will use 32bit float.
             saveOpts.HighPreciseColor = true;
             // Configure the look up paths to allow importer to find external dependencies.
-            saveOpts.LookupPaths = new List<string>(new string[] {dataDir});
+            saveOpts.LookupPaths = new List<string>(new string[] { dataDir });
             // Set the master scale
             saveOpts.MasterScale = 1;
             // ExEnd:Discreet3DSSaveOption
@@ -111,7 +113,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // Flip the coordinate system.
             saveSTLOpts.FlipCoordinateSystem = true;
             // Configure the look up paths to allow importer to find external dependencies.
-            saveSTLOpts.LookupPaths = new List<string>(new string[] {dataDir });
+            saveSTLOpts.LookupPaths = new List<string>(new string[] { dataDir });
             // ExEnd:STLSaveOption
         }
         public static void U3DSaveOption()
@@ -137,7 +139,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             saveU3DOptions.MeshCompression = true;
             // ExEnd:U3DSaveOption
         }
-        public static void glTFSaveOptions()
+        public static void GlTFSaveOptions()
         {
             // ExStart:glTFSaveOptions
             // Initialize Scene object
@@ -152,7 +154,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             opt.UseCommonMaterials = true;
             // Customize the name of the buffer file which defines model
             opt.BufferFile = "mybuf.bin";
-            // Save glTF file
+            // Save GlTF file
             scene.Save(RunExamples.GetOutputFilePath("glTFSaveOptions_out.gltf"), opt);
 
             // Save a binary glTF file using KHR_binary_glTF extension
@@ -208,7 +210,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // The code example uses the LocalFileSystem class to save dependencies to the local directory.
             string dataDir = RunExamples.GetDataDir();
             // Initialize Scene object
-            Scene scene = new Scene();            
+            Scene scene = new Scene();
             // Create a child node
             scene.RootNode.CreateChildNode("sphere", new Sphere()).Material = new PhongMaterial();
             // Set saving options
@@ -231,11 +233,66 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             MemoryFileSystem mfs = new MemoryFileSystem();
             opt.FileSystem = mfs;
             // Save 3D scene
-            scene.Save(RunExamples.GetOutputFilePath( "SavingDependenciesInMemoryFileSystem_out.obj"), opt);
+            scene.Save(RunExamples.GetOutputFilePath("SavingDependenciesInMemoryFileSystem_out.obj"), opt);
             // Get the test.mtl file content
             byte[] mtl = mfs.GetFileContent("SavingDependenciesInMemoryFileSystem_out.mtl");
-            File.WriteAllBytes( RunExamples.GetOutputFilePath("Material.mtl"), mtl);
+            File.WriteAllBytes(RunExamples.GetOutputFilePath("Material.mtl"), mtl);
             // ExEnd:SavingDependenciesInMemoryFileSystem
+        }
+        /// <summary>
+        /// The JSON content of GLTF file is indented for human reading, default value is false
+        /// This method is supported by version 19.8 or greater.
+        /// </summary>
+        public static void PrettyPrintInGltfSaveOption()
+        {
+            // ExStart:PrettyPrintInGltfSaveOption
+            // Initialize 3D scene
+            Scene scene = new Scene(new Sphere());
+            // Initialize GLTFSaveOptions
+            GLTFSaveOptions opt = new GLTFSaveOptions(FileFormat.GLTF2);
+            // The JSON content of GLTF file is indented for human reading, default value is false
+            opt.PrettyPrint = true;
+            // Save 3D Scene
+            scene.Save(RunExamples.GetDataDir() + "prettyPrintInGltfSaveOption.gltf", opt);
+            // ExEnd:PrettyPrintInGltfSaveOption
+        }
+        /// <summary>
+        /// Save the 3D scene to HTML5 document
+        /// This method is supported by version 19.9 or greater.
+        /// </summary>
+        public static void Html5SaveOption()
+        {
+            // ExStart:HtmlSaveOption
+            // Initialize 3D scene
+            var scene = new Scene();
+            // Create a child node
+            var node = scene.RootNode.CreateChildNode(new Cylinder());
+            // Set child node properites
+            node.Material = new LambertMaterial() { DiffuseColor = new Vector3(Color.Chartreuse) };
+            scene.RootNode.CreateChildNode(new Light() { LightType = LightType.Point }).Transform.Translation = new Vector3(10, 0, 10);
+            // Create a HTML5SaveOptions
+            var opt = new HTML5SaveOptions();
+            //Turn off the grid
+            opt.ShowGrid = false;
+            //Turn off the user interface
+            opt.ShowUI = false; 
+            // Save 3D to HTML5
+            scene.Save(RunExamples.GetDataDir() + "D:\\HtmlSaveOption.html", opt);
+            // ExEnd:HtmlSaveOption
+        }
+
+        private static void RVMSaveOptions()
+        {
+            //ExStart: RVMSaveOptions
+            string dataDir = RunExamples.GetDataDir();
+            Scene scene = new Scene();
+            var node = scene.RootNode.CreateChildNode("Box", new Box());
+            node.SetProperty("rvm:Refno", "=3462123");
+            node.SetProperty("rvm:Description", "This is the description of the box");
+            //The RVM attribute's prefix is rvm:, all properties that starts with rvm: will be exported to .att file(the prefix will be removed)
+            var opt = new RvmSaveOptions() { AttributePrefix = "rvm:", ExportAttributes = true };
+            scene.Save(dataDir + "test.rvm", opt);
+            //ExEnd: RVMSaveOptions
         }
     }
 }
