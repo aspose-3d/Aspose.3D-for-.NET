@@ -51,7 +51,7 @@ namespace Aspose._3D.Examples.CSharp
             // =====================================================
 
             // CreateEmpty3DDocument.Run();          
-            ReadExistingScene.Run();
+            // ReadExistingScene.Run();
             // DetectFormat.Run();
             // Save3DInPdf.Run();
             // OpenSceneFromProtectedPdf.Run();

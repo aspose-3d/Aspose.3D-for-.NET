@@ -36,8 +36,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.3D, Version=20.1.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aspose.3D.20.1.0\lib\net46\Aspose.3D.dll</HintPath>
+    <Reference Include="Aspose.3D, Version=20.2.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.3D.20.2.0\lib\net46\Aspose.3D.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -55,8 +55,6 @@
     <Compile Include="3DScene\ThreeDProperties.cs" />
     <Compile Include="3DViewPorts\CaptureViewPort.cs" />
     <Compile Include="3DViewPorts\ApplyVisualEffects.cs" />
-    <Compile Include="CenterInLinearExtrusion.cs" />
-    <Compile Include="DirectionInLinearExtrusion.cs" />
     <Compile Include="Geometry-and-Hierarchy\ApplyPBRMaterialToBox.cs" />
     <Compile Include="Geometry-and-Hierarchy\ConcatenateQuaternions.cs" />
     <Compile Include="Loading-and-Saving\CancellationToken.cs" />
@@ -70,7 +68,6 @@
     <Compile Include="Loading-and-Saving\DetectFormat.cs" />
     <Compile Include="Materials\CreateSceneWithEmbeddedTexture.cs" />
     <Compile Include="Materials\DumpEmbeddedTextures.cs" />
-    <Compile Include="PerformingLinearExtrusion.cs" />
     <Compile Include="Polygons\ConvertPolygonsToTriangles.cs" />
     <Compile Include="Polygons\GenerateUV.cs" />
     <Compile Include="Rendering\CastAndReceiveShadow.cs" />
@@ -99,9 +96,14 @@
     <Compile Include="RunExamples.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AssetInformation\InformationToScene.cs" />
-    <Compile Include="SlicesInLinearExtrusion.cs" />
-    <Compile Include="TwistInLinearExtrusion.cs" />
-    <Compile Include="TwistOffsetInLinearExtrusion.cs" />
+
+    <Compile Include="Working-with-LinearExtrusion/CenterInLinearExtrusion.cs" />
+    <Compile Include="Working-with-LinearExtrusion/DirectionInLinearExtrusion.cs" />
+    <Compile Include="Working-with-LinearExtrusion/PerformingLinearExtrusion.cs" />
+    <Compile Include="Working-with-LinearExtrusion/SlicesInLinearExtrusion.cs" />
+    <Compile Include="Working-with-LinearExtrusion/TwistInLinearExtrusion.cs" />
+    <Compile Include="Working-with-LinearExtrusion/TwistOffsetInLinearExtrusion.cs" />
+
     <Compile Include="Working-with-Objects\ConvertSpherePrimitivetoMesh.cs" />
     <Compile Include="Working-with-Objects\ConvertBoxPrimitivetoMesh.cs" />
     <Compile Include="Working-with-Objects\ConvertPlanePrimitivetoMesh.cs" />
