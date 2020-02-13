@@ -277,7 +277,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             //Turn off the user interface
             opt.ShowUI = false; 
             // Save 3D to HTML5
-            scene.Save(RunExamples.GetDataDir() + "D:\\HtmlSaveOption.html", opt);
+            scene.Save(RunExamples.GetOutputFilePath("HtmlSaveOption.html"), opt);
             // ExEnd:HtmlSaveOption
         }
 
@@ -291,7 +291,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             node.SetProperty("rvm:Description", "This is the description of the box");
             //The RVM attribute's prefix is rvm:, all properties that starts with rvm: will be exported to .att file(the prefix will be removed)
             var opt = new RvmSaveOptions() { AttributePrefix = "rvm:", ExportAttributes = true };
-            scene.Save(dataDir + "test.rvm", opt);
+            scene.Save(RunExamples.GetOutputFilePath("test.rvm"), opt);
             //ExEnd: RVMSaveOptions
         }
     }
