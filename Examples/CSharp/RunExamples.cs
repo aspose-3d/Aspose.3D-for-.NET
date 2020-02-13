@@ -25,7 +25,7 @@ using Aspose._3D.Examples.CSharp.WorkingWithPointCloud;
 
 namespace Aspose._3D.Examples.CSharp
 {
-    class RunExamples
+    partial class RunExamples
     {
         [STAThread]
         public static void Main()
@@ -154,7 +154,6 @@ namespace Aspose._3D.Examples.CSharp
             // RenderFisheyeLensEffectof3DScene.Run();
             // Render3DModelImageFromCamera.Run();
             // CastAndReceiveShadow.Run();
-            // RenderSceneWithPanoramaInDepth.Run();
 
             // =====================================================
             // =====================================================
@@ -209,44 +208,12 @@ namespace Aspose._3D.Examples.CSharp
             // EncodeMesh.Run();
             // EncodeSphereAsPointCloud.Run();
             // EncodeMeshToPly.Run();
-            // DecodeMeshFromPly.Run();
             // ExportToPlyAsPointCloud.Run();
             // Export3DSceneAsPointCloud.Run();
 
             // Stop before exiting
             Console.WriteLine("\n\nProgram Finished. Press any key to exit....");
             Console.ReadKey();
-        }
-
-        private static string GetProjectDir()
-        {
-            var parent = Directory.GetParent(Directory.GetCurrentDirectory()).Parent;
-            string startDirectory = null;
-            if (parent != null)
-            {
-                var directoryInfo = parent.Parent;
-                if (directoryInfo != null)
-                {
-                    startDirectory = directoryInfo.FullName;
-                }
-            }
-            else
-            {
-                startDirectory = parent.FullName;
-            }
-            return startDirectory;
-        }
-        public static string GetDataDir()
-        {
-            return Path.Combine(GetProjectDir(), "Data\\");
-        }
-        public static string GetDataFilePath(String inputFilePath)
-        {
-            return GetDataDir() + inputFilePath;
-        }
-        public static string GetOutputFilePath(String inputFilePath)
-        {
-            return Path.Combine(GetProjectDir(), "Output", inputFilePath);
         }
     }
 }

@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="3DModeling\Primitive3DModels.cs" />
+    <Compile Include="3DScene\ChangePlaneOrientation.cs" />
     <Compile Include="3DScene\ExportSceneToCompressedAMF.cs" />
     <Compile Include="3DScene\Save3DMeshesInCustomBinaryFormat.cs" />
     <Compile Include="3DScene\ThreeDProperties.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="3DViewPorts\ApplyVisualEffects.cs" />
     <Compile Include="Geometry-and-Hierarchy\ApplyPBRMaterialToBox.cs" />
     <Compile Include="Geometry-and-Hierarchy\ConcatenateQuaternions.cs" />
+    <Compile Include="Geometry-and-Hierarchy\ExposeGeometricTransformation.cs" />
     <Compile Include="Loading-and-Saving\CancellationToken.cs" />
     <Compile Include="Loading-and-Saving\ExtractAll3DScenes.cs" />
     <Compile Include="Loading-and-Saving\ExtractRaw3DContentsFromPdf.cs" />
@@ -96,14 +98,13 @@
     <Compile Include="RunExamples.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AssetInformation\InformationToScene.cs" />
-
+    <Compile Include="RunExamples_.cs" />
     <Compile Include="Working-with-LinearExtrusion/CenterInLinearExtrusion.cs" />
     <Compile Include="Working-with-LinearExtrusion/DirectionInLinearExtrusion.cs" />
     <Compile Include="Working-with-LinearExtrusion/PerformingLinearExtrusion.cs" />
     <Compile Include="Working-with-LinearExtrusion/SlicesInLinearExtrusion.cs" />
     <Compile Include="Working-with-LinearExtrusion/TwistInLinearExtrusion.cs" />
     <Compile Include="Working-with-LinearExtrusion/TwistOffsetInLinearExtrusion.cs" />
-
     <Compile Include="Working-with-Objects\ConvertSpherePrimitivetoMesh.cs" />
     <Compile Include="Working-with-Objects\ConvertBoxPrimitivetoMesh.cs" />
     <Compile Include="Working-with-Objects\ConvertPlanePrimitivetoMesh.cs" />

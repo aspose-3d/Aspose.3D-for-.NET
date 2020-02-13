@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetName>Aspose.3D.Examples</TargetName>
+    <RootNamespace>Aspose.ThreeD</RootNamespace>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <Prefer32Bit>false</Prefer32Bit>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ProjectDir>..\</ProjectDir>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>Aspose.3D.Examples</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\**\*.cs" />
+    <Compile Remove="obj\**\*.cs"/>
+    <Compile Remove="..\Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Aspose.3D" Version="20.2.0" />
+  </ItemGroup>
+</Project>
