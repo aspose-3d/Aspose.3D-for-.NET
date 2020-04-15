@@ -38,7 +38,7 @@ namespace Aspose.ThreeD.Live.Demos.UI.Models
 			}
 		}
 
-		public string UIBasePath => Configuration.AsposeAppLiveDemosPath;
+		public string UIBasePath => Configuration.AsposeThreeDLiveDemosPath;
 
 		public LandingPageModel(BaseController controller)
 		{

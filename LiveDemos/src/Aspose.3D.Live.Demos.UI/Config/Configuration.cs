@@ -11,10 +11,10 @@ namespace Aspose.ThreeD.Live.Demos.UI.Config
 	public static class Configuration
 	{		
 		private static string _appName = ConfigurationManager.AppSettings["AppName"].ToString();
-		private static string _asposeAppLiveDemosPath = ConfigurationManager.AppSettings["AsposeAppLiveDemosPath"].ToString();
+		private static string _asposeThreeDLiveDemosPath = ConfigurationManager.AppSettings["AsposeThreeDLiveDemosPath"].ToString();
 		private static string _resourceFileSessionName = ConfigurationManager.AppSettings["ResourceFileSessionName"];	      
 		private static string _fileViewLink = ConfigurationManager.AppSettings["FileViewLink"];		
-		private static string _productsAsposeAppAssetURL = ConfigurationManager.AppSettings["ProductsAsposeAppAssetURL"];
+		private static string _asposeThreeDAppsAssetURL = ConfigurationManager.AppSettings["AsposeThreeDAppsAssetURL"];
 
 		public static string ResourceFileSessionName
 		{
@@ -52,18 +52,18 @@ namespace Aspose.ThreeD.Live.Demos.UI.Config
 				return OutputFilespath;
 			}
 		}		
-		public static string ProductsAsposeAppAssetsURL
+		public static string AsposeThreeDLiveDemosPath
 		{
-			get { return _productsAsposeAppAssetURL; }
+			get { return _asposeThreeDLiveDemosPath; }
 		}	
 		
 		public static string AppName
         {
             get { return _appName; }
         }
-        public static string AsposeAppLiveDemosPath
-        {
-            get { return _asposeAppLiveDemosPath; }
+        public static string AsposeThreeDAppsAssetURL
+		{
+            get { return _asposeThreeDAppsAssetURL; }
         }
         
 		public static string FileViewLink

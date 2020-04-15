@@ -3,9 +3,8 @@ using System.Web;
 using System.Text;
 using System.Collections.Generic;
 using System.Threading;
-using Aspose.ThreeD.Live.Demos.UI.Config;
 
-namespace Aspose.ThreeD.Live.Demos.UI
+namespace Aspose.ThreeD.Live.Demos.UI.Config
 {
 	/// <summary>
 	/// Wrapper class for Aspose.3D Tools context access to Pages and controls

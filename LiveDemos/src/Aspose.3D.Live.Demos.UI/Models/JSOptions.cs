@@ -16,12 +16,12 @@ namespace Aspose.ThreeD.Live.Demos.UI.Models
     public string AppName => Parent.AppName;
 
     //public string APIBasePath => $"{Configuration.AsposeToolsAPIBasePath}";
-    public string UIBasePath => $"{Configuration.AsposeAppLiveDemosPath}";
+    public string UIBasePath => $"{Configuration.AsposeThreeDLiveDemosPath}";
 
 		public string ViewerPathWF => $"{UIBasePath}/{Parent.Product}/viewer/";
 
     public string ViewerPath => $"{UIBasePath}/{Parent.Product}/view?";
-    public string EditorPath => $"{UIBasePath}/{Parent.Product}/edit?";
+    
 
     public string FileSelectMessage => Resources["FileSelectMessage"];
 

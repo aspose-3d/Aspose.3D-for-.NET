@@ -46,7 +46,7 @@ namespace Aspose.ThreeD.Live.Demos.UI.Models
 			}
 		}
 
-		public string UIBasePath => Configuration.AsposeAppLiveDemosPath;
+		public string UIBasePath => Configuration.AsposeThreeDLiveDemosPath;
 		
 		public string PageProductTitle => Resources["Aspose" + TitleCase(Product)];	
 
