@@ -42,25 +42,7 @@ namespace  Aspose.ThreeD.Live.Demos.UI.Models
             fileName = sourceFolder + "\\" + fileName;
 
             string fileExtension = Path.GetExtension(fileName).ToLower();
-            // Check if tiff file have more than one number of pages to create zip file or not
-            if ((checkNumberofPages) && (createZip) && (modelName == "AsposeImagingConversion") && ( Path.GetExtension(fileName).ToLower() == ".tiff" || Path.GetExtension(fileName).ToLower() == ".tif") )
-            {
-                // Get the frame dimension list from the image of the file and 
-                Image _image = Image.FromFile(fileName);
-                // Get the globally unique identifier (GUID) 
-                Guid objGuid = _image.FrameDimensionsList[0];
-                // Create the frame dimension 
-                FrameDimension dimension = new FrameDimension(objGuid);
-                // Gets the total number of frames in the .tiff file 
-                int noOfPages = _image.GetFrameCount(dimension);
-                createZip = noOfPages > 1;
-                _image.Dispose();
-            }				
-
-			
-
-
-
+           
 			string outfileName = Path.GetFileNameWithoutExtension(fileName) + outFileExtension;
             string outPath = "";
 
