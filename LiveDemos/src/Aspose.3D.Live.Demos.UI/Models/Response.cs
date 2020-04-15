@@ -49,38 +49,14 @@ namespace Aspose.ThreeD.Live.Demos.UI.Models
 		public string ViewerURL(string product, string callbackURL)
 		{
 			var url = new StringBuilder();
-			switch (product.ToLower())
-			{
-				case "words":
-					url.Append($"/{product}/view?FolderName=");
-					url.Append(FolderName);
-					url.Append("&FileName=");
-					url.Append(HttpUtility.UrlEncode(FileName));
-					url.Append("&callbackURL=");
-					url.Append(callbackURL);
-					break;
-				case "html":
-				case "page":
-				case "pdf":
-				case "email":
-					url.Append($"/{product}/viewer/{FolderName}/{FileName}/");
-					//url.Append("?fileName=");
-					//url.Append(HttpUtility.UrlEncode(FileName));
-					url.Append("?callbackURL=");
-					url.Append(callbackURL);
-					//url.Append("#page-view-1");
-					break;
-				default:
-					//url.Append(string.Format(Configuration.FileViewLink, product));
-					url.Append(string.Format("", product));
-					url.Append("/");
-					url.Append(FolderName);
-					url.Append("?fileName=");
-					url.Append(HttpUtility.UrlEncode(FileName));
-					url.Append("&callbackURL=");
-					url.Append(callbackURL);
-					break;
-			}
+			url.Append(string.Format("", product));
+			url.Append("/");
+			url.Append(FolderName);
+			url.Append("?fileName=");
+			url.Append(HttpUtility.UrlEncode(FileName));
+			url.Append("&callbackURL=");
+			url.Append(callbackURL);
+			
 			return url.ToString();
 		}
 
