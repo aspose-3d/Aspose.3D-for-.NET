@@ -286,11 +286,11 @@ namespace Aspose.ThreeD.Live.Demos.UI.Models
 
 		private void SetTitles()
 		{
-			PageTitle = Resources[Product + "ConversionPageTitle"];
-			MetaDescription = Resources[Product + "ConversionMetaDescription"];
+			PageTitle = Resources[ProductAppName + "PageTitle"];
+			MetaDescription = Resources[ProductAppName + "MetaDescription"];
 			MetaKeywords = "";
-			Title = Resources[Product + "ConversionTitle"];
-			TitleSub = Resources[Product + "ConversionSubTitle"];
+			Title = Resources[ProductAppName + "Title"];
+			TitleSub = Resources[ProductAppName + "SubTitle"];
 			Controller.ViewBag.CanonicalTag = null;
 		}
 
