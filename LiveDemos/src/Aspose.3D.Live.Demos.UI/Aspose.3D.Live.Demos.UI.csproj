@@ -299,7 +299,6 @@
     <Content Include="js\jquery.Jcrop.js" />
     <Content Include="js\popper.min.js" />
     <Content Include=".eslintignore" />
-    <None Include="bundleconfig.json" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-reboot.min.css.map" />
