@@ -34,16 +34,16 @@ Directory | Description
 
 ## Read & Write 3D Formats
 
-**Autodesk:** FBX 7.2 to 7.5 (ASCII/Binary)
-**3D Systems CAD::** STL (ASCII/Binary)
-**Wavefront:** OBJ
-**Discreet 3D Studio:** 3DS
-**Universal3D:** U3D
-**Collada:** DAE
-**GL Transmission:** glTF (ASCII/Binary)
-**Google Draco:** DRC
-**RVM:** (Text/Binary)
-**Portable Document Format:** PDF
+**Autodesk:** FBX 7.2 to 7.5 (ASCII/Binary)\
+**3D Systems CAD::** STL (ASCII/Binary)\
+**Wavefront:** OBJ\
+**Discreet 3D Studio:** 3DS\
+**Universal3D:** U3D\
+**Collada:** DAE\
+**GL Transmission:** glTF (ASCII/Binary)\
+**Google Draco:** DRC\
+**RVM:** (Text/Binary)\
+**Portable Document Format:** PDF\
 **Other:** AMF, PLY (ASCII/Binary)
 
 ## Save 3D Files As
@@ -52,8 +52,8 @@ Directory | Description
 
 ## Read 3D Formats
 
-**DirectX:** X (ASCII/Binary)
-**Siemens:** JT 
+**DirectX:** X (ASCII/Binary)\
+**Siemens:** JT\
 **Other:** DXF, ASF, VRML, 3MF
 
 ## Platform Independence
