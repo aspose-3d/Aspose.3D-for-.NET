@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <res name="ApplicationTitle">Aspose.3D Live Demos</res>
+  <res name="ApplicationTitle2">Free App Solutions for 3D files nanipulation </res>
+
+  <res name="HomePageTitle">Home</res>
+  <res name="DownloadFileLinkTitle">Download your file</res>
+	<res name="NoSearchResultsMessage">No search results</res>
+  <res name="FileConvertedSuccessMessage">Your file has been converted successfully, please check your email to download converted file</res>
+  <res name="InvalidFileExtension">Invalid file, please upload a file with extension</res>
+  <res name="InvalidFile">Invalid file, please ensure that uploading correct file</res>
+	<res name="FileAmountMessageOne">Please select only one file</res>
+	<res name="FileAmountMessageLessTen">Please select less than ten files</res>
+  <res name="btnConvertNow">CONVERT NOW</res>
+	<res name="Aspose3D">Aspose.3D</res>
+  <res name="PageNotFound">404 Page not found</res>
+  <res name="BrokenLinkTitle">The link you followed probably broken or the page has been moved</res>
+  <res name="btnBackHome">Back to Home</res>
+	<res name="FileSelectMessage">Please select a file to convert</res>
+  <res name="SaveAs">Save as</res>
+	<res name="3dConversionSaveAsOptions">PDF,FBX, OBJ, 3DS, DRC, AMF, RVM, DAE, GLTF, GLB, HTML, PLY, STL, U3D</res>
+  <res name="DropOrUploadFile">Drop or upload your file</res>
+  <res name="DropOrUploadFiles">Drop or upload your files</res>
+	<res name="3dValidationExpression">.fbx|.stl|obj|.3ds|.gltf|.drc|.rvm|.pdf|.x|.jt|.dxf|.ply|.3mf|.ase|.amf|.dae|.u3d|.vrml|.glb</res>
+  <res name="FileConvertedSuccessMessage1">Your file has been converted successfully</res>
+  <res name="DownLoadNow">DOWNLOAD NOW</res>
+  <res name="FileWrongTypeMessage">You are trying to upload document(s) of unsupported type: </res>
+	<res name="3dConversionPageTitle">Convert 3D Files to Autodesk,  Draco, Wavefront &amp; 3D Studio Formats</res>
+	<res name="3dConversionMetaDescription">Convert 3D files such as FBX, STL, OBJ, 3DS, GLTF, DRC, RVM, PDF, X, JT, DXF, PLY, 3MF &amp; ASE to FBX, OBJ, 3DS &amp; DRC formats.</res>
+	<res name="3dConversionTitle">Free Converter App for 3D File Formats</res>
+	<res name="3dConversionSubTitle">Convert 3D File to Autodesk, Draco, Wavefront, 3D Studio and many other formats.</res>
+	<!-- Conversion App - How To-->
+	<res name="HowtoConversionTitle">How to convert {0} file using {1}</res>
+	<res name="HowtoConversionFeature1">Click inside the file drop area to upload file or drag &amp; drop file.</res>
+	<res name="HowtoConversionFeature2">Your file will be uploaded and will be converted to required format.</res>
+	<res name="HowtoConversionFeature3">Download link of converted file will be available instantly after conversion.</res>
+	<res name="WrongRegExpMessage">Wrong regular expression</res>
+  <res name="ConvertAnotherFile">Convert another file</res>
+  
+	<res name="AsposeProductFor"></res>
+
+ 
+  <res name="Feature1">Fast and Easy Conversion</res>
+  <res name="Feature1Description">Upload your document, choose the save format type and click on “Convert” button. You will get the download link as soon as the file is converted</res>
+  <res name="Feature1TasksDescription">Upload your project (or select online), choose the save format type and click on “Convert” button. You will get the download link as soon as the file is converted</res>
+  <res name="Feature2">Convert from Anywhere</res>
+  <res name="Feature2Description">It works from all platforms including Windows, Mac, Android and iOS. All files are processed on our servers. No plugin or software installation required for you</res>
+  <res name="Feature3">Conversion Quality</res>
+  <res name="Feature3Description">. All files are processed using Aspose APIs, which are being used by many Fortune 100 companies across 114 countries</res>
+	<res name="3dPageMainTitle">Free Online 3D Apps</res>
+	<res name="3dPageSubHeading">Convert or View your 3D files online from anywhere</res>
+  <res name="PoweredBy">Powered by</res>
+  <res name="Conversionh4">Conversion</res>
+  
+  <res name="SaveAsDescription">Save as: {0}</res>
+  <res name="ConversionCategory">conversion</res>
+  <res name="AsposeProductFamilyInclude">{0} Product Family Includes</res>
+
+	<res name="ConversionFeature1">Fast and Easy Conversion</res>
+	<res name="ConversionFeature1Description">Upload your document, choose the save format type and click on “Convert” button. You will get the download link as soon as the file is converted</res>
+	<res name="ConversionFeature1TasksDescription">Upload your project (or select online), choose the save format type and click on “Convert” button. You will get the download link as soon as the file is converted</res>
+	<res name="ConversionFeature2">Convert from Anywhere</res>
+	<res name="ConversionFeature2Description">It works from all platforms including Windows, Mac, Android and iOS. All files are processed on our servers. No plugin or software installation required for you</res>
+	<res name="ConversionFeature3">Conversion Quality</res>
+	<res name="ConversionButton">CONVERT</res>
+	<res name="ConversionAnotherFile">Convert other documents</res>
+	<res name="ConversionSuccessMessage">Your files have been processed successfully</res>
+	
+	<res name="ConversionAction">Convert</res>
+</resources>
+
+
+
