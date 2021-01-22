@@ -1,0 +1,40 @@
+<div *ngIf="showconversion" class="uploadfile">
+    <div class="filedropdown">
+        <app-upload-file #uploadfile [productName]='productName' [fnName]='fnName' [parent]='this'></app-upload-file>
+        <span *ngIf="showEmptyMsg" style="color:Red;"><span style="margin-top:30px;"
+                class="alert alert-danger">{{emptyMsg}}</span></span>
+        <div>
+            <div *ngIf="showLoader" role="status" aria-hidden="true">
+
+                <div style="padding-bottom:20px; padding-top:0px;">
+                    <img height="59px" width="59px" alt="Please wait..." src="/3d/assets/images/loader.gif">
+                </div>
+            </div>
+        </div>
+        <p id="ctl00_MainContent_pMessage"></p>
+        <div class="saveas">
+            <em>Save as</em>
+            <div [ngClass]="{'btn-group':true, 'saveformat':true,'open': isopen}">
+                <input type="hidden">
+                <button (click)="isOpen()" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+                    data-toggle="dropdown" aria-haspopup="true" [attr.aria-expanded]="isopen">
+                    {{saveAsExtension}}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a (click)="AssignBtnToText(item)" class="dropdown-item"
+                        *ngFor="let item of fileExtensions">{{item}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="convertbtn">
+            <input type="button" name="ctl00$MainContent$btnConvert" value="CONVERT NOW" (click)="convertfile()"
+                class="btn btn-success btn-lg">
+        </div>
+    </div>
+</div>
+<div *ngIf="showdown">
+    <app-convert-download [sessionId]="sessionId"></app-convert-download>
+</div>
+<div *ngIf="dialogFlag">
+    <app-dialog #dialogfile [sessionId]='sessionId' [application]='application'></app-dialog>
+</div>

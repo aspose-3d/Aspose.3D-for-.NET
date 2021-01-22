@@ -1,0 +1,41 @@
+<div id="ctl00_MainContent_dvAppProductSection" class="col-md-12 pt-5 app-product-section tl">
+    <div class="container">
+        <div class="col-md-3 pull-right">
+            <img [src]="productPicUrl" id="ctl00_MainContent_ProductImage">
+        </div>
+        <div class="col-md-9 pull-left">
+            <h3 id="ctl00_MainContent_AsposeProductTitle">{{AsposeProductTitle}}</h3>
+            <ul>
+                <li>{{LiFeature}}</li>
+                <li>{{LiFeature2}}</li>
+                <li>{{LiFeature3}}</li>
+                <li>{{LiFeature4}}</li>
+            </ul>
+        </div>
+        <div id="ctl00_MainContent_socialLinks">
+            <div class="share-button share-button__facebook" (click)="shareApp('facebook')">Share on Facebook</div>
+            <div class="share-button share-button__twitter" (click)="shareApp('twitter')">Share on Twitter</div>
+            <div class="share-button share-button__linkedin" (click)="shareApp('linkedin')">Share on LinkedIn</div>
+            <div class="share-button share-button__otherapp_image"><a href="https://products.aspose.app/3d/family"
+                    target="_blank">See other apps </a></div>
+            <div class="share-button share-button__cloud"><a href="https://products.aspose.cloud/3d/family"
+                    target="_blank">Try our Cloud API</a></div>
+            <div class="share-button share-button__feedback"><a href="https://forum.aspose.app/c/3d/22"
+                    target="_blank">Leave a feedback</a></div>
+            <div class="share-button share-button__github"><a href="https://github.com/aspose-3d/Aspose.3d-for-.NET"
+                    target="_blank">GitHub Live Demos </a></div>
+        </div>
+
+        <div id="otherapps-panel">
+            <a href="/3d/conversion" title="Convert 3D files to Autodesk, Wavefront, 3D Studio & Draco formats."
+                class="otherapps-panel__button"
+                style="background-image: url('/3d/assets/images/aspose_conversion-app.png');color:#23527c;text-decoration:none!important;">Conversion</a>
+            <a href="/3d/repairing" title="Repair your source 3D files for printing." class="otherapps-panel__button "
+                style="background-image: url('/3d/assets/images/aspose_3dReapir-for-net.png');color:#23527c;text-decoration:none!important;">Repairing</a>
+            <a href="/3d/viewer" title="Viewing 3D files from any device." class="otherapps-panel__button "
+                style="background-image: url('/3d/assets/images/aspose_viewer-app.png');color:#23527c;text-decoration:none!important;">Viewer</a>
+            <a href="/3d/measurement" title="Measurement 3D files from any device." class="otherapps-panel__button "
+                style="background-image: url('/3d/assets/images/aspose_editor-app.png');color:#23527c;text-decoration:none!important;">Measurement</a>
+        </div>
+    </div>
+</div>

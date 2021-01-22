@@ -1,0 +1,37 @@
+<div class="filesendemail">
+
+    <div class="filesuccess">
+        <label class="dz-message needsclick">Your file has been converted successfully</label>
+        <span class="downloadbtn convertbtn">
+            <a (click)="download()" class="btn btn-success btn-lg">DOWNLOAD NOW <i class="fa fa-download"></i></a>
+        </span>
+        <div class="clearfix">&nbsp;</div>
+        <a href="javascript:location.reload();" class="btn btn-link refresh-c">Convert another file <i
+                class="fa-refresh fa "></i></a>
+        <a class="btn btn-link" target="_blank" href="https://products.aspose.cloud/3d/family">Cloud API &nbsp;<i
+                class="fa-cloud fa"></i></a>
+    </div>
+    <p>Send the download link to </p>
+    <div class="col-5 sendemail">
+        <div class="input-group input-group-lg">
+            <input [(ngModel)]="emailAddress" (keydown)="enterEvent($event)" value={{emailAddress}}
+                name="ctl00$MainContent$emailTo" type="email" id="ctl00_MainContent_emailTo" class="form-control"
+                placeholder="email@domain.com"><input name="ctl00$MainContent$downloadUrl" type="hidden"
+                id="ctl00_MainContent_downloadUrl"
+                value="http%3a%2f%2flocalhost%3a2135%2fDownloadFile.aspx%3fFileName%3d1.pdf%26Time%3d2020%2f3%2f12+15%3a00%3a29%26FolderName%3d906abe87-21ec-4bea-8397-51088b9f12b6">
+            <span class="input-group-btn">
+                <a (click)="send()" id="ctl00_MainContent_btnSend" class="btn btn-success" type="button"><i
+                        class="fa fa-envelope-o fa"></i></a>
+            </span>
+        </div>
+    </div>
+    <br>
+    <div *ngIf="showgif" id="ctl00_MainContent_UpdateProgress2" style="display:block;" role="status">
+        <div>
+            <img height="59px" width="59px" alt="Please wait..." src="/3d/assets/images/loader.gif">
+        </div>
+    </div>
+    <p id="ctl00_MainContent_pMessage2" [ngClass]="{'alert':true,'alert-danger':isdanger,'alert-success':issuccess}">
+        {{Msg}}
+    </p>
+</div>

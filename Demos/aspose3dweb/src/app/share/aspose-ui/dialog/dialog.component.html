@@ -1,0 +1,46 @@
+<div *ngIf="showFlag" class="popup">
+    <img (click)="imgdelete()" src="/3d/assets/images/icon-deletesign.png" alt="" class="close">
+    <div class="pop-tit">
+        Oops! An error has occurred.
+    </div>
+    <div class="pop-tit2">
+        Invalid file, please ensure that uploading correct file
+    </div>
+    <div class="pop-main">
+        <div class="p-m-p">Would you like to report this error to the forum, so that we can look into it and resolve the
+            issue? You will get the notification email when error is fixed.</div>
+        <div class="p-m-e">
+            Email:<br>
+            <input [(ngModel)]="emailAddress" value={{emailAddress}} type="text" name="">
+        </div>
+        <div class="p-m-c">
+            <label for="ck1"><input id="ck1" type="checkbox" />&nbsp;&nbsp; Make this forum private, so that it will
+                only be accessible to you and our developers.</label>
+        </div>
+        <div *ngIf="showLoader" role="status" aria-hidden="true">
+            <div style="padding-bottom:20px; padding-top:0px;text-align:center">
+                <img height="59px" width="59px" alt="Please wait..." src="/3d/assets/images/loader.gif">
+            </div>
+        </div>
+    </div>
+    <div class="pop-bottom">
+        <div class="btn-close" (click)="imgdelete()">Close</div>
+        <div class="btn-re" (click)="report()">
+            Report Error
+        </div>
+    </div>
+</div>
+<div *ngIf="showSuccessFlag" class="popup2">
+    <img (click)="imgSuccessdelete()" src="/3d/assets/images/icon-deletesign.png" alt="" class="close2">
+    <div class="pop2-tit">
+        Error has been reported successfully.
+    </div>
+    <div class="pop2-main">
+        <div class="p2-m-p">You have successfully reported the error, You will get the notification email when error is
+            fixed. <span>Click <a href="{{link}}" target="_blank">this link</a> to visit the forums.</span></div>
+    </div>
+    <div class="pop-bottom">
+        <div class="btn-close2" (click)="imgSuccessdelete()">Close</div>
+    </div>
+</div>
+<div class="mask" *ngIf="maskFlag"></div>

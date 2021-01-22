@@ -1,0 +1,35 @@
+<div class="prw-left">
+    <div>3D Preview</div>
+    <canvas id="canvas"></canvas>
+</div>
+<div class="prw-right">
+    <div class="prw-r-t">
+        Here's the problems we found for you:
+    </div>
+    <div *ngIf="showcheck">
+        <div *ngFor="let item of listobj,let i = index">
+            <input (click)="choosecheck(item.type)" [id]="i" type="checkbox" checked /><label
+                [for]="i">{{item.type}}</label><br>
+        </div>
+    </div>
+    <div *ngIf="showword">No errors found for this scene</div>
+    <br />
+    <div class="saveas">
+        <em>Save as</em>
+        <div [ngClass]="{'btn-group':true, 'saveformat':true,'open': isopen}">
+            <input type="hidden">
+            <button (click)="isOpen()" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+                data-toggle="dropdown" aria-haspopup="true" [attr.aria-expanded]="isopen">
+                {{saveAsExtension}}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a (click)="AssignBtnToText(item)" class="dropdown-item"
+                    *ngFor="let item of fileExtensions">{{item}}</a>
+            </div>
+        </div>
+    </div>
+    <div (click)="download()" class="Convert">
+        CONVERT NOW
+    </div>
+</div>
+<div style="width:10px;height:500px;"></div>

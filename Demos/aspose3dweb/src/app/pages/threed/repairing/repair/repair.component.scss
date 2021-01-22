@@ -1,0 +1,96 @@
+select {
+  background-color: #339999;
+  color: white;
+  width: 147px;
+  height: 37px;
+  font-size: 17px;
+  margin-top: 30px;
+  margin-right: 3px;
+}
+
+.prw-r-t {
+  margin-bottom: 70px;
+}
+.prw-left {
+  margin-left: 40px;
+  color: white;
+  display: inline-block;
+  text-align: left;
+  position: absolute;
+  left: -80px;
+  margin-top: 35px;
+}
+
+.prw-left canvas {
+  width: 500px;
+  height: 300px;
+  margin-top: 10px;
+  background-color: white;
+  background-image: url(/3d/assets/images/loader2.gif);
+}
+
+.back {
+  width: 216px;
+  height: 43px;
+  background-color: #33cc00;
+  border: 1px solid #c0c0c0;
+  text-align: center;
+  line-height: 43px;
+  font-size: 20px;
+  margin-left: 45px;
+  margin-top: 70px;
+  cursor: pointer;
+}
+
+.Convert {
+  width: 220px;
+  height: 44px;
+  background-color: #33cc00;
+  text-align: center;
+  line-height: 43px;
+  border-radius: 5px;
+  font-size: 20px;
+  position: absolute;
+  top: 404px;
+  left: 42px;
+  cursor: pointer;
+}
+input[type="checkbox"] {
+  cursor: pointer;
+  position: relative;
+  width: 25px;
+  height: 25px;
+  font-size: 14px;
+  top: 5px;
+}
+
+input[type="checkbox"]::after {
+  position: absolute;
+  top: 0;
+  background-color: #3a3a3a;
+  color: #000;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  visibility: visible;
+  padding-left: 0px;
+  text-align: center;
+  content: " ";
+  border-radius: 3px;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "✓";
+  font-size: 16px;
+  font-weight: bold;
+  color: #c6c6c6;
+}
+.prw-right {
+  display: inline-block;
+  vertical-align: top;
+  position: absolute;
+  left: 500px;
+  color: white;
+  text-align: left;
+  margin-top: 35px;
+}

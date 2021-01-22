@@ -1,0 +1,25 @@
+<div class="top">
+   <img src="/3d/assets/images/Aspose-logo.jpg" alt="" style="margin-left:15px;float: left;margin-top:5px;">
+   <span class="span1">
+      Viewer
+   </span>
+   <span class="span2">{{fileName}}</span>
+
+   <ul class="nav navbar-nav navbar-right">
+      <li class="open">
+         <button (click)="downfile()" type="button" data-title="Downloads" role="button" data-nq-dropdown=""
+            class="btn btn-success dropdown-toggle active" data-qo-placement="bottom-right" style="margin-top: 7px;">
+            Download&nbsp;<span class="caret">&nbsp;</span>
+         </button>
+      </li>
+      <li>
+         <button type="button" data-nq-modal-box="" data-box-type="confirm" class="navbar-toggle titip-left ng-scope"
+            onclick="closeWindow()" data-qs-content="<p>Are you sure, you want to close?</p>" data-title="Close"
+            style="border: none;">
+            <i class="glyphicon glyphicon-remove"></i>
+         </button>
+      </li>
+   </ul>
+   <a href="/3d/measurement"><img src="/3d/assets/images/glyphicon-remove.jpg" alt="" class="remove"></a>
+</div>
+<canvas id="canvas"></canvas>

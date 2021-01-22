@@ -1,0 +1,261 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "aspose-app": {
+            "projectType": "application",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "style": "scss"
+                }
+            },
+            "root": "",
+            "sourceRoot": "src",
+            "prefix": "app",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/aspose-app",
+                        "resourcesOutputPath" : "3d/assets",
+                        "deployUrl": "/3d/",
+                        "index": "src/index.html",
+                        "main": "src/main.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "tsconfig.app.json",
+                        "aot": true,
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/sitemap.xml",
+                            "src/google508773a2719ccb62.html",
+                            "src/assets",
+                            "src/web.config"
+                        ],
+                        "styles": [
+                            "src/styles.scss"
+                        ],
+                        "scripts": []
+                    },
+                    "configurations": {
+                        "qa": {
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.qa.ts"
+                            }],
+                            "outputPath": "../docker.qa/webserver/webroot/3d",
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [{
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ]
+                        },
+                        "production": {
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.prod.ts"
+                            }],
+                            "outputPath": "../docker/webserver/webroot/3d",
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [{
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "aspose-app:build"
+                    },
+                    "configurations": {
+                        "lex": {
+                            "browserTarget": "aspose-app:build:lex"
+                        },
+                        "qa": {
+                            "browserTarget": "aspose-app:build:production"
+                        },
+                        "production": {
+                            "browserTarget": "aspose-app:build:production"
+                        }
+                    }
+                },
+                "serve-ssr": {
+				    "builder": "@nguniversal/builders:ssr-dev-server",
+				    "options": {
+				        "browserTarget": "aspose-app:build",
+				        "serverTarget": "aspose-app:server"
+					},
+					"configurations": {
+						"production": {
+							"browserTarget": "aspose-app:build:production",
+							"serverTarget": "aspose-app:server:production"
+						}
+					}
+                },
+				"prerender-lex": {
+				  "builder": "@nguniversal/builders:prerender",
+				  "options": {
+					"browserTarget": "aspose-app:build:lex",
+					"serverTarget": "aspose-app:server:lex",
+					"routes": []
+				  },
+				  "configurations": {
+					"production": {
+                    }
+				  }
+				},
+				"prerender-qa": {
+				  "builder": "@nguniversal/builders:prerender",
+				  "options": {
+					"browserTarget": "aspose-app:build:qa",
+					"serverTarget": "aspose-app:server:qa",
+					"routes": []
+				  },
+				  "configurations": {
+					"production": {
+                    }
+				  }
+				},
+				"prerender": {
+				  "builder": "@nguniversal/builders:prerender",
+				  "options": {
+					"browserTarget": "aspose-app:build:production",
+					"serverTarget": "aspose-app:server:production",
+					"routes": []
+				  },
+				  "configurations": {
+					"production": {
+                    }
+				  }
+				},
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "aspose-app:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/test.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "tsconfig.spec.json",
+                        "karmaConfig": "karma.conf.js",
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets"
+                        ],
+                        "styles": [
+                            "src/styles.scss"
+                        ],
+                        "scripts": [
+                            "src/assets/js/bundle.js"
+                        ]
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "tsconfig.app.json",
+                            "tsconfig.spec.json",
+                            "e2e/tsconfig.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                },
+                "e2e": {
+                    "builder": "@angular-devkit/build-angular:protractor",
+                    "options": {
+                        "protractorConfig": "e2e/protractor.conf.js",
+                        "devServerTarget": "aspose-app:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "aspose-app:serve:production"
+                        }
+                    }
+                },
+                "server": {
+                    "builder": "@angular-devkit/build-angular:server",
+                    "options": {
+                        "outputPath": "dist/aspose-app/server",
+                        "main": "server.ts",
+                        "tsConfig": "tsconfig.server.json"
+                    },
+                    "configurations": {
+                        "lex": {
+                            "outputHashing": "none",
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.qa.ts"
+                                }
+                            ],
+                            "sourceMap": false,
+                            "optimization": true
+                        },
+                        "qa": {
+                            "outputHashing": "none",
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.qa.ts"
+                                }
+                            ],
+                            "sourceMap": false,
+                            "optimization": true
+                        },
+                        "production": {
+                            "outputHashing": "media",
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "sourceMap": false,
+                            "optimization": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "defaultProject": "aspose-app",
+    "cli": {
+        "analytics": false
+    }
+}

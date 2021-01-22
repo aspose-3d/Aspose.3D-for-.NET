@@ -1,0 +1,54 @@
+<app-nav-header></app-nav-header>
+<div id="ctl00_MainContent_SearchPanel">
+    <div class="container-fluid asposetools">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 pt-5 pb-5">
+                    <h1 id="ctl00_MainContent_ProductTitle">{{ThreedTitle}}</h1>
+                    <h4 id="ctl00_MainContent_ProductTitleSub">{{ThreedTitleSub}}</h4>
+                    <div *ngIf="uploadShow" class="uploadfile">
+                        <div class="filedropdown">
+                            <div class="filedrop">
+                                <label class="dz-message needsclick"
+                                    style="margin-top: 50px;text-decoration: underline">Drop or upload your file</label>
+                                <input name="uploadFileInput" [accept]='acceptStr' #uploadinput type="file"
+                                    (change)="upload()" class="uploadfileinput" multiple="multiple"><span #showMsg
+                                    style="color:Red;display: none;">{{TypeErrorMsg}}</span>
+                                <div #fileupload class="fileupload" style="display: none;">
+                                    <div *ngFor="let item of filelist;let i=index">
+                                        <span id={{i}} class="filename"><a (click)="removefile(i)">
+                                                <label for="uploadFileInput"
+                                                    class="custom-file-upload">{{item.name}}</label>&nbsp;
+                                                <i class="fa fa-times"></i></a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span *ngIf="showEmptyMsg" style="color:Red;"><span style="margin-top:30px;"
+                                    class="alert alert-danger">{{emptyMsg}}</span></span>
+
+                            <div *ngIf="loading">
+                                <img src="/3d/assets/images/loader.gif" width="100" height="100" />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="convertbtn">
+                            <input type="button" name="ctl00$MainContent$btnConvert" value="REPAIR NOW"
+                                (click)="repairfile()" class="btn btn-success btn-lg">
+                        </div>
+                    </div>
+                    <div *ngIf="saveShow">
+                        <app-repair #repairSelect [lists]='lists' [sessionId]="sessionId"></app-repair>
+                    </div>
+                    <div *ngIf="dback" class="back" onclick="window.open('javascript:location.reload();','_self')">Back
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-app-explication [productName]='productName' [fnName]='fnName'></app-app-explication>
+<app-nav-footer></app-nav-footer>
+<div *ngIf="dialogFlag">
+    <app-dialog #dialogfile [sessionId]='sessionId' [application]='application'></app-dialog>
+</div>

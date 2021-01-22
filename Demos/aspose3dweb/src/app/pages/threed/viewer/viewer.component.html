@@ -1,0 +1,148 @@
+<div *ngIf="firstshow">
+    <app-nav-header></app-nav-header>
+    <div id="ctl00_MainContent_UpdatePanel1">
+        <div class="container-fluid asposetools">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 pt-5 pb-5">
+                        <h1 id="ctl00_MainContent_hProductTile">{{threedViewerTitle}}</h1>
+                        <h4 id="ctl00_MainContent_hProductSubTitle">{{threedViewerTitleSub}}</h4>
+                        <div class="form">
+                            <div class="uploadfile">
+                                <div class="filedropdown">
+                                    <div class="filedrop">
+                                        <label class="dz-message needsclick"
+                                            style="margin-top: 50px;text-decoration: underline">Drop or upload your
+                                            file</label>
+                                        <input name="uploadFileInput" [accept]='acceptStr' #uploadinput type="file"
+                                            (change)="upload()" class="uploadfileinput" multiple="multiple"><span
+                                            #showMsg style="color:Red;display: none;">{{TypeErrorMsg}}</span>
+                                        <div #fileupload class="fileupload" style="display: none;">
+                                            <div *ngFor="let item of filelist;let i=index">
+                                                <span id={{i}} class="filename"><a (click)="removefile(i)">
+                                                        <label for="uploadFileInput"
+                                                            class="custom-file-upload">{{item.name}}</label>&nbsp;
+                                                        <i class="fa fa-times"></i></a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span *ngIf="showEmptyMsg" style="color:Red;"><span style="margin-top:30px;"
+                                            class="alert alert-danger">{{emptyMsg}}</span></span>
+                                    <div *ngIf="showLoader" role="status" aria-hidden="true">
+                                        <div style="padding-bottom:20px; padding-top:0px;">
+                                            <img height="59px" width="59px" alt="Please wait..."
+                                                src="/3d/assets/images/loader.gif">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="convertbtn">
+                                    <input type="button" name="ctl00$MainContent$btnConvert" value="VIEWER IT NOW"
+                                        (click)="viewfile()" class="btn btn-success btn-lg">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="ctl00_MainContent_dvAppProductSection" class="col-md-12 pt-5 app-product-section tl">
+        <div class="container">
+            <div class="col-md-3 pull-right">
+                <img [src]="productPicUrl" id="ctl00_MainContent_ProductImage">
+            </div>
+            <div class="col-md-9 pull-left">
+                <h3 id="ctl00_MainContent_AsposeProductTitle">{{AsposeProductTitle}}</h3>
+                <ul>
+                    <li>{{LiFeature}}</li>
+                    <li>{{LiFeature2}}</li>
+                </ul>
+            </div>
+            <div id="otherapps-panel">
+                <a href="/3d/conversion" title="Convert 3D files to Autodesk, Wavefront, 3D Studio & Draco formats."
+                    class="otherapps-panel__button"
+                    style="background-image: url('/3d/assets/images/aspose_conversion-app.png');color:#23527c;text-decoration:none!important;">Conversion</a>
+                <a href="/3d/repairing" title="Repair your source 3D files for printing."
+                    class="otherapps-panel__button "
+                    style="background-image: url('/3d/assets/images/aspose_3dReapir-for-net.png');color:#23527c;text-decoration:none!important;">Repairing</a>
+                <a href="/3d/viewer" title="Viewing 3D files from any device." class="otherapps-panel__button "
+                    style="background-image: url('/3d/assets/images/aspose_viewer-app.png');color:#23527c;text-decoration:none!important;">Viewer</a>
+                <a href="/3d/measurement" title="Measurement 3D files from any device." class="otherapps-panel__button "
+                    style="background-image: url('/3d/assets/images/aspose_editor-app.png');color:#23527c;text-decoration:none!important;">Measurement</a>
+            </div>
+            <div id="ctl00_MainContent_socialLinks">
+                <div class="share-button share-button__facebook" (click)="shareApp('facebook')">Share on Facebook</div>
+                <div class="share-button share-button__twitter" (click)="shareApp('twitter')">Share on Twitter</div>
+                <div class="share-button share-button__linkedin" (click)="shareApp('linkedin')">Share on LinkedIn</div>
+                <div class="share-button share-button__otherapp_image"><a href="https://products.aspose.app/3d/family"
+                        target="_blank">See other apps </a></div>
+                <div class="share-button share-button__cloud"><a href="https://products.aspose.cloud/3d/family"
+                        target="_blank">Try our Cloud API</a></div>
+                <div class="share-button share-button__feedback"><a href="https://forum.aspose.app/c/3d/22"
+                        target="_blank">Leave a feedback</a></div>
+                <div class="share-button share-button__github"><a href="https://github.com/aspose-3d/Aspose.3d-for-.NET"
+                        target="_blank">GitHub Live Demos </a></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ctl00_MainContent_dvHowToSection" class="col-md-12 tl bg-darkgray howtolist">
+        <div class="container tl dflex">
+            <div class="col-md-4 howtosectiongfx"><img src="/3d/assets/images/aspose_howto.png"></div>
+            <div class="howtosection col-md-8">
+                <div>
+                    <h4><i class="fa fa-question-circle "></i> <b>How to view a file using Aspose.3D Viewer App</b></h4>
+                    <ul>
+                        <li>Click inside the file drop area to upload a file or drag &amp; drop a file.</li>
+                        <li>Your 3D file will be automatically rendered for you to view instantly.</li>
+                        <li>You can download the original file.</li>
+                        <li>You can view the contents of your files.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 pt-5 app-features-section">
+        <div class="container tc pt-5">
+            <div class="col-md-4">
+                <div class="imgcircle fasteasy">
+                    <img src="/3d/assets/images/fast-easy.png">
+                </div>
+                <h4>Fast and Easy Conversion</h4>
+                <p>Upload your document, choose the save format type and click on “Convert” button. You will get the
+                    download link as soon as the file is converted.</p>
+            </div>
+
+            <div class="col-md-4">
+                <div class="imgcircle anywhere">
+                    <img src="/3d/assets/images/anywhere.png">
+                </div>
+                <h4>Convert from Anywhere</h4>
+                <p>It works from all platforms including Windows, Mac, Android and iOS. All files are processed on our
+                    servers. No plugin or software installation required for you.</p>
+            </div>
+
+            <div class="col-md-4">
+                <div class="imgcircle quality">
+                    <img src="/3d/assets/images/quality.png">
+                </div>
+                <h4>Conversion Quality</h4>
+                <p>Powered by <a href="https://products.aspose.com/3d" id="ctl00_MainContent_aPoweredBy"
+                        target="_blank">Aspose.3D. </a>All files are processed using Aspose APIs, which are being used
+                    by many Fortune 100 companies across 114 countries.</p>
+            </div>
+        </div>
+    </div>
+    <app-nav-footer></app-nav-footer>
+</div>
+
+<div *ngIf="downshow">
+    <app-viewerdown [fileName]='fileName' [sessionId]='sessionId'></app-viewerdown>
+</div>
+<div *ngIf="dialogFlag">
+    <app-dialog #dialogfile [sessionId]='sessionId' [application]='application'></app-dialog>
+</div>
