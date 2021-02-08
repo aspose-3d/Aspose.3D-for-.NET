@@ -1,3 +1,5 @@
+![Nuget](https://img.shields.io/nuget/v/Aspose.3D) ![Nuget](https://img.shields.io/nuget/dt/Aspose.3D) ![GitHub](https://img.shields.io/github/license/aspose-3d/Aspose.3D-for-.NET)
+
 # .NET API for 3D File Formats
 
 [Aspose.3D for .NET](http://products.aspose.com/3d/net) empowers .NET applications to connect with 3D document formats. 3D .NET API lets engineers read, convert, build, alter and control the substance of the [3D document formats](https://docs.aspose.com/3d/net/supported-file-formats/) without any 3D modeling and rendering software installed on the machine.
