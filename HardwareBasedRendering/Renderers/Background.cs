@@ -29,7 +29,7 @@ namespace AssetBrowser.Renderers
 
         private ShaderProgram shader;
         private IPipeline pipeline;
-        private byte[] constants;
+        private PushConstant pushConstant = new PushConstant();
         public BackgroundRenderer()
             :base("background")
         {
@@ -56,29 +56,29 @@ namespace AssetBrowser.Renderers
             var vd = new VertexDeclaration();
             pipeline = renderer.RenderFactory.CreatePipeline(shader, rs, vd, DrawOperation.Triangles);
             
-            //The data used by the shader's push constant
-            float[] data =
-            {
-                1000, 0, 0, 0,//height
-                0.22f, 0.2f, 0.13f, 1.0f,//upper color
-                0.2f, 0.3f, 0.3f, 1.0f//lower color
-            };
-            constants = new byte[data.Length * 4];
-            Buffer.BlockCopy(data, 0, constants, 0, constants.Length);
         }
         public override void Dispose()
         {
             shader.Dispose();
             pipeline.Dispose();
         }
-        public override void PrepareRenderQueue(Renderer renderer, Node node, Entity entity)
+        public override void PrepareRenderQueue(Renderer renderer, IRenderQueue queue, Node node, Entity entity)
         {
             //Render the background in Background queue
-            var commandList = renderer.GetCommandList(RenderQueueGroupId.Background);
+            queue.Add(RenderQueueGroupId.Background, pipeline, null, 0);
+        }
+        public override void RenderEntity(Renderer renderer, ICommandList commandList, Node node, object renderableResource, int subEntity)
+        {
             //Bind the render pipeline
             commandList.BindPipeline(pipeline);
             //Push the height/upper color/lower color to the fragment shader
-            commandList.PushConstants(ShaderStage.FragmentShader, constants);
+            pushConstant
+                .Write(1000.0f)
+                .Write(0.22f, 0.2f, 0.13f, 1.0f)
+                .Write(0.2f, 0.3f, 0.3f, 1.0f)
+                .Commit(ShaderStage.FragmentShader, commandList);
+
+
             //draw a triangle(without vertex buffer)
             commandList.Draw(0, 3);
         }

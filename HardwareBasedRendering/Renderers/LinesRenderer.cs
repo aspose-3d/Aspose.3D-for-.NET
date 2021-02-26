@@ -139,19 +139,25 @@ namespace AssetBrowser.Renderers
         /// <param name="renderer"></param>
         /// <param name="node"></param>
         /// <param name="entity"></param>
-        public override void PrepareRenderQueue(Renderer renderer, Node node, Entity entity)
+        public override void PrepareRenderQueue(Renderer renderer, IRenderQueue queue, Node node, Entity entity)
         {
-            //Bind the graphics pipeline
-            var lines = (Lines)entity;
-            var cl = renderer.GetCommandList(RenderQueueGroupId.Geometries);
-            cl.BindPipeline(pipeline);
 
+            var lines = (Lines)entity;
             //Bind buffer
             IVertexBuffer vb = GetVertexBuffer(renderer, lines);
             lines.Synchronize(vb);
+            queue.Add(RenderQueueGroupId.Geometries, pipeline, vb, 0);
+        }
+        public override void RenderEntity(Renderer renderer, ICommandList cl, Node node, object renderableResource, int subEntity)
+        {
+            var vb = (IVertexBuffer)renderableResource;
+
+            //Bind the graphics pipeline
+            cl.BindPipeline(pipeline);
             cl.BindVertexBuffer(vb);
 
 
+            
             //Prepare the world view projection matrix
             var wvp = renderer.Variables.MatrixWorldViewProjection;
             ms.SetLength(0);

@@ -81,7 +81,7 @@ namespace AssetBrowser.Controls
             renderer.RegisterEntityRenderer(normalRenderer = new NormalRenderer());
             //Right now we only support native window handle from Microsoft Windows
             //we'll support more platform on user's demand.
-            window = renderer.RenderFactory.CreateRenderWindow(new RenderParameters(), Handle);
+            window = renderer.RenderFactory.CreateRenderWindow(new RenderParameters(), WindowHandle.FromWin32(Handle));
             //renderer.ShaderSet = CreateDepthShader();
             //create 4 viewports, the viewport's area is meanless here because we'll change it to the right area in the SetViewports later
             viewports = new[]
