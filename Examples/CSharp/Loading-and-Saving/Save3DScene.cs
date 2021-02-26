@@ -39,7 +39,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // Load a 3D document into Aspose.3D
             Scene scene = new Scene(RunExamples.GetDataFilePath("document.fbx"));
 
-            scene.Save(RunExamples.GetOutputFilePath("UncompressedDocument.fbx"), new FBXSaveOptions(FileFormat.FBX7500ASCII) { EnableCompression = false });
+            scene.Save(RunExamples.GetOutputFilePath("UncompressedDocument.fbx"), new FbxSaveOptions(FileFormat.FBX7500ASCII) { EnableCompression = false });
             // ExEnd:Compression
         }
     }

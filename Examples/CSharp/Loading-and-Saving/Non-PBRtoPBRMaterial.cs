@@ -19,7 +19,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_and_Saving
             var s = new Scene();
             var box = new Box();
             s.RootNode.CreateChildNode("box1", box).Material = new PhongMaterial() { DiffuseColor = new Vector3(1, 0, 1) };
-            GLTFSaveOptions opt = new GLTFSaveOptions(FileFormat.GLTF2);
+            GltfSaveOptions opt = new GltfSaveOptions(FileFormat.GLTF2);
             //Custom material converter to convert PhongMaterial to PbrMaterial
             opt.MaterialConverter = delegate (Material material)
             {

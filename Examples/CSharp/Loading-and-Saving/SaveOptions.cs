@@ -42,7 +42,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // The path to the documents directory.
             string dataDir = RunExamples.GetDataDir();
             // Initialize an object
-            Discreet3DSSaveOptions saveOpts = new Discreet3DSSaveOptions();
+            Discreet3dsSaveOptions saveOpts = new Discreet3dsSaveOptions();
             // The start base for generating new name for duplicated names.
             saveOpts.DuplicatedNameCounterBase = 2;
             // The format of the duplicated counter.
@@ -71,7 +71,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // The path to the documents directory.
             string dataDir = RunExamples.GetDataDir();
             // Initialize an object
-            FBXSaveOptions saveOpts = new FBXSaveOptions(FileFormat.FBX7500ASCII);
+            FbxSaveOptions saveOpts = new FbxSaveOptions(FileFormat.FBX7500ASCII);
             // Generates the legacy material properties.
             saveOpts.ExportLegacyMaterialProperties = true;
             // Fold repeated curve data using FBX's animation reference count
@@ -109,7 +109,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // The path to the documents directory.
             string dataDir = RunExamples.GetDataDir();
             // Initialize an object
-            STLSaveOptions saveSTLOpts = new STLSaveOptions();
+            StlSaveOptions saveSTLOpts = new StlSaveOptions();
             // Flip the coordinate system.
             saveSTLOpts.FlipCoordinateSystem = true;
             // Configure the look up paths to allow importer to find external dependencies.
@@ -122,7 +122,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // The path to the documents directory.
             string dataDir = RunExamples.GetDataDir();
             // Initialize an object
-            U3DSaveOptions saveU3DOptions = new U3DSaveOptions();
+            U3dSaveOptions saveU3DOptions = new U3dSaveOptions();
             // Export normal data.
             saveU3DOptions.ExportNormals = true;
             // Export the texture coordinates.
@@ -148,7 +148,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             scene.RootNode.CreateChildNode("sphere", new Sphere());
             // Set glTF saving options. The code example embeds all assets into the target file usually a glTF file comes with some dependencies, a bin file for model's vertex/indices, two .glsl files for vertex/fragment shaders
             // Use opt.EmbedAssets to tells the Aspose.3D API to export scene and embed the dependencies inside the target file.
-            GLTFSaveOptions opt = new GLTFSaveOptions(FileContentType.ASCII);
+            GltfSaveOptions opt = new GltfSaveOptions(FileContentType.ASCII);
             opt.EmbedAssets = true;
             // Use KHR_materials_common extension to define the material, thus no GLSL files are generated.
             opt.UseCommonMaterials = true;
@@ -161,7 +161,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             scene.Save(RunExamples.GetOutputFilePath("glTFSaveOptions_out.glb"), FileFormat.GLTF_Binary);
 
             // Developers may use saving options to create a binary glTF file using KHR_binary_glTF extension
-            GLTFSaveOptions opts = new GLTFSaveOptions(FileContentType.Binary);
+            GltfSaveOptions opts = new GltfSaveOptions(FileContentType.Binary);
             scene.Save(RunExamples.GetOutputFilePath("Test_out.glb"), opts);
             // ExEnd:glTFSaveOptions
         }
@@ -249,7 +249,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // Initialize 3D scene
             Scene scene = new Scene(new Sphere());
             // Initialize GLTFSaveOptions
-            GLTFSaveOptions opt = new GLTFSaveOptions(FileFormat.GLTF2);
+            GltfSaveOptions opt = new GltfSaveOptions(FileFormat.GLTF2);
             // The JSON content of GLTF file is indented for human reading, default value is false
             opt.PrettyPrint = true;
             // Save 3D Scene
@@ -271,7 +271,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             node.Material = new LambertMaterial() { DiffuseColor = new Vector3(Color.Chartreuse) };
             scene.RootNode.CreateChildNode(new Light() { LightType = LightType.Point }).Transform.Translation = new Vector3(10, 0, 10);
             // Create a HTML5SaveOptions
-            var opt = new HTML5SaveOptions();
+            var opt = new Html5SaveOptions();
             //Turn off the grid
             opt.ShowGrid = false;
             //Turn off the user interface

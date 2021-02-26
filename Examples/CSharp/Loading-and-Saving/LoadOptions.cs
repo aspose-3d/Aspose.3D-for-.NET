@@ -24,7 +24,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // ExStart:Discreet3DSOption
             // The path to the documents directory.
             string dataDir = RunExamples.GetDataDir();
-            Discreet3DSLoadOptions loadOpts = new Discreet3DSLoadOptions();
+            Discreet3dsLoadOptions loadOpts = new Discreet3dsLoadOptions();
             // Sets wheather to use the transformation defined in the first frame of animation track.
             loadOpts.ApplyAnimationTransform = true;
             // Flip the coordinate system
@@ -56,7 +56,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // The path to the documents directory.
             string dataDir = RunExamples.GetDataDir();
             // Initialize an object
-            STLLoadOptions loadSTLOpts = new STLLoadOptions();
+            StlLoadOptions loadSTLOpts = new StlLoadOptions();
             // Flip the coordinate system.
             loadSTLOpts.FlipCoordinateSystem = true;
             // Configure the look up paths to allow importer to find external dependencies.
@@ -69,7 +69,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // The path to the documents directory.
             string dataDir = RunExamples.GetDataDir();
             // Initialize an object
-            U3DLoadOptions loadU3DOpts = new U3DLoadOptions();
+            U3dLoadOptions loadU3DOpts = new U3dLoadOptions();
             // Flip the coordinate system.
             loadU3DOpts.FlipCoordinateSystem = true;
             // Configure the look up paths to allow importer to find external dependencies.
@@ -84,7 +84,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             // Initialize Scene class object
             Scene scene = new Scene();
             // Set load options
-            GLTFLoadOptions loadOpt = new GLTFLoadOptions();
+            GltfLoadOptions loadOpt = new GltfLoadOptions();
             // The default value is true, usually we don't need to change it. Aspose.3D will automatically flip the V/T texture coordinate during load and save.       
             loadOpt.FlipTexCoordV = true;
             scene.Open( dataDir + "Duck.gltf", loadOpt);
@@ -126,7 +126,7 @@ namespace Aspose._3D.Examples.CSharp.Loading_Saving
             string dataDir = RunExamples.GetDataDir();
             //This will output all properties defined in GlobalSettings in FBX file.
             Scene scene = new Scene();
-            var opt = new FBXLoadOptions() { KeepBuiltinGlobalSettings = true };
+            var opt = new FbxLoadOptions() { KeepBuiltinGlobalSettings = true };
             scene.Open(dataDir + "test.FBX", opt);
             foreach (Property property in scene.RootNode.AssetInfo.Properties)
             {
