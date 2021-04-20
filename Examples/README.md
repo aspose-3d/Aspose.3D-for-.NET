@@ -17,4 +17,4 @@ The package contains C# examples. Follow the given steps to proceed with project
 * Right click on solution and press "Enable NuGet package Restore"
 * Build the project
 
-For more details, see [How to Run the Examples](https://docs.aspose.com//display/3dnet/How+to+Run+the+Examples)
+For more details, see [How to Run the Examples](https://docs.aspose.com/3d/net/how-to-run-the-examples/)
