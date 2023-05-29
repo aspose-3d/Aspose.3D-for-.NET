@@ -39,12 +39,25 @@ namespace AssetBrowser.Renderers
         /// <summary>
         /// Storage for storing push constants used by the shader
         /// </summary>
-        private MemoryStream ms = new MemoryStream(256);
-        private BinaryWriter w;
+        private PushConstant pushConstant;
+        private double length = 1;
         /// <summary>
         /// Gets or sets whether to display the normal vectors
         /// </summary>
         public bool Visible { get; set; }
+
+        /// <summary>
+        /// The length of the normal
+        /// </summary>
+        public double Length
+        {
+            get => length;
+            set
+            {
+                dirty |= value != length;
+                length = value;
+            }
+        }
 
         /// <summary>
         /// This renderer will need the frame-end callback to render the normal vectors before submitting the render queue to GPU
@@ -52,7 +65,6 @@ namespace AssetBrowser.Renderers
         public NormalRenderer()
             :base("normal", EntityRendererFeatures.FrameEnd)
         {
-            w = new BinaryWriter(ms);
         }
         /// <summary>
         /// Initialize the renderer
@@ -68,6 +80,7 @@ namespace AssetBrowser.Renderers
                 FragmentShader = Shaders.NormalsFragment
             };
             shader = renderer.RenderFactory.CreateShaderProgram(src);
+            pushConstant = new PushConstant();
             //default render state
             var rs = new RenderState();
             //Define the memory layout of the vertex
@@ -91,7 +104,7 @@ namespace AssetBrowser.Renderers
             //Mark the scene dirty
             dirty = true;
         }
-        public override void FrameEnd(Renderer renderer)
+        public override void FrameEnd(Renderer renderer, IRenderQueue renderQueue)
         {
             //Render the normal only when Visible=true
             if (!Visible)
@@ -104,20 +117,25 @@ namespace AssetBrowser.Renderers
             }
             if (normals > 0)
             {
-                //get the command list for the geometries
-                var cl = renderer.GetCommandList(RenderQueueGroupId.Geometries);
-                //bind the pipeline so GPU knows how to render the vector
-                cl.BindPipeline(pipeline);
-                //bind the vertex buffer that used by the vertex shader
-                cl.BindVertexBuffer(buffer);
-                //prepare the view-projection matrix through the push constant
-                w.BaseStream.Seek(0, SeekOrigin.Begin);
-                w.Write(renderer.Variables.MatrixViewProjection);
-                //send the push constant to GPU
-                cl.PushConstants(ShaderStage.VertexShader, ms.GetBuffer());
-                //draw the lines
-                cl.Draw();
+                renderQueue.Add(RenderQueueGroupId.Geometries, pipeline, this, 0);
             }
+        }
+        public override void RenderEntity(Renderer renderer, ICommandList cl, Node node, object renderableResource, int subEntity)
+        {
+            //bind the pipeline so GPU knows how to render the vector
+            cl.BindPipeline(pipeline);
+            //bind the vertex buffer that used by the vertex shader
+            cl.BindVertexBuffer(buffer);
+            //prepare the view-projection matrix through the push constant
+            pushConstant.Write(renderer.Variables.MatrixViewProjection);
+            //send the push constant to GPU
+            pushConstant.Commit(ShaderStage.VertexShader, cl);
+            //prepare the view-projection matrix through the push constant
+            pushConstant.Write(0.9f, 0.9f, 0.0f, 1.0f);
+            //send the push constant to GPU
+            pushConstant.Commit(ShaderStage.FragmentShader, cl);
+            //draw the lines
+            cl.Draw();
         }
         /// <summary>
         /// Build the normal data from the scene,
@@ -214,7 +232,7 @@ namespace AssetBrowser.Renderers
         {
             var p0 = new FVector3(tr * origin);
             vecs.Add(p0);
-            vecs.Add(p0 + new FVector3(tr2 * dir));
+            vecs.Add(p0 + new FVector3(tr2 * dir * length));
         }
 
         /// <summary>

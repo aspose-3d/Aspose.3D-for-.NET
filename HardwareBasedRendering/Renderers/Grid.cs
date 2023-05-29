@@ -24,7 +24,7 @@ namespace AssetBrowser.Renderers
         public void SetUpVector(Axis up)
         {
             lines.Clear();
-            var color = new FVector3(1, 1, 1);//white color of the grid
+            var color = new FVector3(0.5f, 0.5f, 0.5f);//color of the grid
             if (up == Axis.YAxis)//y axis up
             {
 

@@ -67,20 +67,20 @@ namespace AssetBrowser.Renderers
             //Render the background in Background queue
             queue.Add(RenderQueueGroupId.Background, pipeline, null, 0);
         }
-        public override void RenderEntity(Renderer renderer, ICommandList commandList, Node node, object renderableResource, int subEntity)
+        public override void RenderEntity(Renderer renderer, ICommandList cl, Node node, object renderableResource, int subEntity)
         {
             //Bind the render pipeline
-            commandList.BindPipeline(pipeline);
+            cl.BindPipeline(pipeline);
             //Push the height/upper color/lower color to the fragment shader
             pushConstant
                 .Write(1000.0f)
                 .Write(0.22f, 0.2f, 0.13f, 1.0f)
                 .Write(0.2f, 0.3f, 0.3f, 1.0f)
-                .Commit(ShaderStage.FragmentShader, commandList);
+                .Commit(ShaderStage.FragmentShader, cl);
 
 
             //draw a triangle(without vertex buffer)
-            commandList.Draw(0, 3);
+            cl.Draw(0, 3);
         }
 
     }

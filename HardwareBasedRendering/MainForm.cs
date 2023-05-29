@@ -89,6 +89,7 @@ namespace AssetBrowser
                 Aspose.ThreeD.License lic = new Aspose.ThreeD.License();
                 lic.SetLicense("Aspose.3D.lic");
             }
+            TextureCodec.RegisterCodec(new GdiPlusCodec());
             WindowState = FormWindowState.Maximized;
             renderView1.SceneUpdated("");
             sceneHierarchy.UpdateHierarchy(scene);
@@ -147,6 +148,7 @@ namespace AssetBrowser
 
 
             currentFileName = fileName;
+            modified = false;
             UpdateTitle();
             long elapsed = 0;
             try
@@ -191,7 +193,9 @@ namespace AssetBrowser
 
         private void OnSceneObjectSelected(object sender, TreeViewEventArgs e)
         {
-            propertyGrid1.SelectedObject = sceneHierarchy.SelectedObject;
+            var selectedObject = sceneHierarchy.SelectedObject;
+            propertyGrid1.SelectedObject = selectedObject;
+            renderView1.SelectObject(selectedObject);
         }
 
         private void OnPropertyChanged(object s, PropertyValueChangedEventArgs e)
@@ -218,7 +222,7 @@ namespace AssetBrowser
             if(btnGrayscale.Checked)
                 postProcessingEffects.Add("grayscale");
             if(btnEdgeDetection.Checked)
-                postProcessingEffects.Add("edge-detection");
+                postProcessingEffects.Add("edge-highlight");
             if(btnPixelation.Checked)
                 postProcessingEffects.Add("pixelation");
             if(btnBlur.Checked)
@@ -331,8 +335,7 @@ namespace AssetBrowser
 
         private void OnShowNormals(object sender, EventArgs e)
         {
-            renderView1.NormalVisible = btnShowNormals.Checked;
-            renderView1.Invalidate();
+            propertyGrid1.SelectedObject = renderView1.NormalRenderer;
         }
     }
 }

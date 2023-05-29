@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A695E196-A476-4374-BCF6-748D7E6CBF49}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AssetBrowser</RootNamespace>
     <AssemblyName>AssetBrowser</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,83 +36,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.3D, Version=21.2.1.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
-      <HintPath>packages\Aspose.3D.21.2.1\lib\net46\Aspose.3D.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ABUtils.cs" />
-    <Compile Include="Renderers\Axises.cs" />
-    <Compile Include="Renderers\Background.cs" />
-    <Compile Include="ControlPointEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ControlPointEditor.Designer.cs">
-      <DependentUpon>ControlPointEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\FileListView.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\FileSystemTree.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\FileSystemTree.Designer.cs">
-      <DependentUpon>FileSystemTree.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Renderers\LinesRenderer.cs" />
-    <Compile Include="Renderers\NormalRenderer.cs" />
-    <Compile Include="Controls\RenderView.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\SceneHierarchyTree.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\Shell.cs" />
-    <Compile Include="Renderers\Grid.cs" />
-    <Compile Include="Images.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Images.resx</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Movements.cs" />
-    <Compile Include="OptionDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OptionDialog.Designer.cs">
-      <DependentUpon>OptionDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Shaders.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Shaders.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
     <Content Include="Shaders\Grid.frag">
       <Generator>glslc.exe</Generator>
     </Content>
@@ -132,30 +55,29 @@
     <None Include="Shaders\Normals.vert" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ControlPointEditor.resx">
+    <EmbeddedResource Update="ControlPointEditor.resx">
       <DependentUpon>ControlPointEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Images.resx">
+    <EmbeddedResource Update="Images.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Images.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Update="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionDialog.resx">
+    <EmbeddedResource Update="OptionDialog.resx">
       <DependentUpon>OptionDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resource.resx">
+    <EmbeddedResource Update="Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Shaders.resx">
+    <EmbeddedResource Update="Shaders.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Shaders.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="Resources\Material.bmp" />
   </ItemGroup>
   <ItemGroup>
@@ -174,13 +96,7 @@
     <Content Include="Resources\Node.bmp" />
     <Content Include="Resources\Light.bmp" />
   </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <PackageReference Include="Aspose.3D" Version="23.5.0" />
+  </ItemGroup>
 </Project>

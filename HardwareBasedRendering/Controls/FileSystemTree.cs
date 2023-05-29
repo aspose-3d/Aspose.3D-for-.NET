@@ -20,6 +20,7 @@ namespace AssetBrowser.Controls
         public FileSystemTree()
         {
             this.ShowRootLines = false;
+            this.ItemHeight = 22;
         }
 
         protected override void InitLayout()
@@ -34,6 +35,8 @@ namespace AssetBrowser.Controls
         private void InitializeUI()
         {
             imageList = new ImageList();
+            imageList.ImageSize = new Size(16, 16);
+            imageList.ColorDepth = ColorDepth.Depth32Bit;
             this.ImageList = imageList;
             this.StateImageList = imageList;
             BeginUpdate();
@@ -49,7 +52,7 @@ namespace AssetBrowser.Controls
                     if (!string.IsNullOrEmpty(di.VolumeLabel))
                         name += string.Format("({0})", di.VolumeLabel);
 
-                    Icon icon = Shell.SmallIconFromPath(di.Name);
+                    Icon icon = Shell.SmallIconFromPath(di.Name, false);
                     imageList.Images.Add(di.Name, icon);
                     PathNode n = new PathNode(di.Name, name);
                     root.children[di.Name.ToUpper()] = n;
@@ -128,14 +131,15 @@ namespace AssetBrowser.Controls
             base.OnBeforeExpand(e);
         }
 
-        public string GetImageKey(string subdir)
+        public string GetImageKey(string subdir, bool open)
         {
-            if (!imageList.Images.ContainsKey("dir"))
+            var key = open ? "open" : "closed";
+            if (!imageList.Images.ContainsKey(key))
             {
-                Icon icon = Shell.SmallIconFromPath(subdir);
-                imageList.Images.Add("dir", icon);
+                Icon icon = Shell.SmallIconFromPath(subdir, open);
+                imageList.Images.Add(key, icon);
             }
-            return "dir";
+            return key;
         }
     }
 
@@ -170,16 +174,19 @@ namespace AssetBrowser.Controls
             if (expanded || string.IsNullOrEmpty(path))
                 return;
             expanded = true;
-            Nodes.Clear();
             FileSystemTree fst = this.TreeView as FileSystemTree;
+            fst.BeginUpdate();
+            Nodes.Clear();
             foreach (string subdir in Directory.EnumerateDirectories(path))
             {
                 string name = Path.GetFileName(subdir);
                 PathNode child = new PathNode(subdir, name);
                 children[name.ToUpper()] = child;
-                child.SelectedImageKey = child.ImageKey = fst.GetImageKey(subdir);
+                child.ImageKey = fst.GetImageKey(subdir, false);
+                child.SelectedImageKey = fst.GetImageKey(subdir, true);
                 Nodes.Add(child);
             }
+            fst.EndUpdate();
         }
 
         private bool HasChildDirectories()

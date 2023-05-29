@@ -482,11 +482,9 @@
             // sceneHierarchy
             // 
             this.sceneHierarchy.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sceneHierarchy.ImageIndex = 0;
             this.sceneHierarchy.Location = new System.Drawing.Point(0, 0);
             this.sceneHierarchy.Margin = new System.Windows.Forms.Padding(2);
             this.sceneHierarchy.Name = "sceneHierarchy";
-            this.sceneHierarchy.SelectedImageIndex = 0;
             this.sceneHierarchy.Size = new System.Drawing.Size(252, 128);
             this.sceneHierarchy.TabIndex = 0;
             this.sceneHierarchy.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.OnSceneObjectSelected);

@@ -27,17 +27,29 @@ namespace AssetBrowser.Controls
         public void InitUI()
         {
             LargeImageList = new ImageList();
+            LargeImageList.ColorDepth = ColorDepth.Depth32Bit;
             this.View = View.LargeIcon;
 
             supportedExtensions = new HashSet<string>(
                 from field in typeof(FileFormat).GetFields(BindingFlags.Public | BindingFlags.Static)
-                select ((FileFormat) field.GetValue(null)).Extension
+                from ext in ((FileFormat) field.GetValue(null)).Extensions
+                select ext
                 );
+        }
+        private bool CanDisplayFile(string path)
+        {
+            var fileName = Path.GetFileName(path);
+            if (fileName == "SourceFile" || fileName == "ReviewFile")
+                return true;
+
+            string ext = Path.GetExtension(path).ToLower();
+            return supportedExtensions.Contains(ext);
+
         }
 
         public void OpenDirectory(string path)
         {
-            this.directory = null;
+            this.directory = path;
             BeginUpdate();
             Items.Clear();
             try
@@ -45,8 +57,7 @@ namespace AssetBrowser.Controls
             {
                 foreach (string fileName in Directory.GetFiles(path))
                 {
-                    string ext = Path.GetExtension(fileName).ToLower();
-                    if (supportedExtensions.Contains(ext))
+                    if (CanDisplayFile(fileName))
                     {
                         FileNode node = new FileNode(fileName);
                         node.ImageIndex = GetIconName(fileName);

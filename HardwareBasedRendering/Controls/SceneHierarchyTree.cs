@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,17 +12,18 @@ using Aspose.ThreeD.Shading;
 
 namespace AssetBrowser.Controls
 {
-    public partial class SceneHierarchyTree : TreeView
+    partial class SceneHierarchyTree : TreeView
     {
         private const int Img_Node = 0;
         private const int Img_Camera = 1;
         private const int Img_Light = 2;
         private const int Img_Geometry = 3;
         private const int Img_Material = 4;
-        private ContextMenu contextMenu;
-        private MenuItem editControlPoints;
-        private MenuItem gotoNode;
-        private MenuItem visibleNode;
+        private ContextMenuStrip contextMenu;
+        private ToolStripItem editControlPoints;
+        private ToolStripItem saveAs;
+        private ToolStripItem gotoNode;
+        private ToolStripItem visibleNode;
         internal RenderView RenderView;
 
         public SceneHierarchyTree()
@@ -32,30 +34,39 @@ namespace AssetBrowser.Controls
 
         private void InitUI()
         {
-            ImageList = new ImageList()
-            {
-                ColorDepth = ColorDepth.Depth32Bit,
-                TransparentColor =  Color.Black,
-                ImageSize = new Size(16, 16)
-            };
 
-            ImageList.Images.AddRange(new[]
-            {
-                Images.Node,
-                Images.Camera,
-                Images.Light,
-                Images.Geometry,
-                Images.Material
-            });
-            contextMenu = new ContextMenu();
-            editControlPoints = contextMenu.MenuItems.Add("Edit Control Points");
-            gotoNode = contextMenu.MenuItems.Add("Go to");
-            visibleNode = contextMenu.MenuItems.Add("Hide");
+            contextMenu = new ContextMenuStrip();
+            editControlPoints = contextMenu.Items.Add("Edit Control Points");
+            gotoNode = contextMenu.Items.Add("Go to");
+            saveAs = contextMenu.Items.Add("Save as");
+            visibleNode = contextMenu.Items.Add("Hide");
             visibleNode.Click += OnToggleVisibility;
             editControlPoints.Click += OnEditControlPoints;
+            saveAs.Click += OnSaveAs;
             gotoNode.Click += OnGotoNode;
         }
 
+        private void OnSaveAs(object sender, EventArgs e)
+        {
+            var mesh = (Mesh) SelectedObject;
+            var s = new Scene(mesh);
+            using(var dialog = new SaveFileDialog())
+            {
+                dialog.Filter = "FBX File(*.fbx)|*.fbx|OBJ File(*.obj)|*.obj|STL File(*.stl)|*.stl";
+                if (dialog.ShowDialog() != DialogResult.OK)
+                    return;
+                var ext = Path.GetExtension(dialog.FileName);
+                var ft = FileFormat.FBX7700ASCII;
+                if (ext == ".obj")
+                    ft = FileFormat.WavefrontOBJ;
+                else if(ext == ".stl")
+                    ft = FileFormat.STLASCII;
+
+                s.Save(dialog.FileName, ft);
+            }
+
+
+        }
         private void OnToggleVisibility(object sender, EventArgs e)
         {
             var node = (Node) SelectedObject;
@@ -105,6 +116,7 @@ namespace AssetBrowser.Controls
             {
                 editControlPoints.Enabled = SelectedObject is Mesh;
                 var node = SelectedObject as Node;
+                saveAs.Enabled = SelectedObject is Mesh;
                 gotoNode.Enabled = node != null;
                 visibleNode.Visible = node != null;
                 if(node != null)
@@ -118,24 +130,24 @@ namespace AssetBrowser.Controls
 
         private void UpdateHierarchyImpl(Scene scene)
         {
-            BeginUpdate();
             Nodes.Clear();
             //set up scene nodes
-            TreeNode node = new SceneNodeWrapper(scene.RootNode, Img_Node);
+            var node = new SceneNodeWrapper(scene.RootNode);
+            node.ImageIndex = Img_Node;
             CreateNodes(node, scene.RootNode);
             Nodes.Add(node);
             node.ExpandAll();
-            EndUpdate();
         }
 
-        private void CreateNodes(TreeNode node, Node sceneNode)
+        private void CreateNodes(SceneNodeWrapper node, Node sceneNode)
         {
             foreach (Node childNode in sceneNode.ChildNodes)
             {
 
                 if (ABUtils.IsHidden(childNode))
                     continue;
-                TreeNode childTree = new SceneNodeWrapper(childNode, Img_Node);
+                var childTree = new SceneNodeWrapper(childNode);
+                childTree.ImageIndex = Img_Node;
                 CreateNodes(childTree, childNode);
                 node.Nodes.Add(childTree);
             }
@@ -145,19 +157,14 @@ namespace AssetBrowser.Controls
             {
                 if (ABUtils.IsHidden(entity))
                     continue;
-                int img = Img_Geometry;
-                if (entity is Camera)
-                    img = Img_Camera;
-                else if (entity is Light)
-                    img = Img_Light;
-                node.Nodes.Add(new SceneNodeWrapper(entity, img));
+                node.Nodes.Add(new SceneNodeWrapper(entity));
             }
             //create material nodes
             foreach (Material mat in sceneNode.Materials)
             {
                 if (mat == null)
                     continue;
-                var matNode = new SceneNodeWrapper(mat, Img_Material);
+                var matNode = new SceneNodeWrapper(mat);
                 CreateTextureNode(matNode, mat, Material.MapDiffuse);
                 CreateTextureNode(matNode, mat, Material.MapAmbient);
                 CreateTextureNode(matNode, mat, Material.MapEmissive);
@@ -173,7 +180,7 @@ namespace AssetBrowser.Controls
             var tex = mat.GetTexture(texName);
             if (tex == null)
                 return;
-            var texNode = new SceneNodeWrapper(tex, Img_Material);
+            var texNode = new SceneNodeWrapper(tex);
             parent.Nodes.Add(texNode);
         }
 
@@ -192,11 +199,26 @@ namespace AssetBrowser.Controls
         class SceneNodeWrapper : TreeNode
         {
             internal A3DObject obj;
-            public SceneNodeWrapper(A3DObject obj, int imageIndex)
+            public SceneNodeWrapper(A3DObject obj)
             {
-                this.Text = string.Format("{0} : {1}", obj.Name, obj.GetType().Name);
                 this.obj = obj;
-                this.ImageIndex = this.SelectedImageIndex = imageIndex;
+                this.Text = obj.Name + " : " + obj.GetType().Name;
+            }
+
+
+            public Bitmap GetIcon()
+            {
+                if(obj is Node)
+                    return Images.Node;
+                if (obj is Camera)
+                    return Images.Camera;
+                if (obj is Light)
+                    return Images.Light;
+                if (obj is Entity)
+                    return Images.Geometry;
+                if (obj is Material)
+                    return Images.Material;
+                return null;
             }
         }
     }

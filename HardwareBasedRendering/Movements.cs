@@ -29,7 +29,7 @@ namespace AssetBrowser
         protected IKeyState keyState;
         protected Point lastLocation;
         protected Vector2 delta;
-        protected float scale = 0.05f;
+        protected float scale = 1;
 
         public static Movement Create<T>(IKeyState keyState, Camera camera, Scene scene) where T : Movement, new()
         {
@@ -218,19 +218,19 @@ namespace AssetBrowser
             //and fast/slow the scale by pressing control/shift key
             float scale = 0.1f;
             if (keyState.ControlPressed)
-                scale *= 10;
+                scale *= 2;
             else if (keyState.ShiftPressed)
                 scale *= 0.1f;
             else if (this.keyState.AltPressed)
-                scale *= 100;
+                scale *= 10;
             elevation -= delta*scale;
         }
 
         public override void MouseDrag(Point location)
         {
             base.MouseDrag(location);
-            longitude += delta.x;
-            latitude += delta.y;
+            longitude += delta.x * 0.01;
+            latitude += delta.y * 0.01;
         }
 
         public override void Initialize(Scene scene)
